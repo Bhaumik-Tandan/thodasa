@@ -111,11 +111,17 @@ export const tasteSummary = (profile = loadProfile()) => {
     .sort((a, b) => b.pct - a.pct)
 }
 
-// Rank the feed. Cold start (<3 signals) → pure shuffle (max discovery).
+// Launch curation: first-visit order tuned for Indian tech-Twitter traffic —
+// meme-able, desk-setup and chai-coded products lead; the rest is shuffled.
+const LAUNCH_PICKS = [2, 4, 31, 16, 8, 11, 35, 7, 39, 10]
+
+// Rank the feed. Cold start (<3 signals) → curated launch picks, then shuffle.
 // Warm → exploit by similarity, but keep every 3rd slot for exploration.
 export const rankFeed = (products, profile = loadProfile()) => {
   if (profile.events < 3) {
-    return shuffle(products).map((p) => ({ ...p, reason: null }))
+    const picks = LAUNCH_PICKS.map((id) => products.find((p) => p.id === id)).filter(Boolean)
+    const rest = shuffle(products.filter((p) => !LAUNCH_PICKS.includes(p.id)))
+    return [...picks, ...rest].map((p) => ({ ...p, reason: null }))
   }
 
   const scored = products.map((p) => ({
