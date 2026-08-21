@@ -17,9 +17,11 @@
 // then every 3rd feed slot is an exploration pick from low-affinity
 // categories so the feed stays a discovery tree, not an echo chamber.
 
+import { LAUNCH_PICKS } from '../data/products'
+
 const KEY = 'thodasa.taste'
-const CATS = ['quirky', 'phone', 'beauty', 'home', 'accessories']
-const DIMS = 10
+const CATS = ['snacks', 'beauty', 'gadgets', 'home', 'kitchen', 'accessories', 'stationery', 'quirky']
+const DIMS = CATS.length + 5 // categories one-hot + price buckets (3) + deal + high-rating
 
 export const SIGNALS = {
   purchase: 10,
@@ -36,11 +38,12 @@ export const vecOf = (p) => {
   const v = new Array(DIMS).fill(0)
   const ci = CATS.indexOf(p.category)
   if (ci >= 0) v[ci] = 1
-  if (p.price <= 150) v[5] = 1
-  else if (p.price <= 300) v[6] = 1
-  else v[7] = 1
-  if (p.deal) v[8] = 1
-  if (p.rating >= 4.5) v[9] = 1
+  const base = CATS.length
+  if (p.price <= 150) v[base] = 1
+  else if (p.price <= 300) v[base + 1] = 1
+  else v[base + 2] = 1
+  if (p.deal) v[base + 3] = 1
+  if (p.rating >= 4.5) v[base + 4] = 1
   return v
 }
 
@@ -110,10 +113,6 @@ export const tasteSummary = (profile = loadProfile()) => {
     .filter((c) => c.pct > 0)
     .sort((a, b) => b.pct - a.pct)
 }
-
-// Launch curation: first-visit order tuned for Indian tech-Twitter traffic —
-// meme-able, desk-setup and chai-coded products lead; the rest is shuffled.
-const LAUNCH_PICKS = [2, 4, 31, 16, 8, 11, 35, 7, 39, 10]
 
 // Rank the feed. Cold start (<3 signals) → curated launch picks, then shuffle.
 // Warm → exploit by similarity, but keep every 3rd slot for exploration.
