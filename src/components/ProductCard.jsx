@@ -5,12 +5,16 @@ import { HeartIcon, ShareIcon, BagPlusIcon, TrashIcon, MinusIcon, PlusIcon } fro
 
 const fmtReviews = (n) => (n >= 1000 ? `${(n / 1000).toFixed(1)}k` : n)
 
-export default function ProductCard({ product, index, wished, onToggleWish, onAddToCart, onQty, onRemove, onSignal, inCartQty }) {
+export default function ProductCard({ product, index, near = true, wished, onToggleWish, onAddToCart, onQty, onRemove, onSignal, inCartQty }) {
   const [justAdded, setJustAdded] = useState(false)
   const [heartPop, setHeartPop] = useState(false)
   const [imgReady, setImgReady] = useState(false)
   const [imgFailed, setImgFailed] = useState(false)
   const [shared, setShared] = useState(false)
+  // windowed loading: fetch the photo only once the card is near the viewport,
+  // then keep it (sticky) so scrolling back never re-fetches.
+  const [activated, setActivated] = useState(near)
+  if (near && !activated) setActivated(true)
 
   const add = () => {
     onAddToCart(product)
@@ -65,11 +69,11 @@ export default function ProductCard({ product, index, wished, onToggleWish, onAd
   return (
     <section data-index={index} className={`snap-card relative h-full w-full overflow-hidden bg-gradient-to-br ${GRADS[product.grad]}`}>
       {/* full-bleed product photo */}
-      {!imgFailed && (
+      {!imgFailed && activated && (
         <img
           src={product.img}
           alt={product.name}
-          loading="lazy"
+          fetchPriority={index === 0 ? 'high' : 'auto'}
           onLoad={() => setImgReady(true)}
           onError={() => setImgFailed(true)}
           className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-500 ${imgReady ? 'opacity-100' : 'opacity-0'}`}

@@ -1,8 +1,18 @@
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import ProductCard from './ProductCard'
 
 export default function Feed({ products, wishlist, onToggleWish, onAddToCart, onQty, onRemove, onSignal, onDwell, cart, scrollToIndex, onScrolled }) {
   const ref = useRef(null)
+  // Which card the user is on — drives windowed image loading so a cold
+  // visitor downloads ~4 photos instead of all 45 at once.
+  const [activeIndex, setActiveIndex] = useState(0)
+
+  const onScroll = () => {
+    const el = ref.current
+    if (!el) return
+    const idx = Math.round(el.scrollTop / el.clientHeight)
+    setActiveIndex((prev) => (prev === idx ? prev : idx))
+  }
 
   useEffect(() => {
     if (scrollToIndex == null || !ref.current) return
@@ -55,12 +65,20 @@ export default function Feed({ products, wishlist, onToggleWish, onAddToCart, on
     )
   }
 
+  const restart = () => {
+    // instant jump — smooth-scrolling across 46 screens stalls in snap
+    // containers and feels endless; a snap back reads as "fresh deck"
+    if (ref.current) ref.current.scrollTop = 0
+    setActiveIndex(0)
+  }
+
   return (
-    <div ref={ref} className="snap-feed h-full overflow-y-auto">
+    <div ref={ref} onScroll={onScroll} className="snap-feed h-full overflow-y-auto">
       {products.map((p, i) => (
         <ProductCard
           key={p.id}
           index={i}
+          near={Math.abs(i - activeIndex) <= 2}
           product={p}
           wished={wishlist.has(p.id)}
           onToggleWish={onToggleWish}
@@ -71,6 +89,19 @@ export default function Feed({ products, wishlist, onToggleWish, onAddToCart, on
           inCartQty={cart[p.id]?.qty ?? 0}
         />
       ))}
+      {/* end-of-feed loop card — a reel feed should never dead-end */}
+      <section className="snap-card relative flex h-full w-full flex-col items-center justify-center gap-4 bg-gradient-to-br from-violet-500 via-fuchsia-500 to-rose-500 px-8 text-center">
+        <span className="animate-float text-7xl">🎢</span>
+        <h2 className="text-3xl font-black text-white drop-shadow-lg">Bas, itna hi tha!</h2>
+        <p className="text-base font-medium text-white/85">Aapne saare {products.length} finds dekh liye. Ek aur round?</p>
+        <button
+          onClick={restart}
+          className="mt-2 rounded-2xl bg-white px-8 py-4 text-base font-extrabold text-fuchsia-600 shadow-xl active:scale-95"
+        >
+          🔁 Phir se scroll karo
+        </button>
+        <p className="text-xs font-semibold text-white/70">Pro tip: jitna scroll karoge, utna smart hoga aapka feed ✨</p>
+      </section>
     </div>
   )
 }
