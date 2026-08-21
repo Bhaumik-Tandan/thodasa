@@ -3,8 +3,8 @@ import react from '@vitejs/plugin-react'
 import tailwindcss from '@tailwindcss/vite'
 
 export default defineConfig({
-  // served from https://<user>.github.io/thodasa/
-  base: '/thodasa/',
+  // served from the custom domain thodasa.com (root path)
+  base: '/',
   plugins: [react(), tailwindcss()],
   server: { port: 5199 },
 })
