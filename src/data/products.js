@@ -51,6 +51,7 @@ const I = {
   giftBox: '1513201099705-a9746e1e201f', interior: '1586023492125-27b2c045efd7',
   spoons: '1526434426615-1abe81efcb0b', kitchen: '1556911220-bff31c812dba', bottle: '1602143407151-7111542de6e8',
   shaker: '1610824352934-c10d87b700cc',
+  chips: '1613919113640-25732ec5e61f', chipsBowl: '1528751014936-863e6e7a319c', bakedBags: '1566478989037-eec170784d0b', fries: '1585109649139-366815a0d713',
   wayfarer: '1572635196237-14b3f281503f', beachShades: '1473496169904-658ba7c44d8a', fashion: '1483985988355-763728e1935b',
   backpack: '1491637639811-60e2756cc1c7', navyBag: '1553062407-98eeb64c6a62', tanBag: '1590874103328-eac38a683ce7',
   sneaker: '1595950653106-6c9ebd614d3a', shoeFlat: '1511556820780-d912e42b4980', tee: '1554568218-0f1715e72254',
@@ -68,7 +69,7 @@ const colors = (cols, p) => cols.map((c) => [c, p])
 const TEMPLATES = [
   // ——— SNACKS ———
   ['Maggi', '2-Minute Noodles', 'snacks', 'bowl', '🍜', '2 minute bola tha, 20 saal ho gaye. Still worth it.', combo(['Masala', 'Special Masala', 'Chicken'], V(['Pack of 4', 60], ['Pack of 8', 118], ['Pack of 12', 172])), true],
-  ['Lays', 'Potato Chips', 'snacks', 'salad', '🥔', 'Ek pack kabhi kaafi nahi hota. Science hai.', combo(['Magic Masala', 'Cream & Onion', 'Classic Salted', 'Tomato Tango', 'Chile Limón'], V(['52g', 20], ['90g', 35], ['Party Pack 177g', 60]))],
+  ['Lays', 'Potato Chips', 'snacks', 'chips', '🥔', 'Ek pack kabhi kaafi nahi hota. Science hai.', combo(['Magic Masala', 'Cream & Onion', 'Classic Salted', 'Tomato Tango', 'Chile Limón'], V(['52g', 20], ['90g', 35], ['Party Pack 177g', 60]))],
   ['Kurkure', 'Crunchy Snack', 'snacks', 'spices', '🌶️', 'Tedha hai par mera hai.', combo(['Masala Munch', 'Green Chutney', 'Solid Masti'], V(['40g', 10], ['90g', 20], ['Family Pack', 35]))],
   ['Haldiram’s', 'Bhujia', 'snacks', 'spices', '🥨', 'Chai ke saath ya waise hi. No judgement.', combo(['Classic', 'Aloo', 'Moong Dal'], V(['200g', 52], ['400g', 95], ['1kg', 210]))],
   ['Cadbury', 'Dairy Milk Silk', 'snacks', 'dessert', '🍫', 'Kiss me, close your eyes... aapko pata hai.', combo(['Original', 'Oreo', 'Fruit & Nut', 'Bubbly'], V(['60g', 89], ['150g', 199])), true],
@@ -86,7 +87,7 @@ const TEMPLATES = [
   ['Kissan', 'Mixed Fruit Jam', 'snacks', 'berries', '🍓', 'Bread ka best friend since forever.', V(['200g', 75], ['500g', 155])],
   ['MDH', 'Masala Box Refill', 'snacks', 'spices', '🧂', 'Asli masale sach sach. Dadi approved.', combo(['Garam Masala', 'Chana Masala', 'Kitchen King', 'Chunky Chat'], V(['100g', 68], ['500g', 290]))],
   ['Amul', 'Cheese Slices', 'snacks', 'pizza', '🧀', 'Har cheez pe cheese. Rule of life.', V(['10 Slices', 135], ['20 Slices', 255])],
-  ['Bingo', 'Mad Angles', 'snacks', 'salad', '📐', 'Angle sahi ho toh sab crunchy lagta hai.', combo(['Achaari Masti', 'Very Peri Peri', 'Tomato Madness'], V(['66g', 20], ['130g', 35]))],
+  ['Bingo', 'Mad Angles', 'snacks', 'chipsBowl', '📐', 'Angle sahi ho toh sab crunchy lagta hai.', combo(['Achaari Masti', 'Very Peri Peri', 'Tomato Madness'], V(['66g', 20], ['130g', 35]))],
 
   // ——— BEAUTY ———
   ['Lakmé', 'Eyeconic Kajal', 'beauty', 'kajal', '🖤', 'Ek stroke mein full drama.', combo(['Deep Black', 'Royal Blue', 'Brown'], V(['0.35g', 199], ['Twin Pack', 358])), true],
@@ -226,8 +227,8 @@ TEMPLATES.push(
   ['Generic', 'Fridge Magnet Cities', 'quirky', 'saleTags', '🧲', 'Travel memories, fridge pe framed.', combo(CITY_MAGNETS, V(['1 pc', 99], ['Any 3', 249]))],
   ['Generic', 'Wall Poster A3', 'home', 'interior', '🖼️', 'Deewar bolti hai, bas poster chahiye.', POSTERS.map((p) => [p, 149])],
   ['Knorr', 'Cup-a-Soup', 'snacks', 'bowl', '🍲', '4 baje wali bhookh ka one-click answer.', combo(SOUP_FLAVORS, V(['1 Cup', 35], ['Pack of 4', 129]))],
-  ['Cornitos', 'Nacho Crisps', 'snacks', 'salad', '🌮', 'Crunch jo poore room ko sunai de.', combo(['Cheese & Herbs', 'Sizzlin Jalapeno', 'Tikka Masala', 'Sea Salt'], V(['60g', 35], ['150g', 90]))],
-  ['Too Yumm', 'Baked Chips', 'snacks', 'salad', '🍟', 'Guilt-free karke khud ko convince karo.', combo(['Chilli Achaari', 'Noodle Masala', 'Dahi Papdi', 'Peri Peri'], V(['45g', 20], ['90g', 40]))],
+  ['Cornitos', 'Nacho Crisps', 'snacks', 'fries', '🌮', 'Crunch jo poore room ko sunai de.', combo(['Cheese & Herbs', 'Sizzlin Jalapeno', 'Tikka Masala', 'Sea Salt'], V(['60g', 35], ['150g', 90]))],
+  ['Too Yumm', 'Baked Chips', 'snacks', 'bakedBags', '🍟', 'Guilt-free karke khud ko convince karo.', combo(['Chilli Achaari', 'Noodle Masala', 'Dahi Papdi', 'Peri Peri'], V(['45g', 20], ['90g', 40]))],
   ['Sunfeast', 'Dark Fantasy Choco Fills', 'snacks', 'dessert', '🍫', 'Andar se surprise. Har baar.', combo(['Choco Fills', 'Choco Nut', 'Coffee Fills'], V(['75g', 40], ['300g', 140]))],
   ['Amul', 'Chocolate Minis', 'snacks', 'cake', '🍫', 'Desi chocolate, videshi feels.', combo(['Fruit & Nut', 'Almond', 'Dark 55%', 'Mystic Mocha', 'Orange Twist'], V(['40g', 50], ['150g', 160]))],
   ['Generic', 'Gaming Mousepad XL', 'gadgets', 'deskDark', '🖱️', 'Desk setup 10x better in 1 step.', MOUSEPADS.map((m) => [m, 299])],
