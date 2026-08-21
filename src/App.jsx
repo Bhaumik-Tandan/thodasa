@@ -8,6 +8,7 @@ import Wishlist from './components/Wishlist'
 import Orders from './components/Orders'
 import Confetti from './components/Confetti'
 import { HeartIcon, BagIcon, MoonIcon, SunIcon } from './components/Icons'
+import { startSession, recordSignal, dwellSignal, rankFeed } from './lib/taste'
 
 const load = (key, fallback) => {
   try {
@@ -39,15 +40,26 @@ export default function App() {
   useEffect(() => save('wishlist', [...wishlist]), [wishlist])
   useEffect(() => save('orders', orders), [orders])
 
-  const products = useMemo(
-    () => (category === 'all' ? PRODUCTS : PRODUCTS.filter((p) => p.category === category)),
-    [category],
-  )
+  // taste profile session: decay old signals once per visit, then rank the
+  // feed by learned affinity (with exploration slots). Re-ranks per category.
+  const [tasteProfile] = useState(() => startSession())
+  const products = useMemo(() => {
+    const pool = category === 'all' ? PRODUCTS : PRODUCTS.filter((p) => p.category === category)
+    return rankFeed(pool, tasteProfile)
+  }, [category, tasteProfile])
+
+  const onDwell = useCallback((product, ms) => {
+    const signal = dwellSignal(ms)
+    if (signal) recordSignal(product, signal)
+  }, [])
+
+  const onSignal = useCallback((product, signal) => recordSignal(product, signal), [])
 
   const addToCart = useCallback((product) => {
     setCart((c) => ({ ...c, [product.id]: { product, qty: (c[product.id]?.qty ?? 0) + 1 } }))
     setCartBounce(true)
     setTimeout(() => setCartBounce(false), 500)
+    recordSignal(product, 'addToCart')
   }, [])
 
   const setQty = useCallback((id, qty) => {
@@ -63,9 +75,16 @@ export default function App() {
   }, [])
 
   const toggleWish = useCallback((id) => {
+    const product = PRODUCTS.find((p) => p.id === id)
     setWishlist((w) => {
       const next = new Set(w)
-      next.has(id) ? next.delete(id) : next.add(id)
+      if (next.has(id)) {
+        next.delete(id)
+        if (product) recordSignal(product, 'unwishlist')
+      } else {
+        next.add(id)
+        if (product) recordSignal(product, 'wishlist')
+      }
       return next
     })
   }, [])
@@ -74,6 +93,7 @@ export default function App() {
     setOrders((o) => [...o, { id: Date.now().toString(36).toUpperCase(), date: new Date().toISOString(), items, total }])
     setCart({})
     setBurstKey((k) => k + 1)
+    for (const it of items) recordSignal(it.product, 'purchase')
   }, [])
 
   const cartCount = Object.values(cart).reduce((s, it) => s + it.qty, 0)
@@ -129,6 +149,8 @@ export default function App() {
           onAddToCart={addToCart}
           onQty={setQty}
           onRemove={removeItem}
+          onSignal={onSignal}
+          onDwell={onDwell}
           cart={cart}
           scrollToIndex={scrollToIndex}
           onScrolled={() => setScrollToIndex(null)}

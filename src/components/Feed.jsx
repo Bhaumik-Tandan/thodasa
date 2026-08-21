@@ -1,7 +1,7 @@
 import { useEffect, useRef } from 'react'
 import ProductCard from './ProductCard'
 
-export default function Feed({ products, wishlist, onToggleWish, onAddToCart, onQty, onRemove, cart, scrollToIndex, onScrolled }) {
+export default function Feed({ products, wishlist, onToggleWish, onAddToCart, onQty, onRemove, onSignal, onDwell, cart, scrollToIndex, onScrolled }) {
   const ref = useRef(null)
 
   useEffect(() => {
@@ -10,6 +10,39 @@ export default function Feed({ products, wishlist, onToggleWish, onAddToCart, on
     if (el) el.scrollIntoView({ behavior: 'smooth' })
     onScrolled()
   }, [scrollToIndex, onScrolled])
+
+  // Dwell tracking: how long each card stays ≥60% visible.
+  // Long pause = interest, instant flick past = skip. Feeds the taste profile.
+  useEffect(() => {
+    const root = ref.current
+    if (!root || !onDwell) return
+    const enteredAt = new Map()
+    const observer = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          const idx = Number(entry.target.dataset.index)
+          const product = products[idx]
+          if (!product) continue
+          if (entry.isIntersecting) {
+            enteredAt.set(product.id, performance.now())
+          } else if (enteredAt.has(product.id)) {
+            onDwell(product, performance.now() - enteredAt.get(product.id))
+            enteredAt.delete(product.id)
+          }
+        }
+      },
+      { root, threshold: 0.6 },
+    )
+    for (const child of root.children) observer.observe(child)
+    return () => {
+      // flush dwell for whatever card is on screen when the feed unmounts
+      for (const [id, t] of enteredAt) {
+        const product = products.find((p) => p.id === id)
+        if (product) onDwell(product, performance.now() - t)
+      }
+      observer.disconnect()
+    }
+  }, [products, onDwell])
 
   if (!products.length) {
     return (
@@ -24,15 +57,17 @@ export default function Feed({ products, wishlist, onToggleWish, onAddToCart, on
 
   return (
     <div ref={ref} className="snap-feed h-full overflow-y-auto">
-      {products.map((p) => (
+      {products.map((p, i) => (
         <ProductCard
           key={p.id}
+          index={i}
           product={p}
           wished={wishlist.has(p.id)}
           onToggleWish={onToggleWish}
           onAddToCart={onAddToCart}
           onQty={onQty}
           onRemove={onRemove}
+          onSignal={onSignal}
           inCartQty={cart[p.id]?.qty ?? 0}
         />
       ))}

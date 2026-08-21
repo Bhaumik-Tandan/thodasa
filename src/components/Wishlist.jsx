@@ -1,8 +1,12 @@
-import { PRODUCTS } from '../data/products'
+import { PRODUCTS, CATEGORIES } from '../data/products'
 import { HeartIcon } from './Icons'
+import { tasteSummary } from '../lib/taste'
+
+const VIBE_COLORS = ['bg-violet-500', 'bg-rose-500', 'bg-amber-500', 'bg-teal-500', 'bg-sky-500']
 
 export default function Wishlist({ wishlist, onToggleWish, onAddToCart, cart, onClose }) {
   const items = PRODUCTS.filter((p) => wishlist.has(p.id))
+  const vibe = tasteSummary()
 
   return (
     <div className="animate-slide-up fixed inset-0 z-40 mx-auto flex max-w-md flex-col bg-gray-50 dark:bg-zinc-950">
@@ -12,6 +16,26 @@ export default function Wishlist({ wishlist, onToggleWish, onAddToCart, cart, on
           Close
         </button>
       </header>
+
+      {vibe && (
+        <div className="mx-3 mt-3 rounded-2xl border border-gray-100 bg-white p-4 dark:border-zinc-800 dark:bg-zinc-900">
+          <p className="text-xs font-black uppercase tracking-wide text-gray-400">Your vibe · learned from your scrolling</p>
+          <div className="mt-2 flex h-3 overflow-hidden rounded-full">
+            {vibe.map((v, i) => (
+              <div key={v.cat} className={`${VIBE_COLORS[i % VIBE_COLORS.length]} transition-all duration-500`} style={{ width: `${v.pct}%` }} />
+            ))}
+          </div>
+          <div className="mt-2 flex flex-wrap gap-x-3 gap-y-1 text-xs font-semibold text-gray-600 dark:text-gray-300">
+            {vibe.slice(0, 3).map((v, i) => (
+              <span key={v.cat} className="flex items-center gap-1">
+                <span className={`h-2 w-2 rounded-full ${VIBE_COLORS[i % VIBE_COLORS.length]}`} />
+                {CATEGORIES.find((c) => c.id === v.cat)?.label ?? v.cat} {v.pct}%
+              </span>
+            ))}
+          </div>
+          <p className="mt-1.5 text-[11px] text-gray-400">Your feed is ranked by this — plus a few 🎲 fresh finds so it never gets boring.</p>
+        </div>
+      )}
 
       <div className="flex-1 space-y-2 overflow-y-auto p-3">
         {items.length === 0 && (

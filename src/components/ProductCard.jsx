@@ -5,7 +5,7 @@ import { HeartIcon, ShareIcon, BagPlusIcon, TrashIcon, MinusIcon, PlusIcon } fro
 
 const fmtReviews = (n) => (n >= 1000 ? `${(n / 1000).toFixed(1)}k` : n)
 
-export default function ProductCard({ product, wished, onToggleWish, onAddToCart, onQty, onRemove, inCartQty }) {
+export default function ProductCard({ product, index, wished, onToggleWish, onAddToCart, onQty, onRemove, onSignal, inCartQty }) {
   const [justAdded, setJustAdded] = useState(false)
   const [heartPop, setHeartPop] = useState(false)
   const [imgReady, setImgReady] = useState(false)
@@ -56,13 +56,14 @@ export default function ProductCard({ product, wished, onToggleWish, onAddToCart
     }
     setShared(true)
     setTimeout(() => setShared(false), 1400)
+    onSignal?.(product, 'share')
   }
 
   const off = product.deal ? Math.round((1 - product.price / product.mrp) * 100) : 0
   const catLabel = CATEGORIES.find((c) => c.id === product.category)?.label ?? product.category
 
   return (
-    <section className={`snap-card relative h-full w-full overflow-hidden bg-gradient-to-br ${GRADS[product.grad]}`}>
+    <section data-index={index} className={`snap-card relative h-full w-full overflow-hidden bg-gradient-to-br ${GRADS[product.grad]}`}>
       {/* full-bleed product photo */}
       {!imgFailed && (
         <img
@@ -124,6 +125,12 @@ export default function ProductCard({ product, wished, onToggleWish, onAddToCart
       <div className="absolute inset-x-0 bottom-0 z-10 pb-6">
         <div className="px-4 pr-20">
           <div className="flex flex-wrap items-center gap-1.5 text-[11px] font-bold">
+            {product.reason === 'forYou' && (
+              <span className="rounded-full bg-violet-500 px-2.5 py-1 text-white shadow-lg shadow-violet-500/40">✨ For you</span>
+            )}
+            {product.reason === 'fresh' && (
+              <span className="rounded-full bg-teal-500 px-2.5 py-1 text-white shadow-lg shadow-teal-500/40">🎲 Fresh find</span>
+            )}
             <span className="rounded-full bg-white/20 px-2.5 py-1 text-white backdrop-blur-sm">{catLabel}</span>
             <span className="rounded-full bg-white/20 px-2.5 py-1 text-amber-300 backdrop-blur-sm">
               ⭐ {product.rating} · {fmtReviews(product.reviews)} ratings
