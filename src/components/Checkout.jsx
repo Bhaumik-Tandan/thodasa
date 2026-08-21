@@ -15,7 +15,7 @@ export default function Checkout({ cart, onClose, onOrders, onOrderPlaced }) {
 
   if (placed) {
     return (
-      <div className="animate-slide-up fixed inset-0 z-50 grid place-items-center bg-gray-50 px-8 text-center dark:bg-zinc-950">
+      <div className="animate-slide-up fixed inset-0 z-50 mx-auto grid max-w-md place-items-center bg-gray-50 px-8 text-center dark:bg-zinc-950">
         <div>
           <div className="animate-float text-8xl">📦</div>
           <h1 className="mt-4 text-3xl font-black text-gray-900 dark:text-white">Order placed!</h1>
@@ -35,7 +35,7 @@ export default function Checkout({ cart, onClose, onOrders, onOrderPlaced }) {
   }
 
   return (
-    <div className="animate-slide-up fixed inset-0 z-50 flex flex-col bg-gray-50 dark:bg-zinc-950">
+    <div className="animate-slide-up fixed inset-0 z-50 mx-auto flex max-w-md flex-col bg-gray-50 dark:bg-zinc-950">
       <header className="flex items-center justify-between px-5 pb-3 pt-14">
         <h1 className="text-2xl font-black text-gray-900 dark:text-white">Checkout 🧾</h1>
         <button onClick={onClose} className="rounded-full bg-gray-200 px-4 py-2 text-sm font-bold text-gray-700 active:scale-90 dark:bg-white/10 dark:text-gray-200">← Back</button>

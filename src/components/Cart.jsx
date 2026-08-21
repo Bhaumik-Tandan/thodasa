@@ -12,7 +12,7 @@ export default function Cart({ cart, onQty, onRemove, onCheckout, onOrders, onCl
   const meter = meterFor(total)
 
   return (
-    <div className="animate-slide-up fixed inset-0 z-40 flex flex-col bg-gray-50 dark:bg-zinc-950">
+    <div className="animate-slide-up fixed inset-0 z-40 mx-auto flex max-w-md flex-col bg-gray-50 dark:bg-zinc-950">
       <header className="flex items-center justify-between px-5 pb-3 pt-14">
         <h1 className="text-2xl font-black text-gray-900 dark:text-white">Your Cart</h1>
         <div className="flex items-center gap-2">
