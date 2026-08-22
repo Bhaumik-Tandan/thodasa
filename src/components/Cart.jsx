@@ -1,3 +1,4 @@
+import { inr } from '../data/products'
 import { useEffect, useState } from 'react'
 import { makeShareCard, shareCardBlob } from '../lib/share'
 
@@ -92,7 +93,7 @@ export default function Cart({ cart, onQty, onRemove, onCheckout, onOrders, onCl
             </div>
             <div className="min-w-0 flex-1">
               <p className="truncate text-sm font-bold text-gray-900 dark:text-white">{product.name}</p>
-              <p className="text-sm font-extrabold text-gray-900 dark:text-white">₹{product.price}</p>
+              <p className="text-sm font-extrabold text-gray-900 dark:text-white">₹{inr(product.price)}</p>
             </div>
             <div className="flex items-center gap-2">
               <button onClick={() => (qty === 1 ? onRemove(product.id) : onQty(product.id, qty - 1))} className="grid h-8 w-8 place-items-center rounded-full bg-gray-100 font-black text-gray-600 active:scale-90 dark:bg-white/10 dark:text-gray-300">−</button>
@@ -109,7 +110,7 @@ export default function Cart({ cart, onQty, onRemove, onCheckout, onOrders, onCl
           <div className="flex items-center justify-between">
             <div>
               <p className="text-xs font-semibold text-gray-500 dark:text-gray-400">{count} item{count > 1 ? 's' : ''}</p>
-              <p className="text-2xl font-black text-gray-900 dark:text-white">₹{total}</p>
+              <p className="text-2xl font-black text-gray-900 dark:text-white">₹{inr(total)}</p>
             </div>
             <button onClick={onCheckout} className="rounded-xl bg-[#0c831f] px-6 py-3.5 font-extrabold text-white shadow-lg shadow-green-600/30 active:scale-95">
               Proceed to Checkout

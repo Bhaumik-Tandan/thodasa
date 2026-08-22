@@ -1,3 +1,4 @@
+import { inr } from '../data/products'
 import { useState } from 'react'
 import { VARIANTS_BY_TEMPLATE } from '../data/products'
 import { TrashIcon, MinusIcon, PlusIcon, BagPlusIcon } from './Icons'
@@ -63,8 +64,8 @@ export default function ProductSheet({ product, cart, onAddToCart, onQty, onRemo
                 >
                   <p className="truncate text-sm font-semibold text-gray-800 dark:text-gray-100">{v.variantLabel}</p>
                   <p className="text-sm font-extrabold text-gray-900 dark:text-white">
-                    ₹{v.price}
-                    {v.deal && <span className="ml-1.5 text-xs font-semibold text-gray-400 line-through">₹{v.mrp}</span>}
+                    ₹{inr(v.price)}
+                    {v.deal && <span className="ml-1.5 text-xs font-semibold text-gray-400 line-through">₹{inr(v.mrp)}</span>}
                     {cart[v.id]?.qty > 0 && <span className="ml-1.5 text-xs font-bold text-[#0c831f]">×{cart[v.id].qty} in cart</span>}
                   </p>
                 </button>
@@ -90,10 +91,10 @@ export default function ProductSheet({ product, cart, onAddToCart, onQty, onRemo
         <div className="mt-4 flex items-center justify-between gap-3">
           <div>
             <div className="flex items-baseline gap-2">
-              <span className="text-2xl font-extrabold text-gray-900 dark:text-white">₹{selected.price}</span>
+              <span className="text-2xl font-extrabold text-gray-900 dark:text-white">₹{inr(selected.price)}</span>
               {selected.deal && (
                 <>
-                  <span className="text-sm text-gray-400 line-through">₹{selected.mrp}</span>
+                  <span className="text-sm text-gray-400 line-through">₹{inr(selected.mrp)}</span>
                   <span className="text-sm font-bold text-[#0c831f]">{off}% off</span>
                 </>
               )}

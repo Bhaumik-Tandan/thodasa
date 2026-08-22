@@ -1,3 +1,4 @@
+import { inr } from '../data/products'
 import { useState } from 'react'
 import DealTimer from './DealTimer'
 import { GRADS, CATEGORIES } from '../data/products'
@@ -163,8 +164,8 @@ export default function ProductCard({ product, index, near = true, wished, onTog
           )}
 
           <div className="mt-2 flex items-baseline gap-2">
-            <span className="text-3xl font-black text-white drop-shadow-lg">₹{product.price}</span>
-            {product.deal && <span className="text-sm font-semibold text-white/55 line-through">₹{product.mrp}</span>}
+            <span className="text-3xl font-black text-white drop-shadow-lg">₹{inr(product.price)}</span>
+            {product.deal && <span className="text-sm font-semibold text-white/55 line-through">₹{inr(product.mrp)}</span>}
             <span className="ml-1 text-[11px] font-semibold text-emerald-300 drop-shadow">
               Free delivery over ₹499
             </span>
@@ -182,7 +183,7 @@ export default function ProductCard({ product, index, near = true, wished, onTog
             onClick={() => onOpenDetail(product)}
             className="mx-4 mt-3 flex h-14 w-[calc(100%-2rem)] items-center justify-center gap-2 rounded-2xl bg-[#0c831f] text-base font-extrabold text-white shadow-xl shadow-green-900/40 transition-transform active:scale-[0.97]"
           >
-            ✓ {templateCart.qty} in cart · ₹{templateCart.amt} — Edit options ▾
+            ✓ {templateCart.qty} in cart · ₹{inr(templateCart.amt)} — Edit options ▾
           </button>
         ) : inCartQty === 0 ? (
           <button
@@ -190,7 +191,7 @@ export default function ProductCard({ product, index, near = true, wished, onTog
             className={`mx-4 mt-3 flex h-14 w-[calc(100%-2rem)] items-center justify-center gap-2 rounded-2xl bg-gradient-to-r from-rose-500 to-orange-400 text-base font-extrabold text-white shadow-xl shadow-rose-500/40 transition-transform active:scale-[0.97] ${justAdded ? 'animate-pop animate-pulse-ring' : ''}`}
           >
             <BagPlusIcon className="h-5 w-5" />
-            {multi ? `Choose options · from ₹${product.price}` : `Add to Cart · ₹${product.price}`}
+            {multi ? `Choose options · from ₹${inr(product.price)}` : `Add to Cart · ₹${inr(product.price)}`}
           </button>
         ) : (
           <div className={`mx-4 mt-3 flex h-14 w-[calc(100%-2rem)] items-stretch overflow-hidden rounded-2xl bg-gradient-to-r from-rose-500 to-orange-400 text-white shadow-xl shadow-rose-500/40 ${justAdded ? 'animate-pop' : ''}`}>
@@ -203,7 +204,7 @@ export default function ProductCard({ product, index, near = true, wished, onTog
             </button>
             <div className="flex flex-1 flex-col items-center justify-center leading-tight">
               <span className="text-base font-extrabold">{inCartQty} in cart</span>
-              <span className="text-[11px] font-semibold text-white/85">₹{inCartQty * product.price} total</span>
+              <span className="text-[11px] font-semibold text-white/85">₹{inr(inCartQty * product.price)} total</span>
             </div>
             <button
               onClick={add}

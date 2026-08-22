@@ -1,3 +1,4 @@
+import { inr } from '../data/products'
 import { useState } from 'react'
 
 export default function Checkout({ cart, onClose, onOrders, onOrderPlaced }) {
@@ -54,13 +55,13 @@ export default function Checkout({ cart, onClose, onOrders, onOrderPlaced }) {
                 <span className="min-w-0 flex-1 truncate font-semibold text-gray-700 dark:text-gray-200">
                   {product.name} <span className="text-gray-400">×{qty}</span>
                 </span>
-                <span className="font-extrabold text-gray-900 dark:text-white">₹{product.price * qty}</span>
+                <span className="font-extrabold text-gray-900 dark:text-white">₹{inr(product.price * qty)}</span>
               </div>
             ))}
           </div>
           <div className="my-3 border-t border-dashed border-gray-200 dark:border-white/10" />
           <div className="flex justify-between text-sm font-semibold text-gray-500 dark:text-gray-400">
-            <span>Subtotal</span><span>₹{subtotal}</span>
+            <span>Subtotal</span><span>₹{inr(subtotal)}</span>
           </div>
           <div className="mt-1 flex justify-between text-sm font-semibold text-gray-500 dark:text-gray-400">
             <span>Delivery {delivery === 0 && '🎁'}</span>
@@ -72,7 +73,7 @@ export default function Checkout({ cart, onClose, onOrders, onOrderPlaced }) {
             </p>
           )}
           <div className="mt-3 flex justify-between text-lg font-black text-gray-900 dark:text-white">
-            <span>Total</span><span>₹{total}</span>
+            <span>Total</span><span>₹{inr(total)}</span>
           </div>
         </div>
 
@@ -85,7 +86,7 @@ export default function Checkout({ cart, onClose, onOrders, onOrderPlaced }) {
 
       <footer className="border-t border-gray-200 bg-white px-5 pb-8 pt-4 dark:border-white/10 dark:bg-zinc-900">
         <button onClick={place} className="w-full rounded-xl bg-[#0c831f] py-4 text-lg font-extrabold text-white shadow-lg shadow-green-600/30 active:scale-[0.98]">
-          Place Order · ₹{total}
+          Place Order · ₹{inr(total)}
         </button>
         <p className="mt-1.5 text-center text-[11px] text-gray-400">Demo checkout — no real payment happens.</p>
       </footer>

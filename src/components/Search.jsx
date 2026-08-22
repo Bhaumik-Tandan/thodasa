@@ -1,3 +1,4 @@
+import { inr } from '../data/products'
 import { useMemo, useState } from 'react'
 import { PRODUCTS, TEMPLATE_HEROES } from '../data/products'
 import { pickedForYou } from '../lib/taste'
@@ -38,7 +39,7 @@ export default function Search({ cart, onAddToCart, onOpenDetail, onClose }) {
           {p.rating} ★ · {p.variantCount > 1 ? `${p.variantCount} options` : p.variantLabel}
         </p>
         <p className="text-sm font-extrabold text-gray-900 dark:text-white">
-          ₹{p.price}{p.variantCount > 1 && <span className="font-medium text-gray-400"> onwards</span>}
+          ₹{inr(p.price)}{p.variantCount > 1 && <span className="font-medium text-gray-400"> onwards</span>}
         </p>
       </div>
       <span className="grid h-9 w-9 shrink-0 place-items-center rounded-full border border-[#0c831f] text-[#0c831f]">

@@ -12,6 +12,14 @@ export const CATEGORIES = [
   { id: 'accessories', label: 'Fashion' },
   { id: 'stationery', label: 'Stationery' },
   { id: 'quirky', label: 'Quirky' },
+  { id: 'cars', label: 'Cars 🏎️' },
+  { id: 'bikes', label: 'Sport Bikes' },
+  { id: 'shoes', label: 'Shoes' },
+  { id: 'fashion', label: 'Fashion' },
+  { id: 'watches', label: 'Watches' },
+  { id: 'luxe', label: 'Luxe Bags' },
+  { id: 'art', label: 'Art' },
+  { id: 'books', label: 'Books' },
 ]
 
 export const GRADS = [
@@ -24,6 +32,8 @@ export const GRADS = [
   'from-pink-300 via-rose-400 to-red-400',
   'from-yellow-300 via-amber-400 to-orange-500',
 ]
+
+export const inr = (n) => n.toLocaleString('en-IN')
 
 const img = (id) => `https://images.unsplash.com/photo-${id}?w=800&h=1400&fit=crop&q=80&auto=format`
 
@@ -58,6 +68,18 @@ const I = {
   wardrobe: '1445205170230-053b83016050', earrings: '1535632066927-ab7c9ab60908', pearls: '1515562141207-7a88fb7ce338',
   pens: '1456735190827-d1262f71b8a3', books: '1497633762265-9d179a990aa6', deskDark: '1441986300917-64674bd600d8',
   confetti: '1513151233558-d860c5398176', arcade: '1511882150382-421056c89033', saleTags: '1607083206968-13611e3d76db',
+  // ——— premium / luxe pool (verified) ———
+  carBlue: '1552519507-da3b142c6e3d', carBugatti: '1544636331-e26879cd4d9b', carRed: '1583121274602-3e2820c69888',
+  carRoad: '1568605117036-5fe5e7bab0b7', carSedanBlack: '1503376780353-7e6692767b70', carBmw: '1580273916550-e323be2ae537',
+  carMustang: '1494976388531-d1058494cdd8', carAmg: '1553440569-bcc63803a83d',
+  bikeCafe: '1558981806-ec527fa84c39', bikeDucati: '1568772585407-9361f9bf3a87', bikeNaked: '1591637333184-19aa84b3e01f', bikeKtm: '1609630875171-b1321377ee65',
+  shoeJordan: '1552346154-21d32810aba3', shoeYellow: '1514989940723-e8e51635b782', shoeNeon: '1606107557195-0e29a4b5b4aa', shoeTan: '1549298916-b41d501d3772',
+  watchDark: '1587836374828-4dbafa94cf0e', watchMinimal: '1524592094714-0f0654e20314', watchDive: '1547996160-81dfa63595aa', watchSmart: '1523275335684-37898b6baf30',
+  suit: '1594938298603-c8148c4dae35', menswearFlat: '1490114538077-0a7f8cb49891', womensJacket: '1544022613-e87ca75a784a',
+  artClassical: '1578321272176-b7bbc0679853', artAbstract1: '1541961017774-22349e4a1262', artAbstract2: '1531913764164-f85c52e6e654', artLandscape: '1577720580479-7d839d829c73',
+  bookPoetry: '1544947950-fa07a98d237f', bookStack: '1512820790803-83ca734da794', bookshelf: '1524995997946-a1c2e315a42f', booksRow: '1495446815901-a7297e633e8d',
+  perfumeCoco: '1592945403244-b3fbafd7f539', perfumeAmber: '1615634260167-c8cdede054de',
+  bagTeal: '1594223274512-ad4803739b7c', bagRed: '1584917865442-de89df76afd3',
 }
 
 // variant helpers
@@ -244,6 +266,164 @@ TEMPLATES.push(
   ['Generic', 'LED Diya Pack', 'home', 'candle', '🪔', 'Diwali vibes, zero wax mess.', V(['Pack of 6', 199], ['Pack of 12', 349], ['Pack of 24', 499])],
   ['Generic', 'Metal Bookmark', 'stationery', 'books', '🔖', 'Page mod ke rakhne walon se durr raho.', ['Feather Gold', 'Peacock', 'Ganesha', 'Minimal Line', 'Cat Tail', 'Warli Art', 'Om', 'Lotus'].map((d) => [d, 99])],
 )
+
+// ——— LUXE EXPANSION: real brands, configs/colours/sizes (concept demo) ———
+const CAR_COLORS = ['Alpine White', 'Jet Black', 'Storm Grey', 'Racing Red', 'Ocean Blue']
+const CAR_TRIMS = ['Standard', 'Sport', 'Signature']
+const car = (trims, cols, price) => combo(trims, cols.map((c) => [c, price]))
+const BIKE_COLORS = ['Racing Red', 'Matte Black', 'Pearl White', 'Neon']
+const BAG_COLORS = ['Noir', 'Beige', 'Bordeaux', 'Powder Blue', 'Emerald', 'Monogram']
+const SHOE_SIZES = ['UK 6', 'UK 7', 'UK 8', 'UK 9', 'UK 10', 'UK 11']
+const SNEAKER_COLORS = ['OG Red', 'Triple Black', 'Panda', 'Royal Blue', 'Cream']
+const CLOTHE_SIZES = ['XS', 'S', 'M', 'L', 'XL', 'XXL']
+const shoeVariants = (cols, price) => combo(cols, SHOE_SIZES.map((s) => [s, price]))
+
+TEMPLATES.push(
+  // ——— CARS ———
+  ['BMW', '3 Series Sedan', 'cars', 'carBmw', '🚗', 'Ultimate driving machine. EMI pe le lo, dil khush.', car(CAR_TRIMS, CAR_COLORS, 5500000), true],
+  ['BMW', 'M4 Competition', 'cars', 'carBlue', '🏎️', 'Twin-turbo, 510 hp. Neighbours jealous guaranteed.', car(['Coupe', 'Convertible', 'CS'], CAR_COLORS, 14500000)],
+  ['BMW', 'X5 xDrive', 'cars', 'carRoad', '🚙', 'Big SUV energy. Sunday drives sorted.', car(CAR_TRIMS, CAR_COLORS, 9800000)],
+  ['BMW', 'i7 Electric', 'cars', 'carSedanBlack', '⚡', 'Silent flex. 600km range, zero petrol pump drama.', car(['eDrive50', 'M70'], CAR_COLORS, 20500000)],
+  ['Mercedes-Benz', 'C-Class', 'cars', 'carSedanBlack', '🚗', 'Baby S-Class. Sasta nahi, par worth it.', car(CAR_TRIMS, CAR_COLORS, 6200000)],
+  ['Mercedes-Benz', 'S-Class', 'cars', 'carBmw', '🚘', 'Boss ki car. Peeche baith ke aao.', car(['350d', '450 4MATIC', 'Maybach'], CAR_COLORS, 17500000)],
+  ['Mercedes-AMG', 'GT Coupe', 'cars', 'carAmg', '🏎️', 'Roar first, arrive later.', car(['GT', 'GT S', 'GT R'], CAR_COLORS, 26000000)],
+  ['Audi', 'A6 Sedan', 'cars', 'carSedanBlack', '🚗', 'Quattro grip, quiet class.', car(CAR_TRIMS, CAR_COLORS, 6800000)],
+  ['Audi', 'Q7 SUV', 'cars', 'carRoad', '🚙', 'Seven seats of understated flex.', car(CAR_TRIMS, CAR_COLORS, 9200000)],
+  ['Audi', 'R8 V10', 'cars', 'carRed', '🏎️', 'Supercar without the tantrums.', car(['Coupe', 'Spyder'], CAR_COLORS, 30000000)],
+  ['Porsche', '911 Carrera', 'cars', 'carRed', '🏎️', 'The one poster car that grew up with you.', car(['Carrera', 'Carrera S', 'Turbo S'], CAR_COLORS, 21000000), true],
+  ['Porsche', 'Cayenne', 'cars', 'carRoad', '🚙', 'SUV that thinks it is a sports car.', car(CAR_TRIMS, CAR_COLORS, 14500000)],
+  ['Porsche', 'Taycan', 'cars', 'carBlue', '⚡', 'Electric, but make it Porsche.', car(['4S', 'Turbo', 'Turbo S'], CAR_COLORS, 17000000)],
+  ['Lamborghini', 'Huracán', 'cars', 'carRed', '🏎️', 'Subtlety left the chat.', car(['EVO', 'STO', 'Tecnica'], CAR_COLORS, 42000000)],
+  ['Lamborghini', 'Urus', 'cars', 'carMustang', '🚙', 'School drop-off, but make it 650hp.', car(['S', 'Performante'], CAR_COLORS, 44000000)],
+  ['Ferrari', 'Roma', 'cars', 'carRed', '🏎️', 'La dolce vita on four wheels.', car(['Coupe', 'Spider'], CAR_COLORS, 39000000)],
+  ['Rolls-Royce', 'Ghost', 'cars', 'carSedanBlack', '🚘', 'Arrive like you own the building.', car(['Standard', 'Black Badge'], CAR_COLORS, 75000000)],
+  ['Bugatti', 'Chiron', 'cars', 'carBugatti', '🏁', '1500 hp. Full ₹499 range, bas thodi upar. Le lo, sasta hai (nahi hai).', car(['Sport', 'Super Sport'], CAR_COLORS, 190000000), true],
+  ['Tata', 'Nexon', 'cars', 'carRoad', '🚙', 'Desi, safe, 5-star. Paisa vasool.', car(['Smart', 'Creative', 'Fearless'], CAR_COLORS, 900000)],
+  ['Tata', 'Harrier', 'cars', 'carRoad', '🚙', 'Bada SUV, chhota budget (relatively).', car(CAR_TRIMS, CAR_COLORS, 1600000)],
+  ['Mahindra', 'Thar', 'cars', 'carMustang', '🚙', 'Off-road ka OG. Instagram reels ready.', car(['AX', 'LX', 'RWD'], CAR_COLORS, 1100000), true],
+  ['Mahindra', 'XUV700', 'cars', 'carRoad', '🚙', 'ADAS wali gaadi. Future aa gaya.', car(['MX', 'AX7', 'AX7 L'], CAR_COLORS, 1500000)],
+  ['Maruti Suzuki', 'Swift', 'cars', 'carBlue', '🚗', 'India ki favourite. Mileage king.', car(['LXi', 'VXi', 'ZXi+'], CAR_COLORS, 700000)],
+
+  // ——— SPORT BIKES ———
+  ['Ducati', 'Panigale V4', 'bikes', 'bikeDucati', '🏍️', 'Italian scream on two wheels.', colors(BIKE_COLORS, 2700000), true],
+  ['Ducati', 'Monster', 'bikes', 'bikeNaked', '🏍️', 'Naked, loud, unapologetic.', colors(BIKE_COLORS, 1300000)],
+  ['Kawasaki', 'Ninja ZX-10R', 'bikes', 'bikeDucati', '🏍️', 'Track weapon, road legal (mostly).', colors(BIKE_COLORS, 1600000)],
+  ['Kawasaki', 'Z900', 'bikes', 'bikeNaked', '🏍️', 'Inline-four symphony.', colors(BIKE_COLORS, 950000)],
+  ['Yamaha', 'YZF-R1', 'bikes', 'bikeDucati', '🏍️', 'MotoGP DNA for the street.', colors(BIKE_COLORS, 2100000)],
+  ['Yamaha', 'MT-15', 'bikes', 'bikeNaked', '🏍️', 'Dark side of Japan, budget edition.', colors(BIKE_COLORS, 170000)],
+  ['KTM', 'Duke 390', 'bikes', 'bikeKtm', '🏍️', 'Ready to race, ready to wheelie (mat karo).', colors(BIKE_COLORS, 310000), true],
+  ['KTM', 'RC 390', 'bikes', 'bikeKtm', '🏍️', 'Full-faired fun machine.', colors(BIKE_COLORS, 320000)],
+  ['Royal Enfield', 'Classic 350', 'bikes', 'bikeCafe', '🏍️', 'Thump thump. Highway ka raja.', colors(['Halcyon Black', 'Chrome Red', 'Dark Stealth', 'Signals'], 200000), true],
+  ['Royal Enfield', 'Continental GT 650', 'bikes', 'bikeCafe', '🏍️', 'Cafe racer sapna, affordable.', colors(['British Racing Green', 'Rocker Red', 'Apex Grey'], 320000)],
+  ['BMW Motorrad', 'S 1000 RR', 'bikes', 'bikeDucati', '🏍️', 'German precision, 205 hp.', colors(BIKE_COLORS, 2100000)],
+  ['Harley-Davidson', 'Iron 883', 'bikes', 'bikeCafe', '🏍️', 'Rebel without a silencer.', colors(['Vivid Black', 'Midnight Blue'], 950000)],
+  ['Bajaj', 'Pulsar NS200', 'bikes', 'bikeNaked', '🏍️', 'College ka legend. Definitely male.', colors(['Pewter Grey', 'Metallic Red', 'Fiery Orange'], 150000)],
+
+  // ——— SHOES ———
+  ['Nike', 'Air Jordan 1 High', 'shoes', 'shoeJordan', '👟', 'The pair that started the culture.', shoeVariants(['Chicago', 'Bred', 'Royal', 'Shadow'], 16000), true],
+  ['Nike', 'Air Force 1', 'shoes', 'shoeTan', '👟', 'Never out of style. Ever.', shoeVariants(['Triple White', 'Wheat Tan', 'Black'], 8500)],
+  ['Nike', 'Air Max 90', 'shoes', 'shoeYellow', '👟', 'Visible air, visible drip.', shoeVariants(['Infrared', 'Yellow Ochre', 'Triple White'], 11000)],
+  ['Nike', 'Dunk Low', 'shoes', 'shoeJordan', '👟', 'Panda everywhere for a reason.', shoeVariants(['Panda', 'UNC', 'Grey Fog'], 9000)],
+  ['Adidas', 'Ultraboost', 'shoes', 'shoeNeon', '👟', 'Running feels illegal in these.', shoeVariants(['Core Black', 'Cloud White', 'Solar Red'], 12000)],
+  ['Adidas', 'Samba OG', 'shoes', 'shoeTan', '👟', 'The it-shoe that refuses to leave.', shoeVariants(['Black/White', 'Gum', 'Cream'], 9000), true],
+  ['Adidas', 'Yeezy Boost 350', 'shoes', 'shoeNeon', '👟', 'Ye ka drama, comfort ka aaram.', shoeVariants(['Zebra', 'Beluga', 'Onyx'], 24000)],
+  ['New Balance', '550', 'shoes', 'shoeJordan', '👟', 'Dad shoe, gen-Z approved.', shoeVariants(['White/Green', 'White/Grey', 'Navy'], 13000)],
+  ['Puma', 'Suede Classic', 'shoes', 'shoeTan', '👟', 'Old-school cool, forever.', shoeVariants(['Red', 'Black', 'Blue'], 6000)],
+  ['Converse', 'Chuck 70 High', 'shoes', 'shoeNeon', '👟', 'Canvas classic. Goes with everything.', shoeVariants(['Black', 'Parchment', 'Egret'], 6500)],
+  ['Crocs', 'Classic Clog', 'shoes', 'shoeYellow', '🩴', 'Ugly? Yes. Comfortable? Blasphemously.', colors(['Black', 'Navy', 'Lavender', 'Army Green'], 4000)],
+  ['Birkenstock', 'Arizona Sandals', 'shoes', 'shoeTan', '🩴', 'Cork therapy for your feet.', shoeVariants(['Taupe', 'Black', 'Mocha'], 7500)],
+
+  // ——— FASHION / CLOTHES ———
+  ['Zara', 'Oversized Blazer', 'fashion', 'suit', '🧥', 'Effortless boss energy.', combo(['Beige', 'Black', 'Pinstripe'], CLOTHE_SIZES.map((z) => [z, 4990]))],
+  ['Zara', 'Slim Fit Shirt', 'fashion', 'menswearFlat', '👔', 'Office se date tak, ek shirt.', combo(['White', 'Sky Blue', 'Black'], CLOTHE_SIZES.map((z) => [z, 2590]))],
+  ['H&M', 'Cotton Hoodie', 'fashion', 'womensJacket', '🧥', 'Cozy season, sorted.', combo(['Grey Melange', 'Black', 'Sage', 'Cream'], CLOTHE_SIZES.map((z) => [z, 1999]))],
+  ['Uniqlo', 'AIRism Tee', 'fashion', 'tee', '👕', 'Summer ka lifesaver. Sweat-proof flex.', combo(['White', 'Navy', 'Olive', 'Black'], CLOTHE_SIZES.map((z) => [z, 990]))],
+  ['Levi\'s', '511 Slim Jeans', 'fashion', 'wardrobe', '👖', 'The denim that just fits.', combo(['Dark Indigo', 'Stonewash', 'Black'], ['30', '32', '34', '36', '38'].map((z) => [z + '"', 3999]))],
+  ['Raymond', '3-Piece Suit', 'fashion', 'suit', '🤵', 'Shaadi season ka hero.', combo(['Navy', 'Charcoal', 'Midnight Blue'], CLOTHE_SIZES.map((z) => [z, 14999])), true],
+  ['Gucci', 'GG Hoodie', 'fashion', 'womensJacket', '🧥', 'Logo bada, statement bada.', combo(['Black', 'Beige'], CLOTHE_SIZES.map((z) => [z, 89000]))],
+  ['Versace', 'Baroque Shirt', 'fashion', 'menswearFlat', '👔', 'Loud, gold, glorious.', combo(['Gold Print', 'Black Print'], CLOTHE_SIZES.map((z) => [z, 72000]))],
+  ['Balenciaga', 'Oversized Tee', 'fashion', 'tee', '👕', '₹60k for a t-shirt. Aesthetic > logic.', combo(['Washed Black', 'White'], CLOTHE_SIZES.map((z) => [z, 58000]))],
+  ['FabIndia', 'Cotton Kurta', 'fashion', 'wardrobe', '👗', 'Festive ready, breathable comfy.', combo(['Ivory', 'Indigo', 'Maroon', 'Sage'], CLOTHE_SIZES.map((z) => [z, 2499]))],
+
+  // ——— WATCHES ———
+  ['Rolex', 'Submariner', 'watches', 'watchDive', '⌚', 'Dive watch you will never dive with.', colors(['Black Dial', 'Green (Hulk)', 'Blue (Smurf)'], 1250000), true],
+  ['Rolex', 'Datejust 41', 'watches', 'watchDark', '⌚', 'Boardroom ka classic.', colors(['Silver', 'Blue', 'Wimbledon'], 950000)],
+  ['Omega', 'Speedmaster', 'watches', 'watchDark', '⌚', 'The moonwatch. Literally been to space.', colors(['Black Dial', 'Silver'], 720000)],
+  ['Omega', 'Seamaster', 'watches', 'watchDive', '⌚', 'Bond ki ghadi.', colors(['Blue Wave', 'Black', 'Green'], 650000)],
+  ['TAG Heuer', 'Carrera', 'watches', 'watchDark', '⌚', 'Motorsport on your wrist.', colors(['Black', 'Blue', 'Panda'], 380000)],
+  ['Tissot', 'PRX Powermatic', 'watches', 'watchMinimal', '⌚', 'Integrated bracelet, entry-lux flex.', colors(['Ice Blue', 'Green', 'Black'], 75000), true],
+  ['Apple', 'Watch Ultra 2', 'watches', 'watchSmart', '⌚', 'Trek, dive, text. Titanium beast.', colors(['Natural Titanium', 'Black Titanium'], 89900)],
+  ['Apple', 'Watch Series 10', 'watches', 'watchSmart', '⌚', 'Wrist pe poora ecosystem.', combo(['41mm', '46mm'], colors(['Midnight', 'Silver', 'Rose Gold'], 46900).map((c) => c))],
+  ['Casio', 'G-Shock', 'watches', 'watchDark', '⌚', 'Drop it, drown it, it survives.', colors(['All Black', 'Military Green', 'Retro White'], 12000)],
+  ['Titan', 'Edge Slim', 'watches', 'watchMinimal', '⌚', 'India ka apna, elegantly thin.', colors(['Rose Gold', 'Silver', 'Black'], 15000)],
+
+  // ——— LUXE BAGS ———
+  ['Louis Vuitton', 'Neverfull MM', 'luxe', 'bagTeal', '👜', 'The tote that started an obsession.', colors(BAG_COLORS, 220000), true],
+  ['Louis Vuitton', 'Speedy 25', 'luxe', 'bagRed', '👜', 'Audrey approved since forever.', colors(BAG_COLORS, 185000)],
+  ['Dior', 'Lady Dior', 'luxe', 'bagRed', '👜', 'Princess Diana ki choice.', colors(BAG_COLORS, 550000), true],
+  ['Dior', 'Saddle Bag', 'luxe', 'bagTeal', '👜', 'Y2K icon, back with a vengeance.', colors(BAG_COLORS, 380000)],
+  ['Gucci', 'GG Marmont', 'luxe', 'bagRed', '👜', 'That double-G clasp. Chef\'s kiss.', colors(BAG_COLORS, 280000)],
+  ['Chanel', 'Classic Flap', 'luxe', 'bagTeal', '👜', 'Investment piece, not a purchase.', colors(['Black Caviar', 'Beige', 'Bordeaux'], 1050000)],
+  ['Hermès', 'Birkin 30', 'luxe', 'bagTeal', '👜', 'Waitlist se bhi mushkil. The holy grail.', colors(['Noir', 'Étoupe', 'Gold', 'Rouge'], 2500000)],
+  ['Prada', 'Galleria Saffiano', 'luxe', 'bagRed', '👜', 'Structured, sharp, forever chic.', colors(BAG_COLORS, 320000)],
+
+  // ——— ART ———
+  ['Studio Editions', 'Abstract Canvas', 'art', 'artAbstract1', '🎨', 'Statement wall, instant sophistication.', combo(['Sunset Chaos', 'Ocean Depths'], V(['A2 Framed', 8500], ['A1 Canvas', 18000], ['XL Gallery', 45000]))],
+  ['Studio Editions', 'Modern Abstract II', 'art', 'artAbstract2', '🖼️', 'The piece guests will ask about.', combo(['Cityscape Red', 'Blue Hour'], V(['A2 Framed', 8500], ['A1 Canvas', 18000]))],
+  ['Heritage Prints', 'Classical Reproduction', 'art', 'artClassical', '🖼️', 'Old-master drama for your hallway.', combo(['Renaissance', 'Baroque'], V(['Framed A2', 12000], ['Museum Canvas', 55000]))],
+  ['Heritage Prints', 'Landscape Oil', 'art', 'artLandscape', '🏔️', 'A window to somewhere calmer.', combo(['Highlands', 'Misty Coast'], V(['A2 Framed', 9500], ['A1 Canvas', 22000]))],
+  ['Atelier Original', 'Signed Original', 'art', 'artAbstract1', '🎨', 'One of one. Certificate included.', V(['Small Original', 85000], ['Large Original', 350000], ['Commission', 500000])],
+
+  // ——— BOOKS ———
+  ['Generic', 'The Immortals of Meluha', 'books', 'bookStack', '📖', 'by Amish Tripathi · Shiva trilogy ka start. Binge-read alert.', V(['Paperback', 299], ['Hardcover', 599], ['E-book', 149])],
+)
+
+// Books: 40+ real titles × formats → 120+ SKUs, the easy way to 100s of items
+const BOOK_TITLES = [
+  ['Atomic Habits', 'James Clear', 'self-help ka GOAT. 1% better daily.', 'bookStack'],
+  ['Ikigai', 'García & Miralles', 'Japanese secret to a long happy life.', 'bookPoetry'],
+  ['The Psychology of Money', 'Morgan Housel', 'Paisa samajhne ki philosophy.', 'bookStack'],
+  ['Rich Dad Poor Dad', 'Robert Kiyosaki', 'Finance 101 for the rest of us.', 'bookStack'],
+  ['The Alchemist', 'Paulo Coelho', 'Chase your Personal Legend.', 'bookPoetry'],
+  ['Sapiens', 'Yuval Noah Harari', 'How we accidentally ran the planet.', 'booksRow'],
+  ['Wings of Fire', 'A.P.J. Abdul Kalam', 'Missile Man ki apni kahani.', 'booksRow'],
+  ['Milk and Honey', 'Rupi Kaur', 'Poetry that hits different at 2am.', 'bookPoetry'],
+  ['The God of Small Things', 'Arundhati Roy', 'Booker-winning Kerala saga.', 'booksRow'],
+  ['A Suitable Boy', 'Vikram Seth', '1300 pages, worth every one.', 'bookshelf'],
+  ['Train to Pakistan', 'Khushwant Singh', 'Partition, unflinching.', 'bookshelf'],
+  ['The White Tiger', 'Aravind Adiga', 'Booker winner, savage and sharp.', 'booksRow'],
+  ['Shoe Dog', 'Phil Knight', 'How Nike almost never happened.', 'bookStack'],
+  ['Zero to One', 'Peter Thiel', 'Startup contrarianism.', 'bookStack'],
+  ['Deep Work', 'Cal Newport', 'Focus is the new superpower.', 'bookStack'],
+  ['Thinking, Fast and Slow', 'Daniel Kahneman', 'Your brain\'s two systems.', 'booksRow'],
+  ['The Subtle Art of Not Giving a F*ck', 'Mark Manson', 'Counterintuitive self-help.', 'bookStack'],
+  ['1984', 'George Orwell', 'Big Brother is still watching.', 'bookshelf'],
+  ['To Kill a Mockingbird', 'Harper Lee', 'The classic that stays classic.', 'booksRow'],
+  ['The Great Gatsby', 'F. Scott Fitzgerald', 'Green light, old sport.', 'bookPoetry'],
+  ['Harry Potter Box Set', 'J.K. Rowling', 'All 7. Childhood in a box.', 'bookshelf'],
+  ['The Hobbit', 'J.R.R. Tolkien', 'There and back again.', 'bookshelf'],
+  ['Dune', 'Frank Herbert', 'The spice must flow.', 'booksRow'],
+  ['The Silent Patient', 'Alex Michaelides', 'Thriller you finish in one sit.', 'bookStack'],
+  ['Gone Girl', 'Gillian Flynn', 'Trust no one.', 'bookStack'],
+  ['It Ends with Us', 'Colleen Hoover', 'BookTok made this everywhere.', 'bookPoetry'],
+  ['The Midnight Library', 'Matt Haig', 'Every life you could have lived.', 'bookPoetry'],
+  ['Educated', 'Tara Westover', 'Memoir that floors you.', 'bookStack'],
+  ['Man\'s Search for Meaning', 'Viktor Frankl', 'Meaning through suffering.', 'bookPoetry'],
+  ['The Power of Now', 'Eckhart Tolle', 'Presence, packaged.', 'bookStack'],
+  ['Can\'t Hurt Me', 'David Goggins', 'Stay hard.', 'bookStack'],
+  ['The 5 AM Club', 'Robin Sharma', 'Own your morning.', 'bookStack'],
+  ['Verity', 'Colleen Hoover', 'The twist. Oh, the twist.', 'bookPoetry'],
+  ['A Thousand Splendid Suns', 'Khaled Hosseini', 'Will wreck you (lovingly).', 'booksRow'],
+  ['The Kite Runner', 'Khaled Hosseini', 'For you, a thousand times over.', 'booksRow'],
+  ['Norwegian Wood', 'Haruki Murakami', 'Melancholy, beautifully.', 'bookPoetry'],
+  ['The Book Thief', 'Markus Zusak', 'Narrated by Death himself.', 'bookshelf'],
+  ['Becoming', 'Michelle Obama', 'Memoir with backbone.', 'bookStack'],
+  ['Half Girlfriend', 'Chetan Bhagat', 'Airport-read comfort food.', 'booksRow'],
+  ['The Palace of Illusions', 'Chitra Divakaruni', 'Mahabharata, Draupadi\'s voice.', 'bookshelf'],
+]
+for (const [title, author, desc, photo] of BOOK_TITLES) {
+  TEMPLATES.push(['Generic', title, 'books', photo, '📚', `by ${author} · ${desc}`, V(['Paperback', 299 + ((title.length * 7) % 200)], ['Hardcover', 599 + ((title.length * 11) % 300)], ['E-book', 149])])
+}
 
 const hash = (n) => { let h = n * 2654435761 % 2 ** 32; h = (h ^ (h >> 15)) * 2246822519 % 2 ** 32; return Math.abs(h ^ (h >> 13)) }
 
