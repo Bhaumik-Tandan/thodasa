@@ -10,6 +10,7 @@ import Search from './components/Search'
 import ProductSheet from './components/ProductSheet'
 import Welcome from './components/Welcome'
 import Confetti from './components/Confetti'
+import Feedback from './components/Feedback'
 import { HeartIcon, BagIcon, MoonIcon, SunIcon, SearchIcon } from './components/Icons'
 import { startSession, recordSignal, dwellSignal, rankFeed } from './lib/taste'
 
@@ -202,6 +203,7 @@ export default function App() {
         )}
 
         <Confetti burstKey={burstKey} />
+        {view === 'feed' && <Feedback />}
 
         {view === 'wishlist' && (
           <Wishlist
