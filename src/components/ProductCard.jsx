@@ -75,6 +75,17 @@ export default function ProductCard({ product, index, near = true, wished, onTog
       <div className="pointer-events-none absolute inset-x-0 top-0 h-44 bg-gradient-to-b from-black/60 to-transparent" />
       <div className="pointer-events-none absolute inset-x-0 bottom-0 h-[55%] bg-gradient-to-t from-black/90 via-black/45 to-transparent" />
 
+      {/* Whole-photo tap target. Reels-trained users instinctively tap the media,
+          and until now that did nothing — it was ~7% of all clicks on the site
+          (the 2nd most-clicked element, and dead). Sits at z-0 so every control
+          above it still wins the tap. */}
+      <button
+        type="button"
+        aria-label={`View details for ${product.name}`}
+        onClick={() => onOpenDetail(product)}
+        className="absolute inset-0 z-0 cursor-pointer"
+      />
+
       {/* deal timer */}
       {product.deal && (
         <div className="absolute left-4 top-28">
