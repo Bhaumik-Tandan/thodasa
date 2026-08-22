@@ -63,7 +63,7 @@ export default function ProductSheet({ product, cart, onAddToCart, onQty, onRemo
                       : 'border-gray-200 dark:border-zinc-700'
                   }`}
                 >
-                  <p className="truncate text-sm font-semibold text-gray-800 dark:text-gray-100">{v.variantLabel}</p>
+                  <p className="text-sm font-semibold leading-tight text-gray-800 dark:text-gray-100">{v.variantLabel}</p>
                   <p className="text-sm font-extrabold text-gray-900 dark:text-white">
                     ₹{inr(v.price)}
                     {v.deal && <span className="ml-1.5 text-xs font-semibold text-gray-400 line-through">₹{inr(v.mrp)}</span>}

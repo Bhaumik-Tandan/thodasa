@@ -53,7 +53,7 @@ export default function ProductCard({ product, index, near = true, wished, onTog
   const catLabel = CATEGORIES.find((c) => c.id === product.category)?.label ?? product.category
 
   return (
-    <section data-index={index} className={`snap-card relative h-full w-full overflow-hidden bg-gradient-to-br ${GRADS[product.grad]} lg:grid lg:grid-cols-[1.25fr_1fr] lg:bg-[#0b0b0d] lg:bg-none`}>
+    <section data-index={index} className={`snap-card relative h-full w-full overflow-hidden bg-gradient-to-br ${GRADS[product.grad]} lg:grid lg:grid-cols-[1.25fr_1fr] lg:bg-white lg:bg-none lg:dark:bg-[#0b0b0d]`}>
       {/* full-bleed product photo */}
       {!imgFailed && activated && (
         <img
@@ -96,22 +96,22 @@ export default function ProductCard({ product, index, near = true, wished, onTog
       {/* right action rail — reels style */}
       <div className="absolute bottom-56 right-3 z-10 flex flex-col items-center gap-5 lg:bottom-10 lg:right-12 lg:flex-row lg:gap-9">
         <button onClick={wish} aria-label="Wishlist" className="flex flex-col items-center active:scale-90">
-          <span className={`grid h-12 w-12 place-items-center rounded-full bg-black/35 backdrop-blur-md ${heartPop ? 'animate-heart' : ''} ${wished ? 'text-rose-500' : 'text-white'}`}>
+          <span className={`grid h-12 w-12 place-items-center rounded-full bg-black/35 backdrop-blur-md lg:bg-neutral-100 lg:dark:bg-black/35 ${heartPop ? 'animate-heart' : ''} ${wished ? 'text-rose-500' : 'text-white'}`}>
             <HeartIcon filled={wished} />
           </span>
-          <span className="mt-1 text-[11px] font-bold text-white drop-shadow">{wished ? 'Saved' : 'Save'}</span>
+          <span className="mt-1 text-[11px] font-bold text-white drop-shadow lg:text-neutral-500 lg:drop-shadow-none lg:dark:text-white">{wished ? 'Saved' : 'Save'}</span>
         </button>
         <button onClick={() => setShareOpen(true)} aria-label="Share" className="flex flex-col items-center active:scale-90">
-          <span className="grid h-12 w-12 place-items-center rounded-full bg-black/35 text-white backdrop-blur-md">
+          <span className="grid h-12 w-12 place-items-center rounded-full bg-black/35 text-white backdrop-blur-md lg:bg-neutral-100 lg:text-neutral-700 lg:dark:bg-black/35 lg:dark:text-white">
             <ShareIcon />
           </span>
-          <span className="mt-1 text-[11px] font-bold text-white drop-shadow">Share</span>
+          <span className="mt-1 text-[11px] font-bold text-white drop-shadow lg:text-neutral-500 lg:drop-shadow-none lg:dark:text-white">Share</span>
         </button>
         <button onClick={multi ? () => onOpenDetail(product) : add} aria-label="Quick add" className="flex flex-col items-center active:scale-90">
-          <span className={`grid h-12 w-12 place-items-center rounded-full bg-black/35 text-white backdrop-blur-md ${justAdded ? 'animate-pop' : ''}`}>
+          <span className={`grid h-12 w-12 place-items-center rounded-full bg-black/35 text-white backdrop-blur-md lg:bg-neutral-100 lg:text-neutral-700 lg:dark:bg-black/35 lg:dark:text-white ${justAdded ? 'animate-pop' : ''}`}>
             <BagPlusIcon />
           </span>
-          <span className="mt-1 text-[11px] font-bold text-white drop-shadow">{inCartQty > 0 ? `×${inCartQty}` : 'Add'}</span>
+          <span className="mt-1 text-[11px] font-bold text-white drop-shadow lg:text-neutral-500 lg:drop-shadow-none lg:dark:text-white">{inCartQty > 0 ? `×${inCartQty}` : 'Add'}</span>
         </button>
       </div>
 
@@ -146,51 +146,51 @@ export default function ProductCard({ product, index, near = true, wished, onTog
         <div className="px-4 pr-20 lg:px-12 lg:pr-16">
           <div className="flex flex-wrap items-center gap-1.5 text-[10px]">
             {product.reason === 'forYou' && (
-              <span className="label-caps rounded-sm bg-white/95 px-2 py-1 text-[9px] text-black">For you</span>
+              <span className="label-caps rounded-sm bg-white/95 px-2 py-1 text-[9px] text-black lg:bg-neutral-900 lg:text-white lg:dark:bg-white lg:dark:text-black">For you</span>
             )}
             {product.reason === 'fresh' && (
-              <span className="label-caps rounded-sm border border-white/40 px-2 py-1 text-[9px] text-white">Fresh find</span>
+              <span className="label-caps rounded-sm border border-white/40 px-2 py-1 text-[9px] text-white lg:border-neutral-300 lg:text-neutral-600 lg:dark:border-white/40 lg:dark:text-white">Fresh find</span>
             )}
             {product.reason === 'new' && (
-              <span className="label-caps rounded-sm bg-white/95 px-2 py-1 text-[9px] text-black">New in</span>
+              <span className="label-caps rounded-sm bg-white/95 px-2 py-1 text-[9px] text-black lg:bg-neutral-900 lg:text-white lg:dark:bg-white lg:dark:text-black">New in</span>
             )}
             {product.deal && (
-              <span className="label-caps rounded-sm border border-white/50 px-2 py-1 text-[9px] text-white">{off}% off</span>
+              <span className="label-caps rounded-sm border border-white/50 px-2 py-1 text-[9px] text-white lg:border-neutral-300 lg:text-neutral-700 lg:dark:border-white/50 lg:dark:text-white">{off}% off</span>
             )}
             <button
               onClick={() => onCategory?.(product.category)}
-              className="label-caps px-1 py-1 text-[9px] text-white/70 underline decoration-white/30 underline-offset-4 active:scale-95"
+              className="label-caps px-1 py-1 text-[9px] text-white/70 underline decoration-white/30 underline-offset-4 active:scale-95 lg:text-neutral-500 lg:decoration-neutral-300 lg:dark:text-white/70 lg:dark:decoration-white/30"
             >
               {catLabel}
             </button>
           </div>
 
           {/* brand set apart from the product name — how fashion retail reads */}
-          <p className="label-caps mt-3 text-[11px] text-white/75 lg:mt-0 lg:text-[12px]">{product.brand}</p>
-          <h2 className="font-display mt-1 text-[27px] leading-[1.15] text-white drop-shadow-lg lg:mt-2 lg:text-[46px] lg:leading-[1.08] lg:drop-shadow-none">
+          <p className="label-caps mt-3 text-[11px] text-white/75 lg:mt-0 lg:text-[12px] lg:text-neutral-500 lg:dark:text-white/70">{product.brand}</p>
+          <h2 className="font-display mt-1 text-[27px] leading-[1.15] text-white drop-shadow-lg lg:mt-2 lg:text-[46px] lg:leading-[1.08] lg:text-neutral-900 lg:drop-shadow-none lg:dark:text-white">
             {product.baseName ?? product.name}
           </h2>
-          <p className="mt-1.5 text-[13px] font-normal leading-snug text-white/80 drop-shadow lg:mt-4 lg:max-w-md lg:text-[15px] lg:leading-relaxed lg:drop-shadow-none">{product.desc}</p>
-          <div className="mt-2 flex items-center gap-1.5 text-[11px] font-medium text-white/70">
+          <p className="mt-1.5 text-[13px] font-normal leading-snug text-white/80 drop-shadow lg:mt-4 lg:max-w-md lg:text-[15px] lg:leading-relaxed lg:text-neutral-600 lg:drop-shadow-none lg:dark:text-white/70">{product.desc}</p>
+          <div className="mt-2 flex items-center gap-1.5 text-[11px] font-medium text-white/70 lg:text-neutral-500 lg:dark:text-white/70">
             <span className="text-amber-300">★</span> {product.rating}
             <span className="text-white/35">·</span> {fmtReviews(product.reviews)} ratings
           </div>
           {multi && (
             <button
               onClick={() => onOpenDetail(product)}
-              className="label-caps mt-2.5 text-[9px] text-white/80 underline decoration-white/30 underline-offset-4 active:scale-95"
+              className="label-caps mt-2.5 text-[9px] text-white/80 underline decoration-white/30 underline-offset-4 active:scale-95 lg:text-neutral-600 lg:decoration-neutral-300 lg:dark:text-white/80 lg:dark:decoration-white/30"
             >
               {product.variantCount} options · {product.variantLabel}
             </button>
           )}
 
           <div className="mt-3 flex items-baseline gap-2.5">
-            <span className="font-display text-[30px] leading-none text-white drop-shadow lg:text-[40px] lg:drop-shadow-none">₹{inr(product.price)}</span>
-            {product.deal && <span className="text-[13px] font-normal text-white/45 line-through">₹{inr(product.mrp)}</span>}
-            <span className="label-caps ml-0.5 text-[9px] text-white/60">Free over ₹499</span>
+            <span className="font-display text-[30px] leading-none text-white drop-shadow lg:text-[40px] lg:text-neutral-900 lg:drop-shadow-none lg:dark:text-white">₹{inr(product.price)}</span>
+            {product.deal && <span className="text-[13px] font-normal text-white/45 line-through lg:text-neutral-400 lg:dark:text-white/45">₹{inr(product.mrp)}</span>}
+            <span className="label-caps ml-0.5 text-[9px] text-white/60 lg:text-neutral-500 lg:dark:text-white/60">Free over ₹499</span>
           </div>
           {product.deal && (
-            <p className="mt-1.5 text-[11px] font-medium text-white/55">
+            <p className="mt-1.5 text-[11px] font-medium text-white/55 lg:text-neutral-500 lg:dark:text-white/55">
               {14 + ((product.id * 53) % 87)} logo ne aaj kharida
             </p>
           )}
@@ -200,14 +200,14 @@ export default function ProductCard({ product, index, near = true, wished, onTog
         {multi && templateCart?.qty > 0 ? (
           <button
             onClick={() => onOpenDetail(product)}
-            className="label-caps mx-4 mt-4 flex h-14 w-[calc(100%-2rem)] items-center justify-center gap-2 rounded-none bg-black/85 text-[12px] text-white ring-1 ring-white/25 backdrop-blur transition-transform active:scale-[0.98] lg:mx-12 lg:mt-8 lg:h-16 lg:w-[min(22rem,calc(100%-6rem))]"
+            className="label-caps mx-4 mt-4 flex h-14 w-[calc(100%-2rem)] items-center justify-center gap-2 rounded-none bg-black/85 text-[12px] text-white ring-1 ring-white/25 backdrop-blur transition-transform active:scale-[0.98] lg:mx-12 lg:mt-8 lg:h-16 lg:w-[min(22rem,calc(100%-6rem))] lg:bg-[#0c831f] lg:text-white lg:ring-0 lg:dark:bg-black/85 lg:dark:ring-1"
           >
             ✓ {templateCart.qty} in cart · ₹{inr(templateCart.amt)} — Edit options ▾
           </button>
         ) : inCartQty === 0 ? (
           <button
             onClick={multi ? () => onOpenDetail(product) : add}
-            className={`label-caps mx-4 mt-4 flex h-14 w-[calc(100%-2rem)] items-center justify-center gap-2.5 rounded-none bg-white text-[12px] text-black transition-transform active:scale-[0.98] lg:mx-12 lg:mt-8 lg:h-16 lg:w-[min(22rem,calc(100%-6rem))] lg:hover:bg-white/90 ${justAdded ? 'animate-pop' : ''}`}
+            className={`label-caps mx-4 mt-4 flex h-14 w-[calc(100%-2rem)] items-center justify-center gap-2.5 rounded-none bg-white text-[12px] text-black transition-transform active:scale-[0.98] lg:mx-12 lg:mt-8 lg:h-16 lg:w-[min(22rem,calc(100%-6rem))] lg:bg-neutral-900 lg:text-white lg:hover:bg-neutral-800 lg:dark:bg-white lg:dark:text-black lg:dark:hover:bg-white/90 ${justAdded ? 'animate-pop' : ''}`}
           >
             <BagPlusIcon className="h-5 w-5" />
             {multi ? `Choose options · from ₹${inr(product.price)}` : `Add to Cart · ₹${inr(product.price)}`}

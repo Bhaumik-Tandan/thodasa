@@ -34,7 +34,7 @@ export default function Search({ cart, onAddToCart, onOpenDetail, onClose }) {
       </div>
       <div className="min-w-0 flex-1">
         {badge && <span className="text-[10px] font-black uppercase tracking-wide text-violet-500">{badge}</span>}
-        <p className="truncate text-sm font-bold text-gray-900 dark:text-white">{p.baseName}</p>
+        <p className="line-clamp-2 text-sm font-bold leading-tight text-gray-900 dark:text-white">{p.baseName}</p>
         <p className="text-xs text-gray-500">
           {p.rating} ★ · {p.variantCount > 1 ? `${p.variantCount} options` : p.variantLabel}
         </p>

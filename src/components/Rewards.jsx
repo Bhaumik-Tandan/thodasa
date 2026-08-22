@@ -130,11 +130,11 @@ export default function Rewards({ onClose, onChange }) {
           <div className="grid grid-cols-2 gap-2">
             {g.achievements.map((a) => (
               <div key={a.id} className={`rounded-2xl border p-3 ${a.unlocked ? 'border-amber-300 bg-amber-50 dark:border-amber-500/40 dark:bg-amber-500/10' : 'border-gray-100 bg-white opacity-50 dark:border-zinc-800 dark:bg-zinc-900'}`}>
-                <div className="flex items-center gap-2">
-                  <span className={`text-2xl ${a.unlocked ? '' : 'grayscale'}`}>{a.emoji}</span>
+                <div className="flex items-start gap-2">
+                  <span className={`text-2xl leading-none ${a.unlocked ? '' : 'grayscale'}`}>{a.emoji}</span>
                   <div className="min-w-0">
-                    <p className="truncate text-sm font-bold text-gray-900 dark:text-white">{a.name}</p>
-                    <p className="truncate text-[11px] text-gray-500">{a.desc}</p>
+                    <p className="text-sm font-bold leading-tight text-gray-900 dark:text-white">{a.name}</p>
+                    <p className="mt-0.5 text-[11px] leading-tight text-gray-500">{a.desc}</p>
                   </div>
                 </div>
               </div>
