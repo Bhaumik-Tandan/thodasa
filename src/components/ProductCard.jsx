@@ -5,7 +5,8 @@ import { HeartIcon, ShareIcon, BagPlusIcon, TrashIcon, MinusIcon, PlusIcon } fro
 
 const fmtReviews = (n) => (n >= 1000 ? `${(n / 1000).toFixed(1)}k` : n)
 
-export default function ProductCard({ product, index, near = true, wished, onToggleWish, onAddToCart, onQty, onRemove, onSignal, inCartQty }) {
+export default function ProductCard({ product, index, near = true, wished, onToggleWish, onAddToCart, onQty, onRemove, onSignal, onOpenDetail, inCartQty }) {
+  const multi = product.variantCount > 1
   const [justAdded, setJustAdded] = useState(false)
   const [heartPop, setHeartPop] = useState(false)
   const [imgReady, setImgReady] = useState(false)
@@ -110,7 +111,7 @@ export default function ProductCard({ product, index, near = true, wished, onTog
           </span>
           <span className="mt-1 text-[11px] font-bold text-white drop-shadow">Share</span>
         </button>
-        <button onClick={add} aria-label="Quick add" className="flex flex-col items-center active:scale-90">
+        <button onClick={multi ? () => onOpenDetail(product) : add} aria-label="Quick add" className="flex flex-col items-center active:scale-90">
           <span className={`grid h-12 w-12 place-items-center rounded-full bg-black/35 text-white backdrop-blur-md ${justAdded ? 'animate-pop' : ''}`}>
             <BagPlusIcon />
           </span>
@@ -144,8 +145,16 @@ export default function ProductCard({ product, index, near = true, wished, onTog
             )}
           </div>
 
-          <h2 className="mt-2 text-2xl font-black leading-tight text-white drop-shadow-lg">{product.name}</h2>
+          <h2 className="mt-2 text-2xl font-black leading-tight text-white drop-shadow-lg">{product.baseName ?? product.name}</h2>
           <p className="mt-1 text-sm font-medium text-white/85 drop-shadow">{product.desc}</p>
+          {multi && (
+            <button
+              onClick={() => onOpenDetail(product)}
+              className="mt-1.5 rounded-full bg-white/20 px-3 py-1 text-xs font-bold text-white backdrop-blur-sm active:scale-95"
+            >
+              {product.variantCount} options · {product.variantLabel} ▾
+            </button>
+          )}
 
           <div className="mt-2 flex items-baseline gap-2">
             <span className="text-3xl font-black text-white drop-shadow-lg">₹{product.price}</span>
@@ -159,11 +168,11 @@ export default function ProductCard({ product, index, near = true, wished, onTog
         {/* full-width thumb-zone CTA: Add → quantity stepper with remove */}
         {inCartQty === 0 ? (
           <button
-            onClick={add}
+            onClick={multi ? () => onOpenDetail(product) : add}
             className={`mx-4 mt-3 flex h-14 w-[calc(100%-2rem)] items-center justify-center gap-2 rounded-2xl bg-gradient-to-r from-rose-500 to-orange-400 text-base font-extrabold text-white shadow-xl shadow-rose-500/40 transition-transform active:scale-[0.97] ${justAdded ? 'animate-pop animate-pulse-ring' : ''}`}
           >
             <BagPlusIcon className="h-5 w-5" />
-            Add to Cart · ₹{product.price}
+            {multi ? `Choose options · from ₹${product.price}` : `Add to Cart · ₹${product.price}`}
           </button>
         ) : (
           <div className={`mx-4 mt-3 flex h-14 w-[calc(100%-2rem)] items-stretch overflow-hidden rounded-2xl bg-gradient-to-r from-rose-500 to-orange-400 text-white shadow-xl shadow-rose-500/40 ${justAdded ? 'animate-pop' : ''}`}>

@@ -114,13 +114,40 @@ export const tasteSummary = (profile = loadProfile()) => {
     .sort((a, b) => b.pct - a.pct)
 }
 
+// The feed never repeats a product: variants collapse to one card per template
+// (the best-scoring variant represents it), and two adjacent cards never share
+// the same photo — both are what make it feel like a real catalog, not a loop.
+const dedupeByTemplate = (list) => {
+  const seen = new Set()
+  const out = []
+  for (const p of list) {
+    if (seen.has(p.templateId)) continue
+    seen.add(p.templateId)
+    out.push(p)
+  }
+  return out
+}
+
+const deAdjacentImages = (feed) => {
+  for (let i = 1; i < feed.length; i++) {
+    if (feed[i].img !== feed[i - 1].img) continue
+    for (let j = i + 1; j < feed.length; j++) {
+      if (feed[j].img !== feed[i - 1].img) {
+        ;[feed[i], feed[j]] = [feed[j], feed[i]]
+        break
+      }
+    }
+  }
+  return feed
+}
+
 // Rank the feed. Cold start (<3 signals) → curated launch picks, then shuffle.
 // Warm → exploit by similarity, but keep every 3rd slot for exploration.
 export const rankFeed = (products, profile = loadProfile()) => {
   if (profile.events < 3) {
     const picks = LAUNCH_PICKS.map((id) => products.find((p) => p.id === id)).filter(Boolean)
     const rest = shuffle(products.filter((p) => !LAUNCH_PICKS.includes(p.id)))
-    return [...picks, ...rest].map((p) => ({ ...p, reason: null }))
+    return deAdjacentImages(dedupeByTemplate([...picks, ...rest]).map((p) => ({ ...p, reason: null })))
   }
 
   const scored = products.map((p) => ({
@@ -131,17 +158,27 @@ export const rankFeed = (products, profile = loadProfile()) => {
       Math.min(profile.seen[p.id] ?? 0, 5) * 0.06, // fatigue: stop over-showing the same items
   }))
   scored.sort((a, b) => b.score - a.score)
+  const uniq = dedupeByTemplate(scored)
 
-  const exploit = scored.slice(0, Math.ceil(scored.length / 2))
-  const explore = shuffle(scored.slice(Math.ceil(scored.length / 2)))
+  const exploit = uniq.slice(0, Math.ceil(uniq.length / 2))
+  const explore = shuffle(uniq.slice(Math.ceil(uniq.length / 2)))
 
   const feed = []
   let e = 0, x = 0
-  for (let slot = 0; feed.length < scored.length; slot++) {
+  for (let slot = 0; feed.length < uniq.length; slot++) {
     const wantExplore = slot % 3 === 2 // every 3rd card = discovery
     if (wantExplore && x < explore.length) feed.push({ ...explore[x++], reason: 'fresh' })
     else if (e < exploit.length) feed.push({ ...exploit[e++], reason: e <= 5 ? 'forYou' : null })
     else if (x < explore.length) feed.push({ ...explore[x++], reason: 'fresh' })
   }
-  return feed
+  return deAdjacentImages(feed)
+}
+
+// Personalized shelf for the search page's empty state.
+export const pickedForYou = (heroes, n = 6, profile = loadProfile()) => {
+  if (profile.events < 3) return shuffle(heroes).slice(0, n)
+  return heroes
+    .map((p) => ({ ...p, score: cosine(profile.v, vecOf(p)) + Math.random() * 0.05 }))
+    .sort((a, b) => b.score - a.score)
+    .slice(0, n)
 }

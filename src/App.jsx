@@ -6,8 +6,10 @@ import Cart from './components/Cart'
 import Checkout from './components/Checkout'
 import Wishlist from './components/Wishlist'
 import Orders from './components/Orders'
+import Search from './components/Search'
+import ProductSheet from './components/ProductSheet'
 import Confetti from './components/Confetti'
-import { HeartIcon, BagIcon, MoonIcon, SunIcon } from './components/Icons'
+import { HeartIcon, BagIcon, MoonIcon, SunIcon, SearchIcon } from './components/Icons'
 import { startSession, recordSignal, dwellSignal, rankFeed } from './lib/taste'
 
 const load = (key, fallback) => {
@@ -30,7 +32,8 @@ export default function App() {
   const [cart, setCart] = useState(() => load('cart', {})) // id -> { product, qty }
   const [wishlist, setWishlist] = useState(() => new Set(load('wishlist', [])))
   const [orders, setOrders] = useState(() => load('orders', []))
-  const [view, setView] = useState('feed') // feed | wishlist | cart | checkout | orders
+  const [view, setView] = useState('feed') // feed | wishlist | cart | checkout | orders | search
+  const [detail, setDetail] = useState(null) // product whose variant sheet is open
   const [burstKey, setBurstKey] = useState(0)
   const [scrollToIndex, setScrollToIndex] = useState(null)
   const [cartBounce, setCartBounce] = useState(false)
@@ -110,6 +113,13 @@ export default function App() {
             </h1>
             <div className="flex items-center gap-2">
               <button
+                onClick={() => setView('search')}
+                aria-label="Search products"
+                className="grid h-9 w-9 place-items-center rounded-full bg-white/25 text-white backdrop-blur-md active:scale-90"
+              >
+                <SearchIcon className="h-4.5 w-4.5" />
+              </button>
+              <button
                 onClick={() => setView('wishlist')}
                 aria-label="Open wishlist"
                 className="flex items-center gap-1 rounded-full bg-white/25 px-2.5 py-1.5 text-xs font-bold text-white backdrop-blur-md active:scale-90"
@@ -151,6 +161,7 @@ export default function App() {
           onRemove={removeItem}
           onSignal={onSignal}
           onDwell={onDwell}
+          onOpenDetail={setDetail}
           cart={cart}
           scrollToIndex={scrollToIndex}
           onScrolled={() => setScrollToIndex(null)}
@@ -186,6 +197,19 @@ export default function App() {
           />
         )}
         {view === 'orders' && <Orders orders={orders} onClose={() => setView('feed')} />}
+        {view === 'search' && (
+          <Search cart={cart} onAddToCart={addToCart} onOpenDetail={setDetail} onClose={() => setView('feed')} />
+        )}
+        {detail && (
+          <ProductSheet
+            product={detail}
+            cart={cart}
+            onAddToCart={addToCart}
+            onQty={setQty}
+            onRemove={removeItem}
+            onClose={() => setDetail(null)}
+          />
+        )}
       </div>
     </div>
   )

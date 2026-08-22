@@ -252,13 +252,18 @@ export const LAUNCH_PICKS = []
 const build = () => {
   const out = []
   let id = 1
+  let templateId = 0
   for (const [brand, name, category, photo, emoji, desc, variants, launch] of TEMPLATES) {
+    templateId++
+    const baseName = `${brand === 'Generic' || brand === 'ThodaSa' ? '' : brand + ' '}${name}`.trim()
     let first = true
     for (const [label, price] of variants) {
       const h = hash(id)
       out.push({
-        id,
-        name: `${brand === 'Generic' || brand === 'ThodaSa' ? '' : brand + ' '}${name}${label ? ' — ' + label : ''}`.trim(),
+        id, templateId, baseName,
+        variantLabel: label,
+        variantCount: variants.length,
+        name: `${baseName}${label ? ' — ' + label : ''}`,
         brand, category, emoji, desc,
         price,
         deal: h % 10 < 3,
@@ -277,3 +282,12 @@ const build = () => {
 }
 
 export const PRODUCTS = build()
+
+// variants grouped per template — powers the variant picker sheet
+export const VARIANTS_BY_TEMPLATE = PRODUCTS.reduce((m, p) => {
+  ;(m[p.templateId] = m[p.templateId] || []).push(p)
+  return m
+}, {})
+
+// one representative "hero" SKU per template — the feed shows these
+export const TEMPLATE_HEROES = Object.values(VARIANTS_BY_TEMPLATE).map((list) => list[0])
