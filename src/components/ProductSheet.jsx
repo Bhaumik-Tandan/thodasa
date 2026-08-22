@@ -2,6 +2,7 @@ import { inr } from '../data/products'
 import { useState } from 'react'
 import { VARIANTS_BY_TEMPLATE } from '../data/products'
 import { TrashIcon, MinusIcon, PlusIcon, BagPlusIcon } from './Icons'
+import { canShop, shopTarget, shopUrl } from '../lib/shop'
 
 const HIGHLIGHTS = {
   snacks: ['Fresh stock, long expiry', 'Sealed brand packaging', 'Store in a cool, dry place'],
@@ -87,6 +88,27 @@ export default function ProductSheet({ product, cart, onAddToCart, onQty, onRemo
             🚚 Delivery in 2–4 days · Free over ₹499 · 7-day easy returns · COD available
           </p>
         </div>
+
+        {/* Nothing here is really for sale, so point people somewhere it is.
+            A search rather than a product link — see lib/shop.js. */}
+        {canShop(selected) && (
+          <a
+            href={shopUrl(selected)}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-4 flex items-center justify-between gap-3 rounded-2xl border border-gray-200 bg-gray-50 px-4 py-3 active:scale-[0.99] dark:border-zinc-700 dark:bg-zinc-800/60"
+          >
+            <span className="min-w-0">
+              <span className="block text-sm font-bold text-gray-900 dark:text-white">
+                Find it on {shopTarget(selected)}
+              </span>
+              <span className="block text-[11px] text-gray-500 dark:text-gray-400">
+                Opens a search — this demo doesn't sell anything
+              </span>
+            </span>
+            <span className="text-lg text-gray-400">↗</span>
+          </a>
+        )}
 
         <div className="mt-4 flex items-center justify-between gap-3">
           <div>
