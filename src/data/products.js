@@ -2,6 +2,8 @@
 // (flavour · size · colour) expand into 1000+ SKUs, the way real q-commerce
 // catalogs work. Every image is a verified Unsplash photo (hotlinking allowed),
 // shared across a template's variants — same as Lays 52g vs 90g sharing a shot.
+import DAILY from './daily.js'
+
 export const CATEGORIES = [
   { id: 'all', label: 'All' },
   { id: 'snacks', label: 'Snacks' },
@@ -1065,6 +1067,19 @@ TEMPLATES.push(
   ['Arun', 'Family Pack Neapolitan', 'icecream', 'iceCones2', '🍧', 'Teen flavour, ek dabba. Sab khush.', V(['1L', 265])],
 )
 
+// ——— Daily arrivals ———
+// Genuinely new real products, fetched by scripts/fetch-daily.mjs on a cron and
+// committed as data. Before this, the "New in" chip rotated a FIXED catalog by
+// date — so a returning visitor saw the same items reshuffled and had no reason
+// to come back twice. These carry a real addedOn date.
+for (const p of DAILY) {
+  TEMPLATES.push([
+    p.brand, p.name, p.cat, p.img, p.emoji || '🛒', p.desc,
+    V([p.qty || 'Std pack', p.price], ['Pack of 4', p.price * 4 - Math.max(1, Math.round(p.price / 10))]),
+    false, p.addedOn,
+  ])
+}
+
 const hash = (n) => { let h = n * 2654435761 % 2 ** 32; h = (h ^ (h >> 15)) * 2246822519 % 2 ** 32; return Math.abs(h ^ (h >> 13)) }
 
 export const LAUNCH_PICKS = []
@@ -1073,7 +1088,7 @@ const build = () => {
   const out = []
   let id = 1
   let templateId = 0
-  for (const [brand, name, category, photo, emoji, desc, variants, launch] of TEMPLATES) {
+  for (const [brand, name, category, photo, emoji, desc, variants, launch, addedOn] of TEMPLATES) {
     templateId++
     const skipBrand = brand === 'Generic' || brand === 'ThodaSa' || name.toLowerCase().startsWith(brand.toLowerCase())
     const baseName = `${skipBrand ? '' : brand + ' '}${name}`.trim()
@@ -1082,7 +1097,7 @@ const build = () => {
     for (const [label, price] of variants) {
       const h = hash(id)
       out.push({
-        id, templateId, baseName, slug,
+        id, templateId, baseName, slug, addedOn,
         variantLabel: label,
         variantCount: variants.length,
         name: `${baseName}${label ? ' — ' + label : ''}`,

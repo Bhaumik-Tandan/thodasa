@@ -117,7 +117,17 @@ export const tasteSummary = (profile = loadProfile()) => {
 // Daily drops: a rotating slice of the catalog is "new today" — same for every
 // visitor on a given date, different tomorrow. The return-visit hook.
 const daySeed = () => Number(new Date().toISOString().slice(0, 10).replace(/-/g, ''))
-export const isNewToday = (p) => (p.templateId * 131 + daySeed()) % 13 === 0
+
+// A product is "new" if it genuinely arrived in the last three days (see
+// scripts/fetch-daily.mjs). Older catalog items still get a rotating slice so
+// the chip is never empty on a day the fetch found nothing — but real arrivals
+// always take priority.
+const FRESH_MS = 3 * 864e5
+export const isNewToday = (p) => {
+  if (p.addedOn) return Date.now() - new Date(p.addedOn).getTime() < FRESH_MS
+  return (p.templateId * 131 + daySeed()) % 13 === 0
+}
+export const isRealArrival = (p) => Boolean(p.addedOn) && Date.now() - new Date(p.addedOn).getTime() < FRESH_MS
 
 // The feed never repeats a product: variants collapse to one card per template
 // (the best-scoring variant represents it), and two adjacent cards never share

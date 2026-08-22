@@ -1,0 +1,83 @@
+# Grows the catalog every day with genuinely new real products.
+#
+# Why a cron and not a runtime fetch: Open Food Facts 503s regularly, and the
+# app must never wait on a third-party API. This fetches on a schedule, commits
+# the result as data, and redeploys — so visitors always read a static file and
+# a bad OFF day just means no new arrivals, not a broken site.
+name: Daily catalog sync
+
+on:
+  schedule:
+    - cron: '30 1 * * *'   # 07:00 IST daily
+  workflow_dispatch:        # and on demand
+
+permissions:
+  contents: write
+
+concurrency:
+  group: daily-catalog
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - run: npm ci
+
+      - name: Fetch new products
+        id: fetch
+        env:
+          DAILY_COUNT: 15
+        run: |
+          node scripts/fetch-daily.mjs
+          if git diff --quiet -- src/data/daily.js; then
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+            echo "No new products today — nothing to deploy."
+          else
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+            node -e "const d=require('fs').readFileSync('src/data/daily.js','utf8');
+              console.log('total daily items:', (d.match(/\"code\"/g)||[]).length)"
+          fi
+
+      - name: Build
+        if: steps.fetch.outputs.changed == 'true'
+        run: npm run build
+
+      - name: Commit new arrivals
+        if: steps.fetch.outputs.changed == 'true'
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add src/data/daily.js
+          git commit -m "Daily catalog: new arrivals $(date -u +%Y-%m-%d)"
+          git push
+
+      - name: Deploy to GitHub Pages
+        if: steps.fetch.outputs.changed == 'true'
+        run: npx gh-pages -d dist -u "github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>" -m "daily catalog $(date -u +%Y-%m-%d)"
+
+      - name: Ping IndexNow with the new pages
+        if: steps.fetch.outputs.changed == 'true'
+        continue-on-error: true
+        run: |
+          node -e "
+          const key='6c109550781e4e32a2413eb154bdfedf';
+          (async () => {
+            const sm = await (await fetch('https://thodasa.com/sitemap.xml')).text();
+            const urls = [...sm.matchAll(/<loc>([^<]+)<\/loc>/g)].map(m => m[1]);
+            const r = await fetch('https://api.indexnow.org/IndexNow', {
+              method: 'POST', headers: {'Content-Type': 'application/json; charset=utf-8'},
+              body: JSON.stringify({ host:'thodasa.com', key,
+                keyLocation:\`https://thodasa.com/\${key}.txt\`, urlList: urls }),
+            });
+            console.log('IndexNow:', r.status, urls.length, 'urls');
+          })();"
