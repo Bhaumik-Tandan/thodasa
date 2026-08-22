@@ -57,11 +57,18 @@
   </head>
   <body>
     <div id="root">
-      <!-- crawlable fallback content, replaced by the app on load -->
+      <!-- Branded splash while the bundle loads (was raw paragraphs flashing
+           on slow connections). The SEO text stays crawlable but off-screen. -->
+      <div style="position:fixed;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;background:#0d0d0f">
+        <p style="margin:0;font-family:Georgia,'Times New Roman',serif;font-size:44px;color:#fff">Thoda<span style="font-style:italic;color:rgba(255,255,255,0.7)">Sa</span></p>
+        <p style="margin:14px 0 0;font-family:system-ui,sans-serif;font-size:11px;letter-spacing:0.16em;text-transform:uppercase;color:rgba(255,255,255,0.45)">Loading the feed…</p>
+      </div>
+      <div style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)">
       <h1>ThodaSa — thoda sa treat toh banta hai 🛍️</h1>
       <p>India's reels-style impulse shopping experience. Swipe through 1000+ fun finds under ₹499 — snacks, beauty minis, gadgets, home décor, kitchen finds, fashion accessories, stationery and quirky gifts. The feed learns your taste as you scroll, save and add to cart. A guilt-free meter judges your cart (lovingly). Concept demo — free, no login, nothing real is sold.</p>
       <p>Categories: Snacks · Beauty · Gadgets · Home · Kitchen · Fashion · Stationery · Quirky</p>
       <p>Popular finds: 2-minute masala noodles, TWS earbuds under ₹500, kajal, scented candles, thermosteel bottles, graphic tees, desi meme stickers, mystery gift boxes.</p>
+      </div>
     </div>
     <script type="module" src="/src/main.jsx"></script>
   </body>
