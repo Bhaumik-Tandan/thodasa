@@ -72,6 +72,19 @@ export default function App() {
   // URL in sync (replaceState, so the back button isn't spammed).
   useEffect(() => {
     const q = new URLSearchParams(location.search)
+    const pid = Number(q.get('p'))
+    const shared = pid ? PRODUCTS.find((x) => x.templateId === pid) : null
+
+    // A shared link has to deliver the product it promised, even when that
+    // product sits in a locked category — the lock gates *browsing* the tier,
+    // not one specific item someone was sent. Otherwise every link posted to
+    // social lands on an unlock wall instead of the thing being talked about.
+    if (shared) {
+      setDetail(shared)
+      if (!isLocked(shared.category, loadUnlocked())) setCategory(shared.category)
+      return
+    }
+
     const c = q.get('c')
     if (c && (c === 'new' || CATEGORIES.some((x) => x.id === c))) {
       if (isLocked(c, loadUnlocked())) setUnlockPrompt(c)
