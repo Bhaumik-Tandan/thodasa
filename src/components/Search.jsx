@@ -3,6 +3,7 @@ import { useMemo, useState } from 'react'
 import { PRODUCTS, TEMPLATE_HEROES } from '../data/products'
 import { pickedForYou } from '../lib/taste'
 import { SearchIcon, BagPlusIcon } from './Icons'
+import { searchProducts } from '../lib/fuzzy'
 
 const POPULAR = ['Noodles', 'Earbuds', 'Kajal', 'Chips', 'Bottle', 'Candle', 'Tee', 'Stickers', 'Perfume', 'Sunglasses']
 
@@ -10,21 +11,8 @@ export default function Search({ cart, onAddToCart, onOpenDetail, onClose }) {
   const [q, setQ] = useState('')
   const forYou = useMemo(() => pickedForYou(TEMPLATE_HEROES, 6), [])
 
-  const results = useMemo(() => {
-    const term = q.trim().toLowerCase()
-    if (!term) return []
-    const seen = new Set()
-    const out = []
-    for (const p of PRODUCTS) {
-      if (seen.has(p.templateId)) continue
-      if (`${p.baseName} ${p.category} ${p.desc}`.toLowerCase().includes(term)) {
-        seen.add(p.templateId)
-        out.push(p)
-        if (out.length >= 30) break
-      }
-    }
-    return out
-  }, [q])
+  // typo-tolerant: exact substring first, fuzzy fallback (see lib/fuzzy.js)
+  const results = useMemo(() => searchProducts(q, PRODUCTS, 30), [q])
 
   const Row = ({ p, badge }) => (
     <button onClick={() => onOpenDetail(p)} className="flex w-full items-center gap-3 rounded-2xl border border-gray-100 bg-white p-3 text-left active:scale-[0.99] dark:border-zinc-800 dark:bg-zinc-900">

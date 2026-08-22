@@ -1,8 +1,25 @@
+import { useState } from 'react'
 import { orderProgress, etaText, ORDER_STEPS } from '../lib/orderStatus'
+import { makeOrderCard, shareCardBlob, orderShareText, haulStats, waShare, xShare, SITE } from '../lib/share'
 
 const fmtDate = (iso) => new Date(iso).toLocaleString('en-IN', { day: 'numeric', month: 'short', hour: 'numeric', minute: '2-digit' })
 
 export default function Orders({ orders, onClose }) {
+  const [busy, setBusy] = useState(false)
+  const stats = orders.length ? haulStats(orders) : null
+
+  // One tap instead of a manual screenshot. On mobile the native share sheet
+  // attaches the PNG straight to X/WhatsApp/Instagram; elsewhere it downloads.
+  const shareHaul = async () => {
+    setBusy(true)
+    try {
+      const blob = await makeOrderCard(orders)
+      await shareCardBlob(blob, 'thodasa-haul.png', `${orderShareText(orders)} ${SITE}`)
+    } finally {
+      setBusy(false)
+    }
+  }
+
   return (
     <div className="animate-slide-up fixed inset-0 z-50 mx-auto flex max-w-md flex-col lg:max-w-none bg-gray-50 dark:bg-zinc-950">
       <header className="lg:mx-auto lg:w-full lg:max-w-3xl flex items-center justify-between border-b border-gray-100 bg-white px-4 py-3 pt-12 dark:border-zinc-800 dark:bg-zinc-900">
@@ -13,6 +30,36 @@ export default function Orders({ orders, onClose }) {
       </header>
 
       <div className="flex-1 lg:mx-auto lg:w-full lg:max-w-3xl space-y-3 overflow-y-auto p-3">
+        {stats && (
+          <div className="rounded-2xl bg-[#0b0b0d] p-4 text-white">
+            <p className="label-caps text-[9px] text-white/45">Total damage</p>
+            <p className="font-display mt-1 text-[34px] leading-none">₹{stats.pretty}</p>
+            <p className="mt-1 text-xs text-white/50">
+              {stats.qty} item{stats.qty === 1 ? '' : 's'} · {stats.orders} order{stats.orders === 1 ? '' : 's'}
+            </p>
+            <div className="mt-3.5 flex flex-wrap gap-2">
+              <button
+                onClick={shareHaul}
+                disabled={busy}
+                className="label-caps rounded-none bg-white px-4 py-2.5 text-[10px] text-black active:scale-[0.98] disabled:opacity-60"
+              >
+                {busy ? 'Making image…' : 'Share my haul'}
+              </button>
+              <button
+                onClick={() => waShare(orderShareText(orders), SITE)}
+                className="label-caps rounded-none border border-white/25 px-4 py-2.5 text-[10px] text-white active:scale-[0.98]"
+              >
+                WhatsApp
+              </button>
+              <button
+                onClick={() => xShare(orderShareText(orders), SITE)}
+                className="label-caps rounded-none border border-white/25 px-4 py-2.5 text-[10px] text-white active:scale-[0.98]"
+              >
+                Post on X
+              </button>
+            </div>
+          </div>
+        )}
         {orders.length === 0 && (
           <div className="grid h-full place-items-center text-center">
             <div>
