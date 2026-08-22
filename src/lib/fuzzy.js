@@ -50,40 +50,68 @@ const tokenScore = (needle, hay) => {
   return best
 }
 
+// Relevance scoring. The old version collected substring matches in catalog
+// order, so searching "tub" surfaced a face wash ("...tube mein") and a table
+// lamp ("...tubelight") above three products literally named Tub. Where the
+// match lands now decides the rank.
+const esc = (t) => t.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
+
+const fieldScore = (q, p) => {
+  const name = (p.baseName ?? p.name).toLowerCase()
+  const brand = (p.brand || '').toLowerCase()
+  const cat = (p.category || '').toLowerCase()
+  const desc = (p.desc || '').toLowerCase()
+  const word = new RegExp(`\\b${esc(q)}`)
+
+  if (name.startsWith(q)) return 100
+  if (word.test(name)) return 85            // whole word inside the name
+  if (brand.startsWith(q)) return 70
+  if (name.includes(q)) return 55           // mid-word in the name
+  if (brand.includes(q)) return 45
+  if (cat.includes(q)) return 40
+  if (word.test(desc)) return 22            // whole word in the description
+  if (desc.includes(q)) return 6            // mid-word in the description
+  return 0
+}
+
 export const searchProducts = (term, products, limit = 30) => {
   const q = term.trim().toLowerCase()
   if (!q) return []
 
   const seen = new Set()
-  const exact = []
+  const hits = []
   for (const p of products) {
     if (seen.has(p.templateId)) continue
-    if (`${p.baseName} ${p.brand} ${p.category} ${p.desc}`.toLowerCase().includes(q)) {
+    const sc = fieldScore(q, p)
+    if (sc > 0) {
       seen.add(p.templateId)
-      exact.push(p)
-      if (exact.length >= limit) return exact
+      // nudge better-rated items up among equal-relevance matches
+      hits.push({ p, score: sc + Math.min(4, (p.rating ?? 0) - 3) })
     }
   }
-  // Enough good hits — no need to fuzz.
-  if (exact.length >= 5) return exact
 
-  // Fuzzy pass over name/brand/category only (not descriptions) to bound cost.
+  // enough strong matches (name/brand level) — no need to fuzz
+  if (hits.filter((h) => h.score >= 40).length >= 5) {
+    hits.sort((a, b) => b.score - a.score)
+    return hits.slice(0, limit).map((h) => h.p)
+  }
+
+  // typo tolerance for whatever is left
   const qTokens = tokens(q).length ? tokens(q) : [q]
-  const scored = []
   for (const p of products) {
     if (seen.has(p.templateId)) continue
     const hay = tokens(`${p.baseName} ${p.brand} ${p.category}`)
     let score = 0
     for (const t of qTokens) {
       const s = tokenScore(t, hay)
-      if (!s) { score = 0; break } // every query word must match something
+      if (!s) { score = 0; break }   // every query word must match something
       score += s
     }
     if (score > 0) {
       seen.add(p.templateId)
-      scored.push({ p, score })
+      hits.push({ p, score: score * 0.4 })   // never outrank a real match
     }
   }
-  scored.sort((a, b) => b.score - a.score)
-  return [...exact, ...scored.slice(0, limit - exact.length).map((x) => x.p)]
+  hits.sort((a, b) => b.score - a.score)
+  return hits.slice(0, limit).map((h) => h.p)
 }

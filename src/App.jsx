@@ -80,12 +80,45 @@ export default function App() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
+  // Phone back button: opening any panel pushes a history entry so back closes
+  // it instead of leaving the site (people were being ejected from thodasa.com
+  // when they hit back inside the cart or search).
+  const openView = useCallback((v) => {
+    setView(v)
+    history.pushState({ ts: 'view', view: v }, '')
+  }, [])
+
+  const openDetail = useCallback((p) => {
+    setDetail(p)
+    history.pushState({ ts: 'detail', id: p.templateId }, '')
+  }, [])
+
+  const closeOverlay = useCallback(() => {
+    if (history.state?.ts) history.back() // popstate handler resets the view
+    else { setView('feed'); setDetail(null) }
+  }, [])
+
+  useEffect(() => {
+    const onPop = (e) => {
+      const st = e.state
+      setUnlockPrompt(null)
+      if (st?.ts === 'view') { setDetail(null); setView(st.view); return }
+      if (st?.ts === 'detail') {
+        const p = PRODUCTS.find((x) => x.templateId === st.id)
+        setView('feed'); setDetail(p ?? null); return
+      }
+      setDetail(null); setView('feed')
+    }
+    window.addEventListener('popstate', onPop)
+    return () => window.removeEventListener('popstate', onPop)
+  }, [])
+
   const syncUrl = useCallback((cat, templateId) => {
     const q = new URLSearchParams()
     if (cat && cat !== 'all') q.set('c', cat)
     if (templateId) q.set('p', String(templateId))
     const qs = q.toString()
-    history.replaceState(null, '', qs ? `/?${qs}` : '/')
+    history.replaceState(history.state, '', qs ? `/?${qs}` : '/')
   }, [])
 
   useEffect(() => save('dark', dark), [dark])
@@ -210,21 +243,21 @@ export default function App() {
             </h1>
             <div className="flex items-center gap-2">
               <button
-                onClick={() => setView('rewards')}
+                onClick={() => openView('rewards')}
                 aria-label="Rewards"
                 className="flex items-center gap-1 rounded-full bg-amber-400/90 px-2.5 py-1.5 text-xs font-black text-black backdrop-blur-md active:scale-90"
               >
                 🪙 <span key={gameTick}>{loadGame().coins.toLocaleString('en-IN')}</span>
               </button>
               <button
-                onClick={() => setView('search')}
+                onClick={() => openView('search')}
                 aria-label="Search products"
                 className="grid h-9 w-9 place-items-center rounded-full bg-white/25 text-white backdrop-blur-md active:scale-90 lg:bg-neutral-100 lg:text-neutral-700 lg:dark:bg-white/10 lg:dark:text-white"
               >
                 <SearchIcon className="h-4.5 w-4.5" />
               </button>
               <button
-                onClick={() => setView('wishlist')}
+                onClick={() => openView('wishlist')}
                 aria-label="Open wishlist"
                 className="flex items-center gap-1 rounded-full bg-white/25 px-2.5 py-1.5 text-xs font-bold text-white backdrop-blur-md active:scale-90 lg:bg-neutral-100 lg:text-neutral-700 lg:dark:bg-white/10 lg:dark:text-white"
               >
@@ -238,7 +271,7 @@ export default function App() {
                 {dark ? <SunIcon /> : <MoonIcon />}
               </button>
               <button
-                onClick={() => setView('cart')}
+                onClick={() => openView('cart')}
                 className={`relative flex h-9 items-center gap-1.5 rounded-full bg-white/25 px-2.5 text-white backdrop-blur-md active:scale-90 lg:bg-neutral-100 lg:text-neutral-700 lg:dark:bg-white/10 lg:dark:text-white ${cartBounce ? 'animate-wiggle' : ''}`}
                 aria-label="Open cart"
               >
@@ -257,7 +290,7 @@ export default function App() {
           </div>
           {/* live order strip — the only route to My Orders used to be the cart
               header, and placing an order empties the cart, so people lost it */}
-          {liveOrders.length > 0 && <OrderStatusBar order={liveOrders[0]} more={liveOrders.length - 1} onOpen={() => setView('orders')} />}
+          {liveOrders.length > 0 && <OrderStatusBar order={liveOrders[0]} more={liveOrders.length - 1} onOpen={() => openView('orders')} />}
         </header>
 
         {/* full-screen feed */}
@@ -272,7 +305,7 @@ export default function App() {
           onCategory={(cat) => { if (isLocked(cat, unlocked)) { setUnlockPrompt(cat); return } setCategory(cat); setScrollToIndex(0); syncUrl(cat, null) }}
           onDwell={onDwell}
           onActiveProduct={onActiveProduct}
-          onOpenDetail={setDetail}
+          onOpenDetail={openDetail}
           cart={cart}
           cartByTemplate={cartByTemplate}
           hasCartBar={cartCount > 0}
@@ -283,7 +316,7 @@ export default function App() {
         {/* persistent View Cart bar — the checkout path users kept missing */}
         {cartCount > 0 && view === 'feed' && (
           <button
-            onClick={() => setView('cart')}
+            onClick={() => openView('cart')}
             className="animate-slide-up absolute inset-x-3 bottom-3 z-30 flex items-center justify-between rounded-2xl bg-[#0c831f] px-5 py-3.5 text-white shadow-2xl shadow-green-900/40 active:scale-[0.99]"
           >
             <span className="flex items-center gap-2 text-sm font-bold">
@@ -310,7 +343,7 @@ export default function App() {
         )}
         <Confetti burstKey={burstKey} />
         {view === 'feed' && <Feedback />}
-        {view === 'rewards' && <Rewards onClose={() => setView('feed')} onChange={() => setGameTick((t) => t + 1)} />}
+        {view === 'rewards' && <Rewards onClose={closeOverlay} onChange={() => setGameTick((t) => t + 1)} />}
         {reward && (
           <div className="animate-slide-up pointer-events-none absolute left-1/2 top-20 z-[55] -translate-x-1/2 rounded-full bg-black/85 px-4 py-2 text-sm font-black text-amber-300 shadow-xl backdrop-blur">
             {reward.type === 'achievement' ? `${reward.achievement.emoji} ${reward.achievement.name} unlocked! +50 🪙` : reward.type === 'compliment' ? reward.reason : `🪙 ${reward.reason}`}
@@ -323,7 +356,7 @@ export default function App() {
             onToggleWish={toggleWish}
             onAddToCart={addToCart}
             cart={cart}
-            onClose={() => setView('feed')}
+            onClose={closeOverlay}
           />
         )}
         {view === 'cart' && (
@@ -331,22 +364,22 @@ export default function App() {
             cart={cart}
             onQty={setQty}
             onRemove={removeItem}
-            onCheckout={() => setView('checkout')}
-            onOrders={() => setView('orders')}
-            onClose={() => setView('feed')}
+            onCheckout={() => openView('checkout')}
+            onOrders={() => openView('orders')}
+            onClose={closeOverlay}
           />
         )}
         {view === 'checkout' && (
           <Checkout
             cart={cart}
-            onClose={() => setView('feed')}
-            onOrders={() => setView('orders')}
+            onClose={closeOverlay}
+            onOrders={() => openView('orders')}
             onOrderPlaced={placeOrder}
           />
         )}
-        {view === 'orders' && <Orders orders={orders} onClose={() => setView('feed')} />}
+        {view === 'orders' && <Orders orders={orders} onClose={closeOverlay} />}
         {view === 'search' && (
-          <Search cart={cart} onAddToCart={addToCart} onOpenDetail={setDetail} onClose={() => setView('feed')} />
+          <Search cart={cart} onAddToCart={addToCart} onOpenDetail={openDetail} onClose={closeOverlay} />
         )}
         {!welcomed && <Welcome onStart={() => { setWelcomed(true); save('welcomed', true) }} />}
         {detail && (
@@ -356,7 +389,7 @@ export default function App() {
             onAddToCart={addToCart}
             onQty={setQty}
             onRemove={removeItem}
-            onClose={() => setDetail(null)}
+            onClose={closeOverlay}
           />
         )}
       </div>

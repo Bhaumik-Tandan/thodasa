@@ -554,7 +554,7 @@ TEMPLATES.push(
   // ——— MORE ELECTRONICS ———
   ['Apple', 'iPhone 16', 'gadgets', 'phoneYellow', '📱', 'Base model, still a flex.', combo(['Ultramarine', 'Pink', 'Teal', 'Black'], V(['128GB', 79900], ['256GB', 89900]))],
   ['Apple', 'iPad Pro M4', 'gadgets', 'phoneDesk', '📱', 'Laptop replacement (for reels).', combo(['Space Black', 'Silver'], V(['11" 256GB', 99900], ['13" 512GB', 149900]))],
-  ['Dyson', 'Supersonic Hair Dryer', 'gadgets', 'headphones', '💨', 'Salon at home. Yes, worth it.', colors(['Fuchsia', 'Nickel', 'Blue Blush'], 45900), true],
+  ['Dyson', 'Supersonic Hair Dryer', 'gadgets', 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e2/Dyson_Supersonic_Hair_Dryer_1_2017-01-28.jpg/960px-Dyson_Supersonic_Hair_Dryer_1_2017-01-28.jpg', '💨', 'Salon at home. Yes, worth it.', colors(['Fuchsia', 'Nickel', 'Blue Blush'], 45900), true],
   ['Dyson', 'V15 Cordless Vacuum', 'gadgets', 'speaker', '🧹', 'Dust ka dushman. Laser detects it all.', V(['V12', 52900], ['V15 Detect', 65900])],
   ['Philips', 'Air Fryer', 'gadgets', 'kitchen', '🍟', 'Guilt-free fries, ghar pe.', combo(['4.1L', '6.2L'], colors(['Black', 'White'], 8999).map((c) => c))],
   ['Preethi', 'Mixer Grinder', 'gadgets', 'kitchen', '🔌', 'Har Indian kitchen ka MVP.', V(['750W 3-Jar', 4499], ['1000W 4-Jar', 6499])],
@@ -658,7 +658,7 @@ TEMPLATES.push(
   ['Kama Ayurveda', 'Rose Water', 'beauty', 'rose', '🌹', 'Pure gulab, no nasties.', V(['100ml', 495], ['200ml', 850])],
   ['Maybelline', 'Fit Me Foundation', 'beauty', 'skincareFlat', '🧴', 'Drugstore GOAT. Shade for everyone.', colors(['120', '128', '220', '230', '330'], 549)],
   ['e.l.f.', 'Halo Glow Filter', 'beauty', 'makeupFlat', '✨', 'That lit-from-within TikTok filter, IRL.', colors(['Fair', 'Light', 'Medium', 'Tan'], 1250)],
-  ['Dyson', 'Airwrap Styler', 'beauty', 'headphones', '💨', 'Curls, waves, blowout — no heat damage.', colors(['Nickel/Copper', 'Blue/Blush', 'Onyx/Gold'], 45900), true],
+  ['Dyson', 'Airwrap Styler', 'beauty', 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/Dyson_Supersonic_Hair_Dryer_3_2017-01-28.jpg/960px-Dyson_Supersonic_Hair_Dryer_3_2017-01-28.jpg', '💨', 'Curls, waves, blowout — no heat damage.', colors(['Nickel/Copper', 'Blue/Blush', 'Onyx/Gold'], 45900), true],
 )
 // ——— K-POP MERCH ———
 // ——— K-Pop: REAL album art via the iTunes/Apple Music catalog ———
