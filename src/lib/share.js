@@ -3,7 +3,10 @@
 // people actually post.
 export const SITE = 'https://thodasa.com'
 
-export const productUrl = (p) => `${SITE}/p/${p.slug}/`
+// Shares open the app directly (the ?p= deep link restores the product), which
+// also lets the static /p/<slug>/ pages drop their JS redirect and finally be
+// indexable in their own right.
+export const productUrl = (p) => `${SITE}/?p=${p.templateId}`
 
 export const productShareText = (p) =>
   `${p.emoji} ${p.baseName} — ₹${p.price}${p.deal ? ` (${Math.round((1 - p.price / p.mrp) * 100)}% off!)` : ''} on ThodaSa`
