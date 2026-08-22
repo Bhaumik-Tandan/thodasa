@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
 import ProductCard from './ProductCard'
 
-export default function Feed({ products, wishlist, onToggleWish, onAddToCart, onQty, onRemove, onSignal, onDwell, onOpenDetail, cart, scrollToIndex, onScrolled }) {
+export default function Feed({ products, wishlist, onToggleWish, onAddToCart, onQty, onRemove, onSignal, onDwell, onOpenDetail, cart, cartByTemplate = {}, hasCartBar = false, scrollToIndex, onScrolled }) {
   const ref = useRef(null)
   // Which card the user is on — drives windowed image loading so a cold
   // visitor downloads ~4 photos instead of the whole catalog at once.
@@ -99,6 +99,8 @@ export default function Feed({ products, wishlist, onToggleWish, onAddToCart, on
           onSignal={onSignal}
           onOpenDetail={onOpenDetail}
           inCartQty={cart[p.id]?.qty ?? 0}
+          templateCart={cartByTemplate[p.templateId]}
+          hasCartBar={hasCartBar}
         />
       ))}
       {/* end-of-feed loop card — only when the whole catalog is exhausted */}

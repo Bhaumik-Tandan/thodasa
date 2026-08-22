@@ -112,6 +112,13 @@ export default function App() {
 
   const cartCount = Object.values(cart).reduce((s, it) => s + it.qty, 0)
   const cartTotal = Object.values(cart).reduce((s, it) => s + it.product.price * it.qty, 0)
+  // per-template cart totals so multi-variant cards can show "In cart" state
+  const cartByTemplate = {}
+  for (const it of Object.values(cart)) {
+    const t = (cartByTemplate[it.product.templateId] ||= { qty: 0, amt: 0 })
+    t.qty += it.qty
+    t.amt += it.qty * it.product.price
+  }
 
   return (
     <div className={dark ? 'dark' : ''}>
@@ -174,9 +181,25 @@ export default function App() {
           onDwell={onDwell}
           onOpenDetail={setDetail}
           cart={cart}
+          cartByTemplate={cartByTemplate}
+          hasCartBar={cartCount > 0}
           scrollToIndex={scrollToIndex}
           onScrolled={() => setScrollToIndex(null)}
         />
+
+        {/* persistent View Cart bar — the checkout path users kept missing */}
+        {cartCount > 0 && view === 'feed' && (
+          <button
+            onClick={() => setView('cart')}
+            className="animate-slide-up absolute inset-x-3 bottom-3 z-30 flex items-center justify-between rounded-2xl bg-[#0c831f] px-5 py-3.5 text-white shadow-2xl shadow-green-900/40 active:scale-[0.99]"
+          >
+            <span className="flex items-center gap-2 text-sm font-bold">
+              <BagIcon className="h-5 w-5" />
+              {cartCount} item{cartCount > 1 ? 's' : ''} · ₹{cartTotal}
+            </span>
+            <span className="text-base font-extrabold">View Cart →</span>
+          </button>
+        )}
 
         <Confetti burstKey={burstKey} />
 

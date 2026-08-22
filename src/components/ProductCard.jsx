@@ -6,7 +6,7 @@ import { productUrl, productShareText, waShare, xShare, copyLink } from '../lib/
 
 const fmtReviews = (n) => (n >= 1000 ? `${(n / 1000).toFixed(1)}k` : n)
 
-export default function ProductCard({ product, index, near = true, wished, onToggleWish, onAddToCart, onQty, onRemove, onSignal, onOpenDetail, inCartQty }) {
+export default function ProductCard({ product, index, near = true, wished, onToggleWish, onAddToCart, onQty, onRemove, onSignal, onOpenDetail, inCartQty, templateCart, hasCartBar = false }) {
   const multi = product.variantCount > 1
   const [justAdded, setJustAdded] = useState(false)
   const [heartPop, setHeartPop] = useState(false)
@@ -130,7 +130,7 @@ export default function ProductCard({ product, index, near = true, wished, onTog
       )}
 
       {/* bottom info overlay */}
-      <div className="absolute inset-x-0 bottom-0 z-10 pb-6">
+      <div className={`absolute inset-x-0 bottom-0 z-10 ${hasCartBar ? 'pb-[74px]' : 'pb-6'}`}>
         <div className="px-4 pr-20">
           <div className="flex flex-wrap items-center gap-1.5 text-[11px] font-bold">
             {product.reason === 'forYou' && (
@@ -177,7 +177,14 @@ export default function ProductCard({ product, index, near = true, wished, onTog
         </div>
 
         {/* full-width thumb-zone CTA: Add → quantity stepper with remove */}
-        {inCartQty === 0 ? (
+        {multi && templateCart?.qty > 0 ? (
+          <button
+            onClick={() => onOpenDetail(product)}
+            className="mx-4 mt-3 flex h-14 w-[calc(100%-2rem)] items-center justify-center gap-2 rounded-2xl bg-[#0c831f] text-base font-extrabold text-white shadow-xl shadow-green-900/40 transition-transform active:scale-[0.97]"
+          >
+            ✓ {templateCart.qty} in cart · ₹{templateCart.amt} — Edit options ▾
+          </button>
+        ) : inCartQty === 0 ? (
           <button
             onClick={multi ? () => onOpenDetail(product) : add}
             className={`mx-4 mt-3 flex h-14 w-[calc(100%-2rem)] items-center justify-center gap-2 rounded-2xl bg-gradient-to-r from-rose-500 to-orange-400 text-base font-extrabold text-white shadow-xl shadow-rose-500/40 transition-transform active:scale-[0.97] ${justAdded ? 'animate-pop animate-pulse-ring' : ''}`}
