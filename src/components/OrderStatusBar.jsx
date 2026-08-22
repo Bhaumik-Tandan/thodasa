@@ -5,7 +5,7 @@ import { orderProgress, etaText, ORDER_STEPS } from '../lib/orderStatus'
 // reachable from the cart header or the checkout success screen — and since
 // placing an order empties the cart, people who tapped "Continue shopping"
 // had no way back and reported that their order had disappeared.
-export default function OrderStatusBar({ order, onOpen }) {
+export default function OrderStatusBar({ order, more = 0, onOpen }) {
   const [, tick] = useState(0)
   // re-render so the status visibly advances while the user is still here
   useEffect(() => {
@@ -39,6 +39,7 @@ export default function OrderStatusBar({ order, onOpen }) {
         <span className="block truncate text-[12px] text-white/70 lg:text-neutral-600 lg:dark:text-white/70">
           {p.delivered ? 'Left at your door' : `Arriving ${etaText(p.eta)}`}
           <span className="hidden sm:inline"> · Order #{order.id}</span>
+          {more > 0 && <span className="text-emerald-400"> · +{more} more order{more > 1 ? 's' : ''}</span>}
         </span>
       </span>
 

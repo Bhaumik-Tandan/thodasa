@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useMemo, useState } from 'react'
-import { PRODUCTS, TEMPLATE_HEROES, inr, inrShort } from './data/products'
+import { PRODUCTS, TEMPLATE_HEROES, CATEGORIES, inr, inrShort } from './data/products'
 import CategoryChips from './components/CategoryChips'
 import Feed from './components/Feed'
 import Cart from './components/Cart'
@@ -13,7 +13,7 @@ import Confetti from './components/Confetti'
 import Feedback from './components/Feedback'
 import Rewards from './components/Rewards'
 import OrderStatusBar from './components/OrderStatusBar'
-import { activeOrder } from './lib/orderStatus'
+import { activeOrders } from './lib/orderStatus'
 import { startDay, action as gameAction, onReward, load as loadGame } from './lib/gamify'
 import { HeartIcon, BagIcon, MoonIcon, SunIcon, SearchIcon } from './components/Icons'
 import { startSession, recordSignal, dwellSignal, rankFeed, isNewToday } from './lib/taste'
@@ -63,6 +63,24 @@ export default function App() {
     history.replaceState(null, '', '/')
   }, [])
 
+  // Shareable browse state: /?c=<category>&p=<templateId>. On load, restore
+  // the category and scroll the feed to that product; while browsing, keep the
+  // URL in sync (replaceState, so the back button isn't spammed).
+  useEffect(() => {
+    const q = new URLSearchParams(location.search)
+    const c = q.get('c')
+    if (c && (c === 'new' || CATEGORIES.some((x) => x.id === c))) setCategory(c)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
+
+  const syncUrl = useCallback((cat, templateId) => {
+    const q = new URLSearchParams()
+    if (cat && cat !== 'all') q.set('c', cat)
+    if (templateId) q.set('p', String(templateId))
+    const qs = q.toString()
+    history.replaceState(null, '', qs ? `/?${qs}` : '/')
+  }, [])
+
   useEffect(() => save('dark', dark), [dark])
   useEffect(() => save('cart', cart), [cart])
   useEffect(() => save('wishlist', [...wishlist]), [wishlist])
@@ -90,6 +108,19 @@ export default function App() {
   }, [category, tasteProfile])
   // how many of today's rotating drops exist — drives the "N new today" chip
   const newTodayCount = useMemo(() => TEMPLATE_HEROES.filter(isNewToday).length, [])
+
+  // restore ?p=<templateId> once the ranked feed exists
+  useEffect(() => {
+    const pid = new URLSearchParams(location.search).get('p')
+    if (!pid) return
+    const idx = products.findIndex((x) => x.templateId === Number(pid))
+    if (idx >= 0) setScrollToIndex(idx)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
+
+  const onActiveProduct = useCallback((product) => {
+    if (product) syncUrl(category, product.templateId)
+  }, [syncUrl, category])
 
   const onDwell = useCallback((product, ms) => {
     const signal = dwellSignal(ms)
@@ -149,7 +180,7 @@ export default function App() {
     playSound('order')
   }, [])
 
-  const liveOrder = activeOrder(orders)
+  const liveOrders = activeOrders(orders)
   const cartCount = Object.values(cart).reduce((s, it) => s + it.qty, 0)
   const cartTotal = Object.values(cart).reduce((s, it) => s + it.product.price * it.qty, 0)
   // per-template cart totals so multi-variant cards can show "In cart" state
@@ -214,11 +245,11 @@ export default function App() {
             </div>
           </div>
           <div className="lg:mx-auto lg:max-w-[1600px] lg:px-6">
-            <CategoryChips active={category} newCount={newTodayCount} onSelect={(c) => { setCategory(c); setScrollToIndex(0) }} />
+            <CategoryChips active={category} newCount={newTodayCount} onSelect={(c) => { setCategory(c); setScrollToIndex(0); syncUrl(c, null) }} />
           </div>
           {/* live order strip — the only route to My Orders used to be the cart
               header, and placing an order empties the cart, so people lost it */}
-          {liveOrder && <OrderStatusBar order={liveOrder} onOpen={() => setView('orders')} />}
+          {liveOrders.length > 0 && <OrderStatusBar order={liveOrders[0]} more={liveOrders.length - 1} onOpen={() => setView('orders')} />}
         </header>
 
         {/* full-screen feed */}
@@ -230,8 +261,9 @@ export default function App() {
           onQty={setQty}
           onRemove={removeItem}
           onSignal={onSignal}
-          onCategory={(cat) => { setCategory(cat); setScrollToIndex(0) }}
+          onCategory={(cat) => { setCategory(cat); setScrollToIndex(0); syncUrl(cat, null) }}
           onDwell={onDwell}
+          onActiveProduct={onActiveProduct}
           onOpenDetail={setDetail}
           cart={cart}
           cartByTemplate={cartByTemplate}

@@ -61,13 +61,19 @@ export const orderProgress = (order) => {
 
 // The most recent order still worth surfacing on the feed. Once an order has
 // been delivered for a while there's no reason to keep nagging about it.
-export const activeOrder = (orders) => {
-  if (!orders?.length) return null
+// All orders still in flight, soonest arrival first. If everything has been
+// delivered, the most recent one gets a short victory lap.
+export const activeOrders = (orders) => {
+  if (!orders?.length) return []
+  const undelivered = orders
+    .map((o) => ({ o, p: orderProgress(o) }))
+    .filter((x) => !x.p.delivered)
+    .sort((a, b) => a.p.eta - b.p.eta)
+    .map((x) => x.o)
+  if (undelivered.length) return undelivered
   const latest = orders[orders.length - 1]
   const p = orderProgress(latest)
-  // keep showing it until delivered, then for a short victory lap
-  if (!p.delivered) return latest
-  return Date.now() - p.eta.getTime() < 2 * 864e5 ? latest : null
+  return Date.now() - p.eta.getTime() < 2 * 864e5 ? [latest] : []
 }
 
 export const etaText = (d) =>

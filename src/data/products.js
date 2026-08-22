@@ -145,7 +145,7 @@ const TEMPLATES = [
   ['TwistO', 'Choco Chip Biscuits', 'snacks', 'cookieBowl', '🍪', 'Chai mein dunk karo, ya seedha poora pack.', combo(['Original', 'Chocolate', 'Strawberry'], V(['46g', 10], ['120g', 30]))],
   ['Noodly', 'Long Noodles', 'snacks', 'pasta', '🍝', 'Long noodles, longer slurps.', combo(['Magic Masala', 'Mood Masala'], V(['Pack of 4', 55], ['Pack of 8', 108]))],
   ['WokBoy', 'Schezwan Chutney', 'snacks', 'spices', '🔥', 'Sab kuch schezwan bana do. SAB KUCH.', V(['90g', 45], ['250g', 90])],
-  ['PopKarma', 'Instant Popcorn', 'snacks', 'bowl', '🍿', 'Movie night ka asli hero.', combo(['Butter', 'Butter Pepper', 'Golden Sizzle'], V(['30g', 15], ['59g', 30]))],
+  ['PopKarma', 'Instant Popcorn', 'snacks', 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c7/Bowl_of_Popcorn_%28Unsplash%29.jpg/960px-Bowl_of_Popcorn_%28Unsplash%29.jpg', '🍿', 'Movie night ka asli hero.', combo(['Butter', 'Butter Pepper', 'Golden Sizzle'], V(['30g', 15], ['59g', 30]))],
   ['Naav', 'Fruit Drink', 'snacks', 'smoothie', '🧃', 'Bachpan ka swaad, tetra pack mein.', combo(['Aamras', 'Jaljeera', 'Aam Panna', 'Anar'], V(['200ml', 30], ['1L', 99]))],
   ['FizzySaeb', 'Fizz Sparkling Drink', 'snacks', 'smoothie', '🍏', 'Cool drink for cool logon ke liye.', V(['250ml', 25], ['600ml', 45], ['1L', 70])],
   ['MorningMood', 'Classic Instant Coffee', 'snacks', 'mug', '☕', 'Deadline se pehle wala ritual.', V(['25g', 85], ['50g', 155], ['100g', 290])],
@@ -293,7 +293,7 @@ TEMPLATES.push(
   ['Generic', 'Hair Claw Clips', 'accessories', 'fashion', '🦋', 'Messy bun = 5 second hairstyle.', CLAW_COLORS.map((c) => [c, 129])],
   ['Generic', 'Fridge Magnet Cities', 'quirky', 'saleTags', '🧲', 'Travel memories, fridge pe framed.', combo(CITY_MAGNETS, V(['1 pc', 99], ['Any 3', 249]))],
   ['Generic', 'Wall Poster A3', 'home', 'interior', '🖼️', 'Deewar bolti hai, bas poster chahiye.', POSTERS.map((p) => [p, 149])],
-  ['SoupNation', 'Cup Soup Sachets', 'snacks', 'bowl', '🍲', '4 baje wali bhookh ka one-click answer.', combo(SOUP_FLAVORS, V(['1 Cup', 35], ['Pack of 4', 129]))],
+  ['SoupNation', 'Cup Soup Sachets', 'snacks', 'https://upload.wikimedia.org/wikipedia/commons/d/d5/CupSoupChicken.jpg', '🍲', '4 baje wali bhookh ka one-click answer.', combo(SOUP_FLAVORS, V(['1 Cup', 35], ['Pack of 4', 129]))],
   ['NachoNation', 'Nacho Crisps', 'snacks', 'fries', '🌮', 'Crunch jo poore room ko sunai de.', combo(['Cheese & Herbs', 'Sizzlin Jalapeno', 'Tikka Masala', 'Sea Salt'], V(['60g', 35], ['150g', 90]))],
   ['BakedYaar', 'Baked Chips', 'snacks', 'bakedBags', '🍟', 'Guilt-free karke khud ko convince karo.', combo(['Chilli Achaari', 'Noodle Masala', 'Dahi Papdi', 'Peri Peri'], V(['45g', 20], ['90g', 40]))],
   ['Noodly', 'Dark Fantasy Choco Fills', 'snacks', 'cookieChoco', '🍫', 'Andar se surprise. Har baar.', combo(['Choco Fills', 'Choco Nut', 'Coffee Fills'], V(['75g', 40], ['300g', 140]))],
@@ -953,6 +953,93 @@ TEMPLATES.push(
   ['Louis Vuitton', 'Two-Piece Wool Suit', 'fashion', 'suit', '💼', 'Shaadi mein sabse mehnga banda aap.', apparel(['Midnight', 'Charcoal', 'Black'], 385000)],
   ['Louis Vuitton', 'Denim Jeans', 'fashion', 'shJeansStack', '💼', 'Jeans ki keemat mein Activa aa jaaye.', apparel(['Indigo', 'Washed Black'], 98000)],
 )
+
+// ——— REAL FMCG via Open Food Facts ———
+// Genuinely real products: names, brands and pack photographs come from the
+// Open Food Facts open database (ODbL), pinned here at build time — the same
+// pattern as Open Library covers for books and iTunes art for K-pop albums.
+TEMPLATES.push(
+  ['Parle', 'Parle-G Biscuit', 'snacks', 'https://images.openfoodfacts.org/images/products/890/171/913/4845/front_en.11.full.jpg', '🍪', 'Asli wala. Scanned from a real pack.', V(['45gm', 17], ['Pack of 4', 67])],
+  ['Nestlé', 'Perrier', 'snacks', 'https://images.openfoodfacts.org/images/products/761/303/583/3272/front_en.149.full.jpg', '🛒', 'Real product, real barcode. Sach mein.', V(['1 l', 134], ['Pack of 4', 523])],
+  ['Sting', 'Sting Energy', 'grocery', 'https://images.openfoodfacts.org/images/products/890/208/000/0227/front_en.81.full.jpg', '🥤', 'Monthly list mein hamesha. Genuine pack.', V(['1', 124], ['Pack of 4', 484])],
+  ['Britannia', 'Bourbon', 'snacks', 'https://images.openfoodfacts.org/images/products/890/106/313/9329/front_en.14.full.jpg', '🍪', 'Household name, household bite.', V(['50g', 39], ['Pack of 4', 153])],
+  ['Red Bull', 'Energy Drink', 'snacks', 'https://images.openfoodfacts.org/images/products/000/009/016/2602/front_en.134.full.jpg', '🥤', 'Asli wala. Scanned from a real pack.', V(['250 ml', 100], ['Pack of 4', 390])],
+  ['Britannia', 'Good Day - Cashew Cookies', 'snacks', 'https://images.openfoodfacts.org/images/products/890/106/309/3522/front_en.28.full.jpg', '🍪', 'Real product, real barcode. Sach mein.', V(['52.5 g', 11], ['Pack of 4', 43])],
+  ['Britannia', 'Marie Gold Biscuit', 'snacks', 'https://images.openfoodfacts.org/images/products/890/106/316/2914/front_en.3.full.jpg', '🍪', 'Dukaan wala hi hai. Pack se scan kiya.', V(['64 g', 22], ['Pack of 4', 86])],
+  ['Balaji', 'Mung Dal', 'grocery', 'https://images.openfoodfacts.org/images/products/890/601/050/0559/front_es.15.full.jpg', '🌾', 'Real pack, real brand, real barcode.', V(['25 g', 29], ['Pack of 4', 114])],
+  ['Balaji Wafers', 'Masala Sev Murmura', 'snacks', 'https://images.openfoodfacts.org/images/products/890/601/050/0245/front_en.20.full.jpg', '🍟', 'Asli wala. Scanned from a real pack.', V(['40 g', 13], ['Pack of 4', 51])],
+  ['Balaji', 'Wafers panjabi tadka', 'snacks', 'https://images.openfoodfacts.org/images/products/890/601/050/2232/front_en.6.full.jpg', '🍟', 'Real product, real barcode. Sach mein.', V(['22g', 22], ['Pack of 4', 86])],
+  ['Balaji', 'Wheels', 'snacks', 'https://images.openfoodfacts.org/images/products/890/601/050/0900/front_en.20.full.jpg', '🛒', 'Dukaan wala hi hai. Pack se scan kiya.', V(['22 g', 69], ['Pack of 4', 270])],
+  ['Coca-Cola', 'Sprite', 'snacks', 'https://images.openfoodfacts.org/images/products/890/176/403/2912/front_en.26.full.jpg', '🥤', 'Household name, household bite.', V(['250 ml', 55], ['Pack of 4', 215])],
+  ['Balaji', 'Potato Wafers', 'snacks', 'https://images.openfoodfacts.org/images/products/890/601/050/0023/front_en.8.full.jpg', '🍟', 'Asli wala. Scanned from a real pack.', V(['Std pack', 16], ['Pack of 4', 63])],
+  ['Cadbury', 'Original Oreo', 'snacks', 'https://images.openfoodfacts.org/images/products/762/220/222/5512/front_en.16.full.jpg', '🍪', 'Real product, real barcode. Sach mein.', V(['Std pack', 26], ['Pack of 4', 102])],
+  ['Tata', 'Tata Salt', 'grocery', 'https://images.openfoodfacts.org/images/products/890/404/390/1015/front_en.34.full.jpg', '🌾', 'Monthly list mein hamesha. Genuine pack.', V(['1 kg', 153], ['Pack of 4', 597])],
+  ['Quaker', 'White Oats', 'grocery', 'https://images.openfoodfacts.org/images/products/500/010/847/8119/front_en.71.full.jpg', '🥣', 'Real pack, real brand, real barcode.', V(['1.73 - 3.00', 172], ['Pack of 4', 671])],
+  ['Bisleri', '1ltr MADE IN INDIA', 'snacks', 'https://images.openfoodfacts.org/images/products/890/601/729/0040/front_en.8.full.jpg', '🛒', 'Asli wala. Scanned from a real pack.', V(['1', 35], ['Pack of 4', 137])],
+  ['Parle', 'Happy happy - Parl', 'snacks', 'https://images.openfoodfacts.org/images/products/890/171/912/9988/front_en.14.full.jpg', '🛒', 'Real product, real barcode. Sach mein.', V(['31.5 g', 20], ['Pack of 4', 78])],
+  ['Cadbury', 'Dairy Milk', 'snacks', 'https://images.openfoodfacts.org/images/products/762/220/233/4009/front_en.9.full.jpg', '🍫', 'Dukaan wala hi hai. Pack se scan kiya.', V(['11 g', 47], ['Pack of 4', 184])],
+  ['Balaji', 'Chataka Pataka Tangy Tomato', 'snacks', 'https://images.openfoodfacts.org/images/products/890/601/050/0627/front_en.4.full.jpg', '🛒', 'Household name, household bite.', V(['Std pack', 38], ['Pack of 4', 149])],
+  ['Kinley', 'Mineral Water 1ltr', 'snacks', 'https://images.openfoodfacts.org/images/products/890/176/408/2405/front_en.40.full.jpg', '🥤', 'Asli wala. Scanned from a real pack.', V(['6', 43], ['Pack of 4', 168])],
+  ['Kissan', 'Fresh Tomato', 'grocery', 'https://images.openfoodfacts.org/images/products/890/103/089/7542/front_en.22.full.jpg', '🛒', 'Ghar ka regular. The real one.', V(['90g', 141], ['Pack of 4', 550])],
+  ['Balaji', 'Aloo Sev', 'snacks', 'https://images.openfoodfacts.org/images/products/890/601/050/0337/front_en.4.full.jpg', '🍟', 'Dukaan wala hi hai. Pack se scan kiya.', V(['22g', 25], ['Pack of 4', 98])],
+  ['Britannia', 'Jimjam 57g (57)', 'grocery', 'https://images.openfoodfacts.org/images/products/890/106/302/9255/front_en.9.full.jpg', '🍯', 'Real pack, real brand, real barcode.', V(['57 g', 12], ['Pack of 4', 47])],
+  ['Amul', 'Pasteurized Butter', 'grocery', 'https://images.openfoodfacts.org/images/products/890/126/201/0016/front_en.53.full.jpg', '🛒', 'Kitchen staple, asli brand.', V(['100.0 g', 100], ['Pack of 4', 390])],
+  ['Coca-Cola', 'Thumsup', 'snacks', 'https://images.openfoodfacts.org/images/products/890/176/404/2904/front_en.6.full.jpg', '🥤', 'Real product, real barcode. Sach mein.', V(['1 litter', 37], ['Pack of 4', 145])],
+  ['Amul', 'Masti Spiced Buttermilk 200ml', 'grocery', 'https://images.openfoodfacts.org/images/products/890/126/220/0196/front_en.54.full.jpg', '🛒', 'Monthly list mein hamesha. Genuine pack.', V(['200mL', 28], ['Pack of 4', 110])],
+  ['Balaji', 'Chataka pataka', 'snacks', 'https://images.openfoodfacts.org/images/products/890/601/050/2119/front_en.7.full.jpg', '🛒', 'Household name, household bite.', V(['25', 32], ['Pack of 4', 125])],
+  ['Balaji Namkeen', 'Balaji Farali Chivda', 'snacks', 'https://images.openfoodfacts.org/images/products/890/601/050/0078/front_en.5.full.jpg', '🛒', 'Asli wala. Scanned from a real pack.', V(['22g', 56], ['Pack of 4', 219])],
+  ['Kurkure', 'Puffcorn', 'snacks', 'https://images.openfoodfacts.org/images/products/890/149/136/6052/front_en.13.full.jpg', '🛒', 'Real product, real barcode. Sach mein.', V(['58 g', 21], ['Pack of 4', 82])],
+  ['Parle', 'Krackjack', 'snacks', 'https://images.openfoodfacts.org/images/products/890/171/913/5248/front_en.25.full.jpg', '🛒', 'Dukaan wala hi hai. Pack se scan kiya.', V(['56.7g', 42], ['Pack of 4', 164])],
+  ['Balaji', 'Wafers Crunchex', 'grocery', 'https://images.openfoodfacts.org/images/products/890/601/050/1570/front_en.13.full.jpg', '🍟', 'Real pack, real brand, real barcode.', V(['32g', 29], ['Pack of 4', 114])],
+  ['Ching\'s Secret', 'Schezwan Chutney', 'snacks', 'https://images.openfoodfacts.org/images/products/890/159/586/2962/front_en.51.full.jpg', '🛒', 'Asli wala. Scanned from a real pack.', V(['250 g', 34], ['Pack of 4', 133])],
+  ['Kitkat', 'Mini chocolate coated wafer', 'snacks', 'https://images.openfoodfacts.org/images/products/890/105/800/5233/front_en.26.full.jpg', '🍟', 'Real product, real barcode. Sach mein.', V(['11.9g', 33], ['Pack of 4', 129])],
+  ['Britannia', 'Marie Gold', 'snacks', 'https://images.openfoodfacts.org/images/products/890/106/302/3901/front_en.6.full.jpg', '🍪', 'Dukaan wala hi hai. Pack se scan kiya.', V(['250', 15], ['Pack of 4', 59])],
+  ['Coca-Cola', 'Diet coke', 'snacks', 'https://images.openfoodfacts.org/images/products/394/876/406/1257/front_en.4.full.jpg', '🛒', 'Household name, household bite.', V(['300 ml', 24], ['Pack of 4', 94])],
+  ['Parle', 'Monaco', 'snacks', 'https://images.openfoodfacts.org/images/products/890/171/913/5118/front_en.24.full.jpg', '🛒', 'Asli wala. Scanned from a real pack.', V(['Std pack', 42], ['Pack of 4', 164])],
+  ['Maggi', 'Masala magic', 'snacks', 'https://images.openfoodfacts.org/images/products/000/008/908/0153/front_en.8.full.jpg', '🛒', 'Real product, real barcode. Sach mein.', V(['6g', 14], ['Pack of 4', 55])],
+  ['Kurkure', 'Masala Munch', 'grocery', 'https://images.openfoodfacts.org/images/products/890/149/136/1026/front_en.51.full.jpg', '🍫', 'Monthly list mein hamesha. Genuine pack.', V(['41.5g', 30], ['Pack of 4', 117])],
+  ['Amul', 'Taaza Milky Milk', 'snacks', 'https://images.openfoodfacts.org/images/products/890/126/226/0121/front_en.52.full.jpg', '🛒', 'Household name, household bite.', V(['500 ml', 85], ['Pack of 4', 332])],
+  ['Hindustan Coca-Cola Beverages Pvt Ltd.', 'Maaza Origina', 'snacks', 'https://images.openfoodfacts.org/images/products/890/176/409/2305/front_en.4.full.jpg', '🥤', 'Asli wala. Scanned from a real pack.', V(['1.2L', 58], ['Pack of 4', 227])],
+  ['Balaji Wafers', 'Shing Bhujiya - Nimbu Chatka', 'snacks', 'https://images.openfoodfacts.org/images/products/890/601/050/0863/front_en.3.full.jpg', '🛒', 'Real product, real barcode. Sach mein.', V(['24g', 20], ['Pack of 4', 78])],
+  ['Balaji', 'Crunchm', 'snacks', 'https://images.openfoodfacts.org/images/products/890/601/050/0481/front_en.3.full.jpg', '🛒', 'Dukaan wala hi hai. Pack se scan kiya.', V(['Std pack', 11], ['Pack of 4', 43])],
+  ['Munch', 'Chocolat en poudre', 'snacks', 'https://images.openfoodfacts.org/images/products/123/456/789/0128/front_en.119.full.jpg', '🥤', 'Household name, household bite.', V(['2pcs', 77], ['Pack of 4', 301])],
+  ['Parle', 'Parle-G 250g', 'snacks', 'https://images.openfoodfacts.org/images/products/890/171/912/3870/front_en.27.full.jpg', '🛒', 'Asli wala. Scanned from a real pack.', V(['Std pack', 37], ['Pack of 4', 145])],
+  ['Coca-Cola Company', 'Sprite', 'snacks', 'https://images.openfoodfacts.org/images/products/394/876/403/2707/front_en.11.full.jpg', '🥤', 'Real product, real barcode. Sach mein.', V(['740ml', 43], ['Pack of 4', 168])],
+  ['Balaji Wafers', 'Sev Murmura', 'grocery', 'https://images.openfoodfacts.org/images/products/890/601/050/0214/front_en.8.full.jpg', '🍟', 'Monthly list mein hamesha. Genuine pack.', V(['25g', 28], ['Pack of 4', 110])],
+  ['Patanjali', 'Doodh Biscuits', 'snacks', 'https://images.openfoodfacts.org/images/products/890/603/201/8513/front_en.3.full.jpg', '🍪', 'Household name, household bite.', V(['35 g', 24], ['Pack of 4', 94])],
+  ['Balaji Wafers', 'Simply Salted', 'snacks', 'https://images.openfoodfacts.org/images/products/890/601/050/0016/front_en.24.full.jpg', '🌾', 'Asli wala. Scanned from a real pack.', V(['30 g', 26], ['Pack of 4', 102])],
+  ['Bingo', 'Tedhe Medhe', 'snacks', 'https://images.openfoodfacts.org/images/products/890/172/511/8938/front_en.29.full.jpg', '🛒', 'Real product, real barcode. Sach mein.', V(['19.2g', 37], ['Pack of 4', 145])],
+  ['Parle', 'Hide & Seek 120G', 'snacks', 'https://images.openfoodfacts.org/images/products/890/171/910/5913/front_en.22.full.jpg', '🛒', 'Dukaan wala hi hai. Pack se scan kiya.', V(['120g', 45], ['Pack of 4', 176])],
+  ['Kissan', 'Mixed Fruit Jam', 'grocery', 'https://images.openfoodfacts.org/images/products/890/103/083/1690/front_en.32.full.jpg', '🍯', 'Real pack, real brand, real barcode.', V(['200g', 93], ['Pack of 4', 363])],
+  ['Parle', 'Happy happy biscuit - Parle - Parle', 'snacks', 'https://images.openfoodfacts.org/images/products/890/171/913/0014/front_en.3.full.jpg', '🍪', 'Asli wala. Scanned from a real pack.', V(['63gr', 26], ['Pack of 4', 102])],
+  ['Lay\'s', 'Potato Chips', 'grocery', 'https://images.openfoodfacts.org/images/products/890/149/110/1844/front_en.32.full.jpg', '🍟', 'Ghar ka regular. The real one.', V(['50 g', 36], ['Pack of 4', 141])],
+  ['Haldiram\'s', 'Aloo bhujia', 'snacks', 'https://images.openfoodfacts.org/images/products/890/400/440/0731/front_en.4.full.jpg', '🛒', 'Dukaan wala hi hai. Pack se scan kiya.', V(['200 gm', 33], ['Pack of 4', 129])],
+  ['Haldirams', 'Haldiram\'s Soya sticks', 'snacks', 'https://images.openfoodfacts.org/images/products/890/400/440/0236/front_en.14.full.jpg', '🛒', 'Household name, household bite.', V(['22g', 77], ['Pack of 4', 301])],
+  ['Haldiram\'s', 'Moong Dal', 'grocery', 'https://images.openfoodfacts.org/images/products/890/400/440/3718/front_en.4.full.jpg', '🌾', 'Kitchen staple, asli brand.', V(['18', 25], ['Pack of 4', 98])],
+  ['Kellogg\'s', 'Chocos', 'grocery', 'https://images.openfoodfacts.org/images/products/890/149/900/8169/front_en.16.full.jpg', '🛒', 'Ghar ka regular. The real one.', V([',', 35], ['Pack of 4', 137])],
+  ['Balaji', 'Potato chips', 'snacks', 'https://images.openfoodfacts.org/images/products/890/601/050/0818/front_en.3.full.jpg', '🍟', 'Dukaan wala hi hai. Pack se scan kiya.', V(['100 gram', 20], ['Pack of 4', 78])],
+  ['Parle', 'Hide & Seek', 'snacks', 'https://images.openfoodfacts.org/images/products/890/171/911/7183/front_en.17.full.jpg', '🛒', 'Household name, household bite.', V(['100g', 14], ['Pack of 4', 55])],
+  ['Haldiram', 'Moong dal', 'grocery', 'https://images.openfoodfacts.org/images/products/890/400/440/3732/front_en.8.full.jpg', '🌾', 'Kitchen staple, asli brand.', V(['200 g', 66], ['Pack of 4', 258])],
+  ['Cadbury', 'Bourn Vita 500Gram Pauch', 'snacks', 'https://images.openfoodfacts.org/images/products/000/000/914/1209/front_en.18.full.jpg', '🛒', 'Real product, real barcode. Sach mein.', V(['Std pack', 20], ['Pack of 4', 78])],
+  ['Amul', 'Amul Butter', 'grocery', 'https://images.openfoodfacts.org/images/products/890/126/201/0320/front_en.3.full.jpg', '🛒', 'Monthly list mein hamesha. Genuine pack.', V(['200gm', 163], ['Pack of 4', 636])],
+  ['Lay\'s', 'Lays Classics Salted 20rs', 'grocery', 'https://images.openfoodfacts.org/images/products/890/149/110/1837/front_en.26.full.jpg', '🌾', 'Real pack, real brand, real barcode.', V(['50g', 10], ['Pack of 4', 39])],
+  ['Nestlé', 'Maggi noodles masala', 'snacks', 'https://images.openfoodfacts.org/images/products/890/105/800/0306/front_en.10.full.jpg', '🍜', 'Asli wala. Scanned from a real pack.', V(['560 gm', 44], ['Pack of 4', 172])],
+  ['Balaji Wafers', 'Scoopitos Masala Flavour', 'snacks', 'https://images.openfoodfacts.org/images/products/890/601/050/1228/front_en.5.full.jpg', '🛒', 'Real product, real barcode. Sach mein.', V(['Std pack', 16], ['Pack of 4', 63])],
+  ['Kissan', 'Fresh Tomato Ketchup', 'grocery', 'https://images.openfoodfacts.org/images/products/890/103/090/2932/front_en.5.full.jpg', '🍯', 'Monthly list mein hamesha. Genuine pack.', V(['850 g', 123], ['Pack of 4', 480])],
+  ['Kellogg\'s', 'Muesli Fruit, Nut & Seeds', 'grocery', 'https://images.openfoodfacts.org/images/products/890/149/901/0513/front_en.12.full.jpg', '🥣', 'Real pack, real brand, real barcode.', V(['750 g', 156], ['Pack of 4', 609])],
+  ['Haldiram', 'Phalhari Chiwda', 'snacks', 'https://images.openfoodfacts.org/images/products/890/400/440/2261/front_en.3.full.jpg', '🛒', 'Asli wala. Scanned from a real pack.', V(['45g', 97], ['Pack of 4', 379])],
+  ['Tata', 'Water 1ltr', 'snacks', 'https://images.openfoodfacts.org/images/products/890/375/400/0062/front_en.3.full.jpg', '🥤', 'Real product, real barcode. Sach mein.', V(['1000ml', 37], ['Pack of 4', 145])],
+  ['Kurkure', 'Solid Masti Masala Twisteez Crisps', 'snacks', 'https://images.openfoodfacts.org/images/products/890/149/136/6229/front_en.15.full.jpg', '🛒', 'Dukaan wala hi hai. Pack se scan kiya.', V(['61gm', 32], ['Pack of 4', 125])],
+  ['Britannia', 'Vita Marie Gold', 'snacks', 'https://images.openfoodfacts.org/images/products/890/106/301/4411/front_en.9.full.jpg', '🍪', 'Household name, household bite.', V(['Std pack', 44], ['Pack of 4', 172])],
+  ['Lay\'s', 'West Indies\' Hot \'n\' Sweet Chilli Potato Chips', 'grocery', 'https://images.openfoodfacts.org/images/products/890/149/150/3051/front_en.3.full.jpg', '🍟', 'Kitchen staple, asli brand.', V(['20g', 11], ['Pack of 4', 43])],
+  ['Aquafina Is Sold By Pepsico', 'Packaged Drinking Water', 'snacks', 'https://images.openfoodfacts.org/images/products/890/208/050/4060/front_en.28.full.jpg', '🥤', 'Real product, real barcode. Sach mein.', V(['1 l', 150], ['Pack of 4', 585])],
+  ['Frooti', 'Frooti 125ml', 'snacks', 'https://images.openfoodfacts.org/images/products/890/257/900/1360/front_en.64.full.jpg', '🥤', 'Dukaan wala hi hai. Pack se scan kiya.', V(['125 ml', 56], ['Pack of 4', 219])],
+  ['Parle Agro Appy Fizz', 'Appy Fizz', 'snacks', 'https://images.openfoodfacts.org/images/products/890/257/900/2039/front_en.3.full.jpg', '🛒', 'Household name, household bite.', V(['250ml', 24], ['Pack of 4', 94])],
+  ['Lay\'s', 'Lays american cream onion', 'grocery', 'https://images.openfoodfacts.org/images/products/890/149/110/1813/front_en.40.full.jpg', '🛒', 'Kitchen staple, asli brand.', V(['55 g', 24], ['Pack of 4', 94])],
+  ['The Coca-Cola Company', 'Coca-Cola', 'grocery', 'https://images.openfoodfacts.org/images/products/890/176/401/2914/front_en.29.full.jpg', '🥤', 'Ghar ka regular. The real one.', V(['250 ml', 48], ['Pack of 4', 188])],
+  ['Nestlé', 'KitKat win gold', 'snacks', 'https://images.openfoodfacts.org/images/products/890/105/890/3164/front_en.29.full.jpg', '🍫', 'Dukaan wala hi hai. Pack se scan kiya.', V(['38.5 gm', 22], ['Pack of 4', 86])],
+  ['Sunfeast Is Sold By Itc Limited', 'Dark Fantasy', 'snacks', 'https://images.openfoodfacts.org/images/products/890/172/501/5275/front_en.25.full.jpg', '🛒', 'Household name, household bite.', V(['69 g', 34], ['Pack of 4', 133])],
+)
 const hash = (n) => { let h = n * 2654435761 % 2 ** 32; h = (h ^ (h >> 15)) * 2246822519 % 2 ** 32; return Math.abs(h ^ (h >> 13)) }
 
 export const LAUNCH_PICKS = []
@@ -963,7 +1050,8 @@ const build = () => {
   let templateId = 0
   for (const [brand, name, category, photo, emoji, desc, variants, launch] of TEMPLATES) {
     templateId++
-    const baseName = `${brand === 'Generic' || brand === 'ThodaSa' ? '' : brand + ' '}${name}`.trim()
+    const skipBrand = brand === 'Generic' || brand === 'ThodaSa' || name.toLowerCase().startsWith(brand.toLowerCase())
+    const baseName = `${skipBrand ? '' : brand + ' '}${name}`.trim()
     const slug = baseName.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '') + '-' + templateId
     let first = true
     for (const [label, price] of variants) {

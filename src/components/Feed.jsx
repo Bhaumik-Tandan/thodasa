@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
 import ProductCard from './ProductCard'
 
-export default function Feed({ products, wishlist, onToggleWish, onAddToCart, onQty, onRemove, onSignal, onDwell, onOpenDetail, onCategory, cart, cartByTemplate = {}, hasCartBar = false, scrollToIndex, onScrolled }) {
+export default function Feed({ products, wishlist, onToggleWish, onAddToCart, onQty, onRemove, onSignal, onDwell, onOpenDetail, onCategory, onActiveProduct, cart, cartByTemplate = {}, hasCartBar = false, scrollToIndex, onScrolled }) {
   const ref = useRef(null)
   // Which card the user is on — drives windowed image loading so a cold
   // visitor downloads ~4 photos instead of the whole catalog at once.
@@ -21,7 +21,10 @@ export default function Feed({ products, wishlist, onToggleWish, onAddToCart, on
     const el = ref.current
     if (!el) return
     const idx = Math.round(el.scrollTop / el.clientHeight)
-    setActiveIndex((prev) => (prev === idx ? prev : idx))
+    setActiveIndex((prev) => {
+      if (prev !== idx) onActiveProduct?.(products[idx])
+      return prev === idx ? prev : idx
+    })
     if (idx > renderCount - 10) setRenderCount((c) => Math.min(products.length, c + BATCH))
   }
 
