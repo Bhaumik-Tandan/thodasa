@@ -111,6 +111,22 @@ export const TimerIcon = ({ className = 'h-3.5 w-3.5' }) => (
   </svg>
 )
 
+export const VolumeOnIcon = ({ className = 'h-5 w-5' }) => (
+  <svg viewBox="0 0 24 24" className={className} {...base}>
+    <path d="M11 5 6 9H2v6h4l5 4V5Z" />
+    <path d="M15.54 8.46a5 5 0 0 1 0 7.07" />
+    <path d="M18.07 5.93a9 9 0 0 1 0 12.14" />
+  </svg>
+)
+
+export const VolumeOffIcon = ({ className = 'h-5 w-5' }) => (
+  <svg viewBox="0 0 24 24" className={className} {...base}>
+    <path d="M11 5 6 9H2v6h4l5 4V5Z" />
+    <line x1="22" x2="16" y1="9" y2="15" />
+    <line x1="16" x2="22" y1="9" y2="15" />
+  </svg>
+)
+
 export const DiceIcon = ({ className = 'h-5 w-5' }) => (
   <svg viewBox="0 0 24 24" className={className} {...base}>
     <rect width="18" height="18" x="3" y="3" rx="4" />

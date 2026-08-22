@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useMemo, useState } from 'react'
-import { PRODUCTS } from './data/products'
+import { PRODUCTS, TEMPLATE_HEROES } from './data/products'
 import CategoryChips from './components/CategoryChips'
 import Feed from './components/Feed'
 import Cart from './components/Cart'
@@ -14,7 +14,8 @@ import Feedback from './components/Feedback'
 import Rewards from './components/Rewards'
 import { startDay, action as gameAction, onReward, load as loadGame } from './lib/gamify'
 import { HeartIcon, BagIcon, MoonIcon, SunIcon, SearchIcon } from './components/Icons'
-import { startSession, recordSignal, dwellSignal, rankFeed } from './lib/taste'
+import { startSession, recordSignal, dwellSignal, rankFeed, isNewToday } from './lib/taste'
+import { play as playSound } from './lib/sound'
 
 const load = (key, fallback) => {
   try {
@@ -71,6 +72,7 @@ export default function App() {
     startDay()
     const off = onReward((r) => {
       setGameTick((t) => t + 1)
+      playSound(r.type === 'achievement' ? 'level' : 'coin')
       setReward(r)
       setTimeout(() => setReward((cur) => (cur === r ? null : cur)), 2400)
     })
@@ -78,9 +80,14 @@ export default function App() {
   }, [])
   const [tasteProfile] = useState(() => startSession())
   const products = useMemo(() => {
-    const pool = category === 'all' ? PRODUCTS : PRODUCTS.filter((p) => p.category === category)
+    const pool =
+      category === 'all' ? PRODUCTS
+      : category === 'new' ? PRODUCTS.filter(isNewToday)
+      : PRODUCTS.filter((p) => p.category === category)
     return rankFeed(pool, tasteProfile)
   }, [category, tasteProfile])
+  // how many of today's rotating drops exist — drives the "N new today" chip
+  const newTodayCount = useMemo(() => TEMPLATE_HEROES.filter(isNewToday).length, [])
 
   const onDwell = useCallback((product, ms) => {
     const signal = dwellSignal(ms)
@@ -96,6 +103,7 @@ export default function App() {
     setTimeout(() => setCartBounce(false), 500)
     recordSignal(product, 'addToCart')
     gameAction('add')
+    playSound('add')
     const msg = COMPLIMENTS[Math.floor(Math.random() * COMPLIMENTS.length)]
     setReward({ type: 'compliment', reason: `${msg}  +15 🪙` })
     setTimeout(() => setReward((cur) => (cur?.type === 'compliment' ? null : cur)), 2200)
@@ -124,6 +132,7 @@ export default function App() {
         next.add(id)
         if (product) recordSignal(product, 'wishlist')
         gameAction('wish')
+        playSound('wish')
       }
       return next
     })
@@ -135,6 +144,7 @@ export default function App() {
     setBurstKey((k) => k + 1)
     for (const it of items) recordSignal(it.product, 'purchase')
     gameAction('order')
+    playSound('order')
   }, [])
 
   const cartCount = Object.values(cart).reduce((s, it) => s + it.qty, 0)
@@ -200,7 +210,7 @@ export default function App() {
               </button>
             </div>
           </div>
-          <CategoryChips active={category} onSelect={(c) => { setCategory(c); setScrollToIndex(0) }} />
+          <CategoryChips active={category} newCount={newTodayCount} onSelect={(c) => { setCategory(c); setScrollToIndex(0) }} />
         </header>
 
         {/* full-screen feed */}

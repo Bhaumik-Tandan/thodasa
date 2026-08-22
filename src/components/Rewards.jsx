@@ -1,10 +1,13 @@
 import { useState } from 'react'
 import { summary, canSpin, spin, SPIN_PRIZES, levelFor } from '../lib/gamify'
+import { play as playSound, isEnabled as soundOn, setEnabled as setSoundEnabled } from '../lib/sound'
+import { VolumeOnIcon, VolumeOffIcon } from './Icons'
 
 const WHEEL_COLORS = ['#f43f5e', '#fb923c', '#facc15', '#4ade80', '#22d3ee', '#818cf8', '#c084fc', '#f472b6']
 
 export default function Rewards({ onClose, onChange }) {
   const [g, setG] = useState(() => summary())
+  const [snd, setSnd] = useState(() => soundOn())
   const [spinning, setSpinning] = useState(false)
   const [deg, setDeg] = useState(0)
   const [won, setWon] = useState(null)
@@ -14,6 +17,7 @@ export default function Rewards({ onClose, onChange }) {
     if (spinning || !canSpin()) return
     setSpinning(true)
     setWon(null)
+    playSound('spin')
     const res = spin()
     if (!res) { setSpinning(false); return }
     // land the winning segment under the top pointer
@@ -57,6 +61,40 @@ export default function Rewards({ onClose, onChange }) {
             <span>{g.next ? `${g.next.min - g.xp} XP to ${g.next.name}` : 'Max level!'}</span>
           </div>
         </div>
+
+        {/* sound toggle — off by default so a first visit is never noisy */}
+        <button
+          onClick={() => setSnd(setSoundEnabled(!snd))}
+          aria-pressed={snd}
+          className="flex w-full items-center gap-3.5 rounded-3xl border border-gray-100 bg-white p-4 text-left transition-colors active:scale-[0.99] dark:border-zinc-800 dark:bg-zinc-900"
+        >
+          <span
+            className={`grid h-11 w-11 shrink-0 place-items-center rounded-2xl transition-colors ${
+              snd
+                ? 'bg-violet-100 text-violet-600 dark:bg-violet-500/15 dark:text-violet-300'
+                : 'bg-gray-100 text-gray-400 dark:bg-zinc-800 dark:text-gray-500'
+            }`}
+          >
+            {snd ? <VolumeOnIcon className="h-5 w-5" /> : <VolumeOffIcon className="h-5 w-5" />}
+          </span>
+          <span className="min-w-0 flex-1">
+            <span className="block text-sm font-bold text-gray-900 dark:text-white">Sound effects</span>
+            <span className="block text-xs text-gray-500 dark:text-gray-400">
+              {snd ? 'Coins, cart adds & spins' : 'Off — tap to turn on'}
+            </span>
+          </span>
+          <span
+            className={`relative h-7 w-12 shrink-0 rounded-full transition-colors duration-200 ${
+              snd ? 'bg-violet-600' : 'bg-gray-200 dark:bg-zinc-700'
+            }`}
+          >
+            <span
+              className={`absolute top-1 h-5 w-5 rounded-full bg-white shadow-sm transition-all duration-200 ${
+                snd ? 'left-6' : 'left-1'
+              }`}
+            />
+          </span>
+        </button>
 
         {/* daily spin */}
         <div className="rounded-3xl border border-gray-100 bg-white p-5 text-center dark:border-zinc-800 dark:bg-zinc-900">
