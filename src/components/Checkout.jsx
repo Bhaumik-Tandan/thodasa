@@ -69,7 +69,7 @@ export default function Checkout({ cart, onClose, onOrders, onOrderPlaced }) {
           </div>
           {delivery > 0 && (
             <p className="mt-1 text-xs font-medium text-emerald-600 dark:text-emerald-400">
-              ₹{499 - subtotal} aur add karo for free delivery!
+              ₹{inr(499 - subtotal)} aur add karo for free delivery!
             </p>
           )}
           <div className="mt-3 flex justify-between text-lg font-black text-gray-900 dark:text-white">

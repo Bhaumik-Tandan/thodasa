@@ -1,4 +1,4 @@
-import { PRODUCTS, CATEGORIES } from '../data/products'
+import { inr, PRODUCTS, CATEGORIES } from '../data/products'
 import { HeartIcon } from './Icons'
 import { tasteSummary } from '../lib/taste'
 import { makeShareCard, shareCardBlob } from '../lib/share'
@@ -74,8 +74,8 @@ export default function Wishlist({ wishlist, onToggleWish, onAddToCart, cart, on
               <p className="truncate text-sm font-semibold text-gray-900 dark:text-white">{p.name}</p>
               <p className="text-xs text-gray-500">{p.rating} ★ · {p.category}</p>
               <p className="mt-0.5 text-sm font-extrabold text-gray-900 dark:text-white">
-                ₹{p.price}
-                {p.deal && <span className="ml-1.5 text-xs font-semibold text-gray-400 line-through">₹{p.mrp}</span>}
+                ₹{inr(p.price)}
+                {p.deal && <span className="ml-1.5 text-xs font-semibold text-gray-400 line-through">₹{inr(p.mrp)}</span>}
               </p>
             </div>
             <div className="flex flex-col items-end gap-1.5">

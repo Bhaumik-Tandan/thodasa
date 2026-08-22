@@ -70,6 +70,7 @@ const I = {
   shaker: '1610824352934-c10d87b700cc',
   chips: '1613919113640-25732ec5e61f', chipsBowl: '1528751014936-863e6e7a319c', bakedBags: '1566478989037-eec170784d0b', fries: '1585109649139-366815a0d713',
   wayfarer: '1572635196237-14b3f281503f', beachShades: '1473496169904-658ba7c44d8a', fashion: '1483985988355-763728e1935b',
+  hangers: '1567401893414-76b7b1e5a7a5', storageUnit: '1595428774223-ef52624120d2',
   backpack: '1491637639811-60e2756cc1c7', navyBag: '1553062407-98eeb64c6a62', tanBag: '1590874103328-eac38a683ce7',
   sneaker: '1595950653106-6c9ebd614d3a', shoeFlat: '1511556820780-d912e42b4980', tee: '1554568218-0f1715e72254',
   wardrobe: '1445205170230-053b83016050', earrings: '1535632066927-ab7c9ab60908', pearls: '1515562141207-7a88fb7ce338',
@@ -87,6 +88,8 @@ const I = {
   bookPoetry: '1544947950-fa07a98d237f', bookStack: '1512820790803-83ca734da794', bookshelf: '1524995997946-a1c2e315a42f', booksRow: '1495446815901-a7297e633e8d',
   perfumeCoco: '1592945403244-b3fbafd7f539', perfumeAmber: '1615634260167-c8cdede054de',
   bagTeal: '1594223274512-ad4803739b7c', bagRed: '1584917865442-de89df76afd3',
+  bagFlap: '1566150905458-1bf1fc113f0d', bagTote: '1614179689702-355944cd0918', bagStud: '1559563458-527698bf5295',
+  bagCroc: '1575032617751-6ddec2089882', bagQuilt: '1548036328-c9fa89d128fa', bagBlush: '1591561954557-26941169b49e',
   villa: '1512917774080-9991f1c4c750', livingRoom: '1560448204-e02f11c3d0e2', modernHouse: '1613490493576-7fde63acd811',
   livingMin: '1600607687939-ce8a6c25118c', glassHouse: '1600585154340-be6161a56a0c', apartment: '1600566753086-00f18fb6b3ea',
   livingWarm: '1502672260266-1c1ef2d93688', livingSofa: '1583847268964-b28dc8f51f92', decorCorner: '1519710164239-da123dc03ef4',
@@ -194,7 +197,7 @@ const TEMPLATES = [
   ['Generic', 'Mini Cactus Planter', 'home', 'cactus', '🌵', 'Plants jo (shayad) nahi marenge.', V(['Single', 149], ['Duo Set', 249], ['Trio + Stand', 399])],
   ['Generic', 'Wall Décor Photo Frames', 'home', 'interior', '🖼️', 'Deewar ko bhi personality chahiye.', V(['Set of 3', 349], ['Set of 6', 499])],
   ['Gala', 'Spin Mop Refill', 'home', 'stool', '🧹', 'Ghar chamkega, back nahi dukhega.', V(['1 pc', 149], ['Pack of 2', 269])],
-  ['Generic', 'Bamboo Hangers', 'home', 'wardrobe', '👔', 'Wardrobe ko Pinterest banao.', V(['Pack of 5', 249], ['Pack of 10', 449])],
+  ['Generic', 'Bamboo Hangers', 'home', 'hangers', '👔', 'Wardrobe ko Pinterest banao.', V(['Pack of 5', 249], ['Pack of 10', 449])],
 
   // ——— KITCHEN ———
   ['ThandaGaram', 'Thermosteel Bottle', 'kitchen', 'bottle', '🍾', '24 hour garam ya thanda. Physics who?', combo(['Olive', 'Steel Silver', 'Black'], V(['350ml', 449], ['500ml', 499])), true],
@@ -394,14 +397,14 @@ TEMPLATES.push(
   ['Titan', 'Edge Slim', 'watches', 'watchMinimal', '⌚', 'India ka apna, elegantly thin.', colors(['Rose Gold', 'Silver', 'Black'], 15000)],
 
   // ——— LUXE BAGS ———
-  ['Louis Vuitton', 'Neverfull MM', 'luxe', 'bagTeal', '👜', 'The tote that started an obsession.', colors(BAG_COLORS, 220000), true],
-  ['Louis Vuitton', 'Speedy 25', 'luxe', 'bagRed', '👜', 'Audrey approved since forever.', colors(BAG_COLORS, 185000)],
-  ['Dior', 'Lady Dior', 'luxe', 'bagRed', '👜', 'Princess Diana ki choice.', colors(BAG_COLORS, 550000), true],
-  ['Dior', 'Saddle Bag', 'luxe', 'bagTeal', '👜', 'Y2K icon, back with a vengeance.', colors(BAG_COLORS, 380000)],
-  ['Gucci', 'GG Marmont', 'luxe', 'bagRed', '👜', 'That double-G clasp. Chef\'s kiss.', colors(BAG_COLORS, 280000)],
-  ['Chanel', 'Classic Flap', 'luxe', 'bagTeal', '👜', 'Investment piece, not a purchase.', colors(['Black Caviar', 'Beige', 'Bordeaux'], 1050000)],
-  ['Hermès', 'Birkin 30', 'luxe', 'bagTeal', '👜', 'Waitlist se bhi mushkil. The holy grail.', colors(['Noir', 'Étoupe', 'Gold', 'Rouge'], 2500000)],
-  ['Prada', 'Galleria Saffiano', 'luxe', 'bagRed', '👜', 'Structured, sharp, forever chic.', colors(BAG_COLORS, 320000)],
+  ['Louis Vuitton', 'Neverfull MM', 'luxe', 'bagTote', '👜', 'The tote that started an obsession.', colors(BAG_COLORS, 220000), true],
+  ['Louis Vuitton', 'Speedy 25', 'luxe', 'bagCroc', '👜', 'Audrey approved since forever.', colors(BAG_COLORS, 185000)],
+  ['Dior', 'Lady Dior', 'luxe', 'bagStud', '👜', 'Princess Diana ki choice.', colors(BAG_COLORS, 550000), true],
+  ['Dior', 'Saddle Bag', 'luxe', 'bagBlush', '👜', 'Y2K icon, back with a vengeance.', colors(BAG_COLORS, 380000)],
+  ['Gucci', 'GG Marmont', 'luxe', 'bagQuilt', '👜', 'That double-G clasp. Chef\'s kiss.', colors(BAG_COLORS, 280000)],
+  ['Chanel', 'Classic Flap', 'luxe', 'bagFlap', '👜', 'Investment piece, not a purchase.', colors(['Black Caviar', 'Beige', 'Bordeaux'], 1050000)],
+  ['Hermès', 'Birkin 30', 'luxe', 'bagTote', '👜', 'Waitlist se bhi mushkil. The holy grail.', colors(['Noir', 'Étoupe', 'Gold', 'Rouge'], 2500000)],
+  ['Prada', 'Galleria Saffiano', 'luxe', 'bagStud', '👜', 'Structured, sharp, forever chic.', colors(BAG_COLORS, 320000)],
 
   // ——— ART ———
   ['Studio Editions', 'Abstract Canvas', 'art', 'artAbstract1', '🎨', 'Statement wall, instant sophistication.', combo(['Sunset Chaos', 'Ocean Depths'], V(['A2 Framed', 8500], ['A1 Canvas', 18000], ['XL Gallery', 45000]))],
@@ -516,7 +519,7 @@ TEMPLATES.push(
   ['Generic', 'Resin Sculpture', 'home', 'interior', '🗿', 'Coffee-table conversation starter.', colors(['Abstract Face', 'Hands', 'Torso'], 2999)],
   ['Wakefit', 'Upholstered Bed', 'home', 'bedroom', '🛏️', 'Neend puri, back happy.', combo(['Queen', 'King'], colors(['Grey', 'Beige', 'Charcoal'], 24999).map((c) => c))],
   ['Generic', 'Bedsheet Set (Cotton)', 'home', 'bedroom', '🛌', 'Soft, breathable, 300 TC.', combo(['Double', 'King'], ['Sage Floral', 'Indigo Block', 'White Minimal', 'Boho'].map((c) => [c, 1299]))],
-  ['Nilkamal', 'Storage Cabinet', 'home', 'wardrobe', '🗄️', 'Clutter ka permanent solution.', colors(['White', 'Walnut', 'Grey'], 6999)],
+  ['Nilkamal', 'Storage Cabinet', 'home', 'storageUnit', '🗄️', 'Clutter ka permanent solution.', colors(['White', 'Walnut', 'Grey'], 6999)],
   ['Generic', 'Cushion Cover (Set of 5)', 'home', 'boho', '🛋️', 'Sofa refresh under a grand.', colors(['Mustard Boho', 'Velvet Green', 'Ikat', 'Solid Pastel'], 799)],
 
   // ——— WOMEN'S WESTERN WEAR ———
@@ -737,7 +740,7 @@ TEMPLATES.push(
   ['Cessna', 'Citation Longitude', 'jets', 'plane', '🛩️', 'Super-midsize workhorse of the rich.', JET_CFG(2000000000)],
   ['HondaJet', 'Elite II', 'jets', 'plane', '🛩️', 'Over-the-wing engines, entry-level flex.', JET_CFG(550000000)],
   ['Airbus', 'ACJ TwoTwenty', 'jets', 'jet1', '✈️', 'Airliner turned flying palace.', JET_CFG(7500000000)],
-  ['Bell', '429 Helicopter', 'jets', 'plane', '🚁', 'Beat the Mumbai traffic. Rooftop to rooftop.', colors(['Executive', 'VIP'], 600000000)],
+  ['Pilatus', 'PC-24 Super Versatile Jet', 'jets', 'plane', '✈️', 'Lands on grass strips. Goes anywhere.', colors(['Executive', 'VIP'], 600000000)],
   // Pagani
   ['Pagani', 'Huayra', 'cars', 'carRed', '🏎️', 'Art that does 383 km/h. Only a handful exist.', car(['Coupe', 'Roadster', 'BC'], CAR_COLORS, 250000000), true],
   ['Pagani', 'Utopia', 'cars', 'carBlue', '🏎️', 'Manual gearbox in a hypercar. Purist heaven.', car(['Standard', 'Bespoke'], CAR_COLORS, 280000000)],

@@ -1,3 +1,4 @@
+import { inr } from '../data/products'
 import { useState } from 'react'
 import { orderProgress, etaText, ORDER_STEPS } from '../lib/orderStatus'
 import { makeOrderCard, shareCardBlob, orderShareText, haulStats, waShare, xShare, SITE } from '../lib/share'
@@ -118,12 +119,12 @@ export default function Orders({ orders, onClose }) {
                   <span className="min-w-0 flex-1 truncate font-medium text-gray-700 dark:text-gray-200">
                     {it.product.name} <span className="text-gray-400">×{it.qty}</span>
                   </span>
-                  <span className="font-semibold text-gray-900 dark:text-white">₹{it.product.price * it.qty}</span>
+                  <span className="font-semibold text-gray-900 dark:text-white">₹{inr(it.product.price * it.qty)}</span>
                 </div>
               ))}
             </div>
             <div className="mt-2.5 flex justify-between border-t border-dashed border-gray-200 pt-2 text-sm font-extrabold text-gray-900 dark:border-zinc-700 dark:text-white">
-              <span>Total</span><span>₹{o.total}</span>
+              <span>Total</span><span>₹{inr(o.total)}</span>
             </div>
           </div>
         ))}
