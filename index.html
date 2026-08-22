@@ -17,7 +17,7 @@
       href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&family=Inter:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
-    <meta name="description" content="Scroll fun, sasta finds under ₹499 — reels-style shopping for your next impulse buy. Samosa squishies, sunset lamps, meme stickers aur bahut kuch." />
+    <meta name="description" content="Reels-style shopping for India — swipe one product per screen through 5,900+ finds, from ₹5 biscuits to Pagani hypercars. The feed learns your taste in your browser. Every price shows its GST and customs duty breakdown. Free concept demo, no login." />
 
     <!-- Open Graph / Twitter unfurl -->
     <meta property="og:type" content="website" />
@@ -46,6 +46,19 @@
     }
     </script>
 
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "ThodaSa",
+      "alternateName": "thodasa.com",
+      "url": "https://thodasa.com/",
+      "description": "Reels-style shopping concept for India. Swipe one product per screen; the feed learns your taste client-side. Every price shows its GST and customs-duty breakdown.",
+      "inLanguage": "en-IN",
+      "author": { "@type": "Person", "name": "Bhaumik Tandan", "url": "https://github.com/Bhaumik-Tandan" }
+    }
+    </script>
+
     <!-- Microsoft Clarity analytics (visitors, recordings, heatmaps) -->
     <script type="text/javascript">
       (function(c,l,a,r,i,t,y){
@@ -59,17 +72,33 @@
   </head>
   <body>
     <div id="root">
-      <!-- Branded splash while the bundle loads (was raw paragraphs flashing
-           on slow connections). The SEO text stays crawlable but off-screen. -->
-      <div style="position:fixed;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;background:#0d0d0f">
-        <p style="margin:0;font-family:Georgia,'Times New Roman',serif;font-size:44px;color:#fff">Thoda<span style="font-style:italic;color:rgba(255,255,255,0.7)">Sa</span></p>
-        <p style="margin:14px 0 0;font-family:system-ui,sans-serif;font-size:11px;letter-spacing:0.16em;text-transform:uppercase;color:rgba(255,255,255,0.45)">Loading the feed…</p>
-      </div>
-      <div style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)">
-      <h1>ThodaSa — thoda sa treat toh banta hai 🛍️</h1>
-      <p>India's reels-style impulse shopping experience. Swipe through 1000+ fun finds under ₹499 — snacks, beauty minis, gadgets, home décor, kitchen finds, fashion accessories, stationery and quirky gifts. The feed learns your taste as you scroll, save and add to cart. A guilt-free meter judges your cart (lovingly). Concept demo — free, no login, nothing real is sold.</p>
-      <p>Categories: Snacks · Beauty · Gadgets · Home · Kitchen · Fashion · Stationery · Quirky</p>
-      <p>Popular finds: 2-minute masala noodles, TWS earbuds under ₹500, kajal, scented candles, thermosteel bottles, graphic tees, desi meme stickers, mystery gift boxes.</p>
+      <!-- Real, VISIBLE landing content for the pre-React paint. It doubles as
+           what crawlers index: the previous version put this text in a 1px
+           clipped wrapper and showed only "Loading the feed…", which reads as a
+           parked domain (Google's AI Overview duly called the site inactive).
+           Hidden text is also a cloaking pattern. This is styled, honest, and
+           replaced by the app on mount. -->
+      <div style="position:fixed;inset:0;overflow:auto;background:#0d0d0f;color:#fff;font-family:Inter,system-ui,-apple-system,sans-serif">
+        <div style="max-width:44rem;margin:0 auto;padding:14vh 2rem 4rem">
+          <p style="margin:0;font-size:10px;letter-spacing:.18em;text-transform:uppercase;font-weight:600;color:rgba(255,255,255,.45)">Concept demo · India</p>
+          <h1 style="margin:1.4rem 0 0;font-family:'Playfair Display',Georgia,serif;font-weight:500;font-size:clamp(2.4rem,7vw,3.6rem);line-height:1.06">ThodaSa <span style="font-style:italic;color:rgba(255,255,255,.65)">— thoda sa treat toh banta hai</span></h1>
+          <p style="margin:1.4rem 0 0;font-size:1.05rem;line-height:1.65;color:rgba(255,255,255,.72);max-width:34rem">
+            Shopping, but it scrolls like reels. One product per screen, swipe up for the next —
+            5,900+ finds across 24 categories, from ₹5 biscuits to Pagani hypercars and Dubai islands.
+          </p>
+          <ul style="margin:2rem 0 0;padding:0;list-style:none;color:rgba(255,255,255,.62);font-size:.95rem;line-height:2">
+            <li>· The feed learns your taste as you scroll — entirely in your browser, no account, no server</li>
+            <li>· Every price breaks down its GST, customs duty, surcharge and cess</li>
+            <li>· Real products where real data exists: Parle-G and Amul packs, book covers, K-pop album art</li>
+            <li>· Live order tracking with realistic delivery dates. Nothing is actually sold</li>
+          </ul>
+          <p style="margin:2rem 0 0;font-size:.9rem;color:rgba(255,255,255,.5);line-height:1.8">
+            Categories: Snacks · Ice Cream · Grocery · Beauty · Gadgets · Home · Kitchen · Fashion ·
+            Accessories · Jewellery · Watches · Shoes · Luxe Bags · Books · Toys · Stationery · Art ·
+            K-Pop · Sport Bikes · Cars · Private Jets · Real Estate
+          </p>
+          <p style="margin:2.5rem 0 0;font-size:10px;letter-spacing:.18em;text-transform:uppercase;font-weight:600;color:rgba(255,255,255,.35)">Loading the feed…</p>
+        </div>
       </div>
     </div>
   </body>
