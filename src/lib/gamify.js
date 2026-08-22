@@ -145,6 +145,15 @@ export const spin = () => {
   return { idx, prize }
 }
 
+// Spend coins (category unlocks etc). Returns false if the balance is short.
+export const spendCoins = (amount) => {
+  const g = load()
+  if (g.coins < amount) return false
+  g.coins -= amount
+  save(g)
+  return true
+}
+
 export const summary = () => {
   const g = load()
   return { ...g, ...levelFor(g.xp), achievements: ACHIEVEMENTS.map((a) => ({ ...a, unlocked: !!g.ach[a.id] })) }

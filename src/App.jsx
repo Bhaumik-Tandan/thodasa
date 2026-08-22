@@ -13,6 +13,8 @@ import Confetti from './components/Confetti'
 import Feedback from './components/Feedback'
 import Rewards from './components/Rewards'
 import OrderStatusBar from './components/OrderStatusBar'
+import UnlockSheet from './components/UnlockSheet'
+import { LOCKS, isLocked, loadUnlocked, saveUnlocked } from './lib/unlocks'
 import { activeOrders } from './lib/orderStatus'
 import { startDay, action as gameAction, onReward, load as loadGame } from './lib/gamify'
 import { HeartIcon, BagIcon, MoonIcon, SunIcon, SearchIcon } from './components/Icons'
@@ -53,6 +55,8 @@ export default function App() {
   const [cartBounce, setCartBounce] = useState(false)
   const [gameTick, setGameTick] = useState(0)
   const [reward, setReward] = useState(null)
+  const [unlocked, setUnlocked] = useState(() => loadUnlocked())
+  const [unlockPrompt, setUnlockPrompt] = useState(null) // category awaiting unlock
 
   // deep link from static share pages: /p/<slug>/ redirects to /#p=<templateId>
   useEffect(() => {
@@ -69,7 +73,10 @@ export default function App() {
   useEffect(() => {
     const q = new URLSearchParams(location.search)
     const c = q.get('c')
-    if (c && (c === 'new' || CATEGORIES.some((x) => x.id === c))) setCategory(c)
+    if (c && (c === 'new' || CATEGORIES.some((x) => x.id === c))) {
+      if (isLocked(c, loadUnlocked())) setUnlockPrompt(c)
+      else setCategory(c)
+    }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
@@ -100,12 +107,13 @@ export default function App() {
   }, [])
   const [tasteProfile] = useState(() => startSession())
   const products = useMemo(() => {
+    const open = (p) => !isLocked(p.category, unlocked)
     const pool =
-      category === 'all' ? PRODUCTS
-      : category === 'new' ? PRODUCTS.filter(isNewToday)
+      category === 'all' ? PRODUCTS.filter(open)
+      : category === 'new' ? PRODUCTS.filter(isNewToday).filter(open)
       : PRODUCTS.filter((p) => p.category === category)
     return rankFeed(pool, tasteProfile)
-  }, [category, tasteProfile])
+  }, [category, tasteProfile, unlocked])
   // how many of today's rotating drops exist — drives the "N new today" chip
   const newTodayCount = useMemo(() => TEMPLATE_HEROES.filter(isNewToday).length, [])
 
@@ -245,7 +253,7 @@ export default function App() {
             </div>
           </div>
           <div className="lg:mx-auto lg:max-w-[1600px] lg:px-6">
-            <CategoryChips active={category} newCount={newTodayCount} onSelect={(c) => { setCategory(c); setScrollToIndex(0); syncUrl(c, null) }} />
+            <CategoryChips active={category} newCount={newTodayCount} locks={LOCKS} unlocked={unlocked} onSelect={(c) => { if (isLocked(c, unlocked)) { setUnlockPrompt(c); return } setCategory(c); setScrollToIndex(0); syncUrl(c, null) }} />
           </div>
           {/* live order strip — the only route to My Orders used to be the cart
               header, and placing an order empties the cart, so people lost it */}
@@ -261,7 +269,7 @@ export default function App() {
           onQty={setQty}
           onRemove={removeItem}
           onSignal={onSignal}
-          onCategory={(cat) => { setCategory(cat); setScrollToIndex(0); syncUrl(cat, null) }}
+          onCategory={(cat) => { if (isLocked(cat, unlocked)) { setUnlockPrompt(cat); return } setCategory(cat); setScrollToIndex(0); syncUrl(cat, null) }}
           onDwell={onDwell}
           onActiveProduct={onActiveProduct}
           onOpenDetail={setDetail}
@@ -286,6 +294,20 @@ export default function App() {
           </button>
         )}
 
+        {unlockPrompt && (
+          <UnlockSheet
+            category={unlockPrompt}
+            onUnlocked={(cat) => {
+              const next = new Set(unlocked); next.add(cat)
+              setUnlocked(next); saveUnlocked(next)
+              setUnlockPrompt(null)
+              setGameTick((t) => t + 1)
+              setBurstKey((k) => k + 1)
+              setCategory(cat); setScrollToIndex(0); syncUrl(cat, null)
+            }}
+            onClose={() => setUnlockPrompt(null)}
+          />
+        )}
         <Confetti burstKey={burstKey} />
         {view === 'feed' && <Feedback />}
         {view === 'rewards' && <Rewards onClose={() => setView('feed')} onChange={() => setGameTick((t) => t + 1)} />}

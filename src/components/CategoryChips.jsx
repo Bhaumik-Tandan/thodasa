@@ -1,6 +1,6 @@
 import { CATEGORIES } from '../data/products'
 
-export default function CategoryChips({ active, onSelect, newCount = 0 }) {
+export default function CategoryChips({ active, onSelect, newCount = 0, locks = {}, unlocked = new Set() }) {
   return (
     <div className="flex gap-2 overflow-x-auto px-4 py-2 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
       {/* Today's drops. The catalog already rotates a fresh slice every day —
@@ -31,7 +31,14 @@ export default function CategoryChips({ active, onSelect, newCount = 0 }) {
               : 'bg-black/25 text-white/85 backdrop-blur lg:bg-neutral-100 lg:text-neutral-600 lg:dark:bg-white/10 lg:dark:text-white/85'
           }`}
         >
-          {c.label}
+          {locks[c.id] && !unlocked.has(c.id) ? (
+            <span className="flex items-center gap-1.5 opacity-80">
+              <svg viewBox="0 0 24 24" className="h-3 w-3" fill="none" stroke="currentColor" strokeWidth="2.5"><rect width="14" height="10" x="5" y="11" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>
+              {c.label} · {locks[c.id]}
+            </span>
+          ) : (
+            c.label
+          )}
         </button>
       ))}
     </div>
