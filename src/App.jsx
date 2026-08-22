@@ -164,9 +164,9 @@ export default function App() {
     <div className={dark ? 'dark' : ''}>
       <div className="relative mx-auto h-dvh max-w-md overflow-hidden bg-gray-100 shadow-2xl lg:max-w-none lg:shadow-none dark:bg-zinc-950">
         {/* top bar — floats over the photo */}
-        <header className="absolute inset-x-0 top-0 z-30 bg-gradient-to-b from-black/40 to-transparent pb-6 pt-3 lg:bg-black/80 lg:pb-2 lg:backdrop-blur-xl">
+        <header className="absolute inset-x-0 top-0 z-30 bg-gradient-to-b from-black/40 to-transparent pb-6 pt-3 lg:border-b lg:border-neutral-200 lg:bg-white lg:from-transparent lg:pb-2 lg:dark:border-white/10 lg:dark:bg-[#0b0b0d]">
           <div className="flex items-center justify-between px-4 pb-1 lg:mx-auto lg:max-w-[1600px] lg:px-10">
-            <h1 className="text-xl font-black tracking-tight text-white drop-shadow">
+            <h1 className="text-xl font-black tracking-tight text-white drop-shadow lg:text-neutral-900 lg:drop-shadow-none lg:dark:text-white">
               Thoda<span className="text-amber-300">Sa</span>
             </h1>
             <div className="flex items-center gap-2">
@@ -180,27 +180,27 @@ export default function App() {
               <button
                 onClick={() => setView('search')}
                 aria-label="Search products"
-                className="grid h-9 w-9 place-items-center rounded-full bg-white/25 text-white backdrop-blur-md active:scale-90"
+                className="grid h-9 w-9 place-items-center rounded-full bg-white/25 text-white backdrop-blur-md active:scale-90 lg:bg-neutral-100 lg:text-neutral-700 lg:dark:bg-white/10 lg:dark:text-white"
               >
                 <SearchIcon className="h-4.5 w-4.5" />
               </button>
               <button
                 onClick={() => setView('wishlist')}
                 aria-label="Open wishlist"
-                className="flex items-center gap-1 rounded-full bg-white/25 px-2.5 py-1.5 text-xs font-bold text-white backdrop-blur-md active:scale-90"
+                className="flex items-center gap-1 rounded-full bg-white/25 px-2.5 py-1.5 text-xs font-bold text-white backdrop-blur-md active:scale-90 lg:bg-neutral-100 lg:text-neutral-700 lg:dark:bg-white/10 lg:dark:text-white"
               >
                 <HeartIcon className="h-3.5 w-3.5" /> {wishlist.size}
               </button>
               <button
                 onClick={() => setDark((d) => !d)}
                 aria-label="Toggle dark mode"
-                className="grid h-9 w-9 place-items-center rounded-full bg-white/25 text-white backdrop-blur-md active:scale-90"
+                className="grid h-9 w-9 place-items-center rounded-full bg-white/25 text-white backdrop-blur-md active:scale-90 lg:bg-neutral-100 lg:text-neutral-700 lg:dark:bg-white/10 lg:dark:text-white"
               >
                 {dark ? <SunIcon /> : <MoonIcon />}
               </button>
               <button
                 onClick={() => setView('cart')}
-                className={`relative flex h-9 items-center gap-1.5 rounded-full bg-white/25 px-2.5 text-white backdrop-blur-md active:scale-90 ${cartBounce ? 'animate-wiggle' : ''}`}
+                className={`relative flex h-9 items-center gap-1.5 rounded-full bg-white/25 px-2.5 text-white backdrop-blur-md active:scale-90 lg:bg-neutral-100 lg:text-neutral-700 lg:dark:bg-white/10 lg:dark:text-white ${cartBounce ? 'animate-wiggle' : ''}`}
                 aria-label="Open cart"
               >
                 <BagIcon className="h-5 w-5" />

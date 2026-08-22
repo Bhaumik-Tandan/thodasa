@@ -18,7 +18,7 @@ export default function OrderStatusBar({ order, onOpen }) {
   return (
     <button
       onClick={onOpen}
-      className="pointer-events-auto flex w-full items-center gap-3 border-b border-white/10 bg-black/75 px-4 py-2.5 text-left backdrop-blur-xl active:bg-black/85 lg:mx-auto lg:max-w-[1600px] lg:gap-4 lg:px-10"
+      className="pointer-events-auto flex w-full items-center gap-3 border-b border-white/10 bg-black/75 px-4 py-2.5 text-left backdrop-blur-xl active:bg-black/85 lg:border-neutral-200 lg:bg-neutral-50 lg:backdrop-blur-none lg:hover:bg-neutral-100 lg:dark:border-white/10 lg:dark:bg-black/75 lg:mx-auto lg:max-w-[1600px] lg:gap-4 lg:px-10"
     >
       {/* step pips */}
       <span className="flex shrink-0 items-center gap-1">
@@ -26,7 +26,7 @@ export default function OrderStatusBar({ order, onOpen }) {
           <span
             key={s.key}
             className={`h-1 rounded-full transition-all duration-500 ${
-              i <= p.index ? 'w-4 bg-emerald-400' : 'w-2 bg-white/25'
+              i <= p.index ? 'w-4 bg-emerald-500' : 'w-2 bg-white/25 lg:bg-neutral-300 lg:dark:bg-white/25'
             }`}
           />
         ))}
@@ -36,12 +36,12 @@ export default function OrderStatusBar({ order, onOpen }) {
         <span className="label-caps block text-[9px] text-emerald-400">
           {p.delivered ? 'Delivered' : p.step.label}
         </span>
-        <span className="block truncate text-[12px] text-white/70">
+        <span className="block truncate text-[12px] text-white/70 lg:text-neutral-600 lg:dark:text-white/70">
           Order #{order.id} · {p.delivered ? 'Left at your door' : `Arriving ${etaText(p.eta)}`}
         </span>
       </span>
 
-      <span className="label-caps shrink-0 text-[9px] text-white/60">Track ↗</span>
+      <span className="label-caps shrink-0 text-[9px] text-white/60 lg:text-neutral-500 lg:dark:text-white/60">Track ↗</span>
     </button>
   )
 }

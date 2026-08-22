@@ -10,8 +10,8 @@ export default function CategoryChips({ active, onSelect, newCount = 0 }) {
           onClick={() => onSelect('new')}
           className={`label-caps flex shrink-0 items-center gap-1.5 whitespace-nowrap rounded-none px-3.5 py-2 text-[10px] transition-colors duration-200 active:scale-95 ${
             active === 'new'
-              ? 'bg-white text-black'
-              : 'border border-white/50 text-white'
+              ? 'bg-white text-black lg:bg-neutral-900 lg:text-white lg:dark:bg-white lg:dark:text-black'
+              : 'border border-white/50 text-white lg:border-neutral-300 lg:text-neutral-700 lg:dark:border-white/50 lg:dark:text-white'
           }`}
         >
           <span className="relative flex h-1.5 w-1.5">
@@ -27,8 +27,8 @@ export default function CategoryChips({ active, onSelect, newCount = 0 }) {
           onClick={() => onSelect(c.id)}
           className={`label-caps whitespace-nowrap rounded-none px-3.5 py-2 text-[10px] transition-colors duration-200 active:scale-95 ${
             active === c.id
-              ? 'bg-white text-black'
-              : 'bg-black/25 text-white/85 backdrop-blur'
+              ? 'bg-white text-black lg:bg-neutral-900 lg:text-white lg:dark:bg-white lg:dark:text-black'
+              : 'bg-black/25 text-white/85 backdrop-blur lg:bg-neutral-100 lg:text-neutral-600 lg:dark:bg-white/10 lg:dark:text-white/85'
           }`}
         >
           {c.label}
