@@ -5,6 +5,7 @@ import { TrashIcon, MinusIcon, PlusIcon, BagPlusIcon } from './Icons'
 import { canShop, shopTarget, shopUrl } from '../lib/shop'
 import { deliveryEstimate } from '../lib/orderStatus'
 import { gstRate } from '../lib/tax'
+import { landedBreakdown } from '../lib/duty'
 
 const HIGHLIGHTS = {
   snacks: ['Fresh stock, long expiry', 'Sealed brand packaging', 'Store in a cool, dry place'],
@@ -21,6 +22,7 @@ const HIGHLIGHTS = {
 export default function ProductSheet({ product, cart, onAddToCart, onQty, onRemove, onClose }) {
   const variants = VARIANTS_BY_TEMPLATE[product.templateId] ?? [product]
   const [selectedId, setSelectedId] = useState(product.id)
+  const [showDuty, setShowDuty] = useState(false)
   const selected = variants.find((v) => v.id === selectedId) ?? variants[0]
   const qty = cart[selected.id]?.qty ?? 0
   const off = selected.deal ? Math.round((1 - selected.price / selected.mrp) * 100) : 0
@@ -90,6 +92,55 @@ export default function ProductSheet({ product, cart, onAddToCart, onQty, onRemo
             🚚 {deliveryEstimate(selected).label} · Free over ₹499 · 7-day easy returns · COD available
           </p>
         </div>
+
+        {/* Where the money actually goes. Duty is why imported goods cost what
+            they do in India, and this is the most interesting thing on the card. */}
+        {(() => {
+          const d = landedBreakdown(selected)
+          const Row = ({ label, amount, hint }) => (
+            <div className="flex items-baseline justify-between gap-3 py-1.5">
+              <span className="text-[12px] text-gray-500 dark:text-gray-400">
+                {label}
+                {hint && <span className="ml-1 text-[10px] text-gray-400">{hint}</span>}
+              </span>
+              <span className="shrink-0 text-[12px] font-semibold text-gray-800 dark:text-gray-100">₹{inr(amount)}</span>
+            </div>
+          )
+          return (
+            <div className="mt-4 overflow-hidden rounded-2xl border border-gray-200 dark:border-zinc-700">
+              <button
+                onClick={() => setShowDuty((v) => !v)}
+                className="flex w-full items-center justify-between px-4 py-3 text-left active:scale-[0.995]"
+              >
+                <span>
+                  <span className="block text-sm font-bold text-gray-900 dark:text-white">
+                    {d.imported ? 'Imported · why it costs this much' : 'Price breakdown'}
+                  </span>
+                  <span className="block text-[11px] text-gray-500 dark:text-gray-400">
+                    {d.govtShare}% of this price is duty &amp; tax
+                  </span>
+                </span>
+                <span className="shrink-0 text-gray-400">{showDuty ? '−' : '+'}</span>
+              </button>
+              {showDuty && (
+                <div className="border-t border-gray-100 px-4 py-2.5 dark:border-zinc-800">
+                  <Row label="Product value" hint={d.imported ? '(CIF, landed)' : ''} amount={d.assessable} />
+                  {d.bcd > 0 && <Row label="Basic customs duty" hint={`@ ${d.bcdRate}%`} amount={d.bcd} />}
+                  {d.sws > 0 && <Row label="Social welfare surcharge" hint="@ 10% of duty" amount={d.sws} />}
+                  {d.cess > 0 && <Row label="Compensation cess" hint={`@ ${d.cessRate}%`} amount={d.cess} />}
+                  <Row label={d.imported ? 'IGST' : 'GST'} hint={`@ ${d.igstRate}%`} amount={d.igst} />
+                  <div className="mt-1 flex justify-between border-t border-dashed border-gray-200 pt-2 text-[13px] font-extrabold text-gray-900 dark:border-zinc-700 dark:text-white">
+                    <span>You pay</span><span>₹{inr(d.mrp)}</span>
+                  </div>
+                  <p className="mt-2 text-[10px] leading-snug text-gray-400">
+                    Indicative slabs. MRP in India is inclusive of all taxes, so these are extracted from the
+                    listed price, not added to it.
+                  </p>
+                </div>
+              )}
+            </div>
+          )
+        })()}
 
         {/* Nothing here is really for sale, so point people somewhere it is.
             A search rather than a product link — see lib/shop.js. */}
