@@ -94,7 +94,7 @@ export default function ProductCard({ product, index, near = true, wished, onTog
       )}
 
       {/* right action rail — reels style */}
-      <div className="absolute bottom-56 right-3 z-10 flex flex-col items-center gap-5 lg:bottom-10 lg:right-12 lg:flex-row lg:gap-9">
+      <div className="absolute bottom-56 right-3 z-20 flex flex-col items-center gap-5 lg:bottom-10 lg:right-12 lg:flex-row lg:gap-9">
         <button onClick={wish} aria-label="Wishlist" className="flex flex-col items-center active:scale-90">
           <span className={`grid h-12 w-12 place-items-center rounded-full bg-black/35 backdrop-blur-md lg:bg-neutral-100 lg:dark:bg-black/35 ${heartPop ? 'animate-heart' : ''} ${wished ? 'text-rose-500' : 'text-white'}`}>
             <HeartIcon filled={wished} />
