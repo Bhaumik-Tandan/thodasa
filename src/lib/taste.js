@@ -20,7 +20,7 @@
 import { LAUNCH_PICKS } from '../data/products'
 
 const KEY = 'thodasa.taste'
-const CATS = ['snacks', 'beauty', 'gadgets', 'home', 'kitchen', 'accessories', 'stationery', 'quirky', 'cars', 'bikes', 'shoes', 'fashion', 'watches', 'luxe', 'art', 'books', 'realty', 'kpop']
+const CATS = ['snacks', 'beauty', 'gadgets', 'home', 'kitchen', 'accessories', 'stationery', 'quirky', 'cars', 'bikes', 'shoes', 'fashion', 'watches', 'luxe', 'art', 'books', 'realty', 'kpop', 'jets', 'toys']
 const DIMS = CATS.length + 5 // categories one-hot + price buckets (3) + deal + high-rating
 
 export const SIGNALS = {

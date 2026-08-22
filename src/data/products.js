@@ -22,6 +22,8 @@ export const CATEGORIES = [
   { id: 'books', label: 'Books' },
   { id: 'realty', label: 'Real Estate 🏝️' },
   { id: 'kpop', label: 'K-Pop 🎤' },
+  { id: 'jets', label: 'Private Jets ✈️' },
+  { id: 'toys', label: 'Toys 🧸' },
 ]
 
 export const GRADS = [
@@ -92,6 +94,8 @@ const I = {
   houseRust: '1600047509358-9dc75507daeb', int1: '1493809842364-78817add7ffb', int2: '1600607687920-4e2a09cf159d',
   kitchenInt: '1600585152220-90363fe7e115', int3: '1600210492486-724fe5c67fb0', int4: '1618221195710-dd6b41faaea6',
   int5: '1615529182904-14819c35db37', int6: '1615873968403-89e068629265', int7: '1502005229762-cf1b2da7c5d6', kitchenInt2: '1484154218962-a197022b5858',
+  jet1: '1540962351504-03099e0a754b', jet2: '1474302770737-173ee21bab63', plane: '1569629743817-70d8db6c323b',
+  lego1: '1585366119957-e9730b6d0f60', lego2: '1518946222227-364f22132616', hotwheels: '1558060370-d644479cb6f7', figure: '1608889175123-8ee362201f81',
 }
 
 // variant helpers
@@ -431,6 +435,23 @@ const BOOK_TITLES = [
   ['Becoming', 'Michelle Obama', 'Memoir with backbone.', '9781524763138'],
   ['The Palace of Illusions', 'Chitra Divakaruni', 'Mahabharata, Draupadi voice.', '9780330458535'],
   ['The Immortals of Meluha', 'Amish Tripathi', 'Shiva trilogy ka start.', '9789380658742'],
+  ['The Hunger Games', 'Suzanne Collins', 'May the odds be ever in your favour.', '9780439023481'],
+  ['The Catcher in the Rye', 'J.D. Salinger', 'Peak teenage angst, forever.', '9780316769488'],
+  ['Anna Karenina', 'Leo Tolstoy', 'Russian doorstopper worth it.', '9781400079988'],
+  ['Pride and Prejudice', 'Jane Austen', 'Mr. Darcy started a genre.', '9780141439518'],
+  ['The Da Vinci Code', 'Dan Brown', 'Airport thriller GOAT.', '9780307474278'],
+  ['The Little Prince', 'Antoine de Saint-Exupéry', 'Grown-ups never understand.', '9780156012195'],
+  ['The Maze Runner', 'James Dashner', 'WICKED is good.', '9780385737951'],
+  ['Divergent', 'Veronica Roth', 'Pick your faction.', '9780062024039'],
+  ['Harry Potter & the Sorcerer\'s Stone', 'J.K. Rowling', 'Where it all began.', '9780439554930'],
+  ['Harry Potter & the Cursed Child', 'Rowling & Thorne', 'The eighth story, on stage.', '9781338099133'],
+  ['The Way of Kings', 'Brandon Sanderson', 'Epic fantasy, 1000+ pages.', '9780765326355'],
+  ['A Game of Thrones', 'George R.R. Martin', 'Winter is coming.', '9780553573404'],
+  ['The Girl with the Dragon Tattoo', 'Stieg Larsson', 'Nordic noir icon.', '9780316055437'],
+  ['The Fault in Our Stars', 'John Green', 'Okay? Okay.', '9780525478812'],
+  ['Twilight', 'Stephenie Meyer', 'Team Edward or Team Jacob?', '9780316015844'],
+  ['Project Hail Mary', 'Andy Weir', 'Sci-fi you can\'t put down.', '9780593135204'],
+  ['Where the Crawdads Sing', 'Delia Owens', 'Marsh girl mystery.', '9781984822178'],
 ]
 for (const [title, author, desc, isbn] of BOOK_TITLES) {
   TEMPLATES.push(['Generic', title, 'books', cover(isbn), '📚', `by ${author} · ${desc}`, V(['Paperback', 299 + ((title.length * 7) % 200)], ['Hardcover', 599 + ((title.length * 11) % 300)], ['E-book', 149])])
@@ -617,6 +638,43 @@ KPOP.forEach((band) => {
   TEMPLATES.push([band, 'Poster Set', 'kpop', 'giftBox', '📜', `${band} wall art. Bedroom = shrine.`, V(['Set of 4', 599], ['Set of 8', 999])])
 })
 
+// ——— PRIVATE JETS + hypercars (Pagani) ———
+const JET_CFG = (base) => combo(['Standard Cabin', 'Executive', 'VVIP Suite'], ['Pearl White', 'Midnight Black', 'Custom Livery'].map((c) => [c, base]))
+TEMPLATES.push(
+  ['Gulfstream', 'G650ER', 'jets', 'jet1', '✈️', 'The billionaire benchmark. NY to Delhi non-stop.', JET_CFG(6500000000), true],
+  ['Bombardier', 'Global 7500', 'jets', 'jet2', '✈️', 'Four living zones at 51,000 ft.', JET_CFG(6000000000)],
+  ['Dassault', 'Falcon 8X', 'jets', 'jet1', '✈️', 'French elegance, trijet range.', JET_CFG(5200000000)],
+  ['Embraer', 'Praetor 600', 'jets', 'jet2', '🛩️', 'Mid-size, best-in-class cabin altitude.', JET_CFG(2200000000)],
+  ['Cessna', 'Citation Longitude', 'jets', 'plane', '🛩️', 'Super-midsize workhorse of the rich.', JET_CFG(2000000000)],
+  ['HondaJet', 'Elite II', 'jets', 'plane', '🛩️', 'Over-the-wing engines, entry-level flex.', JET_CFG(550000000)],
+  ['Airbus', 'ACJ TwoTwenty', 'jets', 'jet1', '✈️', 'Airliner turned flying palace.', JET_CFG(7500000000)],
+  ['Bell', '429 Helicopter', 'jets', 'plane', '🚁', 'Beat the Mumbai traffic. Rooftop to rooftop.', colors(['Executive', 'VIP'], 600000000)],
+  // Pagani
+  ['Pagani', 'Huayra', 'cars', 'carRed', '🏎️', 'Art that does 383 km/h. Only a handful exist.', car(['Coupe', 'Roadster', 'BC'], CAR_COLORS, 250000000), true],
+  ['Pagani', 'Utopia', 'cars', 'carBlue', '🏎️', 'Manual gearbox in a hypercar. Purist heaven.', car(['Standard', 'Bespoke'], CAR_COLORS, 280000000)],
+  ['Pagani', 'Zonda R', 'cars', 'carRed', '🏎️', 'Track-only legend. The scream of the gods.', car(['R', 'Revolucion'], CAR_COLORS, 300000000)],
+  ['Koenigsegg', 'Jesko', 'cars', 'carBlue', '🏎️', '1600 hp, 480 km/h target. Swedish madness.', car(['Absolut', 'Attack'], CAR_COLORS, 260000000)],
+  ['McLaren', 'P1', 'cars', 'carRed', '🏎️', 'Hybrid hypercar holy trinity member.', car(['Standard', 'GTR'], CAR_COLORS, 180000000)],
+)
+
+// ——— Toys: LEGO + Hot Wheels ———
+TEMPLATES.push(
+  ['LEGO', 'Star Wars Millennium Falcon', 'toys', 'lego1', '🚀', '7541 pieces. The Ultimate Collector Series flex.', V(['Standard 75257', 12999], ['UCS 75192', 84999])],
+  ['LEGO', 'Technic Bugatti Chiron', 'toys', 'lego1', '🏎️', '3599 pcs of working gearbox and W16 pistons.', V(['Standard', 39999])],
+  ['LEGO', 'Icons Titanic', 'toys', 'lego1', '🚢', '9090 pieces. 1.35 metres of legend.', V(['Standard 10294', 67999])],
+  ['LEGO', 'Harry Potter Hogwarts Castle', 'toys', 'lego2', '🏰', '6020 pieces of pure Potterhead joy.', V(['Standard 71043', 34999])],
+  ['LEGO', 'Architecture Taj Mahal', 'toys', 'lego2', '🕌', '5923 pieces. Desi pride on the shelf.', V(['Standard 21056', 32999])],
+  ['LEGO', 'City Police Station', 'toys', 'lego2', '🚓', 'Cops, robbers, a helicopter. Endless play.', V(['Standard 60316', 4999], ['Deluxe', 7499])],
+  ['LEGO', 'Botanicals Bouquet', 'toys', 'lego2', '💐', 'Flowers that never wilt. Aesthetic desk goals.', combo(['Flower Bouquet', 'Wildflower', 'Orchid'], V(['Standard', 4499]))],
+  ['LEGO', 'Minecraft The Crafting Table', 'toys', 'lego1', '⛏️', 'Blocky game, now actual blocks.', V(['Standard', 5999])],
+  ['LEGO', 'Ninjago Temple', 'toys', 'lego1', '🐉', 'Spinjitzu ninjas ka HQ.', V(['Standard', 8999])],
+  ['LEGO', 'Collectible Minifigure', 'toys', 'figure', '🧑‍🚀', 'Blind-box surprise. Gotta catch em all.', combo(['Series 25', 'Marvel', 'Disney 100'], V(['Single', 599], ['Full box of 6', 3299]))],
+  ['Hot Wheels', '20-Car Gift Pack', 'toys', 'hotwheels', '🚗', 'Twenty 1:64 diecast beasts. Bachpan unlocked.', V(['20-Pack', 1899], ['50-Pack', 4299])],
+  ['Hot Wheels', 'Ultimate Garage Playset', 'toys', 'hotwheels', '🅿️', 'Multi-level tower with a shark. Yes, a shark.', V(['City Garage', 12999])],
+  ['Hot Wheels', 'Track Builder Loop Kit', 'toys', 'hotwheels', '🌀', 'Loops, launchers, chaos on the floor.', combo(['Loop Kit', 'Stunt Box', 'Mega Loop'], V(['Standard', 1499], ['Deluxe', 2999]))],
+  ['Hot Wheels', 'Monster Trucks 5-Pack', 'toys', 'hotwheels', '👹', 'Giant tyres, tiny prices, big crashes.', V(['5-Pack', 2499])],
+  ['Hot Wheels', 'Premium Car Culture', 'toys', 'hotwheels', '🏁', 'Real Riders rubber tyres. Collector grade.', combo(['JDM Legends', 'Euro Speed', 'Modern Classics'], V(['Single', 799], ['5-Pack', 3499]))],
+)
 const hash = (n) => { let h = n * 2654435761 % 2 ** 32; h = (h ^ (h >> 15)) * 2246822519 % 2 ** 32; return Math.abs(h ^ (h >> 13)) }
 
 export const LAUNCH_PICKS = []
