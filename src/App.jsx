@@ -12,6 +12,8 @@ import Welcome from './components/Welcome'
 import Confetti from './components/Confetti'
 import Feedback from './components/Feedback'
 import Rewards from './components/Rewards'
+import OrderStatusBar from './components/OrderStatusBar'
+import { activeOrder } from './lib/orderStatus'
 import { startDay, action as gameAction, onReward, load as loadGame } from './lib/gamify'
 import { HeartIcon, BagIcon, MoonIcon, SunIcon, SearchIcon } from './components/Icons'
 import { startSession, recordSignal, dwellSignal, rankFeed, isNewToday } from './lib/taste'
@@ -147,6 +149,7 @@ export default function App() {
     playSound('order')
   }, [])
 
+  const liveOrder = activeOrder(orders)
   const cartCount = Object.values(cart).reduce((s, it) => s + it.qty, 0)
   const cartTotal = Object.values(cart).reduce((s, it) => s + it.product.price * it.qty, 0)
   // per-template cart totals so multi-variant cards can show "In cart" state
@@ -213,6 +216,9 @@ export default function App() {
           <div className="lg:mx-auto lg:max-w-[1600px] lg:px-6">
             <CategoryChips active={category} newCount={newTodayCount} onSelect={(c) => { setCategory(c); setScrollToIndex(0) }} />
           </div>
+          {/* live order strip — the only route to My Orders used to be the cart
+              header, and placing an order empties the cart, so people lost it */}
+          {liveOrder && <OrderStatusBar order={liveOrder} onOpen={() => setView('orders')} />}
         </header>
 
         {/* full-screen feed */}
