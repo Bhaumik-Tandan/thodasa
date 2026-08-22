@@ -20,6 +20,7 @@ export const CATEGORIES = [
   { id: 'luxe', label: 'Luxe Bags' },
   { id: 'art', label: 'Art' },
   { id: 'books', label: 'Books' },
+  { id: 'realty', label: 'Real Estate 🏝️' },
 ]
 
 export const GRADS = [
@@ -80,6 +81,10 @@ const I = {
   bookPoetry: '1544947950-fa07a98d237f', bookStack: '1512820790803-83ca734da794', bookshelf: '1524995997946-a1c2e315a42f', booksRow: '1495446815901-a7297e633e8d',
   perfumeCoco: '1592945403244-b3fbafd7f539', perfumeAmber: '1615634260167-c8cdede054de',
   bagTeal: '1594223274512-ad4803739b7c', bagRed: '1584917865442-de89df76afd3',
+  villa: '1512917774080-9991f1c4c750', livingRoom: '1560448204-e02f11c3d0e2', modernHouse: '1613490493576-7fde63acd811',
+  livingMin: '1600607687939-ce8a6c25118c', glassHouse: '1600585154340-be6161a56a0c', apartment: '1600566753086-00f18fb6b3ea',
+  livingWarm: '1502672260266-1c1ef2d93688', livingSofa: '1583847268964-b28dc8f51f92', decorCorner: '1519710164239-da123dc03ef4',
+  cottage: '1449844908441-8829872d2607',
 }
 
 // variant helpers
@@ -375,56 +380,148 @@ TEMPLATES.push(
   ['Atelier Original', 'Signed Original', 'art', 'artAbstract1', '🎨', 'One of one. Certificate included.', V(['Small Original', 85000], ['Large Original', 350000], ['Commission', 500000])],
 
   // ——— BOOKS ———
-  ['Generic', 'The Immortals of Meluha', 'books', 'bookStack', '📖', 'by Amish Tripathi · Shiva trilogy ka start. Binge-read alert.', V(['Paperback', 299], ['Hardcover', 599], ['E-book', 149])],
 )
 
 // Books: 40+ real titles × formats → 120+ SKUs, the easy way to 100s of items
+const cover = (isbn) => `https://covers.openlibrary.org/b/isbn/${isbn}-L.jpg?default=false`
 const BOOK_TITLES = [
-  ['Atomic Habits', 'James Clear', 'self-help ka GOAT. 1% better daily.', 'bookStack'],
-  ['Ikigai', 'García & Miralles', 'Japanese secret to a long happy life.', 'bookPoetry'],
-  ['The Psychology of Money', 'Morgan Housel', 'Paisa samajhne ki philosophy.', 'bookStack'],
-  ['Rich Dad Poor Dad', 'Robert Kiyosaki', 'Finance 101 for the rest of us.', 'bookStack'],
-  ['The Alchemist', 'Paulo Coelho', 'Chase your Personal Legend.', 'bookPoetry'],
-  ['Sapiens', 'Yuval Noah Harari', 'How we accidentally ran the planet.', 'booksRow'],
-  ['Wings of Fire', 'A.P.J. Abdul Kalam', 'Missile Man ki apni kahani.', 'booksRow'],
-  ['Milk and Honey', 'Rupi Kaur', 'Poetry that hits different at 2am.', 'bookPoetry'],
-  ['The God of Small Things', 'Arundhati Roy', 'Booker-winning Kerala saga.', 'booksRow'],
-  ['A Suitable Boy', 'Vikram Seth', '1300 pages, worth every one.', 'bookshelf'],
-  ['Train to Pakistan', 'Khushwant Singh', 'Partition, unflinching.', 'bookshelf'],
-  ['The White Tiger', 'Aravind Adiga', 'Booker winner, savage and sharp.', 'booksRow'],
-  ['Shoe Dog', 'Phil Knight', 'How Nike almost never happened.', 'bookStack'],
-  ['Zero to One', 'Peter Thiel', 'Startup contrarianism.', 'bookStack'],
-  ['Deep Work', 'Cal Newport', 'Focus is the new superpower.', 'bookStack'],
-  ['Thinking, Fast and Slow', 'Daniel Kahneman', 'Your brain\'s two systems.', 'booksRow'],
-  ['The Subtle Art of Not Giving a F*ck', 'Mark Manson', 'Counterintuitive self-help.', 'bookStack'],
-  ['1984', 'George Orwell', 'Big Brother is still watching.', 'bookshelf'],
-  ['To Kill a Mockingbird', 'Harper Lee', 'The classic that stays classic.', 'booksRow'],
-  ['The Great Gatsby', 'F. Scott Fitzgerald', 'Green light, old sport.', 'bookPoetry'],
-  ['Harry Potter Box Set', 'J.K. Rowling', 'All 7. Childhood in a box.', 'bookshelf'],
-  ['The Hobbit', 'J.R.R. Tolkien', 'There and back again.', 'bookshelf'],
-  ['Dune', 'Frank Herbert', 'The spice must flow.', 'booksRow'],
-  ['The Silent Patient', 'Alex Michaelides', 'Thriller you finish in one sit.', 'bookStack'],
-  ['Gone Girl', 'Gillian Flynn', 'Trust no one.', 'bookStack'],
-  ['It Ends with Us', 'Colleen Hoover', 'BookTok made this everywhere.', 'bookPoetry'],
-  ['The Midnight Library', 'Matt Haig', 'Every life you could have lived.', 'bookPoetry'],
-  ['Educated', 'Tara Westover', 'Memoir that floors you.', 'bookStack'],
-  ['Man\'s Search for Meaning', 'Viktor Frankl', 'Meaning through suffering.', 'bookPoetry'],
-  ['The Power of Now', 'Eckhart Tolle', 'Presence, packaged.', 'bookStack'],
-  ['Can\'t Hurt Me', 'David Goggins', 'Stay hard.', 'bookStack'],
-  ['The 5 AM Club', 'Robin Sharma', 'Own your morning.', 'bookStack'],
-  ['Verity', 'Colleen Hoover', 'The twist. Oh, the twist.', 'bookPoetry'],
-  ['A Thousand Splendid Suns', 'Khaled Hosseini', 'Will wreck you (lovingly).', 'booksRow'],
-  ['The Kite Runner', 'Khaled Hosseini', 'For you, a thousand times over.', 'booksRow'],
-  ['Norwegian Wood', 'Haruki Murakami', 'Melancholy, beautifully.', 'bookPoetry'],
-  ['The Book Thief', 'Markus Zusak', 'Narrated by Death himself.', 'bookshelf'],
-  ['Becoming', 'Michelle Obama', 'Memoir with backbone.', 'bookStack'],
-  ['Half Girlfriend', 'Chetan Bhagat', 'Airport-read comfort food.', 'booksRow'],
-  ['The Palace of Illusions', 'Chitra Divakaruni', 'Mahabharata, Draupadi\'s voice.', 'bookshelf'],
+  ['Atomic Habits', 'James Clear', 'self-help ka GOAT. 1% better daily.', '9780735211292'],
+  ['Ikigai', 'García & Miralles', 'Japanese secret to a long happy life.', '9781786330895'],
+  ['The Psychology of Money', 'Morgan Housel', 'Paisa samajhne ki philosophy.', '9780857197689'],
+  ['Rich Dad Poor Dad', 'Robert Kiyosaki', 'Finance 101 for the rest of us.', '9781612680194'],
+  ['The Alchemist', 'Paulo Coelho', 'Chase your Personal Legend.', '9780061122415'],
+  ['Sapiens', 'Yuval Noah Harari', 'How we accidentally ran the planet.', '9780062316097'],
+  ['Wings of Fire', 'A.P.J. Abdul Kalam', 'Missile Man ki apni kahani.', '9788173711466'],
+  ['Milk and Honey', 'Rupi Kaur', 'Poetry that hits different at 2am.', '9781449474256'],
+  ['The God of Small Things', 'Arundhati Roy', 'Booker-winning Kerala saga.', '9780679457312'],
+  ['A Suitable Boy', 'Vikram Seth', '1300 pages, worth every one.', '9780060786526'],
+  ['Train to Pakistan', 'Khushwant Singh', 'Partition, unflinching.', '9780802132215'],
+  ['The White Tiger', 'Aravind Adiga', 'Booker winner, savage and sharp.', '9781416562603'],
+  ['Shoe Dog', 'Phil Knight', 'How Nike almost never happened.', '9781501135910'],
+  ['Zero to One', 'Peter Thiel', 'Startup contrarianism.', '9780804139298'],
+  ['Deep Work', 'Cal Newport', 'Focus is the new superpower.', '9781455586691'],
+  ['Thinking, Fast and Slow', 'Daniel Kahneman', 'Your brain two systems.', '9780374533557'],
+  ['The Subtle Art of Not Giving a F*ck', 'Mark Manson', 'Counterintuitive self-help.', '9780062457714'],
+  ['1984', 'George Orwell', 'Big Brother is still watching.', '9780451524935'],
+  ['To Kill a Mockingbird', 'Harper Lee', 'The classic that stays classic.', '9780061120084'],
+  ['The Great Gatsby', 'F. Scott Fitzgerald', 'Green light, old sport.', '9780743273565'],
+  ['Harry Potter Box Set', 'J.K. Rowling', 'All 7. Childhood in a box.', '9781408856772'],
+  ['The Hobbit', 'J.R.R. Tolkien', 'There and back again.', '9780547928227'],
+  ['Dune', 'Frank Herbert', 'The spice must flow.', '9780441172719'],
+  ['The Silent Patient', 'Alex Michaelides', 'Thriller you finish in one sit.', '9781250301697'],
+  ['Gone Girl', 'Gillian Flynn', 'Trust no one.', '9780307588371'],
+  ['It Ends with Us', 'Colleen Hoover', 'BookTok made this everywhere.', '9781501110368'],
+  ['The Midnight Library', 'Matt Haig', 'Every life you could have lived.', '9780525559474'],
+  ['Educated', 'Tara Westover', 'Memoir that floors you.', '9780399590504'],
+  ['The Power of Now', 'Eckhart Tolle', 'Presence, packaged.', '9781577314806'],
+  ['Can\'t Hurt Me', 'David Goggins', 'Stay hard.', '9781544512280'],
+  ['The 5 AM Club', 'Robin Sharma', 'Own your morning.', '9781443456623'],
+  ['Verity', 'Colleen Hoover', 'The twist. Oh, the twist.', '9781538724736'],
+  ['A Thousand Splendid Suns', 'Khaled Hosseini', 'Will wreck you (lovingly).', '9781594489501'],
+  ['The Kite Runner', 'Khaled Hosseini', 'For you, a thousand times over.', '9781594631931'],
+  ['Norwegian Wood', 'Haruki Murakami', 'Melancholy, beautifully.', '9780375704024'],
+  ['The Book Thief', 'Markus Zusak', 'Narrated by Death himself.', '9780375842207'],
+  ['Becoming', 'Michelle Obama', 'Memoir with backbone.', '9781524763138'],
+  ['The Palace of Illusions', 'Chitra Divakaruni', 'Mahabharata, Draupadi voice.', '9780330458535'],
+  ['The Immortals of Meluha', 'Amish Tripathi', 'Shiva trilogy ka start.', '9789380658742'],
 ]
-for (const [title, author, desc, photo] of BOOK_TITLES) {
-  TEMPLATES.push(['Generic', title, 'books', photo, '📚', `by ${author} · ${desc}`, V(['Paperback', 299 + ((title.length * 7) % 200)], ['Hardcover', 599 + ((title.length * 11) % 300)], ['E-book', 149])])
+for (const [title, author, desc, isbn] of BOOK_TITLES) {
+  TEMPLATES.push(['Generic', title, 'books', cover(isbn), '📚', `by ${author} · ${desc}`, V(['Paperback', 299 + ((title.length * 7) % 200)], ['Hardcover', 599 + ((title.length * 11) % 300)], ['E-book', 149])])
 }
 
+// ——— BIG EXPANSION: realty, decor, women's wear, electronics, footwear, etc ———
+const WOMEN_SIZES = ['XS', 'S', 'M', 'L', 'XL']
+const wsz = (cols, price) => combo(cols, WOMEN_SIZES.map((z) => [z, price]))
+const DECOR_COL = ['Beige', 'Charcoal', 'Sage', 'Rust', 'Ivory', 'Navy']
+TEMPLATES.push(
+  // BMW M5 (as asked) + a couple more cars
+  ['BMW', 'M5 Competition', 'cars', 'carBlue', '🏎️', 'V8 twin-turbo sedan sleeper. 617 hp of grey-suited menace.', car(['Standard', 'Competition'], ['Frozen Grey', 'Alpine White', 'Jet Black', 'Marina Blue', 'Isle of Man Green'], 16500000), true],
+  ['Mercedes-Benz', 'G-Wagon G63', 'cars', 'carMustang', '🚙', 'Box on wheels, king of the valet line.', car(['G63', 'G63 AMG'], CAR_COLORS, 35000000)],
+  ['Toyota', 'Fortuner', 'cars', 'carRoad', '🚙', 'Highway ka dabang. Resale value ka baap.', car(['4x2', '4x4', 'Legender'], CAR_COLORS, 3500000)],
+
+  // ——— REAL ESTATE ———
+  ['Palm Estates', 'Private Island — Dubai', 'realty', 'villa', '🏝️', 'Your own island off Dubai. Neighbours: dolphins.', V(['1 Acre', 850000000], ['3 Acre + Villa', 1900000000]), true],
+  ['Palm Estates', 'Palm Jumeirah Villa', 'realty', 'modernHouse', '🏖️', 'Beachfront, infinity pool, Burj view.', V(['5 BHK', 420000000], ['7 BHK Signature', 680000000])],
+  ['Emaar', 'Burj Khalifa Penthouse', 'realty', 'glassHouse', '🏙️', 'Live in the clouds. Literally floor 150+.', V(['3 BHK', 550000000], ['Sky Penthouse', 1200000000])],
+  ['Lodha', 'Worli Sea-Facing Flat', 'realty', 'apartment', '🌊', 'Mumbai skyline + Arabian Sea from your sofa.', V(['3 BHK', 120000000], ['4 BHK Duplex', 250000000]), true],
+  ['Godrej', 'Bandra 3BHK', 'realty', 'livingRoom', '🏢', 'Bandra address = instant status.', V(['2 BHK', 45000000], ['3 BHK', 75000000])],
+  ['Isprava', 'Goa Beach Villa', 'realty', 'villa', '🌴', 'Portuguese charm, private pool, susegad life.', V(['3 BHK Villa', 65000000], ['5 BHK Estate', 140000000])],
+  ['Isprava', 'Lonavala Farmhouse', 'realty', 'cottage', '🏡', 'Weekend escape, monsoon-ready.', V(['2 Acre', 55000000], ['5 Acre Estate', 120000000])],
+  ['DLF', 'Gurgaon Sky Apartment', 'realty', 'livingMin', '🏙️', 'Golf-course view, NCR luxury.', V(['3 BHK', 38000000], ['4 BHK Penthouse', 90000000])],
+
+  // ——— HOME DECOR (department) ———
+  ['Generic', 'Arc Floor Lamp', 'home', 'decorCorner', '💡', 'Reading nook, instantly aesthetic.', colors(['Brass', 'Matte Black', 'Chrome'], 4999)],
+  ['Generic', 'Table Lamp', 'home', 'lamp', '🛋️', 'Warm glow > harsh tubelight.', colors(DECOR_COL, 1999)],
+  ['Urban Ladder', 'Accent Armchair', 'home', 'livingSofa', '🪑', 'The chair everyone fights for.', colors(['Mustard', 'Teal', 'Grey', 'Rust'], 18999)],
+  ['Pepperfry', 'Coffee Table', 'home', 'livingWarm', '🪵', 'Centrepiece for chai + gossip.', colors(['Walnut', 'Oak', 'Marble Top'], 12999)],
+  ['Generic', 'Sofa Cover Set', 'home', 'boho', '🛋️', 'Purani sofa, nayi jaan.', combo(['3-Seater', '5-Seater'], DECOR_COL.map((c) => [c, 1499]))],
+  ['Chumbak', 'Ceramic Flower Vase', 'home', 'boho', '🏺', 'Fresh flowers optional, vibe mandatory.', colors(['Terracotta', 'Blue Pottery', 'White', 'Sage'], 899)],
+  ['Generic', 'Decorative Wall Mirror', 'home', 'mirror', '🪞', 'Makes any room look 2x bigger.', colors(['Gold Round', 'Black Arch', 'Sunburst'], 3499)],
+  ['Chumbak', 'Brass Showpiece', 'home', 'interior', '🕉️', 'Mandir shelf ya console table, dono.', colors(['Ganesha', 'Buddha', 'Nataraja', 'Peacock'], 1299)],
+  ['Generic', 'Blackout Curtains', 'home', 'livingMin', '🪟', 'Sunday sleep-in, protected.', combo(['5ft', '7ft', '9ft'], DECOR_COL.map((c) => [c, 1799]))],
+  ['Generic', 'Candle Holder Set', 'home', 'candle', '🕯️', 'Dinner date at home, sorted.', colors(['Brass', 'Glass', 'Ceramic Trio'], 999)],
+  ['Generic', 'Photo Frame Set', 'home', 'interior', '🖼️', 'Memories, wall-mounted.', V(['Set of 6', 799], ['Collage 10-pc', 1299])],
+  ['Jaipur Rugs', 'Handwoven Area Rug', 'home', 'livingWarm', '🧶', 'Feet ke liye luxury.', combo(['4x6', '5x8', '6x9'], DECOR_COL.map((c) => [c, 5999]))],
+  ['Generic', 'Wall Clock', 'home', 'interior', '🕐', 'Time, but make it decor.', colors(['Vintage Roman', 'Minimal White', 'Wooden', 'Gold Metal'], 1499)],
+  ['Generic', 'Peel & Stick Wallpaper', 'home', 'boho', '🎴', 'Renter-friendly makeover.', colors(['Botanical', 'Boho Arch', 'Marble', 'Terrazzo'], 2499)],
+  ['Generic', 'Framed Wall Art (Set of 3)', 'home', 'artAbstract1', '🖼️', 'Gallery wall in one click.', colors(['Abstract', 'Botanical', 'Line Art', 'Boho'], 1999)],
+  ['Generic', 'Resin Sculpture', 'home', 'interior', '🗿', 'Coffee-table conversation starter.', colors(['Abstract Face', 'Hands', 'Torso'], 2999)],
+  ['Wakefit', 'Upholstered Bed', 'home', 'bedroom', '🛏️', 'Neend puri, back happy.', combo(['Queen', 'King'], colors(['Grey', 'Beige', 'Charcoal'], 24999).map((c) => c))],
+  ['Generic', 'Bedsheet Set (Cotton)', 'home', 'bedroom', '🛌', 'Soft, breathable, 300 TC.', combo(['Double', 'King'], ['Sage Floral', 'Indigo Block', 'White Minimal', 'Boho'].map((c) => [c, 1299]))],
+  ['Nilkamal', 'Storage Cabinet', 'home', 'wardrobe', '🗄️', 'Clutter ka permanent solution.', colors(['White', 'Walnut', 'Grey'], 6999)],
+  ['Generic', 'Cushion Cover (Set of 5)', 'home', 'boho', '🛋️', 'Sofa refresh under a grand.', colors(['Mustard Boho', 'Velvet Green', 'Ikat', 'Solid Pastel'], 799)],
+
+  // ——— WOMEN'S WESTERN WEAR ———
+  ['Urbanic', 'Midi Dress', 'fashion', 'womensJacket', '👗', 'Brunch-to-date, one dress.', wsz(['Floral', 'Sage', 'Black', 'Powder Blue'], 1799), true],
+  ['SHEIN', 'Bodycon Dress', 'fashion', 'fashion', '👗', 'Night-out ready, snatched fit.', wsz(['Black', 'Red', 'Emerald', 'Chocolate'], 999)],
+  ['Zara', 'Satin Slip Maxi', 'fashion', 'womensJacket', '👗', 'Effortless, elegant, viral.', wsz(['Champagne', 'Rust', 'Forest'], 3990)],
+  ['ONLY', 'Utility Jumpsuit', 'fashion', 'fashion', '🧥', 'One-and-done outfit energy.', wsz(['Olive', 'Black', 'Beige'], 2799)],
+  ['Vero Moda', 'Co-ord Set', 'fashion', 'wardrobe', '👚', 'Matchy-matchy, effortlessly cool.', wsz(['Lilac', 'White', 'Terracotta', 'Black'], 2499), true],
+  ['H&M', 'Ribbed Crop Top', 'fashion', 'tee', '👚', 'High-waist ka best friend.', wsz(['White', 'Black', 'Sage', 'Lilac', 'Mocha'], 799)],
+  ['H&M', 'Cotton Tank Top', 'fashion', 'tee', '🎽', 'Basics that never miss.', wsz(['White', 'Black', 'Grey', 'Olive'], 599)],
+  ['Roadster', 'Denim Shorts', 'fashion', 'wardrobe', '🩳', 'Summer staple, chill fit.', wsz(['Light Wash', 'Dark Wash', 'Black'], 1299)],
+  ['Levi\'s', 'High-Waist Mom Jeans', 'fashion', 'wardrobe', '👖', 'Retro fit, forever flattering.', combo(['Light', 'Mid', 'Dark', 'Black'], ['26', '28', '30', '32', '34'].map((z) => [z + '"', 2999]))],
+  ['Zara', 'Wide-Leg Trousers', 'fashion', 'wardrobe', '👖', 'Office ho ya airport, slay.', wsz(['Beige', 'Black', 'Chocolate', 'Grey'], 2590)],
+  ['Forever 21', 'Skater Skirt', 'fashion', 'fashion', '🩰', 'Twirl-worthy, y2k-coded.', wsz(['Black', 'Plaid', 'Denim'], 1199)],
+  ['Urbanic', 'Oversized Shirt', 'fashion', 'menswearFlat', '👔', 'Boyfriend fit, girlfriend approved.', wsz(['White', 'Striped', 'Sage', 'Black'], 1499)],
+
+  // ——— JEWELRY & ACCESSORIES ———
+  ['Accessorize', 'Statement Rings (Set)', 'accessories', 'earrings', '💍', 'Stack karo, slay karo.', colors(['Gold', 'Silver', 'Rose Gold', 'Mixed'], 799)],
+  ['Zaveri Pearls', 'Jhumka Earrings', 'accessories', 'earrings', '👂', 'Ethnic drama, everyday price.', colors(['Gold Kundan', 'Silver Oxidised', 'Pearl', 'Meenakari'], 599)],
+  ['Pipa Bella', 'Charm Bracelet', 'accessories', 'pearls', '📿', 'Wrist candy that means something.', colors(['Gold', 'Silver', 'Rose Gold'], 1299)],
+  ['Accessorize', 'Hoop Earrings', 'accessories', 'earrings', '⭕', 'Small, medium, chunky — pick your mood.', colors(['Gold', 'Silver', 'Textured'], 499)],
+
+  // ——— MORE ELECTRONICS ———
+  ['Apple', 'iPhone 16', 'gadgets', 'phoneYellow', '📱', 'Base model, still a flex.', combo(['Ultramarine', 'Pink', 'Teal', 'Black'], V(['128GB', 79900], ['256GB', 89900]))],
+  ['Apple', 'iPad Pro M4', 'gadgets', 'phoneDesk', '📱', 'Laptop replacement (for reels).', combo(['Space Black', 'Silver'], V(['11" 256GB', 99900], ['13" 512GB', 149900]))],
+  ['Dyson', 'Supersonic Hair Dryer', 'gadgets', 'headphones', '💨', 'Salon at home. Yes, worth it.', colors(['Fuchsia', 'Nickel', 'Blue Blush'], 45900), true],
+  ['Dyson', 'V15 Cordless Vacuum', 'gadgets', 'speaker', '🧹', 'Dust ka dushman. Laser detects it all.', V(['V12', 52900], ['V15 Detect', 65900])],
+  ['Philips', 'Air Fryer', 'gadgets', 'kitchen', '🍟', 'Guilt-free fries, ghar pe.', combo(['4.1L', '6.2L'], colors(['Black', 'White'], 8999).map((c) => c))],
+  ['Preethi', 'Mixer Grinder', 'gadgets', 'kitchen', '🔌', 'Har Indian kitchen ka MVP.', V(['750W 3-Jar', 4499], ['1000W 4-Jar', 6499])],
+  ['iRobot', 'Robot Vacuum', 'gadgets', 'arcade', '🤖', 'Ghar ki safai, auto-pilot.', V(['Roomba i3', 24900], ['Roomba j7+', 54900])],
+  ['Apple', 'AirPods Pro 2', 'gadgets', 'earbuds', '🎧', 'ANC that mutes the whole local train.', colors(['White'], 24900), true],
+  ['Sony', 'WH-1000XM5', 'gadgets', 'headphones', '🎧', 'Silence, engineered.', colors(['Black', 'Silver', 'Midnight Blue'], 29990)],
+  ['JBL', 'Flip 6 Speaker', 'gadgets', 'speaker', '🔊', 'Party anywhere, waterproof.', colors(['Black', 'Blue', 'Red', 'Teal'], 9999)],
+
+  // ——— FOOTWEAR (sandals, sliders, heels, slippers) ———
+  ['Adidas', 'Adilette Sliders', 'shoes', 'shoeTan', '🩴', 'Hostel-to-airport uniform.', shoeVariants(['Black/White', 'Grey', 'Navy'], 2999)],
+  ['Bata', 'Everyday Slippers', 'shoes', 'shoeFlat', '🩴', 'Ghar ka sabse loyal footwear.', shoeVariants(['Brown', 'Black', 'Tan'], 599)],
+  ['Steve Madden', 'Block Heels', 'shoes', 'shoeTan', '👠', 'Height + comfort, rare combo.', shoeVariants(['Nude', 'Black', 'Red'], 6999)],
+  ['Metro', 'Ethnic Kolhapuris', 'shoes', 'shoeFlat', '🩴', 'Desi, handcrafted, timeless.', shoeVariants(['Tan', 'Brown', 'Multicolour'], 1299)],
+  ['Relaxo', 'Flip-Flops', 'shoes', 'shoeYellow', '🩴', 'Barsaat ka bestie.', colors(['Black', 'Blue', 'Grey', 'Red'], 299)],
+
+  // ——— STATIONERY (art supplies) ———
+  ['Faber-Castell', 'Coloring Book + Pencils', 'stationery', 'confetti', '🖍️', 'Adult stress-relief, colourful edition.', V(['Mandala Kit', 399], ['Deluxe 48-pc', 799])],
+  ['Camel', 'Acrylic Paint Set', 'stationery', 'pens', '🎨', 'Inner artist, unlocked.', V(['12 Shades', 349], ['24 Shades', 599])],
+  ['Generic', 'Canvas Board Pack', 'stationery', 'deskDark', '🖼️', 'Blank canvas, big dreams.', combo(['8x10', '12x16', 'A3'], V(['Pack of 3', 399], ['Pack of 6', 699]))],
+  ['Sketchpro', 'Sketch Pens & Markers', 'stationery', 'pens', '🖊️', 'Doodle karo, dil khush.', V(['24 Markers', 449], ['48 Dual-Tip', 899])],
+
+  // ——— COSMETICS / FACIAL KIT ———
+  ['VLCC', 'Gold Facial Kit', 'beauty', 'skincareFlat', '💆', 'Parlour glow, ghar pe.', colors(['Gold', 'Diamond', 'Fruit', 'Charcoal'], 599)],
+  ['Lakme', 'Complete Makeup Kit', 'beauty', 'makeupFlat', '💄', 'Full face in one box.', V(['Starter', 1499], ['Pro Bridal', 3999])],
+  ['Mamaearth', 'Skincare Combo', 'beauty', 'serum', '🧴', 'Cleanse-tone-moisturise, sorted.', colors(['Vitamin C', 'Ubtan', 'Tea Tree'], 899)],
+  ['Kay Beauty', 'Nail Art Kit', 'beauty', 'nails', '💅', 'Salon nails, DIY budget.', V(['Basic', 699], ['Pro 30-pc', 1299])],
+)
 const hash = (n) => { let h = n * 2654435761 % 2 ** 32; h = (h ^ (h >> 15)) * 2246822519 % 2 ** 32; return Math.abs(h ^ (h >> 13)) }
 
 export const LAUNCH_PICKS = []
@@ -452,7 +549,7 @@ const build = () => {
         rating: Math.round((3.6 + ((h >> 3) % 13) / 10) * 10) / 10,
         reviews: Math.round(10 ** (1.1 + ((h >> 5) % 300) / 92)),
         grad: h % 8,
-        img: img(I[photo]),
+        img: I[photo] ? img(I[photo]) : photo,
       })
       if (launch && first) LAUNCH_PICKS.push(id)
       first = false

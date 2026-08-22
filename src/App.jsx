@@ -11,6 +11,8 @@ import ProductSheet from './components/ProductSheet'
 import Welcome from './components/Welcome'
 import Confetti from './components/Confetti'
 import Feedback from './components/Feedback'
+import Rewards from './components/Rewards'
+import { startDay, action as gameAction, onReward, load as loadGame } from './lib/gamify'
 import { HeartIcon, BagIcon, MoonIcon, SunIcon, SearchIcon } from './components/Icons'
 import { startSession, recordSignal, dwellSignal, rankFeed } from './lib/taste'
 
@@ -28,6 +30,12 @@ const save = (key, value) => {
   } catch { /* storage full/blocked — app still works, just won't persist */ }
 }
 
+const COMPLIMENTS = [
+  'Excellent choice! 🔥', 'Great taste 👌', 'Ooh, classy 💫', 'Solid pick 😎',
+  "You've got an eye 👀", "Chef's kiss 🤌", 'Certified banger 🎯', 'Impeccable taste 🥂',
+  "Now that's style ✨", 'Big brain shopping 🧠', 'Elite selection 🏆', 'Yesss, love this one 💖',
+]
+
 export default function App() {
   const [dark, setDark] = useState(() => load('dark', false))
   const [category, setCategory] = useState('all')
@@ -40,6 +48,8 @@ export default function App() {
   const [burstKey, setBurstKey] = useState(0)
   const [scrollToIndex, setScrollToIndex] = useState(null)
   const [cartBounce, setCartBounce] = useState(false)
+  const [gameTick, setGameTick] = useState(0)
+  const [reward, setReward] = useState(null)
 
   // deep link from static share pages: /p/<slug>/ redirects to /#p=<templateId>
   useEffect(() => {
@@ -57,6 +67,15 @@ export default function App() {
 
   // taste profile session: decay old signals once per visit, then rank the
   // feed by learned affinity (with exploration slots). Re-ranks per category.
+  useEffect(() => {
+    startDay()
+    const off = onReward((r) => {
+      setGameTick((t) => t + 1)
+      setReward(r)
+      setTimeout(() => setReward((cur) => (cur === r ? null : cur)), 2400)
+    })
+    return off
+  }, [])
   const [tasteProfile] = useState(() => startSession())
   const products = useMemo(() => {
     const pool = category === 'all' ? PRODUCTS : PRODUCTS.filter((p) => p.category === category)
@@ -66,15 +85,20 @@ export default function App() {
   const onDwell = useCallback((product, ms) => {
     const signal = dwellSignal(ms)
     if (signal) recordSignal(product, signal)
+    gameAction('scroll')
   }, [])
 
-  const onSignal = useCallback((product, signal) => recordSignal(product, signal), [])
+  const onSignal = useCallback((product, signal) => { recordSignal(product, signal); if (signal === 'share') gameAction('share') }, [])
 
   const addToCart = useCallback((product) => {
     setCart((c) => ({ ...c, [product.id]: { product, qty: (c[product.id]?.qty ?? 0) + 1 } }))
     setCartBounce(true)
     setTimeout(() => setCartBounce(false), 500)
     recordSignal(product, 'addToCart')
+    gameAction('add')
+    const msg = COMPLIMENTS[Math.floor(Math.random() * COMPLIMENTS.length)]
+    setReward({ type: 'compliment', reason: `${msg}  +15 🪙` })
+    setTimeout(() => setReward((cur) => (cur?.type === 'compliment' ? null : cur)), 2200)
   }, [])
 
   const setQty = useCallback((id, qty) => {
@@ -99,6 +123,7 @@ export default function App() {
       } else {
         next.add(id)
         if (product) recordSignal(product, 'wishlist')
+        gameAction('wish')
       }
       return next
     })
@@ -109,6 +134,7 @@ export default function App() {
     setCart({})
     setBurstKey((k) => k + 1)
     for (const it of items) recordSignal(it.product, 'purchase')
+    gameAction('order')
   }, [])
 
   const cartCount = Object.values(cart).reduce((s, it) => s + it.qty, 0)
@@ -131,6 +157,13 @@ export default function App() {
               Thoda<span className="text-amber-300">Sa</span>
             </h1>
             <div className="flex items-center gap-2">
+              <button
+                onClick={() => setView('rewards')}
+                aria-label="Rewards"
+                className="flex items-center gap-1 rounded-full bg-amber-400/90 px-2.5 py-1.5 text-xs font-black text-black backdrop-blur-md active:scale-90"
+              >
+                🪙 <span key={gameTick}>{loadGame().coins.toLocaleString('en-IN')}</span>
+              </button>
               <button
                 onClick={() => setView('search')}
                 aria-label="Search products"
@@ -179,6 +212,7 @@ export default function App() {
           onQty={setQty}
           onRemove={removeItem}
           onSignal={onSignal}
+          onCategory={(cat) => { setCategory(cat); setScrollToIndex(0) }}
           onDwell={onDwell}
           onOpenDetail={setDetail}
           cart={cart}
@@ -204,6 +238,12 @@ export default function App() {
 
         <Confetti burstKey={burstKey} />
         {view === 'feed' && <Feedback />}
+        {view === 'rewards' && <Rewards onClose={() => setView('feed')} onChange={() => setGameTick((t) => t + 1)} />}
+        {reward && (
+          <div className="animate-slide-up pointer-events-none absolute left-1/2 top-20 z-[55] -translate-x-1/2 rounded-full bg-black/85 px-4 py-2 text-sm font-black text-amber-300 shadow-xl backdrop-blur">
+            {reward.type === 'achievement' ? `${reward.achievement.emoji} ${reward.achievement.name} unlocked! +50 🪙` : reward.type === 'compliment' ? reward.reason : `🪙 ${reward.reason}`}
+          </div>
+        )}
 
         {view === 'wishlist' && (
           <Wishlist

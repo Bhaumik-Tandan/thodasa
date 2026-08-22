@@ -7,7 +7,7 @@ import { productUrl, productShareText, waShare, xShare, copyLink } from '../lib/
 
 const fmtReviews = (n) => (n >= 1000 ? `${(n / 1000).toFixed(1)}k` : n)
 
-export default function ProductCard({ product, index, near = true, wished, onToggleWish, onAddToCart, onQty, onRemove, onSignal, onOpenDetail, inCartQty, templateCart, hasCartBar = false }) {
+export default function ProductCard({ product, index, near = true, wished, onToggleWish, onAddToCart, onQty, onRemove, onSignal, onOpenDetail, onCategory, inCartQty, templateCart, hasCartBar = false }) {
   const multi = product.variantCount > 1
   const [justAdded, setJustAdded] = useState(false)
   const [heartPop, setHeartPop] = useState(false)
@@ -143,7 +143,7 @@ export default function ProductCard({ product, index, near = true, wished, onTog
             {product.reason === 'new' && (
               <span className="rounded-full bg-amber-400 px-2.5 py-1 text-black shadow-lg shadow-amber-400/40">🆕 Aaj ka drop</span>
             )}
-            <span className="rounded-full bg-white/20 px-2.5 py-1 text-white backdrop-blur-sm">{catLabel}</span>
+            <button onClick={() => onCategory?.(product.category)} className="rounded-full bg-white/20 px-2.5 py-1 text-white backdrop-blur-sm active:scale-95">{catLabel} →</button>
             <span className="rounded-full bg-white/20 px-2.5 py-1 text-amber-300 backdrop-blur-sm">
               ⭐ {product.rating} · {fmtReviews(product.reviews)} ratings
             </span>
