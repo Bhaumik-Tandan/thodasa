@@ -1,6 +1,6 @@
 // Minimal service worker: network-first for pages (fresh deploys win),
 // cache-first for hashed assets and images (instant repeat scrolls).
-const CACHE = 'thodasa-v1'
+const CACHE = 'thodasa-v2'
 
 self.addEventListener('install', (e) => {
   self.skipWaiting()
