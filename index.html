@@ -19,6 +19,21 @@
     <meta name="twitter:description" content="Reels-style shopping for fun, sasta finds under ₹499. Scroll it like Instagram, treat yourself guilt-free." />
     <meta name="twitter:image" content="https://images.unsplash.com/photo-1549465220-1a8b9238cd48?w=1200&h=630&fit=crop&q=80&auto=format" />
 
+    <!-- Structured data for search engines -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "ThodaSa",
+      "url": "https://thodasa.com/",
+      "description": "A reels-style impulse-shopping concept for India — swipe through 1000+ fun finds under ₹499. The feed learns your taste as you scroll. Concept demo, no login, nothing real is sold.",
+      "applicationCategory": "ShoppingApplication",
+      "operatingSystem": "Web",
+      "offers": { "@type": "AggregateOffer", "priceCurrency": "INR", "lowPrice": "5", "highPrice": "499" },
+      "author": { "@type": "Person", "name": "Bhaumik Tandan", "url": "https://github.com/Bhaumik-Tandan" }
+    }
+    </script>
+
     <!-- Microsoft Clarity analytics (visitors, recordings, heatmaps) -->
     <script type="text/javascript">
       (function(c,l,a,r,i,t,y){
@@ -29,7 +44,13 @@
     </script>
   </head>
   <body>
-    <div id="root"></div>
+    <div id="root">
+      <!-- crawlable fallback content, replaced by the app on load -->
+      <h1>ThodaSa — thoda sa treat toh banta hai 🛍️</h1>
+      <p>India's reels-style impulse shopping experience. Swipe through 1000+ fun finds under ₹499 — snacks, beauty minis, gadgets, home décor, kitchen finds, fashion accessories, stationery and quirky gifts. The feed learns your taste as you scroll, save and add to cart. A guilt-free meter judges your cart (lovingly). Concept demo — free, no login, nothing real is sold.</p>
+      <p>Categories: Snacks · Beauty · Gadgets · Home · Kitchen · Fashion · Stationery · Quirky</p>
+      <p>Popular finds: 2-minute masala noodles, TWS earbuds under ₹500, kajal, scented candles, thermosteel bottles, graphic tees, desi meme stickers, mystery gift boxes.</p>
+    </div>
     <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>
