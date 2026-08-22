@@ -4,6 +4,7 @@ import { VARIANTS_BY_TEMPLATE } from '../data/products'
 import { TrashIcon, MinusIcon, PlusIcon, BagPlusIcon } from './Icons'
 import { canShop, shopTarget, shopUrl } from '../lib/shop'
 import { deliveryEstimate } from '../lib/orderStatus'
+import { gstRate } from '../lib/tax'
 
 const HIGHLIGHTS = {
   snacks: ['Fresh stock, long expiry', 'Sealed brand packaging', 'Store in a cool, dry place'],
@@ -122,7 +123,7 @@ export default function ProductSheet({ product, cart, onAddToCart, onQty, onRemo
                 </>
               )}
             </div>
-            <p className="text-xs text-gray-400">{selected.variantLabel}</p>
+            <p className="text-xs text-gray-400">{selected.variantLabel} · incl. {gstRate(selected)}% GST</p>
           </div>
 
           {qty === 0 ? (

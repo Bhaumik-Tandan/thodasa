@@ -26,6 +26,7 @@ export const CATEGORIES = [
   { id: 'toys', label: 'Toys' },
   { id: 'grocery', label: 'Grocery' },
   { id: 'jewels', label: 'Jewellery' },
+  { id: 'icecream', label: 'Ice Cream' },
 ]
 
 export const GRADS = [
@@ -52,7 +53,9 @@ const img = (id) => `https://images.unsplash.com/photo-${id}?w=800&h=1400&fit=cr
 // verified photo pool, keyed by what the photo actually shows
 const I = {
   samosa: '1601050690597-df0568f70950', spices: '1596040033229-a9821ebd058d', chai: '1544787219-7f47ccb76574',
-  mug: '1485955900006-10f4d324d411', tableMug: '1518481612222-68bbe828ecd1', berries: '1464965911861-746a04b4bca6',
+  mug: '1485955900006-10f4d324d411', coffeePack: '1559056199-641a0ac8b55e', coffeeBeans: '1447933601403-0c6688de566e',
+  iceScoops: '1560008581-09826d1de69e', iceCone: '1497034825429-c343d7c6a68f', iceCones2: '1501443762994-82bd5dace89a',
+  iceKulfi: '1488900128323-21503983a07e', iceSundae: '1563805042-7684c019e1cb', tableMug: '1518481612222-68bbe828ecd1', berries: '1464965911861-746a04b4bca6',
   salad: '1512621776951-a57141f2eefd', bowl: '1546069901-ba9599a7e63c', pizza: '1565299624946-b28f40a0ae38', noodles: '1612929633738-8fe44f7ec841',
   pancakes: '1567620905732-2d1ec7ab7445', cake: '1565958011703-44f9829ba187', dessert: '1551024506-0bccd828d307',
   milk: '1550583724-b2692b85b150', smoothie: '1553530666-ba11a7da3888', pasta: '1576402187878-974f70c890a5',
@@ -148,12 +151,12 @@ const TEMPLATES = [
   ['PopKarma', 'Instant Popcorn', 'snacks', 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c7/Bowl_of_Popcorn_%28Unsplash%29.jpg/960px-Bowl_of_Popcorn_%28Unsplash%29.jpg', '🍿', 'Movie night ka asli hero.', combo(['Butter', 'Butter Pepper', 'Golden Sizzle'], V(['30g', 15], ['59g', 30]))],
   ['Naav', 'Fruit Drink', 'snacks', 'smoothie', '🧃', 'Bachpan ka swaad, tetra pack mein.', combo(['Aamras', 'Jaljeera', 'Aam Panna', 'Anar'], V(['200ml', 30], ['1L', 99]))],
   ['FizzySaeb', 'Fizz Sparkling Drink', 'snacks', 'smoothie', '🍏', 'Cool drink for cool logon ke liye.', V(['250ml', 25], ['600ml', 45], ['1L', 70])],
-  ['MorningMood', 'Classic Instant Coffee', 'snacks', 'mug', '☕', 'Deadline se pehle wala ritual.', V(['25g', 85], ['50g', 155], ['100g', 290])],
+  ['MorningMood', 'Classic Instant Coffee', 'snacks', 'coffeePack', '☕', 'Deadline se pehle wala ritual.', V(['25g', 85], ['50g', 155], ['100g', 290])],
   ['Kadak', 'Tea Gold', 'snacks', 'chai', '🫖', 'Ghar wali chai ka secret ingredient.', V(['250g', 140], ['500g', 270])],
   ['ChocoNutty', 'Hazelnut Spread', 'snacks', 'pancakes', '🥞', 'Roti pe, bread pe, ya chamach se seedha.', V(['150g', 199], ['350g', 399])],
-  ['Mixify', 'Mixed Fruit Jam', 'snacks', 'berries', '🍓', 'Bread ka best friend since forever.', V(['200g', 75], ['500g', 155])],
+  ['Mixify', 'Strawberry Preserve', 'snacks', 'berries', '🍓', 'Bread ka best friend since forever.', V(['200g', 75], ['500g', 155])],
   ['MasalaGhar', 'Masala Box Refill', 'snacks', 'spices', '🧂', 'Asli masale sach sach. Dadi approved.', combo(['Garam Masala', 'Chana Masala', 'Kitchen King', 'Chunky Chat'], V(['100g', 68], ['500g', 290]))],
-  ['Doodhwala', 'Cheese Slices', 'snacks', 'pizza', '🧀', 'Har cheez pe cheese. Rule of life.', V(['10 Slices', 135], ['20 Slices', 255])],
+  ['Doodhwala', 'Cheese Slices', 'snacks', 'cheese', '🧀', 'Har cheez pe cheese. Rule of life.', V(['10 Slices', 135], ['20 Slices', 255])],
   ['AngleAttack', 'Mad Angles', 'snacks', 'chipsBowl', '📐', 'Angle sahi ho toh sab crunchy lagta hai.', combo(['Achaari Masti', 'Very Peri Peri', 'Tomato Madness'], V(['66g', 20], ['130g', 35]))],
 
   // ——— BEAUTY ———
@@ -976,7 +979,6 @@ TEMPLATES.push(
   ['Tata', 'Tata Salt', 'grocery', 'https://images.openfoodfacts.org/images/products/890/404/390/1015/front_en.34.full.jpg', '🌾', 'Monthly list mein hamesha. Genuine pack.', V(['1 kg', 153], ['Pack of 4', 597])],
   ['Quaker', 'White Oats', 'grocery', 'https://images.openfoodfacts.org/images/products/500/010/847/8119/front_en.71.full.jpg', '🥣', 'Real pack, real brand, real barcode.', V(['1.73 - 3.00', 172], ['Pack of 4', 671])],
   ['Bisleri', '1ltr MADE IN INDIA', 'snacks', 'https://images.openfoodfacts.org/images/products/890/601/729/0040/front_en.8.full.jpg', '🛒', 'Asli wala. Scanned from a real pack.', V(['1', 35], ['Pack of 4', 137])],
-  ['Parle', 'Happy happy - Parl', 'snacks', 'https://images.openfoodfacts.org/images/products/890/171/912/9988/front_en.14.full.jpg', '🛒', 'Real product, real barcode. Sach mein.', V(['31.5 g', 20], ['Pack of 4', 78])],
   ['Cadbury', 'Dairy Milk', 'snacks', 'https://images.openfoodfacts.org/images/products/762/220/233/4009/front_en.9.full.jpg', '🍫', 'Dukaan wala hi hai. Pack se scan kiya.', V(['11 g', 47], ['Pack of 4', 184])],
   ['Balaji', 'Chataka Pataka Tangy Tomato', 'snacks', 'https://images.openfoodfacts.org/images/products/890/601/050/0627/front_en.4.full.jpg', '🛒', 'Household name, household bite.', V(['Std pack', 38], ['Pack of 4', 149])],
   ['Kinley', 'Mineral Water 1ltr', 'snacks', 'https://images.openfoodfacts.org/images/products/890/176/408/2405/front_en.40.full.jpg', '🥤', 'Asli wala. Scanned from a real pack.', V(['6', 43], ['Pack of 4', 168])],
@@ -1011,7 +1013,7 @@ TEMPLATES.push(
   ['Bingo', 'Tedhe Medhe', 'snacks', 'https://images.openfoodfacts.org/images/products/890/172/511/8938/front_en.29.full.jpg', '🛒', 'Real product, real barcode. Sach mein.', V(['19.2g', 37], ['Pack of 4', 145])],
   ['Parle', 'Hide & Seek 120G', 'snacks', 'https://images.openfoodfacts.org/images/products/890/171/910/5913/front_en.22.full.jpg', '🛒', 'Dukaan wala hi hai. Pack se scan kiya.', V(['120g', 45], ['Pack of 4', 176])],
   ['Kissan', 'Mixed Fruit Jam', 'grocery', 'https://images.openfoodfacts.org/images/products/890/103/083/1690/front_en.32.full.jpg', '🍯', 'Real pack, real brand, real barcode.', V(['200g', 93], ['Pack of 4', 363])],
-  ['Parle', 'Happy happy biscuit - Parle - Parle', 'snacks', 'https://images.openfoodfacts.org/images/products/890/171/913/0014/front_en.3.full.jpg', '🍪', 'Asli wala. Scanned from a real pack.', V(['63gr', 26], ['Pack of 4', 102])],
+  ['Parle', 'Happy Happy Choco Chip Biscuit', 'snacks', 'https://images.openfoodfacts.org/images/products/890/171/913/0014/front_en.3.full.jpg', '🍪', 'Asli wala. Scanned from a real pack.', V(['63gr', 26], ['Pack of 4', 102])],
   ['Lay\'s', 'Potato Chips', 'grocery', 'https://images.openfoodfacts.org/images/products/890/149/110/1844/front_en.32.full.jpg', '🍟', 'Ghar ka regular. The real one.', V(['50 g', 36], ['Pack of 4', 141])],
   ['Haldiram\'s', 'Aloo bhujia', 'snacks', 'https://images.openfoodfacts.org/images/products/890/400/440/0731/front_en.4.full.jpg', '🛒', 'Dukaan wala hi hai. Pack se scan kiya.', V(['200 gm', 33], ['Pack of 4', 129])],
   ['Haldirams', 'Haldiram\'s Soya sticks', 'snacks', 'https://images.openfoodfacts.org/images/products/890/400/440/0236/front_en.14.full.jpg', '🛒', 'Household name, household bite.', V(['22g', 77], ['Pack of 4', 301])],
@@ -1040,6 +1042,29 @@ TEMPLATES.push(
   ['Nestlé', 'KitKat win gold', 'snacks', 'https://images.openfoodfacts.org/images/products/890/105/890/3164/front_en.29.full.jpg', '🍫', 'Dukaan wala hi hai. Pack se scan kiya.', V(['38.5 gm', 22], ['Pack of 4', 86])],
   ['Sunfeast Is Sold By Itc Limited', 'Dark Fantasy', 'snacks', 'https://images.openfoodfacts.org/images/products/890/172/501/5275/front_en.25.full.jpg', '🛒', 'Household name, household bite.', V(['69 g', 34], ['Pack of 4', 133])],
 )
+
+// ——— Ice cream ———
+TEMPLATES.push(
+  ['Amul', 'Vanilla Royale Tub', 'icecream', 'iceScoops', '🍦', 'Family pack. Chamach se seedha, no shame.', V(['500ml', 130], ['1L', 240])],
+  ['Amul', 'Chocolate Truffle Tub', 'icecream', 'iceSundae', '🍫', 'Rich, dark, dangerous.', V(['500ml', 165], ['1L', 299])],
+  ['Amul', 'Butterscotch Tub', 'icecream', 'iceScoops', '🍨', 'Crunch bits ka nasha alag hai.', V(['500ml', 140], ['1L', 255])],
+  ['Kwality Wall\'s', 'Cornetto Cone', 'icecream', 'iceCone', '🍦', 'Tip pe chocolate. Wahi asli treat.', combo(['Double Chocolate', 'Butterscotch', 'Strawberry'], V(['Single', 45], ['Pack of 4', 170]))],
+  ['Kwality Wall\'s', 'Feast Bar', 'icecream', 'iceKulfi', '🍫', 'Choco-coated, stick wala classic.', combo(['Chocolate', 'Badam'], V(['Single', 40], ['Pack of 6', 225]))],
+  ['Kwality Wall\'s', 'Trixy Cup', 'icecream', 'iceSundae', '🍨', 'Chhota cup, poora mood fix.', V(['Single', 25], ['Pack of 8', 190])],
+  ['Mother Dairy', 'Kulfi Stick', 'icecream', 'iceKulfi', '🍡', 'Malai kulfi, thelewala vibes.', combo(['Malai', 'Kesar Pista', 'Matka'], V(['Single', 35], ['Pack of 6', 199]))],
+  ['Mother Dairy', 'Fruit Ice Candy', 'icecream', 'iceKulfi', '🧊', 'Garmi ka five-rupee solution.', combo(['Orange', 'Mango', 'Kala Khatta'], V(['Pack of 5', 60], ['Pack of 10', 110]))],
+  ['Vadilal', 'Gulab Jamun Ice Cream', 'icecream', 'iceSundae', '🍮', 'Do desserts ek mein. Genius.', V(['500ml', 195], ['1L', 349])],
+  ['Vadilal', 'Roasted Almond Cone', 'icecream', 'iceCone', '🥜', 'Badam pe badam. Worth it.', V(['Single', 50], ['Pack of 4', 185])],
+  ['Havmor', 'Rajwadi Kesar Pista', 'icecream', 'iceScoops', '👑', 'Shaadi wali ice cream, ghar pe.', V(['700ml', 285])],
+  ['Havmor', 'Choco Dip Bar', 'icecream', 'iceKulfi', '🍫', 'Crack karke khao. Aawaz zaroori hai.', V(['Single', 45], ['Pack of 5', 199])],
+  ['Naturals', 'Tender Coconut', 'icecream', 'iceScoops', '🥥', 'Real fruit, no essence. Cult favourite.', V(['500ml', 320])],
+  ['Naturals', 'Alphonso Mango', 'icecream', 'iceScoops', '🥭', 'Season ka best, tub mein.', V(['500ml', 340])],
+  ['Baskin Robbins', 'Ice Cream Cake', 'icecream', 'iceSundae', '🎂', 'Birthday upgrade. Instant hero banoge.', V(['500g', 899], ['1kg', 1599])],
+  ['Baskin Robbins', 'Scoop Tub', 'icecream', 'iceCones2', '🍨', 'World Class Chocolate ya Very Berry.', combo(['World Class Chocolate', 'Very Berry Strawberry', 'Mississippi Mud'], V(['450ml', 449]))],
+  ['Cream Bell', 'Sandwich Bar', 'icecream', 'iceKulfi', '🥪', 'Biscuit + ice cream. Cheat code.', V(['Single', 40], ['Pack of 4', 149])],
+  ['Arun', 'Family Pack Neapolitan', 'icecream', 'iceCones2', '🍧', 'Teen flavour, ek dabba. Sab khush.', V(['1L', 265])],
+)
+
 const hash = (n) => { let h = n * 2654435761 % 2 ** 32; h = (h ^ (h >> 15)) * 2246822519 % 2 ** 32; return Math.abs(h ^ (h >> 13)) }
 
 export const LAUNCH_PICKS = []

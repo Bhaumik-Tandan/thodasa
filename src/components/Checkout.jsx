@@ -1,4 +1,5 @@
 import { inr } from '../data/products'
+import { taxBreakdown } from '../lib/tax'
 import { useState } from 'react'
 
 export default function Checkout({ cart, onClose, onOrders, onOrderPlaced }) {
@@ -6,6 +7,7 @@ export default function Checkout({ cart, onClose, onOrders, onOrderPlaced }) {
   const items = Object.values(cart)
   const subtotal = items.reduce((s, it) => s + it.product.price * it.qty, 0)
   const delivery = subtotal >= 499 ? 0 : 49
+  const tax = taxBreakdown(items)
   const total = subtotal + delivery
 
   const place = () => {
@@ -61,8 +63,13 @@ export default function Checkout({ cart, onClose, onOrders, onOrderPlaced }) {
           </div>
           <div className="my-3 border-t border-dashed border-gray-200 dark:border-white/10" />
           <div className="flex justify-between text-sm font-semibold text-gray-500 dark:text-gray-400">
-            <span>Subtotal</span><span>₹{inr(subtotal)}</span>
+            <span>Taxable value</span><span>₹{inr(tax.taxable)}</span>
           </div>
+          {tax.bySlab.map((sl) => (
+            <div key={sl.rate} className="mt-1 flex justify-between text-sm font-semibold text-gray-500 dark:text-gray-400">
+              <span>GST @ {sl.rate}%</span><span>₹{inr(sl.amount)}</span>
+            </div>
+          ))}
           <div className="mt-1 flex justify-between text-sm font-semibold text-gray-500 dark:text-gray-400">
             <span>Delivery {delivery === 0 && '🎁'}</span>
             <span>{delivery === 0 ? 'FREE' : `₹${delivery}`}</span>
