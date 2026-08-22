@@ -2,6 +2,7 @@ import { useState } from 'react'
 import DealTimer from './DealTimer'
 import { GRADS, CATEGORIES } from '../data/products'
 import { HeartIcon, ShareIcon, BagPlusIcon, TrashIcon, MinusIcon, PlusIcon } from './Icons'
+import { productUrl, productShareText, waShare, xShare, copyLink } from '../lib/share'
 
 const fmtReviews = (n) => (n >= 1000 ? `${(n / 1000).toFixed(1)}k` : n)
 
@@ -31,36 +32,19 @@ export default function ProductCard({ product, index, near = true, wished, onTog
   }
 
   const [shareMsg, setShareMsg] = useState('')
-  const share = async () => {
-    const url = `${location.origin}/?product=${product.id}`
-    const data = { title: product.name, text: `${product.name} — ₹${product.price} on ThodaSa`, url }
-    const text = `${data.text} ${url}`
-    try {
-      if (navigator.share) {
-        await navigator.share(data)
-        return
-      }
-      await navigator.clipboard.writeText(text)
-      setShareMsg('Link copied!')
-    } catch (err) {
-      if (err?.name === 'AbortError') return // user closed the share sheet
-      // clipboard API can be blocked — fall back to the legacy copy path
-      try {
-        const ta = document.createElement('textarea')
-        ta.value = text
-        ta.style.position = 'fixed'
-        ta.style.opacity = '0'
-        document.body.appendChild(ta)
-        ta.select()
-        document.execCommand('copy')
-        ta.remove()
-        setShareMsg('Link copied!')
-      } catch {
-        setShareMsg('Could not share')
-      }
-    }
+  const [shareOpen, setShareOpen] = useState(false)
+  const toast = (msg) => {
+    setShareMsg(msg)
     setShared(true)
     setTimeout(() => setShared(false), 1400)
+  }
+  const doShare = (how) => {
+    const url = productUrl(product)
+    const text = productShareText(product)
+    if (how === 'wa') waShare(text, url)
+    else if (how === 'x') xShare(text, url)
+    else copyLink(`${text}\n${url}`).then((ok) => toast(ok ? 'Link copied!' : 'Could not copy'))
+    setShareOpen(false)
     onSignal?.(product, 'share')
   }
 
@@ -105,7 +89,7 @@ export default function ProductCard({ product, index, near = true, wished, onTog
           </span>
           <span className="mt-1 text-[11px] font-bold text-white drop-shadow">{wished ? 'Saved' : 'Save'}</span>
         </button>
-        <button onClick={share} aria-label="Share" className="flex flex-col items-center active:scale-90">
+        <button onClick={() => setShareOpen(true)} aria-label="Share" className="flex flex-col items-center active:scale-90">
           <span className="grid h-12 w-12 place-items-center rounded-full bg-black/35 text-white backdrop-blur-md">
             <ShareIcon />
           </span>
@@ -123,6 +107,25 @@ export default function ProductCard({ product, index, near = true, wished, onTog
       {shared && (
         <div className="absolute left-1/2 top-1/2 z-20 -translate-x-1/2 -translate-y-1/2 rounded-full bg-black/75 px-4 py-2 text-sm font-bold text-white backdrop-blur">
           {shareMsg}
+        </div>
+      )}
+
+      {/* share menu — WhatsApp first, because India */}
+      {shareOpen && (
+        <div className="absolute inset-0 z-30 flex items-end justify-center" onClick={() => setShareOpen(false)}>
+          <div className="absolute inset-0 bg-black/40" />
+          <div className="animate-slide-up relative mb-28 w-[85%] space-y-2 rounded-3xl bg-white p-3 shadow-2xl dark:bg-zinc-900" onClick={(e) => e.stopPropagation()}>
+            <p className="px-2 pt-1 text-xs font-black uppercase tracking-wide text-gray-400">Share this find</p>
+            <button onClick={() => doShare('wa')} className="flex w-full items-center gap-3 rounded-2xl bg-[#25D366] px-4 py-3.5 font-extrabold text-white active:scale-[0.98]">
+              <span className="text-xl">💬</span> WhatsApp pe bhejo
+            </button>
+            <button onClick={() => doShare('x')} className="flex w-full items-center gap-3 rounded-2xl bg-black px-4 py-3.5 font-extrabold text-white active:scale-[0.98] dark:bg-white dark:text-black">
+              <span className="text-xl">𝕏</span> Post on X
+            </button>
+            <button onClick={() => doShare('copy')} className="flex w-full items-center gap-3 rounded-2xl bg-gray-100 px-4 py-3.5 font-extrabold text-gray-800 active:scale-[0.98] dark:bg-zinc-800 dark:text-gray-100">
+              <span className="text-xl">🔗</span> Copy link
+            </button>
+          </div>
         </div>
       )}
 

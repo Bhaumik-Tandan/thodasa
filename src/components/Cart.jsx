@@ -1,3 +1,6 @@
+import { useEffect, useState } from 'react'
+import { makeShareCard, shareCardBlob } from '../lib/share'
+
 const meterFor = (total) => {
   if (total === 0) return { label: 'Cart khali hai 🫙', emoji: '🫙', pct: 0, bar: 'from-gray-300 to-gray-400', note: 'Add something chhota-sa!' }
   if (total < 300) return { label: 'Totally fine 😌', emoji: '😌', pct: Math.max(12, (total / 1000) * 100), bar: 'from-emerald-400 to-teal-400', note: 'Guilt level: zero. Enjoy!' }
@@ -10,6 +13,13 @@ export default function Cart({ cart, onQty, onRemove, onCheckout, onOrders, onCl
   const total = items.reduce((s, it) => s + it.product.price * it.qty, 0)
   const count = items.reduce((s, it) => s + it.qty, 0)
   const meter = meterFor(total)
+
+  const [installable, setInstallable] = useState(!!window.__installPrompt)
+  useEffect(() => {
+    const on = () => setInstallable(true)
+    window.addEventListener('thodasa:installable', on)
+    return () => window.removeEventListener('thodasa:installable', on)
+  }, [])
 
   return (
     <div className="animate-slide-up fixed inset-0 z-40 mx-auto flex max-w-md flex-col bg-gray-50 dark:bg-zinc-950">
@@ -35,7 +45,34 @@ export default function Cart({ cart, onQty, onRemove, onCheckout, onOrders, onCl
           <div className={`h-full rounded-full bg-gradient-to-r ${meter.bar} transition-all duration-500`} style={{ width: `${meter.pct}%` }} />
         </div>
         <p className="mt-1.5 text-xs font-medium text-gray-500 dark:text-gray-400">{meter.note}</p>
+        {total > 0 && (
+          <button
+            onClick={async () => {
+              const colors = total < 300 ? ['#10b981', '#0ea5e9'] : total <= 700 ? ['#f59e0b', '#f43f5e'] : ['#f43f5e', '#a855f7']
+              const blob = await makeShareCard({
+                emoji: meter.emoji,
+                headline: meter.label.replace(/[\u{1F000}-\u{1FFFF}]/gu, '').trim(),
+                subline: `cart damage: \u20B9${total}`,
+                meterPct: Math.min(100, (total / 1000) * 100),
+                colors,
+              })
+              await shareCardBlob(blob, 'thodasa-verdict.png', `The ThodaSa guilt-free meter has spoken: ${meter.label} (\u20B9${total}) \u2014 thodasa.com`)
+            }}
+            className="mt-2.5 w-full rounded-xl border border-gray-200 py-2.5 text-sm font-extrabold text-gray-700 active:scale-[0.98] dark:border-zinc-700 dark:text-gray-200"
+          >
+            📸 Share this verdict
+          </button>
+        )}
       </div>
+
+      {installable && (
+        <button
+          onClick={() => { window.__installPrompt?.prompt(); setInstallable(false) }}
+          className="mx-5 mt-3 rounded-2xl bg-gradient-to-r from-violet-500 to-fuchsia-500 py-3 font-extrabold text-white shadow-lg shadow-violet-500/30 active:scale-[0.98]"
+        >
+          📲 Install ThodaSa — home screen pe rakho
+        </button>
+      )}
 
       {/* items */}
       <div className="mt-4 flex-1 space-y-3 overflow-y-auto px-5 pb-4">

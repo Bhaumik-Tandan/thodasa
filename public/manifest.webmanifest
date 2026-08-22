@@ -1,0 +1,15 @@
+{
+  "name": "ThodaSa — shopping that scrolls like reels",
+  "short_name": "ThodaSa",
+  "description": "Swipe through 1000+ fun finds under ₹499. The feed learns your taste.",
+  "start_url": "/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#18181b",
+  "theme_color": "#ff5e78",
+  "icons": [
+    { "src": "/icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "/icon-512.png", "sizes": "512x512", "type": "image/png" },
+    { "src": "/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}

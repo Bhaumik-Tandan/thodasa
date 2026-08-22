@@ -40,6 +40,15 @@ export default function App() {
   const [scrollToIndex, setScrollToIndex] = useState(null)
   const [cartBounce, setCartBounce] = useState(false)
 
+  // deep link from static share pages: /p/<slug>/ redirects to /#p=<templateId>
+  useEffect(() => {
+    const m = location.hash.match(/^#p=(\d+)/)
+    if (!m) return
+    const hero = PRODUCTS.find((p) => p.templateId === Number(m[1]))
+    if (hero) setDetail(hero)
+    history.replaceState(null, '', '/')
+  }, [])
+
   useEffect(() => save('dark', dark), [dark])
   useEffect(() => save('cart', cart), [cart])
   useEffect(() => save('wishlist', [...wishlist]), [wishlist])

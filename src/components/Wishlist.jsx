@@ -1,6 +1,7 @@
 import { PRODUCTS, CATEGORIES } from '../data/products'
 import { HeartIcon } from './Icons'
 import { tasteSummary } from '../lib/taste'
+import { makeShareCard, shareCardBlob } from '../lib/share'
 
 const VIBE_COLORS = ['bg-violet-500', 'bg-rose-500', 'bg-amber-500', 'bg-teal-500', 'bg-sky-500']
 
@@ -34,6 +35,22 @@ export default function Wishlist({ wishlist, onToggleWish, onAddToCart, cart, on
             ))}
           </div>
           <p className="mt-1.5 text-[11px] text-gray-400">Your feed is ranked by this — plus a few 🎲 fresh finds so it never gets boring.</p>
+          <button
+            onClick={async () => {
+              const top = vibe.slice(0, 3).map((v) => `${v.pct}% ${CATEGORIES.find((c) => c.id === v.cat)?.label ?? v.cat}`).join(' · ')
+              const blob = await makeShareCard({
+                emoji: '\ud83e\udde0',
+                headline: 'My shopping vibe',
+                subline: top,
+                meterPct: null,
+                colors: ['#8b5cf6', '#ec4899'],
+              })
+              await shareCardBlob(blob, 'thodasa-vibe.png', `My ThodaSa vibe: ${top} \u2014 what's yours? thodasa.com`)
+            }}
+            className="mt-2.5 w-full rounded-xl border border-gray-200 py-2.5 text-sm font-extrabold text-gray-700 active:scale-[0.98] dark:border-zinc-700 dark:text-gray-200"
+          >
+            📸 Share my vibe
+          </button>
         </div>
       )}
 

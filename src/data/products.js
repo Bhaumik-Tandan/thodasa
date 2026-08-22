@@ -256,11 +256,12 @@ const build = () => {
   for (const [brand, name, category, photo, emoji, desc, variants, launch] of TEMPLATES) {
     templateId++
     const baseName = `${brand === 'Generic' || brand === 'ThodaSa' ? '' : brand + ' '}${name}`.trim()
+    const slug = baseName.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '') + '-' + templateId
     let first = true
     for (const [label, price] of variants) {
       const h = hash(id)
       out.push({
-        id, templateId, baseName,
+        id, templateId, baseName, slug,
         variantLabel: label,
         variantCount: variants.length,
         name: `${baseName}${label ? ' — ' + label : ''}`,
