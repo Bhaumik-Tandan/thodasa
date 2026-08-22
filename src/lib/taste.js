@@ -114,6 +114,11 @@ export const tasteSummary = (profile = loadProfile()) => {
     .sort((a, b) => b.pct - a.pct)
 }
 
+// Daily drops: a rotating slice of the catalog is "new today" — same for every
+// visitor on a given date, different tomorrow. The return-visit hook.
+const daySeed = () => Number(new Date().toISOString().slice(0, 10).replace(/-/g, ''))
+export const isNewToday = (p) => (p.templateId * 131 + daySeed()) % 13 === 0
+
 // The feed never repeats a product: variants collapse to one card per template
 // (the best-scoring variant represents it), and two adjacent cards never share
 // the same photo — both are what make it feel like a real catalog, not a loop.
@@ -147,13 +152,16 @@ export const rankFeed = (products, profile = loadProfile()) => {
   if (profile.events < 3) {
     const picks = LAUNCH_PICKS.map((id) => products.find((p) => p.id === id)).filter(Boolean)
     const rest = shuffle(products.filter((p) => !LAUNCH_PICKS.includes(p.id)))
-    return deAdjacentImages(dedupeByTemplate([...picks, ...rest]).map((p) => ({ ...p, reason: null })))
+    return deAdjacentImages(
+      dedupeByTemplate([...picks, ...rest]).map((p) => ({ ...p, reason: isNewToday(p) ? 'new' : null })),
+    )
   }
 
   const scored = products.map((p) => ({
     ...p,
     score:
       cosine(profile.v, vecOf(p)) +
+      (isNewToday(p) ? 0.18 : 0) + // daily drops surface near the top
       Math.random() * 0.15 - // jitter so reloads aren't identical
       Math.min(profile.seen[p.id] ?? 0, 5) * 0.06, // fatigue: stop over-showing the same items
   }))
@@ -167,9 +175,9 @@ export const rankFeed = (products, profile = loadProfile()) => {
   let e = 0, x = 0
   for (let slot = 0; feed.length < uniq.length; slot++) {
     const wantExplore = slot % 3 === 2 // every 3rd card = discovery
-    if (wantExplore && x < explore.length) feed.push({ ...explore[x++], reason: 'fresh' })
-    else if (e < exploit.length) feed.push({ ...exploit[e++], reason: e <= 5 ? 'forYou' : null })
-    else if (x < explore.length) feed.push({ ...explore[x++], reason: 'fresh' })
+    if (wantExplore && x < explore.length) { const p = explore[x++]; feed.push({ ...p, reason: isNewToday(p) ? 'new' : 'fresh' }) }
+    else if (e < exploit.length) { const p = exploit[e++]; feed.push({ ...p, reason: isNewToday(p) ? 'new' : e <= 5 ? 'forYou' : null }) }
+    else if (x < explore.length) { const p = explore[x++]; feed.push({ ...p, reason: isNewToday(p) ? 'new' : 'fresh' }) }
   }
   return deAdjacentImages(feed)
 }

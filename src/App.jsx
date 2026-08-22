@@ -8,6 +8,7 @@ import Wishlist from './components/Wishlist'
 import Orders from './components/Orders'
 import Search from './components/Search'
 import ProductSheet from './components/ProductSheet'
+import Welcome from './components/Welcome'
 import Confetti from './components/Confetti'
 import { HeartIcon, BagIcon, MoonIcon, SunIcon, SearchIcon } from './components/Icons'
 import { startSession, recordSignal, dwellSignal, rankFeed } from './lib/taste'
@@ -34,6 +35,7 @@ export default function App() {
   const [orders, setOrders] = useState(() => load('orders', []))
   const [view, setView] = useState('feed') // feed | wishlist | cart | checkout | orders | search
   const [detail, setDetail] = useState(null) // product whose variant sheet is open
+  const [welcomed, setWelcomed] = useState(() => load('welcomed', false))
   const [burstKey, setBurstKey] = useState(0)
   const [scrollToIndex, setScrollToIndex] = useState(null)
   const [cartBounce, setCartBounce] = useState(false)
@@ -200,6 +202,7 @@ export default function App() {
         {view === 'search' && (
           <Search cart={cart} onAddToCart={addToCart} onOpenDetail={setDetail} onClose={() => setView('feed')} />
         )}
+        {!welcomed && <Welcome onStart={() => { setWelcomed(true); save('welcomed', true) }} />}
         {detail && (
           <ProductSheet
             product={detail}

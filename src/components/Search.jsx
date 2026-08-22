@@ -3,7 +3,7 @@ import { PRODUCTS, TEMPLATE_HEROES } from '../data/products'
 import { pickedForYou } from '../lib/taste'
 import { SearchIcon, BagPlusIcon } from './Icons'
 
-const POPULAR = ['Maggi', 'boAt', 'Lakmé', 'Lays', 'Milton', 'Nutella', 'Fastrack', 'Classmate', 'UNO', 'Candle']
+const POPULAR = ['Noodles', 'Earbuds', 'Kajal', 'Chips', 'Bottle', 'Candle', 'Tee', 'Stickers', 'Perfume', 'Sunglasses']
 
 export default function Search({ cart, onAddToCart, onOpenDetail, onClose }) {
   const [q, setQ] = useState('')

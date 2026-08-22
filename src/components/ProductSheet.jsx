@@ -2,6 +2,17 @@ import { useState } from 'react'
 import { VARIANTS_BY_TEMPLATE } from '../data/products'
 import { TrashIcon, MinusIcon, PlusIcon, BagPlusIcon } from './Icons'
 
+const HIGHLIGHTS = {
+  snacks: ['Fresh stock, long expiry', 'Sealed brand packaging', 'Store in a cool, dry place'],
+  beauty: ['Dermatologically tested', 'Cruelty-free & FDA compliant', 'Check shade in daylight once'],
+  gadgets: ['6-month warranty included', 'BIS certified', 'Ships in protective packaging'],
+  home: ['Easy setup, no tools needed', 'Damage-protected packaging', 'Wipe clean with dry cloth'],
+  kitchen: ['Food-grade material', 'Easy to clean', '1-year warranty on defects'],
+  accessories: ['True to size', 'Colour accurate to photos', 'Quality checked before dispatch'],
+  stationery: ['Smudge-free & long lasting', 'Ideal for gifting', 'Bulk discounts on packs'],
+  quirky: ['Guaranteed conversation starter', 'Gift-wrap available', 'No refunds on happiness'],
+}
+
 // Blinkit-style bottom sheet: pick a flavour/size/colour variant, add to cart.
 export default function ProductSheet({ product, cart, onAddToCart, onQty, onRemove, onClose }) {
   const variants = VARIANTS_BY_TEMPLATE[product.templateId] ?? [product]
@@ -61,6 +72,20 @@ export default function ProductSheet({ product, cart, onAddToCart, onQty, onRemo
             </div>
           </>
         )}
+
+        <div className="mt-4 rounded-2xl bg-gray-50 p-3 dark:bg-zinc-800/60">
+          <p className="text-xs font-black uppercase tracking-wide text-gray-400">Highlights</p>
+          <ul className="mt-1.5 space-y-1">
+            {(HIGHLIGHTS[product.category] ?? []).map((h) => (
+              <li key={h} className="flex items-start gap-1.5 text-sm text-gray-600 dark:text-gray-300">
+                <span className="text-[#0c831f]">✓</span> {h}
+              </li>
+            ))}
+          </ul>
+          <p className="mt-2 border-t border-dashed border-gray-200 pt-2 text-xs font-semibold text-gray-500 dark:border-zinc-700 dark:text-gray-400">
+            🚚 Delivery in 2–4 days · Free over ₹499 · 7-day easy returns · COD available
+          </p>
+        </div>
 
         <div className="mt-4 flex items-center justify-between gap-3">
           <div>

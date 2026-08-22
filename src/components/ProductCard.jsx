@@ -136,6 +136,9 @@ export default function ProductCard({ product, index, near = true, wished, onTog
             {product.reason === 'fresh' && (
               <span className="rounded-full bg-teal-500 px-2.5 py-1 text-white shadow-lg shadow-teal-500/40">🎲 Fresh find</span>
             )}
+            {product.reason === 'new' && (
+              <span className="rounded-full bg-amber-400 px-2.5 py-1 text-black shadow-lg shadow-amber-400/40">🆕 Aaj ka drop</span>
+            )}
             <span className="rounded-full bg-white/20 px-2.5 py-1 text-white backdrop-blur-sm">{catLabel}</span>
             <span className="rounded-full bg-white/20 px-2.5 py-1 text-amber-300 backdrop-blur-sm">
               ⭐ {product.rating} · {fmtReviews(product.reviews)} ratings
@@ -163,6 +166,11 @@ export default function ProductCard({ product, index, near = true, wished, onTog
               Free delivery over ₹499
             </span>
           </div>
+          {product.deal && (
+            <p className="mt-1 text-[11px] font-bold text-orange-300 drop-shadow">
+              🔥 {14 + ((product.id * 53) % 87)} logo ne aaj kharida
+            </p>
+          )}
         </div>
 
         {/* full-width thumb-zone CTA: Add → quantity stepper with remove */}
