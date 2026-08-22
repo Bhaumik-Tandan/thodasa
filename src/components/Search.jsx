@@ -49,8 +49,8 @@ export default function Search({ cart, onAddToCart, onOpenDetail, onClose }) {
   )
 
   return (
-    <div className="fixed inset-0 z-40 mx-auto flex max-w-md flex-col bg-gray-50 dark:bg-zinc-950">
-      <header className="border-b border-gray-100 bg-white px-4 pb-3 pt-12 dark:border-zinc-800 dark:bg-zinc-900">
+    <div className="fixed inset-0 z-40 mx-auto flex max-w-md flex-col lg:max-w-none bg-gray-50 dark:bg-zinc-950">
+      <header className="lg:mx-auto lg:w-full lg:max-w-3xl border-b border-gray-100 bg-white px-4 pb-3 pt-12 dark:border-zinc-800 dark:bg-zinc-900">
         <div className="flex items-center gap-2">
           <button onClick={onClose} className="px-1 py-2 text-xl font-bold text-gray-500 active:scale-90 dark:text-gray-300" aria-label="Back">←</button>
           <div className="flex flex-1 items-center gap-2 rounded-xl bg-gray-100 px-3 py-2.5 dark:bg-zinc-800">
@@ -67,7 +67,7 @@ export default function Search({ cart, onAddToCart, onOpenDetail, onClose }) {
         </div>
       </header>
 
-      <div className="flex-1 space-y-2 overflow-y-auto p-3">
+      <div className="flex-1 lg:mx-auto lg:w-full lg:max-w-3xl space-y-2 overflow-y-auto p-3">
         {q.trim() ? (
           <>
             <p className="px-1 text-xs font-semibold text-gray-400">{results.length} result{results.length === 1 ? '' : 's'}{results.length === 30 ? '+' : ''}</p>

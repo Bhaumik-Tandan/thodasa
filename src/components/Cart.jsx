@@ -23,8 +23,8 @@ export default function Cart({ cart, onQty, onRemove, onCheckout, onOrders, onCl
   }, [])
 
   return (
-    <div className="animate-slide-up fixed inset-0 z-40 mx-auto flex max-w-md flex-col bg-gray-50 dark:bg-zinc-950">
-      <header className="flex items-center justify-between px-5 pb-3 pt-14">
+    <div className="animate-slide-up fixed inset-0 z-40 mx-auto flex max-w-md flex-col lg:max-w-none bg-gray-50 dark:bg-zinc-950">
+      <header className="lg:mx-auto lg:w-full lg:max-w-3xl flex items-center justify-between px-5 pb-3 pt-14">
         <h1 className="text-2xl font-black text-gray-900 dark:text-white">Your Cart</h1>
         <div className="flex items-center gap-2">
           <button onClick={onOrders} className="rounded-full bg-gray-200 px-4 py-2 text-sm font-bold text-gray-700 active:scale-90 dark:bg-white/10 dark:text-gray-200">

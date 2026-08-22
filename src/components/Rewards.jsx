@@ -34,13 +34,13 @@ export default function Rewards({ onClose, onChange }) {
   const wheelBg = `conic-gradient(${SPIN_PRIZES.map((_, i) => `${WHEEL_COLORS[i]} ${i * 45}deg ${(i + 1) * 45}deg`).join(', ')})`
 
   return (
-    <div className="animate-slide-up fixed inset-0 z-40 mx-auto flex max-w-md flex-col bg-gray-50 dark:bg-zinc-950">
-      <header className="flex items-center justify-between border-b border-gray-100 bg-white px-4 py-3 pt-12 dark:border-zinc-800 dark:bg-zinc-900">
+    <div className="animate-slide-up fixed inset-0 z-40 mx-auto flex max-w-md flex-col lg:max-w-none bg-gray-50 dark:bg-zinc-950">
+      <header className="lg:mx-auto lg:w-full lg:max-w-2xl flex items-center justify-between border-b border-gray-100 bg-white px-4 py-3 pt-12 dark:border-zinc-800 dark:bg-zinc-900">
         <h1 className="text-lg font-black text-gray-900 dark:text-white">Rewards 🎁</h1>
         <button onClick={onClose} className="rounded-lg px-3 py-1.5 text-sm font-semibold text-gray-500 active:scale-95 dark:text-gray-300">Close</button>
       </header>
 
-      <div className="flex-1 space-y-4 overflow-y-auto p-4">
+      <div className="flex-1 lg:mx-auto lg:w-full lg:max-w-2xl space-y-4 overflow-y-auto p-4">
         {/* level + coins + streak */}
         <div className="rounded-3xl bg-gradient-to-br from-violet-600 via-fuchsia-600 to-rose-500 p-5 text-white shadow-xl">
           <div className="flex items-center justify-between">

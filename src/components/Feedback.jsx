@@ -67,7 +67,7 @@ export default function Feedback() {
       </button>
 
       {open && (
-        <div className="fixed inset-0 z-50 mx-auto flex max-w-md items-end justify-center" onClick={() => setOpen(false)}>
+        <div className="fixed inset-0 z-50 mx-auto flex max-w-md items-end justify-center lg:max-w-none lg:items-center" onClick={() => setOpen(false)}>
           <div className="absolute inset-0 bg-black/50" />
           <div
             className="animate-slide-up relative w-full rounded-t-3xl bg-white p-5 pb-8 dark:bg-zinc-900"

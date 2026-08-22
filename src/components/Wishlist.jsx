@@ -10,8 +10,8 @@ export default function Wishlist({ wishlist, onToggleWish, onAddToCart, cart, on
   const vibe = tasteSummary()
 
   return (
-    <div className="animate-slide-up fixed inset-0 z-40 mx-auto flex max-w-md flex-col bg-gray-50 dark:bg-zinc-950">
-      <header className="flex items-center justify-between border-b border-gray-100 bg-white px-4 py-3 pt-12 dark:border-zinc-800 dark:bg-zinc-900">
+    <div className="animate-slide-up fixed inset-0 z-40 mx-auto flex max-w-md flex-col lg:max-w-none bg-gray-50 dark:bg-zinc-950">
+      <header className="lg:mx-auto lg:w-full lg:max-w-3xl flex items-center justify-between border-b border-gray-100 bg-white px-4 py-3 pt-12 dark:border-zinc-800 dark:bg-zinc-900">
         <h1 className="text-lg font-bold text-gray-900 dark:text-white">My Wishlist ({items.length})</h1>
         <button onClick={onClose} className="rounded-lg px-3 py-1.5 text-sm font-semibold text-gray-500 active:scale-95 dark:text-gray-300">
           Close
@@ -54,7 +54,7 @@ export default function Wishlist({ wishlist, onToggleWish, onAddToCart, cart, on
         </div>
       )}
 
-      <div className="flex-1 space-y-2 overflow-y-auto p-3">
+      <div className="flex-1 lg:mx-auto lg:w-full lg:max-w-3xl space-y-2 overflow-y-auto p-3">
         {items.length === 0 && (
           <div className="grid h-full place-items-center text-center">
             <div>

@@ -24,13 +24,13 @@ export default function ProductSheet({ product, cart, onAddToCart, onQty, onRemo
   const off = selected.deal ? Math.round((1 - selected.price / selected.mrp) * 100) : 0
 
   return (
-    <div className="fixed inset-0 z-50 mx-auto flex max-w-md flex-col justify-end" onClick={onClose}>
+    <div className="fixed inset-0 z-50 mx-auto flex max-w-md flex-col justify-end lg:max-w-none lg:items-center lg:justify-center" onClick={onClose}>
       <div className="absolute inset-0 bg-black/50" />
       <div
-        className="animate-slide-up relative max-h-[85%] overflow-y-auto rounded-t-3xl bg-white p-4 pb-8 dark:bg-zinc-900"
+        className="animate-slide-up relative max-h-[85%] overflow-y-auto rounded-t-3xl bg-white p-4 pb-8 lg:w-full lg:max-w-lg lg:rounded-3xl lg:p-6 lg:shadow-2xl dark:bg-zinc-900"
         onClick={(e) => e.stopPropagation()}
       >
-        <div className="mx-auto mb-3 h-1 w-10 rounded-full bg-gray-300 dark:bg-zinc-700" />
+        <div className="mx-auto mb-3 h-1 w-10 rounded-full bg-gray-300 lg:hidden dark:bg-zinc-700" />
 
         <div className="flex gap-3">
           <div className="relative h-24 w-24 shrink-0 overflow-hidden rounded-2xl bg-gray-100 dark:bg-zinc-800">
