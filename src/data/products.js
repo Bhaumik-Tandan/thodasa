@@ -9,7 +9,7 @@ export const CATEGORIES = [
   { id: 'gadgets', label: 'Gadgets' },
   { id: 'home', label: 'Home' },
   { id: 'kitchen', label: 'Kitchen' },
-  { id: 'accessories', label: 'Fashion' },
+  { id: 'accessories', label: 'Accessories' },
   { id: 'stationery', label: 'Stationery' },
   { id: 'quirky', label: 'Quirky' },
   { id: 'cars', label: 'Cars 🏎️' },
@@ -24,6 +24,8 @@ export const CATEGORIES = [
   { id: 'kpop', label: 'K-Pop 🎤' },
   { id: 'jets', label: 'Private Jets ✈️' },
   { id: 'toys', label: 'Toys 🧸' },
+  { id: 'grocery', label: 'Grocery 🛒' },
+  { id: 'jewels', label: 'Jewellery 💎' },
 ]
 
 export const GRADS = [
@@ -45,7 +47,7 @@ const img = (id) => `https://images.unsplash.com/photo-${id}?w=800&h=1400&fit=cr
 const I = {
   samosa: '1601050690597-df0568f70950', spices: '1596040033229-a9821ebd058d', chai: '1544787219-7f47ccb76574',
   mug: '1485955900006-10f4d324d411', tableMug: '1518481612222-68bbe828ecd1', berries: '1464965911861-746a04b4bca6',
-  salad: '1512621776951-a57141f2eefd', bowl: '1546069901-ba9599a7e63c', pizza: '1565299624946-b28f40a0ae38',
+  salad: '1512621776951-a57141f2eefd', bowl: '1546069901-ba9599a7e63c', pizza: '1565299624946-b28f40a0ae38', noodles: '1612929633738-8fe44f7ec841',
   pancakes: '1567620905732-2d1ec7ab7445', cake: '1565958011703-44f9829ba187', dessert: '1551024506-0bccd828d307',
   milk: '1550583724-b2692b85b150', smoothie: '1553530666-ba11a7da3888', pasta: '1576402187878-974f70c890a5',
   lemon: '1572635148818-ef6fd45eb394',
@@ -96,6 +98,16 @@ const I = {
   int5: '1615529182904-14819c35db37', int6: '1615873968403-89e068629265', int7: '1502005229762-cf1b2da7c5d6', kitchenInt2: '1484154218962-a197022b5858',
   jet1: '1540962351504-03099e0a754b', jet2: '1474302770737-173ee21bab63', plane: '1569629743817-70d8db6c323b',
   lego1: '1585366119957-e9730b6d0f60', lego2: '1518946222227-364f22132616', hotwheels: '1558060370-d644479cb6f7', figure: '1608889175123-8ee362201f81',
+  dairyMilk: '1563636619-e9143da7973b', milkPour: '1550583724-b2692b85b150', cheese: '1486297678162-eb2a19b0a32d',
+  potato: '1518977676601-b53f82aba655', vegSpread: '1590779033100-9f60a05a013d', vegMix: '1610348725531-843dff563e2c',
+  fruits: '1619566636858-adf3ef46400b', fruitMix: '1610832958506-aa56368176cf', banana: '1571771894821-ce9b6c11b08e',
+  bread: '1509440159596-0249088772ff', bakery: '1608198093002-ad4e005484ec', croissant: '1555507036-ab1f4038808a', breadSlice: '1549931319-a545dcf3bc73',
+  almonds: '1508061253366-f7da158b6d46', seedsMix: '1596040033229-a9821ebd058d',
+  grocShelf: '1542838132-92c53300491e', grocAisle: '1604719312566-8912e9227c6a', produce: '1607349913338-fca6f7fc42d0', market: '1584479898061-15742e14f50d',
+  pearlSet: '1515562141207-7a88fb7ce338', pendant: '1599643478518-a784e5dc4c8f', bangle: '1611591437281-460bfbe1220a', goldChain: '1602173574767-37ac01994b2a', diamondSet: '1573408301185-9146fe634ad0',
+  necklaceWorn: '1611085583191-a3b181a88401', lounge: '1594633312681-425c7b97ccd1', romper: '1618932260643-eee4a2f652a6',
+  notebookFlat: '1531346878377-a5be20888e57', deskFlat: '1519389950473-47ba0277781c', penNib: '1455390582262-044cdead277a', penBlack: '1583485088034-697b5bc54ccd',
+  ksLightstick: '1516450360452-9312f5e86fc7', ksAlbum: '1619983081563-430f63602796', ksPhotocard: '1533158307587-828f0a76ef46', ksHoodie: '1556821840-3a63f95609a7', ksPoster: '1541961017774-22349e4a1262',
 }
 
 // variant helpers
@@ -106,7 +118,7 @@ const colors = (cols, p) => cols.map((c) => [c, p])
 // T(brand, name, category, photoKey, emoji, desc, variants, launch?)
 const TEMPLATES = [
   // ——— SNACKS ———
-  ['Slurpp', '2-Minute Masala Noodles', 'snacks', 'bowl', '🍜', '2 minute bola tha, 20 saal ho gaye. Still worth it.', combo(['Masala', 'Special Masala', 'Chicken'], V(['Pack of 4', 60], ['Pack of 8', 118], ['Pack of 12', 172])), true],
+  ['Slurpp', '2-Minute Masala Noodles', 'snacks', 'noodles', '🍜', '2 minute bola tha, 20 saal ho gaye. Still worth it.', combo(['Masala', 'Special Masala', 'Chicken'], V(['Pack of 4', 60], ['Pack of 8', 118], ['Pack of 12', 172])), true],
   ['CrunchLab', 'Potato Chips', 'snacks', 'chips', '🥔', 'Ek pack kabhi kaafi nahi hota. Science hai.', combo(['Magic Masala', 'Cream & Onion', 'Classic Salted', 'Tomato Tango', 'Chile Limón'], V(['52g', 20], ['90g', 35], ['Party Pack 177g', 60]))],
   ['Tedha', 'Crunchy Snack', 'snacks', 'spices', '🌶️', 'Tedha hai par mera hai.', combo(['Masala Munch', 'Green Chutney', 'Solid Masti'], V(['40g', 10], ['90g', 20], ['Family Pack', 35]))],
   ['Namkeen Bros', 'Bhujia', 'snacks', 'spices', '🥨', 'Chai ke saath ya waise hi. No judgement.', combo(['Classic', 'Aloo', 'Moong Dal'], V(['200g', 52], ['400g', 95], ['1kg', 210]))],
@@ -629,13 +641,82 @@ TEMPLATES.push(
   ['Dyson', 'Airwrap Styler', 'beauty', 'headphones', '💨', 'Curls, waves, blowout — no heat damage.', colors(['Nickel/Copper', 'Blue/Blush', 'Onyx/Gold'], 45900), true],
 )
 // ——— K-POP MERCH ———
+// ——— K-Pop: REAL album art via the iTunes/Apple Music catalog ———
+// Album covers are the actual artwork for each release (fetched from the public
+// iTunes Search API and pinned here), so this section shows real merch, not
+// generic stock lookalikes. Non-album merch reuses verified fandom photos.
+const itunes = (mid) => `https://is1-ssl.mzstatic.com/image/thumb/${mid}/600x600bb.jpg`
+const KPOP_ALBUMS = [
+  ['BTS', 'Love Yourself 結 \'Answer\'', 'Music126/v4/ff/00/2c/ff002c29-6da9-1a26-16b3-282a73180366/192562871591_Cover.jpg'],
+  ['BTS', 'Come Over', 'Music211/v4/b4/a3/50/b4a350d5-4197-6928-eebf-e7e53ae4c2b6/823375205715_Cover.jpg'],
+  ['BTS', 'MAP OF THE SOUL : 7', 'Music116/v4/bd/68/9b/bd689bf2-ef25-4973-7ecd-7eb4965019c5/195081034713_Cover.jpg'],
+  ['BTS', 'The Most Beautiful Moment in Life: Young Forever', 'Music116/v4/4c/97/6f/4c976f5c-5196-1221-8517-ddfcb0ba514c/8804775070341_Cover.jpg'],
+  ['BTS', 'DARK&WILD', 'Music116/v4/f2/39/97/f2399713-b036-7ef2-fb4f-8c1454569c66/8804775056895_Cover.jpg'],
+  ['BTS', 'Love Yourself 轉 \'Tear\'', 'Music126/v4/02/c5/18/02c518f5-ac06-3321-622e-08d9429fd968/192562556672_Cover.jpg'],
+  ['BLACKPINK', 'AS IF IT\'S YOUR LAST', 'Music124/v4/0b/d6/6e/0bd66efc-caba-41e0-7d84-c92e925b1d94/as_if_its_your_last.jpg'],
+  ['BLACKPINK', 'Pink Venom', 'Music122/v4/72/48/88/72488832-558c-fcba-4aa0-03d88dc79eb3/22UMGIM87808.rgb.jpg'],
+  ['BLACKPINK', 'THE ALBUM', 'Music125/v4/c3/64/46/c364465f-6271-8aae-93a8-b9979d2befe5/20UMGIM82075.rgb.jpg'],
+  ['BLACKPINK', 'KILL THIS LOVE', 'Music124/v4/d6/2a/db/d62adbe1-6994-581c-b3b2-aeacafa35c1d/19UMGIM30819.rgb.jpg'],
+  ['BLACKPINK', 'SQUARE TWO', 'Music125/v4/89/eb/82/89eb82a7-52ec-9e02-87e9-fcc0ac7e0377/BLACKPINK_SQUARE2-1.jpg'],
+  ['BLACKPINK', 'SQUARE UP', 'Music124/v4/5e/5d/c3/5e5dc3a6-797b-dee5-9f51-2dcbf447c48e/19UMGIM05046.rgb.jpg'],
+  ['Stray Kids', 'THIS & THAT', 'Music211/v4/c0/05/aa/c005aa79-a3a7-6e28-48e2-4c5e72eff603/8809928957357_Cover.jpg'],
+  ['Stray Kids', 'SKZ-REPLAY 2026 Pt.1', 'Music221/v4/22/70/ea/2270ea94-60f0-94a6-bce2-99fafaa8a057/8809928957340_Cover.jpg'],
+  ['Stray Kids', 'RUN IT', 'Music221/v4/01/03/f8/0103f8d4-c842-6a41-e4ce-240d6eabfc9c/8809928957500_Cover.jpg'],
+  ['Stray Kids', 'ATE', 'Music211/v4/24/c1/47/24c147fc-cf70-0a4e-3e21-bd9a42617572/8809928952123_Cover.jpg'],
+  ['Stray Kids', 'NOEASY', 'Music116/v4/af/dc/2b/afdc2b64-deb3-cf5f-84e2-c43be4105636/192641939495_Cover.jpg'],
+  ['Stray Kids', 'KARMA', 'Music221/v4/38/22/ee/3822ee8e-c8f6-bb12-10ca-dcfd27dd166b/8809928955230_Cover.jpg'],
+  ['SEVENTEEN', 'YOU MADE MY DAWN', 'Music126/v4/d3/c9/4c/d3c94ccd-6c20-af5a-403e-40a14b9f3df5/8804775120695_Cover.jpg'],
+  ['SEVENTEEN', 'Darl+Ing', 'Music112/v4/9f/26/fa/9f26fae1-c93e-0d47-a0a6-b8543e2a28aa/192641997679_Cover.jpg'],
+  ['SEVENTEEN', 'FML', 'Music116/v4/d1/66/eb/d166eb7e-7210-b3ff-be39-638cd37bfc89/196922401282_Cover.jpg'],
+  ['SEVENTEEN', 'Heng:garæ', 'Music124/v4/fa/8d/ca/fa8dcafd-2f37-a08b-9a6d-f6b2e68ef5f5/08809704415170_Cover.jpg'],
+  ['SEVENTEEN', 'Attacca', 'Music125/v4/dd/d4/d4/ddd4d456-4696-06b8-2054-6d1bb6ae6718/192641682551_Cover.jpg'],
+  ['SEVENTEEN', 'Your Choice', 'Music115/v4/a5/4c/16/a54c1600-09f4-74f1-f12a-e5bae364ca42/192641604041_Cover.jpg'],
+  ['TWICE', 'FANCY YOU', 'Music115/v4/03/76/e6/0376e6f9-f6d8-68f7-ae85-1a4ef17002aa/00602508875229_Cover.jpg'],
+  ['TWICE', 'Formula of Love: O+T=<3', 'Music126/v4/87/f5/e0/87f5e0de-c909-f4e6-9621-123565dfbc80/738676858440_Cover.jpg'],
+  ['TWICE', 'CRY FOR ME', 'Music124/v4/a5/7f/18/a57f181f-fa95-c7ce-4a62-2f1144d1ae3f/192641621130_Cover.jpg'],
+  ['TWICE', 'Eyes wide open', 'Music115/v4/1f/46/44/1f46442a-ed5a-7cc8-c119-c6453b559ef7/192641580802_Cover.jpg'],
+  ['TWICE', 'Feel Special', 'Music114/v4/75/bb/cc/75bbcc8c-bc12-983b-196f-bb6e355cc978/00602508875281_Cover.jpg'],
+  ['TWICE', 'MOONLIGHT SUNRISE', 'Music113/v4/4e/00/f7/4e00f74a-795c-001a-2da3-d5b01b01e4d4/738676860511_Cover.jpg'],
+  ['NewJeans', 'NewJeans 1st EP \'New Jeans\'', 'Music112/v4/4e/64/34/4e64344b-3ac6-c503-2c41-257a15401416/192641873096_Cover.jpg'],
+  ['NewJeans', 'NewJeans 2nd EP \'Get Up\'', 'Music116/v4/d3/4b/7e/d34b7e1e-af3b-43b6-2949-7a8c652a1bc9/196922462726_Cover.jpg'],
+  ['NewJeans', 'OMG (Apple Music Edition)', 'Music126/v4/d0/78/92/d07892c1-2770-7e7f-68ba-dc6409750f7a/196922401039_Cover.jpg'],
+  ['NewJeans', 'How Sweet', 'Music221/v4/bf/68/ca/bf68ca64-4acd-543f-bc78-455f11f06105/196922889738_Cover.jpg'],
+  ['NewJeans', 'NewJeans \'OMG\'', 'Music113/v4/48/96/08/4896085e-b550-cb0a-3e5b-1f203521cb82/196922265464_Cover.jpg'],
+  ['NewJeans', 'Ditto', 'Music112/v4/f6/29/42/f629426e-92fe-535c-cbe4-76e70850819b/196922287107_Cover.jpg'],
+  ['aespa', 'LEMONADE - The 2nd Album', 'Music221/v4/95/98/a0/9598a090-7948-5bf1-a6ac-7fde80d26874/888735955211_Cover.jpg'],
+  ['aespa', 'SYNK : aeXIS LINE - 2026 Special Digital Single', 'Music211/v4/cc/41/23/cc4123a6-c1c0-7e86-e44a-2f0cb1f0e081/aespa_aeXIS_2026_-F.jpg'],
+  ['aespa', 'Better Things', 'Music116/v4/89/9e/3e/899e3e37-a86d-1a08-d1d1-dddfe8fd94c4/888735944338.jpg'],
+  ['aespa', 'KISS N TELL', 'Music221/v4/47/e5/1c/47e51c1f-8153-3f2f-11ed-781b1dbe5cac/1200214475819.jpg'],
+  ['aespa', 'WDA (Whole Different Animal) [feat. G-DRAGON]', 'Music221/v4/e2/b8/2f/e2b82f49-e51b-725f-2797-ea2a3de44b55/888735955426_Cover.jpg'],
+  ['aespa', 'Rich Man - The 6th Mini Album', 'Music211/v4/c5/ff/d7/c5ffd7a9-ed3c-6d02-81d7-7cc7e2dee419/888735953019_Cover.jpg'],
+  ['EXO', 'The 1st Album \'XOXO\' (Repackage)', 'Music124/v4/3a/10/77/3a1077bc-cfb4-dc63-eb69-bf8bc7d7245e/asset.jpg'],
+  ['EXO', 'THE WAR - The 4th Album', 'Music115/v4/e0/e6/45/e0e6457b-98c2-e86a-158f-63f234e62ed7/EXO_04_THE_WAR_DC_KOREAN_Ver.jpg'],
+  ['EXO', 'EX’ACT - The 3rd Album', 'Music114/v4/8a/2d/e9/8a2de945-0ba9-d37d-fd0e-869ee72db099/EXACT_DIGITAL_COVER_IB_4000_4000.jpg'],
+  ['EXO', 'SING FOR YOU - Winter Special Album, 2015', 'Music124/v4/c4/6e/09/c46e0919-9f49-debb-0e4a-ac0d54f69959/2.jpg'],
+  ['EXO', 'OBSESSION - The 6th Album', 'Music125/v4/28/59/de/2859de3b-c003-816e-4f28-71d40b04697d/cover.jpg'],
+  ['EXO', 'REVERXE - The 8th Album', 'Music221/v4/e2/41/ca/e241cafc-1447-2edf-4ca3-cd11ec4b376d/888735954610.png'],
+  ['ENHYPEN', 'THE SIN : BLISS (Korean Ver.)', 'Music211/v4/6c/63/52/6c635245-2ee7-193d-faec-3a53b0e2d087/823375359371_Cover.jpg'],
+  ['ENHYPEN', 'THE SIN : BLISS (English Ver.)', 'Music221/v4/fa/fa/6f/fafa6f4c-eb86-84c5-cecc-6e0c77562a15/823375359395_Cover.jpg'],
+  ['ENHYPEN', 'THE SIN : BLISS', 'Music221/v4/9e/f2/dc/9ef2dc16-eefd-7cad-3d74-adbd0e394991/823375232841_Cover.jpg'],
+  ['ENHYPEN', 'THE SIN : BLISS (Chinese Ver.)', 'Music221/v4/a6/70/79/a6707900-145d-2328-4e6e-ef4362613d66/823375359432_Cover.jpg'],
+  ['ENHYPEN', 'THE SIN : BLISS (Japanese Ver.)', 'Music211/v4/ca/33/21/ca3321d1-ae6a-d703-7b59-d2ed90455551/823375359418_Cover.jpg'],
+  ['ENHYPEN', 'THE SIN : VANISH', 'Music221/v4/4e/48/e2/4e48e2e1-6713-c1de-db25-7a8d27f6979e/198704914287_Cover.jpg'],
+  ['LE SSERAFIM', 'HOT', 'Music221/v4/cb/5d/2c/cb5d2c9e-74e1-a562-6c40-04479aa0afdf/198704375187_Cover.jpg'],
+  ['LE SSERAFIM', 'CELEBRATION', 'Music221/v4/54/4f/4a/544f4a6d-71e3-3527-7024-ff4d1b649b30/823375107163_Cover.jpg'],
+  ['LE SSERAFIM', 'UNFORGIVEN', 'Music211/v4/27/13/c3/2713c389-4f01-b5e7-59f5-3204b37cb594/196922444470_Cover.jpg'],
+  ['LE SSERAFIM', 'CRAZY', 'Music221/v4/38/95/ed/3895ed80-ba5b-7846-ce5b-b49805a818ef/198704101359_Cover.jpg'],
+  ['LE SSERAFIM', 'ANTIFRAGILE', 'Music221/v4/c8/79/da/c879dadf-db1e-95a5-caf5-b18c7c81d2b6/192641874413_Cover.jpg'],
+  ['LE SSERAFIM', 'EASY', 'Music221/v4/22/0f/fd/220ffdbf-152c-5b65-d5af-01256c1328c2/196922796531_Cover.jpg'],
+]
+for (const [band, album, mid] of KPOP_ALBUMS) {
+  TEMPLATES.push([band, `${album} (Album)`, 'kpop', itunes(mid), '💿', `${band} — official album. Random photocard inside, collect all!`, V(['Standard Ver.', 1899], ['Deluxe + Photobook', 2799])])
+}
 const KPOP = ['BTS', 'BLACKPINK', 'Stray Kids', 'SEVENTEEN', 'TWICE', 'NewJeans', 'aespa', 'EXO', 'ENHYPEN', 'LE SSERAFIM']
 KPOP.forEach((band) => {
-  TEMPLATES.push([band, 'Official Lightstick', 'kpop', 'stars', '🪄', `${band} concert essential. ARMY/BLINK/STAY ready.`, V(['Ver. 1', 3499], ['Ver. 3 (Bluetooth)', 4999])])
-  TEMPLATES.push([band, 'Album + Photocards', 'kpop', 'books', '💿', `${band} latest album. Random photocard inside — collect all!`, colors(['Ver. A', 'Ver. B', 'Ver. C', 'Weverse Ver.'], 1899)])
-  TEMPLATES.push([band, 'Photocard Set', 'kpop', 'confetti', '🖼️', `${band} member photocards. Bias secured.`, colors(['Full Set', 'Bias Pack'], 799)])
-  TEMPLATES.push([band, 'Merch Hoodie', 'kpop', 'tee', '🧥', `${band} tour hoodie. Comfy + fandom flex.`, combo(['Black', 'White', 'Pink'], ['S', 'M', 'L', 'XL'].map((z) => [z, 2999]))])
-  TEMPLATES.push([band, 'Poster Set', 'kpop', 'giftBox', '📜', `${band} wall art. Bedroom = shrine.`, V(['Set of 4', 599], ['Set of 8', 999])])
+  TEMPLATES.push([band, 'Official Lightstick', 'kpop', 'ksLightstick', '🪄', `${band} concert essential. ARMY/BLINK/STAY ready.`, V(['Ver. 1', 3499], ['Ver. 3 (Bluetooth)', 4999])])
+  TEMPLATES.push([band, 'Photocard Binder Set', 'kpop', 'ksPhotocard', '🖼️', `${band} member photocards + collector binder. Bias secured.`, colors(['Full Set', 'Bias Pack'], 799)])
+  TEMPLATES.push([band, 'Tour Hoodie', 'kpop', 'ksHoodie', '🧥', `${band} tour hoodie. Comfy + fandom flex.`, combo(['Black', 'White', 'Pink'], ['S', 'M', 'L', 'XL'].map((z) => [z, 2999]))])
+  TEMPLATES.push([band, 'Poster Set', 'kpop', 'ksPoster', '📜', `${band} wall art. Bedroom = shrine.`, V(['Set of 4', 599], ['Set of 8', 999])])
 })
 
 // ——— PRIVATE JETS + hypercars (Pagani) ———
@@ -675,6 +756,129 @@ TEMPLATES.push(
   ['Hot Wheels', 'Monster Trucks 5-Pack', 'toys', 'hotwheels', '👹', 'Giant tyres, tiny prices, big crashes.', V(['5-Pack', 2499])],
   ['Hot Wheels', 'Premium Car Culture', 'toys', 'hotwheels', '🏁', 'Real Riders rubber tyres. Collector grade.', combo(['JDM Legends', 'Euro Speed', 'Modern Classics'], V(['Single', 799], ['5-Pack', 3499]))],
 )
+
+// ——— Grocery: dairy, produce, bakery, dry fruits, staples ———
+TEMPLATES.push(
+  ['Amul', 'Toned Milk Pouch', 'grocery', 'dairyMilk', '🥛', 'Roz subah ka sabse zaroori delivery.', combo(['Toned', 'Full Cream', 'Double Toned'], V(['500ml', 27], ['1L', 54], ['Pack of 6', 310]))],
+  ['Amul', 'Butter', 'grocery', 'dairyMilk', '🧈', 'Utterly butterly. Bas.', V(['100g', 62], ['500g', 285])],
+  ['Amul', 'Cheese Slices', 'grocery', 'cheese', '🧀', 'Sandwich ka MVP.', V(['Pack of 5', 92], ['Pack of 10', 175])],
+  ['Amul', 'Paneer Fresh Block', 'grocery', 'cheese', '🧆', 'Butter masala se pehle ka step.', V(['200g', 95], ['500g', 225])],
+  ['Mother Dairy', 'Curd Cup', 'grocery', 'milkPour', '🥣', 'Khaana adhoora hai iske bina.', V(['400g', 45], ['1kg', 95])],
+  ['Epigamia', 'Greek Yogurt', 'grocery', 'milkPour', '🍦', 'Protein wala dessert. Guilt-free-ish.', combo(['Mango', 'Blueberry', 'Vanilla', 'Strawberry'], V(['90g', 55], ['Pack of 4', 210]))],
+  ['Nandini', 'Fresh Ghee', 'grocery', 'dairyMilk', '🫕', 'Dadi bolti thi ek chamach roz.', V(['200ml', 175], ['500ml', 410], ['1L', 780])],
+  ['FarmFresh', 'Daily Vegetable Basket', 'grocery', 'vegSpread', '🥬', 'Aaj ki sabzi, aaj hi tudi.', V(['Small (5 items)', 199], ['Family (10 items)', 379], ['Weekly (15 items)', 549])],
+  ['FarmFresh', 'Onion Potato Combo', 'grocery', 'potato', '🥔', 'Ghar ki foundation. Literally.', V(['1kg + 1kg', 78], ['2kg + 2kg', 149])],
+  ['FarmFresh', 'Tomato', 'grocery', 'vegMix', '🍅', 'Price roz badalta hai, pyaar nahi.', V(['500g', 32], ['1kg', 60])],
+  ['FarmFresh', 'Leafy Greens Pack', 'grocery', 'vegSpread', '🥗', 'Palak, methi, dhaniya — sab fresh.', combo(['Spinach', 'Methi', 'Coriander', 'Mint'], V(['250g', 25], ['500g', 45]))],
+  ['FarmFresh', 'Exotic Veggies Box', 'grocery', 'vegMix', '🫑', 'Broccoli, zucchini, bell peppers.', V(['Mixed 1kg', 289])],
+  ['FruitCart', 'Seasonal Fruit Box', 'grocery', 'fruits', '🍎', 'Jo season mein hai, wahi sabse meetha.', V(['Small', 249], ['Large', 449], ['Premium', 699])],
+  ['FruitCart', 'Banana Bunch', 'grocery', 'banana', '🍌', 'Gym ke pehle ya baad. Dono.', V(['6 pcs', 45], ['12 pcs', 82])],
+  ['FruitCart', 'Alphonso Mango Crate', 'grocery', 'fruitMix', '🥭', 'Ratnagiri se. Season ka intezaar tha.', V(['1 dozen', 899], ['2 dozen', 1699])],
+  ['FruitCart', 'Imported Fruit Mix', 'grocery', 'fruitMix', '🥝', 'Kiwi, dragon fruit, avocado.', V(['Mixed pack', 549])],
+  ['BakeHouse', 'Whole Wheat Bread', 'grocery', 'breadSlice', '🍞', 'Toast, sandwich, ya seedha.', combo(['Whole Wheat', 'Multigrain', 'White', 'Sourdough'], V(['400g', 45], ['800g', 82]))],
+  ['BakeHouse', 'Butter Croissant', 'grocery', 'croissant', '🥐', 'Flaky layers, zero regret.', V(['Pack of 2', 110], ['Pack of 6', 299])],
+  ['BakeHouse', 'Artisan Sourdough Loaf', 'grocery', 'bread', '🥖', '48-hour ferment. Crust perfection.', V(['Half', 180], ['Full', 320])],
+  ['BakeHouse', 'Bakery Fresh Bun Pack', 'grocery', 'bakery', '🍔', 'Burger night ready.', combo(['Burger Buns', 'Pav', 'Brioche'], V(['Pack of 6', 55], ['Pack of 12', 99]))],
+  ['BakeHouse', 'Assorted Cookie Jar', 'grocery', 'bakery', '🍪', 'Chai ke saath khatam ho jaata hai.', combo(['Choco Chip', 'Butter', 'Oatmeal'], V(['200g', 175], ['500g', 385]))],
+  ['NutKing', 'Premium Almonds', 'grocery', 'almonds', '🌰', 'Roz 5 badam, mummy ka order.', V(['250g', 289], ['500g', 549], ['1kg', 1049])],
+  ['NutKing', 'Cashew Whole W240', 'grocery', 'almonds', '🥜', 'Kaju katli ka raw material.', V(['250g', 349], ['500g', 675], ['1kg', 1299])],
+  ['NutKing', 'Pistachio Roasted & Salted', 'grocery', 'almonds', '🥜', 'Ek baar shuru kiya toh ruk nahi sakte.', V(['200g', 399], ['500g', 949])],
+  ['NutKing', 'Medjool Dates', 'grocery', 'seedsMix', '🍯', 'Nature ka caramel. Sach mein.', V(['250g', 320], ['500g', 599])],
+  ['NutKing', 'Walnut Kernels', 'grocery', 'almonds', '🧠', 'Dimaag tez, yeh sab kehte hain.', V(['250g', 419], ['500g', 799])],
+  ['NutKing', 'Trail Mix & Seeds', 'grocery', 'seedsMix', '🌻', 'Pumpkin, chia, flax, sunflower.', combo(['Classic Mix', 'Protein Mix', 'Seed Mix'], V(['200g', 245], ['500g', 549]))],
+  ['NutKing', 'Dry Fruit Gift Hamper', 'grocery', 'almonds', '🎁', 'Diwali ka default gift. Kaam karta hai.', V(['Assorted 500g', 899], ['Deluxe 1kg', 1699])],
+  ['DailyStaples', 'Basmati Rice', 'grocery', 'grocShelf', '🍚', 'Biryani ki neev.', combo(['Regular', 'Aged Premium'], V(['1kg', 120], ['5kg', 549]))],
+  ['DailyStaples', 'Toor Dal', 'grocery', 'grocShelf', '🫘', 'Dal chawal = comfort food GOAT.', combo(['Toor', 'Moong', 'Chana', 'Masoor'], V(['500g', 85], ['1kg', 160]))],
+  ['DailyStaples', 'Atta Whole Wheat', 'grocery', 'grocAisle', '🌾', 'Roti ka asli hero.', V(['1kg', 55], ['5kg', 249], ['10kg', 470])],
+  ['DailyStaples', 'Cooking Oil', 'grocery', 'grocAisle', '🫗', 'Sunflower, mustard, ya olive.', combo(['Sunflower', 'Mustard', 'Groundnut', 'Olive'], V(['1L', 145], ['5L', 690]))],
+  ['DailyStaples', 'Sugar & Salt Combo', 'grocery', 'grocShelf', '🧂', 'Kitchen ka basic pair.', V(['1kg each', 78])],
+  ['DailyStaples', 'Monthly Grocery Hamper', 'grocery', 'produce', '🛒', 'Poora mahina sorted, ek click mein.', V(['Bachelor Pack', 1299], ['Family Pack', 2799], ['Jumbo Pack', 4499]), true],
+  ['DailyStaples', 'Fresh Market Basket', 'grocery', 'market', '🧺', 'Mandi se seedha ghar.', V(['Weekly', 649], ['Fortnightly', 1149])],
+)
+
+// ——— Artificial / fashion jewellery ———
+TEMPLATES.push(
+  ['Zaveri Pearls', 'Kundan Choker Set', 'jewels', 'diamondSet', '💎', 'Shaadi season ka must-have. Real lagta hai.', colors(['Gold Tone', 'Rose Gold', 'Silver Tone'], 1299)],
+  ['Zaveri Pearls', 'Temple Jewellery Set', 'jewels', 'goldChain', '🛕', 'South Indian classic. Antique finish.', colors(['Antique Gold', 'Matte Gold'], 1899)],
+  ['Zaveri Pearls', 'Pearl Necklace Set', 'jewels', 'pearlSet', '🦪', 'Elegant, understated, always works.', colors(['Classic White', 'Pastel Pink', 'Grey'], 899)],
+  ['Zaveri Pearls', 'Polki Bridal Set', 'jewels', 'diamondSet', '👰', 'Full bridal look without the locker.', V(['Necklace + Earrings', 2499], ['Full Set + Maang Tikka', 3799])],
+  ['Accessorize', 'Jhumka Earrings', 'jewels', 'earrings', '🪘', 'Kurta ho ya dress, jhumka fits.', colors(['Gold', 'Oxidised Silver', 'Rose Gold', 'Emerald'], 449)],
+  ['Accessorize', 'Oxidised Silver Earrings', 'jewels', 'earrings', '🌙', 'Boho-Indie vibe, instant.', colors(['Silver', 'Antique'], 349)],
+  ['Accessorize', 'Hoop Earrings Set', 'jewels', 'earrings', '⭕', 'Small, medium, large — teeno.', V(['Set of 3', 399], ['Set of 6', 649])],
+  ['Accessorize', 'Stud Earrings Pack', 'jewels', 'pearls', '✨', 'Daily wear, office safe.', V(['Pack of 6', 499], ['Pack of 12', 849])],
+  ['Accessorize', 'Layered Chain Necklace', 'jewels', 'pendant', '⛓️', 'Ek pehno, teen dikhte hain.', colors(['Gold', 'Silver', 'Rose Gold'], 599)],
+  ['Accessorize', 'Pendant Necklace', 'jewels', 'pendant', '💠', 'Minimal, roz pehen sakte ho.', colors(['Moon', 'Heart', 'Evil Eye', 'Initial'], 449)],
+  ['Accessorize', 'Choker Necklace', 'jewels', 'necklaceWorn', '🎀', 'Neckline ko frame karta hai.', colors(['Velvet Black', 'Gold Chain', 'Pearl'], 379)],
+  ['Accessorize', 'Bangle Set', 'jewels', 'bangle', '💫', 'Khan-khan wali khushi.', colors(['Gold Tone', 'Silver Tone', 'Multicolour'], 549)],
+  ['Accessorize', 'Cuff Bracelet', 'jewels', 'bangle', '🔗', 'Statement piece, ek hi kaafi.', colors(['Gold', 'Silver', 'Rose Gold'], 499)],
+  ['Accessorize', 'Charm Bracelet', 'jewels', 'bangle', '🍀', 'Har charm ki apni kahani.', V(['Base + 3 charms', 699], ['Base + 7 charms', 1099])],
+  ['Accessorize', 'Adjustable Ring Set', 'jewels', 'pearls', '💍', 'Size ka tension khatam.', V(['Set of 4', 399], ['Set of 8', 649])],
+  ['Accessorize', 'Statement Cocktail Ring', 'jewels', 'diamondSet', '🍸', 'Party mein sabki nazar yahan.', colors(['Emerald', 'Ruby', 'Sapphire', 'Clear'], 549)],
+  ['Accessorize', 'Anklet Pair', 'jewels', 'bangle', '🦶', 'Payal ki awaaz, nostalgia instant.', colors(['Silver Tone', 'Gold Tone', 'Beaded'], 349)],
+  ['Accessorize', 'Nose Pin Set', 'jewels', 'pearls', '💗', 'Pierced ya press-on, dono.', V(['Set of 3', 299])],
+  ['Accessorize', 'Maang Tikka', 'jewels', 'goldChain', '👑', 'Ethnic look ka finishing touch.', colors(['Kundan', 'Pearl', 'Oxidised'], 649)],
+  ['Accessorize', 'Hair Accessory Set', 'jewels', 'pearlSet', '🪮', 'Clips, pins, scrunchies — sab.', V(['Set of 10', 349], ['Set of 20', 599])],
+)
+
+// ——— Women's nightwear & loungewear ———
+TEMPLATES.push(
+  ['SnoozeCo', 'Cotton Pyjama Set', 'fashion', 'lounge', '🌙', 'Ghar pehnne wala best outfit.', combo(['Blush Pink', 'Sage', 'Navy', 'Grey'], ['S', 'M', 'L', 'XL'].map((z) => [z, 1099]))],
+  ['SnoozeCo', 'Satin Night Suit', 'fashion', 'lounge', '✨', 'Silky, cool, main-character energy.', combo(['Champagne', 'Wine', 'Emerald'], ['S', 'M', 'L', 'XL'].map((z) => [z, 1699]))],
+  ['SnoozeCo', 'Night Dress', 'fashion', 'romper', '👗', 'Ek dum comfy, ek dum cute.', combo(['Floral', 'Solid Black', 'Powder Blue'], ['S', 'M', 'L', 'XL'].map((z) => [z, 899]))],
+  ['SnoozeCo', 'Lounge Co-ord Set', 'fashion', 'lounge', '🛋️', 'WFH uniform, honestly.', combo(['Oatmeal', 'Dusty Rose', 'Charcoal'], ['S', 'M', 'L', 'XL'].map((z) => [z, 1399]))],
+  ['SnoozeCo', 'Shorts & Tee Night Set', 'fashion', 'romper', '🩳', 'Summer nights sorted.', combo(['Grey Melange', 'Mint', 'Lilac'], ['S', 'M', 'L', 'XL'].map((z) => [z, 799]))],
+  ['SnoozeCo', 'Robe & Slip Set', 'fashion', 'lounge', '🕊️', 'Hotel-suite vibes at home.', combo(['Ivory', 'Blush', 'Black'], ['S', 'M', 'L'].map((z) => [z, 1999]))],
+  ['SnoozeCo', 'Fleece Winter Pyjama', 'fashion', 'lounge', '🧣', 'Sardi mein nikalna hi nahi hai.', combo(['Teal', 'Maroon', 'Grey'], ['S', 'M', 'L', 'XL'].map((z) => [z, 1499]))],
+  ['SnoozeCo', 'Printed Sleep Tee', 'fashion', 'romper', '🐼', 'Oversized, soft, meme-printed.', combo(['Panda', 'Cat', 'Sloth', 'Plain'], ['Free Size', 'L', 'XL'].map((z) => [z, 599]))],
+)
+
+// ——— Everyday accessories ———
+TEMPLATES.push(
+  ['UrbanCarry', 'Everyday Tote Bag', 'accessories', 'tanBag', '👜', 'Laptop, lunch, life — sab fit.', colors(['Tan', 'Black', 'Olive', 'Cream'], 1299)],
+  ['UrbanCarry', 'Mini Sling Bag', 'accessories', 'navyBag', '👝', 'Phone, cards, lipstick. Done.', colors(['Navy', 'Beige', 'Rust', 'Black'], 799)],
+  ['UrbanCarry', 'Laptop Backpack', 'accessories', 'backpack', '🎒', 'Padded, water-resistant, commute-proof.', colors(['Charcoal', 'Navy', 'Olive'], 1899)],
+  ['UrbanCarry', 'Canvas Belt', 'accessories', 'fashion', '🪢', 'Simple cheez, poora look badalti hai.', colors(['Black', 'Brown', 'Tan'], 549)],
+  ['UrbanCarry', 'Silk Scarf', 'accessories', 'fashion', '🧣', 'Neck pe, bag pe, ya hair pe.', colors(['Floral', 'Geometric', 'Solid Red', 'Monochrome'], 649)],
+  ['UrbanCarry', 'Sunglasses Wayfarer', 'accessories', 'wayfarer', '🕶️', 'UV protection + instant confidence.', colors(['Black', 'Tortoise', 'Clear'], 999)],
+  ['UrbanCarry', 'Oversized Sunglasses', 'accessories', 'beachShades', '😎', 'Beach-ready, paparazzi-ready.', colors(['Black', 'Brown Gradient', 'Rose'], 1199)],
+  ['UrbanCarry', 'Card Holder Wallet', 'accessories', 'fashion', '💳', 'Slim, RFID-safe, pocket-friendly.', colors(['Black', 'Tan', 'Navy'], 699)],
+  ['UrbanCarry', 'Hair Claw Clip Set', 'accessories', 'pearlSet', '🦋', 'Messy bun, but make it fashion.', V(['Set of 4', 399], ['Set of 8', 649])],
+  ['UrbanCarry', 'Watch Strap Set', 'accessories', 'watchMinimal', '⌚', 'Ek watch, teen mood.', colors(['Leather Brown', 'Black Silicone', 'Steel Mesh'], 899)],
+)
+
+// ——— More stationery ———
+TEMPLATES.push(
+  ['InkWell', 'Hardbound Notebook', 'stationery', 'notebookFlat', '📓', 'Pehla page likhne ka pressure, har baar.', combo(['Ruled', 'Dotted', 'Plain', 'Grid'], V(['A5', 349], ['A4', 549]))],
+  ['InkWell', 'Fountain Pen', 'stationery', 'penNib', '🖋️', 'Handwriting suddenly acceptable.', colors(['Black', 'Burgundy', 'Navy'], 899)],
+  ['InkWell', 'Gel Pen Pack', 'stationery', 'pens', '🖊️', 'Exam se pehle ka ritual.', V(['Pack of 5', 125], ['Pack of 10', 230], ['Pack of 20', 420])],
+  ['InkWell', 'Rollerball Pen', 'stationery', 'penBlack', '✒️', 'Smooth glide, zero smudge.', colors(['Matte Black', 'Silver', 'Gold'], 649)],
+  ['InkWell', 'Desk Organiser Set', 'stationery', 'deskFlat', '🗂️', 'Table saaf, dimaag saaf.', V(['3-piece', 799], ['5-piece', 1249])],
+  ['InkWell', 'Sticky Notes Mega Pack', 'stationery', 'deskFlat', '🗒️', 'Deadline management, physical edition.', V(['400 sheets', 249], ['800 sheets', 429])],
+  ['InkWell', 'Highlighter Set', 'stationery', 'pens', '🖍️', 'Poora page yellow ho jaata hai.', V(['Pack of 5', 175], ['Pack of 10', 319])],
+  ['InkWell', 'Planner & Journal', 'stationery', 'notebookFlat', '📅', 'January mein josh, February mein dust.', combo(['Daily', 'Weekly', 'Undated'], V(['Standard', 649], ['Deluxe', 999]))],
+  ['InkWell', 'Sketching Pencil Kit', 'stationery', 'penNib', '✏️', '2H se 8B tak, poora range.', V(['12-piece', 449], ['24-piece', 799])],
+  ['InkWell', 'Washi Tape & Sticker Set', 'stationery', 'deskFlat', '🎨', 'Journal ko pretty banane ka kit.', V(['20-piece', 349], ['50-piece', 699])],
+)
+
+// ——— More cosmetics ———
+TEMPLATES.push(
+  ['Glowuh', 'Matte Liquid Lipstick', 'beauty', 'lipstick', '💄', 'Transfer-proof. Chai bhi survive karti hai.', colors(['Brick Red', 'Nude Mauve', 'Berry', 'Terracotta', 'Fuchsia'], 649)],
+  ['Glowuh', 'Lip & Cheek Tint', 'beauty', 'rose', '🌸', 'Ek product, do kaam. Multitasker.', colors(['Rose', 'Peach', 'Coral', 'Plum'], 549)],
+  ['Glowuh', 'Eyeshadow Palette', 'beauty', 'palette', '🎨', '18 shades, infinite looks.', combo(['Nude Edit', 'Smoky Edit', 'Festive Edit'], V(['Standard', 1299], ['Pro', 1899]))],
+  ['Glowuh', 'Kajal & Eyeliner Duo', 'beauty', 'kajal', '👁️', 'Winged liner ki practice zaroori hai.', colors(['Intense Black', 'Brown', 'Navy'], 449)],
+  ['Glowuh', 'Mascara Volume Boost', 'beauty', 'makeupFace', '🦋', 'Lashes ko drama chahiye.', colors(['Black', 'Waterproof Black'], 599)],
+  ['Glowuh', 'Foundation Stick', 'beauty', 'makeupFlat', '🧴', '12 shades — Indian skin ke liye actually.', colors(['Porcelain', 'Ivory', 'Beige', 'Sand', 'Caramel', 'Espresso'], 899)],
+  ['Glowuh', 'Compact Powder', 'beauty', 'makeupFlat', '🪞', 'Oil control, touch-up ready.', colors(['Fair', 'Medium', 'Deep'], 499)],
+  ['Glowuh', 'Blush & Highlighter Palette', 'beauty', 'palette', '✨', 'Glow up, literally.', combo(['Warm', 'Cool', 'Neutral'], V(['Duo', 749], ['Quad', 1149]))],
+  ['Glowuh', 'Concealer', 'beauty', 'tube', '🫥', 'Raat ki neend ka alibi.', colors(['Light', 'Medium', 'Deep'], 549)],
+  ['Glowuh', 'Setting Spray', 'beauty', 'perfume', '💦', 'Makeup ko lock karo, 16 ghante.', V(['100ml', 699])],
+  ['Glowuh', 'Facial Kit Salon Series', 'beauty', 'skincareFlat', '🧖‍♀️', 'Parlour trip bachao. 6 steps.', combo(['Gold', 'Diamond', 'Charcoal', 'Fruit'], V(['Single use', 349], ['Pack of 3', 899]))],
+  ['Glowuh', 'Sheet Mask Pack', 'beauty', 'serum', '🎭', 'Sunday self-care non-negotiable.', combo(['Hydrating', 'Brightening', 'Detox', 'Anti-acne'], V(['Pack of 5', 449], ['Pack of 10', 799]))],
+  ['Glowuh', 'Vitamin C Serum', 'beauty', 'serum', '🍊', 'Glow ka science-backed shortcut.', V(['20ml', 799], ['30ml', 1099])],
+  ['Glowuh', 'Makeup Brush Set', 'beauty', 'makeupFlat', '🖌️', 'Fingers se better, guaranteed.', V(['8-piece', 899], ['14-piece', 1499])],
+  ['Glowuh', 'Nail Polish Set', 'beauty', 'nails', '💅', 'Weekend ka chhota project.', combo(['Nude Edit', 'Bright Edit', 'Glitter Edit'], V(['Set of 4', 449], ['Set of 8', 799]))],
+)
+
 const hash = (n) => { let h = n * 2654435761 % 2 ** 32; h = (h ^ (h >> 15)) * 2246822519 % 2 ** 32; return Math.abs(h ^ (h >> 13)) }
 
 export const LAUNCH_PICKS = []
