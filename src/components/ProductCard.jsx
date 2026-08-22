@@ -4,6 +4,7 @@ import DealTimer from './DealTimer'
 import { GRADS, CATEGORIES } from '../data/products'
 import { HeartIcon, ShareIcon, BagPlusIcon, TrashIcon, MinusIcon, PlusIcon } from './Icons'
 import { productUrl, productShareText, waShare, xShare, copyLink } from '../lib/share'
+import { deliveryEstimate } from '../lib/orderStatus'
 
 const fmtReviews = (n) => (n >= 1000 ? `${(n / 1000).toFixed(1)}k` : n)
 
@@ -189,8 +190,11 @@ export default function ProductCard({ product, index, near = true, wished, onTog
             {product.deal && <span className="text-[13px] font-normal text-white/45 line-through lg:text-neutral-400 lg:dark:text-white/45">₹{inr(product.mrp)}</span>}
             <span className="label-caps ml-0.5 text-[9px] text-white/60 lg:text-neutral-500 lg:dark:text-white/60">Free over ₹499</span>
           </div>
+          <p className="mt-1.5 text-[11px] font-medium text-emerald-300 lg:text-emerald-700 lg:dark:text-emerald-300">
+            {deliveryEstimate(product).label}
+          </p>
           {product.deal && (
-            <p className="mt-1.5 text-[11px] font-medium text-white/55 lg:text-neutral-500 lg:dark:text-white/55">
+            <p className="mt-1 text-[11px] font-medium text-white/55 lg:text-neutral-500 lg:dark:text-white/55">
               {14 + ((product.id * 53) % 87)} logo ne aaj kharida
             </p>
           )}

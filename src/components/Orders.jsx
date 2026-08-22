@@ -1,6 +1,6 @@
 import { inr } from '../data/products'
 import { useState } from 'react'
-import { orderProgress, etaText, ORDER_STEPS } from '../lib/orderStatus'
+import { orderProgress, etaText } from '../lib/orderStatus'
 import { makeOrderCard, shareCardBlob, orderShareText, haulStats, waShare, xShare, SITE } from '../lib/share'
 
 const fmtDate = (iso) => new Date(iso).toLocaleString('en-IN', { day: 'numeric', month: 'short', hour: 'numeric', minute: '2-digit' })
@@ -88,23 +88,25 @@ export default function Orders({ orders, onClose }) {
                     {p.delivered ? 'Delivered' : `Arriving ${etaText(p.eta)}`}
                   </p>
                   <div className="mt-2.5 space-y-0">
-                    {ORDER_STEPS.map((s, i) => {
-                      const done = i <= p.index
-                      return (
-                        <div key={s.key} className="flex gap-2.5">
-                          <div className="flex flex-col items-center">
-                            <span className={`mt-1 h-2 w-2 shrink-0 rounded-full ${done ? 'bg-[#0c831f]' : 'bg-gray-300 dark:bg-zinc-600'}`} />
-                            {i < ORDER_STEPS.length - 1 && (
-                              <span className={`w-px flex-1 ${i < p.index ? 'bg-[#0c831f]' : 'bg-gray-200 dark:bg-zinc-700'}`} />
-                            )}
-                          </div>
-                          <div className="pb-3">
-                            <p className={`text-[12px] font-semibold ${done ? 'text-gray-900 dark:text-white' : 'text-gray-400 dark:text-gray-500'}`}>{s.label}</p>
+                    {p.timeline.map((s, i) => (
+                      <div key={s.key} className="flex gap-2.5">
+                        <div className="flex flex-col items-center">
+                          <span className={`mt-1 h-2 w-2 shrink-0 rounded-full ${s.done ? 'bg-[#0c831f]' : 'bg-gray-300 dark:bg-zinc-600'}`} />
+                          {i < p.timeline.length - 1 && (
+                            <span className={`w-px flex-1 ${s.done && p.timeline[i + 1].done ? 'bg-[#0c831f]' : 'bg-gray-200 dark:bg-zinc-700'}`} />
+                          )}
+                        </div>
+                        <div className="flex flex-1 items-start justify-between gap-2 pb-3">
+                          <div>
+                            <p className={`text-[12px] font-semibold ${s.done ? 'text-gray-900 dark:text-white' : 'text-gray-400 dark:text-gray-500'}`}>{s.label}</p>
                             <p className="text-[11px] text-gray-400">{s.detail}</p>
                           </div>
+                          <p className={`shrink-0 text-[11px] font-medium ${s.done ? 'text-[#0c831f]' : 'text-gray-400'}`}>
+                            {s.done ? etaText(s.date) : `Expected ${etaText(s.date)}`}
+                          </p>
                         </div>
-                      )
-                    })}
+                      </div>
+                    ))}
                   </div>
                 </div>
               )

@@ -37,7 +37,8 @@ export default function OrderStatusBar({ order, onOpen }) {
           {p.delivered ? 'Delivered' : p.step.label}
         </span>
         <span className="block truncate text-[12px] text-white/70 lg:text-neutral-600 lg:dark:text-white/70">
-          Order #{order.id} · {p.delivered ? 'Left at your door' : `Arriving ${etaText(p.eta)}`}
+          {p.delivered ? 'Left at your door' : `Arriving ${etaText(p.eta)}`}
+          <span className="hidden sm:inline"> · Order #{order.id}</span>
         </span>
       </span>
 

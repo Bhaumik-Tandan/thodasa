@@ -40,6 +40,12 @@ export const GRADS = [
 ]
 
 export const inr = (n) => n.toLocaleString('en-IN')
+// short form for tight chrome: 78.4Cr / 12.5L / 45.2k
+export const inrShort = (n) =>
+  n >= 1e7 ? `${(n / 1e7).toFixed(n >= 1e9 ? 0 : 1)}Cr`
+  : n >= 1e5 ? `${(n / 1e5).toFixed(1)}L`
+  : n >= 1e4 ? `${(n / 1e3).toFixed(1)}k`
+  : inr(n)
 
 const img = (id) => `https://images.unsplash.com/photo-${id}?w=800&h=1400&fit=crop&q=80&auto=format`
 
@@ -743,7 +749,7 @@ TEMPLATES.push(
   ['Pilatus', 'PC-24 Super Versatile Jet', 'jets', 'plane', '✈️', 'Lands on grass strips. Goes anywhere.', colors(['Executive', 'VIP'], 600000000)],
   // Pagani
   ['Pagani', 'Huayra', 'cars', 'carRed', '🏎️', 'Art that does 383 km/h. Only a handful exist.', car(['Coupe', 'Roadster', 'BC'], CAR_COLORS, 250000000), true],
-  ['Pagani', 'Utopia', 'cars', 'carBlue', '🏎️', 'Manual gearbox in a hypercar. Purist heaven.', car(['Standard', 'Bespoke'], CAR_COLORS, 280000000)],
+  ['Pagani', 'Utopia', 'cars', 'carBugatti', '🏎️', 'Manual gearbox in a hypercar. Purist heaven.', car(['Standard', 'Bespoke'], CAR_COLORS, 280000000)],
   ['Pagani', 'Zonda R', 'cars', 'carRed', '🏎️', 'Track-only legend. The scream of the gods.', car(['R', 'Revolucion'], CAR_COLORS, 300000000)],
   ['Koenigsegg', 'Jesko', 'cars', 'carBlue', '🏎️', '1600 hp, 480 km/h target. Swedish madness.', car(['Absolut', 'Attack'], CAR_COLORS, 260000000)],
   ['McLaren', 'P1', 'cars', 'carRed', '🏎️', 'Hybrid hypercar holy trinity member.', car(['Standard', 'GTR'], CAR_COLORS, 180000000)],

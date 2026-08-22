@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useMemo, useState } from 'react'
-import { PRODUCTS, TEMPLATE_HEROES, inr } from './data/products'
+import { PRODUCTS, TEMPLATE_HEROES, inr, inrShort } from './data/products'
 import CategoryChips from './components/CategoryChips'
 import Feed from './components/Feed'
 import Cart from './components/Cart'
@@ -204,7 +204,7 @@ export default function App() {
                 aria-label="Open cart"
               >
                 <BagIcon className="h-5 w-5" />
-                {cartCount > 0 && <span className="text-xs font-extrabold">₹{inr(cartTotal)}</span>}
+                {cartCount > 0 && <span className="text-xs font-extrabold">₹{inrShort(cartTotal)}</span>}
                 {cartCount > 0 && (
                   <span className={`absolute -right-1 -top-1 grid h-5 min-w-5 place-items-center rounded-full bg-amber-400 px-1 text-[10px] font-black text-black ${cartBounce ? 'animate-pop' : ''}`}>
                     {cartCount}

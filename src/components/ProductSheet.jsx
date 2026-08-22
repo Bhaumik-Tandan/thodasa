@@ -3,6 +3,7 @@ import { useState } from 'react'
 import { VARIANTS_BY_TEMPLATE } from '../data/products'
 import { TrashIcon, MinusIcon, PlusIcon, BagPlusIcon } from './Icons'
 import { canShop, shopTarget, shopUrl } from '../lib/shop'
+import { deliveryEstimate } from '../lib/orderStatus'
 
 const HIGHLIGHTS = {
   snacks: ['Fresh stock, long expiry', 'Sealed brand packaging', 'Store in a cool, dry place'],
@@ -85,7 +86,7 @@ export default function ProductSheet({ product, cart, onAddToCart, onQty, onRemo
             ))}
           </ul>
           <p className="mt-2 border-t border-dashed border-gray-200 pt-2 text-xs font-semibold text-gray-500 dark:border-zinc-700 dark:text-gray-400">
-            🚚 Delivery in 2–4 days · Free over ₹499 · 7-day easy returns · COD available
+            🚚 {deliveryEstimate(selected).label} · Free over ₹499 · 7-day easy returns · COD available
           </p>
         </div>
 
