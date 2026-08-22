@@ -21,6 +21,7 @@ export const CATEGORIES = [
   { id: 'art', label: 'Art' },
   { id: 'books', label: 'Books' },
   { id: 'realty', label: 'Real Estate 🏝️' },
+  { id: 'kpop', label: 'K-Pop 🎤' },
 ]
 
 export const GRADS = [
@@ -85,6 +86,12 @@ const I = {
   livingMin: '1600607687939-ce8a6c25118c', glassHouse: '1600585154340-be6161a56a0c', apartment: '1600566753086-00f18fb6b3ea',
   livingWarm: '1502672260266-1c1ef2d93688', livingSofa: '1583847268964-b28dc8f51f92', decorCorner: '1519710164239-da123dc03ef4',
   cottage: '1449844908441-8829872d2607',
+  houseA: '1568605114967-8130f3a36994', houseClassic: '1570129477492-45c003edd2be', aerialVillas: '1512699355324-f07e3106dae5',
+  housePool: '1580587771525-78b9dba3b914', villaPool2: '1600596542815-ffad4c1539a9', houseModern2: '1600047509807-ba8f99d2cdde',
+  houseMinimal: '1600566753190-17f0baa2a6c3', houseBrick: '1605276374104-dee2a0ed3cd6', bungalow: '1605146769289-440113cc3d00',
+  houseRust: '1600047509358-9dc75507daeb', int1: '1493809842364-78817add7ffb', int2: '1600607687920-4e2a09cf159d',
+  kitchenInt: '1600585152220-90363fe7e115', int3: '1600210492486-724fe5c67fb0', int4: '1618221195710-dd6b41faaea6',
+  int5: '1615529182904-14819c35db37', int6: '1615873968403-89e068629265', int7: '1502005229762-cf1b2da7c5d6', kitchenInt2: '1484154218962-a197022b5858',
 }
 
 // variant helpers
@@ -522,6 +529,94 @@ TEMPLATES.push(
   ['Mamaearth', 'Skincare Combo', 'beauty', 'serum', '🧴', 'Cleanse-tone-moisturise, sorted.', colors(['Vitamin C', 'Ubtan', 'Tea Tree'], 899)],
   ['Kay Beauty', 'Nail Art Kit', 'beauty', 'nails', '💅', 'Salon nails, DIY budget.', V(['Basic', 699], ['Pro 30-pc', 1299])],
 )
+// ——— 1000+ REAL ESTATE listings: projects × (BHK · view) configs ———
+const HOUSE_PHOTOS = ['houseA', 'houseClassic', 'housePool', 'villaPool2', 'houseModern2', 'houseMinimal', 'houseBrick', 'bungalow', 'houseRust', 'villa', 'modernHouse', 'glassHouse', 'cottage', 'aerialVillas']
+const FLAT_PHOTOS = ['int1', 'int2', 'int3', 'int4', 'int5', 'int6', 'int7', 'kitchenInt', 'kitchenInt2', 'apartment', 'livingRoom', 'livingMin', 'livingWarm', 'livingSofa']
+const BHKS = [['1 BHK', 0.55], ['2 BHK', 1], ['3 BHK', 1.5], ['4 BHK', 2.1], ['5 BHK Duplex', 3], ['Penthouse', 4.2]]
+const VIEWS = ['Garden Facing', 'Pool View', 'Park View', 'Corner Unit', 'High Floor', 'Sea Facing', 'City View']
+const realtyConfigs = (base) => BHKS.flatMap(([b, m]) => VIEWS.map((v) => [`${b} · ${v}`, Math.round(base * m)]))
+// [developer, project, city, basePrice(₹ for a 2BHK), villa?]
+const REALTY = [
+  ['Lodha', 'Marquise', 'Worli, Mumbai', 95000000, false],
+  ['Lodha', 'Bellissimo', 'Mahalaxmi, Mumbai', 78000000, false],
+  ['Oberoi Realty', 'Three Sixty West', 'Worli, Mumbai', 140000000, false],
+  ['Oberoi Realty', 'Sky City', 'Borivali, Mumbai', 42000000, false],
+  ['Rustomjee', 'Crown', 'Prabhadevi, Mumbai', 110000000, false],
+  ['Godrej', 'Platinum', 'Bandra, Mumbai', 65000000, false],
+  ['Hiranandani', 'Gardens', 'Powai, Mumbai', 38000000, false],
+  ['DLF', 'The Camellias', 'Golf Course Rd, Gurgaon', 90000000, false],
+  ['DLF', 'The Crest', 'Gurgaon', 48000000, false],
+  ['M3M', 'Golf Estate', 'Gurgaon', 36000000, false],
+  ['Sobha', 'City', 'Gurgaon', 28000000, false],
+  ['Prestige', 'Golfshire Villa', 'Bangalore', 85000000, true],
+  ['Prestige', 'Lakeside Habitat', 'Whitefield, Bangalore', 22000000, false],
+  ['Brigade', 'Exotica', 'Bangalore', 26000000, false],
+  ['Sobha', 'Dream Acres', 'Bangalore', 18000000, false],
+  ['Total Environment', 'Windmills of Your Mind', 'Bangalore', 45000000, true],
+  ['Embassy', 'Boulevard Villa', 'Bangalore', 72000000, true],
+  ['Mahindra', 'Luminare', 'Sector 59, Gurgaon', 52000000, false],
+  ['Tata Housing', 'Primanti', 'Gurgaon', 34000000, false],
+  ['ATS', 'Marigold', 'Gurgaon', 24000000, false],
+  ['Purva', 'Silversands', 'Pune', 21000000, false],
+  ['Kolte Patil', 'Life Republic', 'Pune', 16000000, false],
+  ['Godrej', 'Woods', 'Noida', 28000000, false],
+  ['ATS', 'Knightsbridge', 'Noida', 40000000, false],
+  ['Emaar', 'Palm Hills', 'Gurgaon', 46000000, false],
+  ['Emaar', 'Beachfront', 'Dubai Marina', 180000000, false],
+  ['Damac', 'Cavalli Tower', 'Dubai', 220000000, false],
+  ['Nakheel', 'Palm Jumeirah Villa', 'Dubai', 380000000, true],
+  ['Emaar', 'Downtown Views', 'Dubai', 150000000, false],
+  ['Sobha', 'Hartland Villa', 'Dubai', 260000000, true],
+  ['Isprava', 'Heritage Villa', 'Goa', 65000000, true],
+  ['Isprava', 'Riverfront Estate', 'Alibaug', 90000000, true],
+  ['Ozone', 'Hill Retreat', 'Lonavala', 42000000, true],
+  ['Casagrand', 'Boulevard', 'Chennai', 15000000, false],
+  ['Prestige', 'Bougainvillea', 'Chennai', 19000000, false],
+  ['Merlin', 'The Fifth Avenue', 'Kolkata', 14000000, false],
+  ['PS Group', 'Panorama', 'Kolkata', 22000000, false],
+  ['My Home', 'Bhooja', 'Hyderabad', 24000000, false],
+  ['Aparna', 'Sarovar Grande', 'Hyderabad', 20000000, false],
+  ['Phoenix', 'One Bangalore West', 'Bangalore', 55000000, false],
+]
+REALTY.forEach(([dev, project, city, base, villa], i) => {
+  const photo = villa ? HOUSE_PHOTOS[i % HOUSE_PHOTOS.length] : FLAT_PHOTOS[i % FLAT_PHOTOS.length]
+  const emoji = villa ? '🏡' : '🏙️'
+  const desc = villa
+    ? `Gated ${city} address. Private garden, premium fittings, possession-ready.`
+    : `${city} sky-living. Clubhouse, gym, 24x7 security, RERA-approved.`
+  TEMPLATES.push([dev, `${project} — ${city.split(',')[0]}`, 'realty', photo, emoji, desc, realtyConfigs(base)])
+})
+
+// ——— MORE BEAUTY (Sephora-style brands) ———
+const LIP_SHADES = ['Ruby Woo', 'Brick Red', 'Nude Rose', 'Mauve', 'Berry', 'Coral', 'Toffee', 'Terracotta', 'Wine', 'Peach']
+TEMPLATES.push(
+  ['Sephora Collection', 'Cream Lip Stain', 'beauty', 'lipstick', '💄', 'Sephora ka cult liquid lip. All-day stay.', colors(LIP_SHADES, 990)],
+  ['Huda Beauty', 'Obsessions Palette', 'beauty', 'palette', '🎨', 'Pigment jo pop kare. Insta-glam unlocked.', colors(['Amethyst', 'Warm Brown', 'Smokey', 'Rose Gold'], 2400)],
+  ['MAC', 'Retro Matte Lipstick', 'beauty', 'lipstick', '💋', 'Ruby Woo se kaam chal jaata hai.', colors(LIP_SHADES, 2100)],
+  ['NARS', 'Blush — Orgasm', 'beauty', 'makeupFace', '🍑', 'The internet-famous peachy glow.', colors(['Orgasm', 'Deep Throat', 'Dolce Vita'], 3200)],
+  ['Rare Beauty', 'Soft Pinch Blush', 'beauty', 'makeupFlat', '🌸', 'One dot = whole face lit. Selena-approved.', colors(['Joy', 'Hope', 'Grace', 'Bliss'], 2600)],
+  ['Fenty Beauty', 'Pro Filt\'r Foundation', 'beauty', 'skincareFlat', '🧴', '50 shades, actually. Rihanna delivered.', colors(['110', '190', '290', '370', '440'], 3400)],
+  ['Charlotte Tilbury', 'Pillow Talk Lipstick', 'beauty', 'lipstick', '💄', 'The nude that suits literally everyone.', colors(['Original', 'Medium', 'Intense'], 3200)],
+  ['The Ordinary', 'Niacinamide 10%', 'beauty', 'serum', '💧', 'TikTok ka fav. Pores ka dushman.', V(['30ml', 650], ['60ml', 1100])],
+  ['The Ordinary', 'Hyaluronic Acid', 'beauty', 'apothecary', '💦', 'Hydration in a bottle, cult status.', V(['30ml', 700])],
+  ['Cetaphil', 'Gentle Cleanser', 'beauty', 'tube', '🧼', 'Derm-recommended, drama-free.', V(['125ml', 385], ['250ml', 625], ['500ml', 999])],
+  ['Neutrogena', 'Hydro Boost Gel', 'beauty', 'skincareFlat', '💠', 'Water-gel that skin drinks up.', V(['50g', 750])],
+  ['Forest Essentials', 'Facial Ubtan', 'beauty', 'apothecary', '🌿', 'Ayurvedic luxury, royal glow.', V(['50g', 1275], ['200g', 3650])],
+  ['Kama Ayurveda', 'Rose Water', 'beauty', 'rose', '🌹', 'Pure gulab, no nasties.', V(['100ml', 495], ['200ml', 850])],
+  ['Maybelline', 'Fit Me Foundation', 'beauty', 'skincareFlat', '🧴', 'Drugstore GOAT. Shade for everyone.', colors(['120', '128', '220', '230', '330'], 549)],
+  ['e.l.f.', 'Halo Glow Filter', 'beauty', 'makeupFlat', '✨', 'That lit-from-within TikTok filter, IRL.', colors(['Fair', 'Light', 'Medium', 'Tan'], 1250)],
+  ['Dyson', 'Airwrap Styler', 'beauty', 'headphones', '💨', 'Curls, waves, blowout — no heat damage.', colors(['Nickel/Copper', 'Blue/Blush', 'Onyx/Gold'], 45900), true],
+)
+// ——— K-POP MERCH ———
+const KPOP = ['BTS', 'BLACKPINK', 'Stray Kids', 'SEVENTEEN', 'TWICE', 'NewJeans', 'aespa', 'EXO', 'ENHYPEN', 'LE SSERAFIM']
+KPOP.forEach((band) => {
+  TEMPLATES.push([band, 'Official Lightstick', 'kpop', 'stars', '🪄', `${band} concert essential. ARMY/BLINK/STAY ready.`, V(['Ver. 1', 3499], ['Ver. 3 (Bluetooth)', 4999])])
+  TEMPLATES.push([band, 'Album + Photocards', 'kpop', 'books', '💿', `${band} latest album. Random photocard inside — collect all!`, colors(['Ver. A', 'Ver. B', 'Ver. C', 'Weverse Ver.'], 1899)])
+  TEMPLATES.push([band, 'Photocard Set', 'kpop', 'confetti', '🖼️', `${band} member photocards. Bias secured.`, colors(['Full Set', 'Bias Pack'], 799)])
+  TEMPLATES.push([band, 'Merch Hoodie', 'kpop', 'tee', '🧥', `${band} tour hoodie. Comfy + fandom flex.`, combo(['Black', 'White', 'Pink'], ['S', 'M', 'L', 'XL'].map((z) => [z, 2999]))])
+  TEMPLATES.push([band, 'Poster Set', 'kpop', 'giftBox', '📜', `${band} wall art. Bedroom = shrine.`, V(['Set of 4', 599], ['Set of 8', 999])])
+})
+
 const hash = (n) => { let h = n * 2654435761 % 2 ** 32; h = (h ^ (h >> 15)) * 2246822519 % 2 ** 32; return Math.abs(h ^ (h >> 13)) }
 
 export const LAUNCH_PICKS = []
