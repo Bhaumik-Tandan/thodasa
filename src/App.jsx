@@ -159,10 +159,10 @@ export default function App() {
 
   return (
     <div className={dark ? 'dark' : ''}>
-      <div className="relative mx-auto h-dvh max-w-md overflow-hidden bg-gray-100 shadow-2xl dark:bg-zinc-950">
+      <div className="relative mx-auto h-dvh max-w-md overflow-hidden bg-gray-100 shadow-2xl lg:max-w-none lg:shadow-none dark:bg-zinc-950">
         {/* top bar — floats over the photo */}
-        <header className="absolute inset-x-0 top-0 z-30 bg-gradient-to-b from-black/40 to-transparent pb-6 pt-3">
-          <div className="flex items-center justify-between px-4 pb-1">
+        <header className="absolute inset-x-0 top-0 z-30 bg-gradient-to-b from-black/40 to-transparent pb-6 pt-3 lg:bg-black/80 lg:pb-2 lg:backdrop-blur-xl">
+          <div className="flex items-center justify-between px-4 pb-1 lg:mx-auto lg:max-w-[1600px] lg:px-10">
             <h1 className="text-xl font-black tracking-tight text-white drop-shadow">
               Thoda<span className="text-amber-300">Sa</span>
             </h1>
@@ -210,7 +210,9 @@ export default function App() {
               </button>
             </div>
           </div>
-          <CategoryChips active={category} newCount={newTodayCount} onSelect={(c) => { setCategory(c); setScrollToIndex(0) }} />
+          <div className="lg:mx-auto lg:max-w-[1600px] lg:px-6">
+            <CategoryChips active={category} newCount={newTodayCount} onSelect={(c) => { setCategory(c); setScrollToIndex(0) }} />
+          </div>
         </header>
 
         {/* full-screen feed */}

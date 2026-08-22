@@ -53,7 +53,7 @@ export default function ProductCard({ product, index, near = true, wished, onTog
   const catLabel = CATEGORIES.find((c) => c.id === product.category)?.label ?? product.category
 
   return (
-    <section data-index={index} className={`snap-card relative h-full w-full overflow-hidden bg-gradient-to-br ${GRADS[product.grad]}`}>
+    <section data-index={index} className={`snap-card relative h-full w-full overflow-hidden bg-gradient-to-br ${GRADS[product.grad]} lg:grid lg:grid-cols-[1.25fr_1fr] lg:bg-[#0b0b0d] lg:bg-none`}>
       {/* full-bleed product photo */}
       {!imgFailed && activated && (
         <img
@@ -62,18 +62,18 @@ export default function ProductCard({ product, index, near = true, wished, onTog
           fetchPriority={index === 0 ? 'high' : 'auto'}
           onLoad={() => setImgReady(true)}
           onError={() => setImgFailed(true)}
-          className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-500 ${imgReady ? 'opacity-100' : 'opacity-0'}`}
+          className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-500 lg:w-[55.56%] ${imgReady ? 'opacity-100' : 'opacity-0'}`}
         />
       )}
       {(!imgReady || imgFailed) && (
-        <div className="absolute inset-0 grid place-items-center">
+        <div className="absolute inset-0 grid place-items-center lg:right-[44.44%]">
           <span className="animate-float text-[7rem] drop-shadow-[0_18px_24px_rgba(0,0,0,0.25)]">{product.emoji}</span>
         </div>
       )}
 
       {/* readability gradients */}
-      <div className="pointer-events-none absolute inset-x-0 top-0 h-44 bg-gradient-to-b from-black/60 to-transparent" />
-      <div className="pointer-events-none absolute inset-x-0 bottom-0 h-[55%] bg-gradient-to-t from-black/90 via-black/45 to-transparent" />
+      <div className="pointer-events-none absolute inset-x-0 top-0 h-44 bg-gradient-to-b from-black/60 to-transparent lg:hidden" />
+      <div className="pointer-events-none absolute inset-x-0 bottom-0 h-[55%] bg-gradient-to-t from-black/90 via-black/45 to-transparent lg:hidden" />
 
       {/* Whole-photo tap target. Reels-trained users instinctively tap the media,
           and until now that did nothing — it was ~7% of all clicks on the site
@@ -83,7 +83,7 @@ export default function ProductCard({ product, index, near = true, wished, onTog
         type="button"
         aria-label={`View details for ${product.name}`}
         onClick={() => onOpenDetail(product)}
-        className="absolute inset-0 z-0 cursor-pointer"
+        className="absolute inset-0 z-0 cursor-pointer lg:right-[44.44%]"
       />
 
       {/* deal timer */}
@@ -94,7 +94,7 @@ export default function ProductCard({ product, index, near = true, wished, onTog
       )}
 
       {/* right action rail — reels style */}
-      <div className="absolute bottom-56 right-3 z-10 flex flex-col items-center gap-5">
+      <div className="absolute bottom-56 right-3 z-10 flex flex-col items-center gap-5 lg:bottom-10 lg:right-12 lg:flex-row lg:gap-9">
         <button onClick={wish} aria-label="Wishlist" className="flex flex-col items-center active:scale-90">
           <span className={`grid h-12 w-12 place-items-center rounded-full bg-black/35 backdrop-blur-md ${heartPop ? 'animate-heart' : ''} ${wished ? 'text-rose-500' : 'text-white'}`}>
             <HeartIcon filled={wished} />
@@ -142,8 +142,8 @@ export default function ProductCard({ product, index, near = true, wished, onTog
       )}
 
       {/* bottom info overlay */}
-      <div className={`absolute inset-x-0 bottom-0 z-10 ${hasCartBar ? 'pb-[74px]' : 'pb-6'}`}>
-        <div className="px-4 pr-20">
+      <div className={`absolute inset-x-0 bottom-0 z-10 lg:static lg:col-start-2 lg:flex lg:h-full lg:min-h-0 lg:flex-col lg:justify-center ${hasCartBar ? 'pb-[74px] lg:pb-0' : 'pb-6 lg:pb-0'}`}>
+        <div className="px-4 pr-20 lg:px-12 lg:pr-16">
           <div className="flex flex-wrap items-center gap-1.5 text-[10px]">
             {product.reason === 'forYou' && (
               <span className="label-caps rounded-sm bg-white/95 px-2 py-1 text-[9px] text-black">For you</span>
@@ -166,11 +166,11 @@ export default function ProductCard({ product, index, near = true, wished, onTog
           </div>
 
           {/* brand set apart from the product name — how fashion retail reads */}
-          <p className="label-caps mt-3 text-[11px] text-white/75">{product.brand}</p>
-          <h2 className="font-display mt-1 text-[27px] leading-[1.15] text-white drop-shadow-lg">
+          <p className="label-caps mt-3 text-[11px] text-white/75 lg:mt-0 lg:text-[12px]">{product.brand}</p>
+          <h2 className="font-display mt-1 text-[27px] leading-[1.15] text-white drop-shadow-lg lg:mt-2 lg:text-[46px] lg:leading-[1.08] lg:drop-shadow-none">
             {product.baseName ?? product.name}
           </h2>
-          <p className="mt-1.5 text-[13px] font-normal leading-snug text-white/80 drop-shadow">{product.desc}</p>
+          <p className="mt-1.5 text-[13px] font-normal leading-snug text-white/80 drop-shadow lg:mt-4 lg:max-w-md lg:text-[15px] lg:leading-relaxed lg:drop-shadow-none">{product.desc}</p>
           <div className="mt-2 flex items-center gap-1.5 text-[11px] font-medium text-white/70">
             <span className="text-amber-300">★</span> {product.rating}
             <span className="text-white/35">·</span> {fmtReviews(product.reviews)} ratings
@@ -185,7 +185,7 @@ export default function ProductCard({ product, index, near = true, wished, onTog
           )}
 
           <div className="mt-3 flex items-baseline gap-2.5">
-            <span className="font-display text-[30px] leading-none text-white drop-shadow">₹{inr(product.price)}</span>
+            <span className="font-display text-[30px] leading-none text-white drop-shadow lg:text-[40px] lg:drop-shadow-none">₹{inr(product.price)}</span>
             {product.deal && <span className="text-[13px] font-normal text-white/45 line-through">₹{inr(product.mrp)}</span>}
             <span className="label-caps ml-0.5 text-[9px] text-white/60">Free over ₹499</span>
           </div>
@@ -200,14 +200,14 @@ export default function ProductCard({ product, index, near = true, wished, onTog
         {multi && templateCart?.qty > 0 ? (
           <button
             onClick={() => onOpenDetail(product)}
-            className="label-caps mx-4 mt-4 flex h-14 w-[calc(100%-2rem)] items-center justify-center gap-2 rounded-none bg-black/85 text-[12px] text-white ring-1 ring-white/25 backdrop-blur transition-transform active:scale-[0.98]"
+            className="label-caps mx-4 mt-4 flex h-14 w-[calc(100%-2rem)] items-center justify-center gap-2 rounded-none bg-black/85 text-[12px] text-white ring-1 ring-white/25 backdrop-blur transition-transform active:scale-[0.98] lg:mx-12 lg:mt-8 lg:h-16 lg:w-[min(22rem,calc(100%-6rem))]"
           >
             ✓ {templateCart.qty} in cart · ₹{inr(templateCart.amt)} — Edit options ▾
           </button>
         ) : inCartQty === 0 ? (
           <button
             onClick={multi ? () => onOpenDetail(product) : add}
-            className={`label-caps mx-4 mt-4 flex h-14 w-[calc(100%-2rem)] items-center justify-center gap-2.5 rounded-none bg-white text-[12px] text-black transition-transform active:scale-[0.98] ${justAdded ? 'animate-pop' : ''}`}
+            className={`label-caps mx-4 mt-4 flex h-14 w-[calc(100%-2rem)] items-center justify-center gap-2.5 rounded-none bg-white text-[12px] text-black transition-transform active:scale-[0.98] lg:mx-12 lg:mt-8 lg:h-16 lg:w-[min(22rem,calc(100%-6rem))] lg:hover:bg-white/90 ${justAdded ? 'animate-pop' : ''}`}
           >
             <BagPlusIcon className="h-5 w-5" />
             {multi ? `Choose options · from ₹${inr(product.price)}` : `Add to Cart · ₹${inr(product.price)}`}
