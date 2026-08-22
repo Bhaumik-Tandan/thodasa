@@ -12,7 +12,7 @@ export const CATEGORIES = [
   { id: 'accessories', label: 'Accessories' },
   { id: 'stationery', label: 'Stationery' },
   { id: 'quirky', label: 'Quirky' },
-  { id: 'cars', label: 'Cars 🏎️' },
+  { id: 'cars', label: 'Cars' },
   { id: 'bikes', label: 'Sport Bikes' },
   { id: 'shoes', label: 'Shoes' },
   { id: 'fashion', label: 'Fashion' },
@@ -20,12 +20,12 @@ export const CATEGORIES = [
   { id: 'luxe', label: 'Luxe Bags' },
   { id: 'art', label: 'Art' },
   { id: 'books', label: 'Books' },
-  { id: 'realty', label: 'Real Estate 🏝️' },
-  { id: 'kpop', label: 'K-Pop 🎤' },
-  { id: 'jets', label: 'Private Jets ✈️' },
-  { id: 'toys', label: 'Toys 🧸' },
-  { id: 'grocery', label: 'Grocery 🛒' },
-  { id: 'jewels', label: 'Jewellery 💎' },
+  { id: 'realty', label: 'Real Estate' },
+  { id: 'kpop', label: 'K-Pop' },
+  { id: 'jets', label: 'Private Jets' },
+  { id: 'toys', label: 'Toys' },
+  { id: 'grocery', label: 'Grocery' },
+  { id: 'jewels', label: 'Jewellery' },
 ]
 
 export const GRADS = [
@@ -107,6 +107,13 @@ const I = {
   pearlSet: '1515562141207-7a88fb7ce338', pendant: '1599643478518-a784e5dc4c8f', bangle: '1611591437281-460bfbe1220a', goldChain: '1602173574767-37ac01994b2a', diamondSet: '1573408301185-9146fe634ad0',
   necklaceWorn: '1611085583191-a3b181a88401', lounge: '1594633312681-425c7b97ccd1', romper: '1618932260643-eee4a2f652a6',
   notebookFlat: '1531346878377-a5be20888e57', deskFlat: '1519389950473-47ba0277781c', penNib: '1455390582262-044cdead277a', penBlack: '1583485088034-697b5bc54ccd',
+  shShirtStack: '1602810318383-e386cc2a3ccf', shChambray: '1596755094514-f87e34085b2c', shFormalBlue: '1620012253295-c15cc3e65df4',
+  shShirtRack: '1626497764746-6dc36546b388', shLightBlue: '1588359348347-9bc6cbbb689e', shCheck: '1607345366928-199ea26cfe3e',
+  shWhiteTie: '1598033129183-c4f50c736f10', shTeeWhite: '1521572163474-6864f9cf17ab', shTeeBlack: '1583743814966-8936f5b7be1a',
+  shTeeBlackFlat: '1618354691373-d851c5c3a990', shTeePink: '1622470953794-aa9c70b0fb9d', shTeeGraphic: '1503341455253-b2e723bb3dbb',
+  shTeeGraphic2: '1571945153237-4929e783af4a', shTeeGraphic3: '1576566588028-4147f3842f27', shTeeGraphicW: '1554568218-0f1715e72254',
+  shChinos: '1473966968600-fa801b869a1a', shTrouser: '1624378439575-d8705ad7ae80', shJeansPocket: '1542272604-787c3835535d',
+  shJeansWorn: '1541099649105-f69ad21f3246', shJeansHanger: '1602293589930-45aad59ba3ab', shJeansStack: '1604176354204-9268737828e4',
   ksLightstick: '1516450360452-9312f5e86fc7', ksAlbum: '1619983081563-430f63602796', ksPhotocard: '1533158307587-828f0a76ef46', ksHoodie: '1556821840-3a63f95609a7', ksPoster: '1541961017774-22349e4a1262',
 }
 
@@ -879,6 +886,63 @@ TEMPLATES.push(
   ['Glowuh', 'Nail Polish Set', 'beauty', 'nails', '💅', 'Weekend ka chhota project.', combo(['Nude Edit', 'Bright Edit', 'Glitter Edit'], V(['Set of 4', 449], ['Set of 8', 799]))],
 )
 
+
+// ——— Menswear: shirts, trousers, tees, suits across real high-street brands ———
+// Photos are generic apparel stock, deliberately: a formal shirt *is* the
+// product here (unlike, say, band merch where the print is the product), so
+// unbranded photography reads as real. No brand's own catalog images are used.
+const SZ = ['S', 'M', 'L', 'XL', 'XXL']
+const apparel = (cols, price) => combo(cols, SZ.map((z) => [z, price]))
+
+TEMPLATES.push(
+  // ---- Peter England (value formal) ----
+  ['Peter England', 'Formal Shirt', 'fashion', 'shWhiteTie', '👔', 'Office ka daily driver. Iron karo, chalo.', apparel(['White', 'Sky Blue', 'Light Pink', 'Cream'], 1299)],
+  ['Peter England', 'Slim Fit Check Shirt', 'fashion', 'shCheck', '👔', 'Friday casuals sorted.', apparel(['Navy Check', 'Grey Check', 'Green Check'], 1499)],
+  ['Peter England', 'Formal Trousers', 'fashion', 'shTrouser', '👖', 'Crease bani rehti hai, poora din.', apparel(['Black', 'Navy', 'Dark Grey', 'Beige'], 1599)],
+  ['Peter England', 'Round Neck T-Shirt', 'fashion', 'shTeeWhite', '👕', 'Basic hai, par basic hi chahiye tha.', apparel(['White', 'Navy', 'Grey Melange', 'Black'], 699)],
+
+  // ---- Van Heusen (premium formal) ----
+  ['Van Heusen', 'Egyptian Cotton Formal Shirt', 'fashion', 'shFormalBlue', '👔', 'Boardroom-ready. Wrinkle-resistant weave.', apparel(['White', 'Powder Blue', 'Lavender', 'Ivory'], 2499)],
+  ['Van Heusen', 'Self-Design Formal Shirt', 'fashion', 'shShirtStack', '👔', 'Subtle texture, serious intent.', apparel(['White', 'Blue', 'Grey'], 2199)],
+  ['Van Heusen', 'Flat-Front Formal Trousers', 'fashion', 'shTrouser', '👖', 'Tailored fit, all-day comfort.', apparel(['Charcoal', 'Navy', 'Black', 'Stone'], 2799)],
+  ['Van Heusen', 'Two-Piece Suit', 'fashion', 'suit', '🤵', 'Shaadi, interview, ya promotion. Ready.', apparel(['Navy', 'Charcoal', 'Black'], 12999), true],
+  ['Van Heusen', 'Three-Piece Wedding Suit', 'fashion', 'menswearFlat', '🤵', 'Waistcoat included. Photos mein alag dikhoge.', apparel(['Midnight Blue', 'Wine', 'Beige'], 18999)],
+
+  // ---- Allen Solly (premium casual) ----
+  ['Allen Solly', 'Casual Linen Shirt', 'fashion', 'shLightBlue', '👔', 'Friday dressing ke inventors.', apparel(['Sky Blue', 'White', 'Olive', 'Sand'], 2199)],
+  ['Allen Solly', 'Chambray Casual Shirt', 'fashion', 'shChambray', '👔', 'Denim-look shirt, all-year fit.', apparel(['Indigo', 'Light Wash', 'Black'], 1999)],
+  ['Allen Solly', 'Slim Fit Chinos', 'fashion', 'shChinos', '👖', 'Jeans se smart, formals se comfy.', apparel(['Khaki', 'Navy', 'Olive', 'Stone', 'Rust'], 2399)],
+  ['Allen Solly', 'Polo T-Shirt', 'fashion', 'shTeePink', '👕', 'Collar hai, toh smart casual hai.', apparel(['Pink', 'Navy', 'White', 'Bottle Green'], 1599)],
+  ['Allen Solly', 'Printed Casual Shirt', 'fashion', 'shShirtRack', '👔', 'Brunch-appropriate print.', apparel(['Floral Blue', 'Geometric', 'Tropical'], 2099)],
+
+  // ---- Pantaloons (fast fashion) ----
+  ['Pantaloons', 'Slim Fit Casual Shirt', 'fashion', 'shShirtRack', '👔', 'Sale mein utha lo, seriously.', apparel(['Blue', 'White', 'Maroon', 'Mustard', 'Teal'], 999)],
+  ['Pantaloons', 'Graphic Print T-Shirt', 'fashion', 'shTeeGraphic', '👕', 'Meme pehen ke ghoomo.', apparel(['Black', 'White', 'Navy', 'Olive'], 599)],
+  ['Pantaloons', 'Slim Fit Jeans', 'fashion', 'shJeansWorn', '👖', 'Har ladke ki alkmari ka 60%.', apparel(['Dark Wash', 'Mid Blue', 'Black', 'Light Wash'], 1499)],
+  ['Pantaloons', 'Oversized T-Shirt', 'fashion', 'shTeeBlack', '👕', 'Baggy is the whole point.', apparel(['Black', 'Beige', 'Lilac', 'Sage'], 799)],
+  ['Pantaloons', 'Formal Trousers', 'fashion', 'shTrouser', '👖', 'Interview ke liye ek toh chahiye.', apparel(['Black', 'Navy', 'Grey'], 1199)],
+
+  // ---- H&M (fast fashion, global) ----
+  ['H&M', 'Regular Fit Cotton Shirt', 'fashion', 'shChambray', '👔', 'Scandinavian minimal, Indian summer.', apparel(['White', 'Light Blue', 'Beige', 'Black'], 1499)],
+  ['H&M', 'Relaxed Fit Printed Tee', 'fashion', 'shTeeGraphic3', '👕', 'Graphic tee jo actually acchi lagti hai.', apparel(['White', 'Black', 'Washed Blue'], 799)],
+  ['H&M', 'Slim Fit Jeans', 'fashion', 'shJeansHanger', '👖', 'Stretch denim, sab din pehen sakte ho.', apparel(['Dark Denim', 'Light Denim', 'Black', 'Grey'], 1999)],
+  ['H&M', 'Cotton Crew-Neck 3-Pack', 'fashion', 'shTeeBlackFlat', '👕', 'Teen tees, ek daam. Maths simple hai.', apparel(['White/Black/Grey', 'Navy Mix', 'Earth Mix'], 1299)],
+  ['H&M', 'Cargo Trousers', 'fashion', 'shChinos', '👖', 'Pockets. So many pockets.', apparel(['Khaki', 'Black', 'Olive'], 2299)],
+
+  // ---- Rare Rabbit (premium contemporary) ----
+  ['Rare Rabbit', 'Signature Cotton Shirt', 'fashion', 'shFormalBlue', '🐰', 'Fit itna accha, tareef aayegi.', apparel(['Ecru', 'Cobalt', 'Black', 'Olive'], 3299)],
+  ['Rare Rabbit', 'Textured Resort Shirt', 'fashion', 'shShirtRack', '🐰', 'Goa trip ka official uniform.', apparel(['Sand', 'Sage', 'Terracotta'], 3599)],
+  ['Rare Rabbit', 'Relaxed Trousers', 'fashion', 'shTrouser', '👖', 'Drape jo mehnga lagta hai. Kyunki hai.', apparel(['Charcoal', 'Beige', 'Black'], 3999)],
+  ['Rare Rabbit', 'Heavyweight Tee', 'fashion', 'shTeeBlack', '🐰', '240 GSM. Ek baar pehen ke samjho.', apparel(['Off White', 'Black', 'Dusty Pink', 'Forest'], 1799)],
+  ['Rare Rabbit', 'Overshirt', 'fashion', 'shCheck', '🐰', 'Shirt bhi, jacket bhi. Dono jeeta.', apparel(['Checked Brown', 'Navy', 'Olive'], 4299)],
+
+  // ---- Louis Vuitton (luxury) ----
+  ['Louis Vuitton', 'Monogram Cotton Shirt', 'fashion', 'shShirtStack', '💼', 'Ek shirt, ek EMI. Worth it? Aap batao.', apparel(['White', 'Navy', 'Black'], 89000)],
+  ['Louis Vuitton', 'Damier Print T-Shirt', 'fashion', 'shTeeGraphicW', '💼', 'Logo hi personality hai. Fair enough.', apparel(['White', 'Black', 'Grey'], 68000)],
+  ['Louis Vuitton', 'Tailored Wool Trousers', 'fashion', 'shTrouser', '💼', 'Crease permanent, price bhi.', apparel(['Charcoal', 'Black', 'Navy'], 125000)],
+  ['Louis Vuitton', 'Two-Piece Wool Suit', 'fashion', 'suit', '💼', 'Shaadi mein sabse mehnga banda aap.', apparel(['Midnight', 'Charcoal', 'Black'], 385000)],
+  ['Louis Vuitton', 'Denim Jeans', 'fashion', 'shJeansStack', '💼', 'Jeans ki keemat mein Activa aa jaaye.', apparel(['Indigo', 'Washed Black'], 98000)],
+)
 const hash = (n) => { let h = n * 2654435761 % 2 ** 32; h = (h ^ (h >> 15)) * 2246822519 % 2 ** 32; return Math.abs(h ^ (h >> 13)) }
 
 export const LAUNCH_PICKS = []

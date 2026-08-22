@@ -144,46 +144,54 @@ export default function ProductCard({ product, index, near = true, wished, onTog
       {/* bottom info overlay */}
       <div className={`absolute inset-x-0 bottom-0 z-10 ${hasCartBar ? 'pb-[74px]' : 'pb-6'}`}>
         <div className="px-4 pr-20">
-          <div className="flex flex-wrap items-center gap-1.5 text-[11px] font-bold">
+          <div className="flex flex-wrap items-center gap-1.5 text-[10px]">
             {product.reason === 'forYou' && (
-              <span className="rounded-full bg-violet-500 px-2.5 py-1 text-white shadow-lg shadow-violet-500/40">✨ For you</span>
+              <span className="label-caps rounded-sm bg-white/95 px-2 py-1 text-[9px] text-black">For you</span>
             )}
             {product.reason === 'fresh' && (
-              <span className="rounded-full bg-teal-500 px-2.5 py-1 text-white shadow-lg shadow-teal-500/40">🎲 Fresh find</span>
+              <span className="label-caps rounded-sm border border-white/40 px-2 py-1 text-[9px] text-white">Fresh find</span>
             )}
             {product.reason === 'new' && (
-              <span className="rounded-full bg-amber-400 px-2.5 py-1 text-black shadow-lg shadow-amber-400/40">🆕 Aaj ka drop</span>
+              <span className="label-caps rounded-sm bg-white/95 px-2 py-1 text-[9px] text-black">New in</span>
             )}
-            <button onClick={() => onCategory?.(product.category)} className="rounded-full bg-white/20 px-2.5 py-1 text-white backdrop-blur-sm active:scale-95">{catLabel} →</button>
-            <span className="rounded-full bg-white/20 px-2.5 py-1 text-amber-300 backdrop-blur-sm">
-              ⭐ {product.rating} · {fmtReviews(product.reviews)} ratings
-            </span>
             {product.deal && (
-              <span className="rounded-full bg-rose-500 px-2.5 py-1 text-white shadow-lg shadow-rose-500/40">{off}% OFF</span>
+              <span className="label-caps rounded-sm border border-white/50 px-2 py-1 text-[9px] text-white">{off}% off</span>
             )}
+            <button
+              onClick={() => onCategory?.(product.category)}
+              className="label-caps px-1 py-1 text-[9px] text-white/70 underline decoration-white/30 underline-offset-4 active:scale-95"
+            >
+              {catLabel}
+            </button>
           </div>
 
-          <h2 className="mt-2 text-2xl font-black leading-tight text-white drop-shadow-lg">{product.baseName ?? product.name}</h2>
-          <p className="mt-1 text-sm font-medium text-white/85 drop-shadow">{product.desc}</p>
+          {/* brand set apart from the product name — how fashion retail reads */}
+          <p className="label-caps mt-3 text-[11px] text-white/75">{product.brand}</p>
+          <h2 className="font-display mt-1 text-[27px] leading-[1.15] text-white drop-shadow-lg">
+            {product.baseName ?? product.name}
+          </h2>
+          <p className="mt-1.5 text-[13px] font-normal leading-snug text-white/80 drop-shadow">{product.desc}</p>
+          <div className="mt-2 flex items-center gap-1.5 text-[11px] font-medium text-white/70">
+            <span className="text-amber-300">★</span> {product.rating}
+            <span className="text-white/35">·</span> {fmtReviews(product.reviews)} ratings
+          </div>
           {multi && (
             <button
               onClick={() => onOpenDetail(product)}
-              className="mt-1.5 rounded-full bg-white/20 px-3 py-1 text-xs font-bold text-white backdrop-blur-sm active:scale-95"
+              className="label-caps mt-2.5 text-[9px] text-white/80 underline decoration-white/30 underline-offset-4 active:scale-95"
             >
-              {product.variantCount} options · {product.variantLabel} ▾
+              {product.variantCount} options · {product.variantLabel}
             </button>
           )}
 
-          <div className="mt-2 flex items-baseline gap-2">
-            <span className="text-3xl font-black text-white drop-shadow-lg">₹{inr(product.price)}</span>
-            {product.deal && <span className="text-sm font-semibold text-white/55 line-through">₹{inr(product.mrp)}</span>}
-            <span className="ml-1 text-[11px] font-semibold text-emerald-300 drop-shadow">
-              Free delivery over ₹499
-            </span>
+          <div className="mt-3 flex items-baseline gap-2.5">
+            <span className="font-display text-[30px] leading-none text-white drop-shadow">₹{inr(product.price)}</span>
+            {product.deal && <span className="text-[13px] font-normal text-white/45 line-through">₹{inr(product.mrp)}</span>}
+            <span className="label-caps ml-0.5 text-[9px] text-white/60">Free over ₹499</span>
           </div>
           {product.deal && (
-            <p className="mt-1 text-[11px] font-bold text-orange-300 drop-shadow">
-              🔥 {14 + ((product.id * 53) % 87)} logo ne aaj kharida
+            <p className="mt-1.5 text-[11px] font-medium text-white/55">
+              {14 + ((product.id * 53) % 87)} logo ne aaj kharida
             </p>
           )}
         </div>
@@ -192,14 +200,14 @@ export default function ProductCard({ product, index, near = true, wished, onTog
         {multi && templateCart?.qty > 0 ? (
           <button
             onClick={() => onOpenDetail(product)}
-            className="mx-4 mt-3 flex h-14 w-[calc(100%-2rem)] items-center justify-center gap-2 rounded-2xl bg-[#0c831f] text-base font-extrabold text-white shadow-xl shadow-green-900/40 transition-transform active:scale-[0.97]"
+            className="label-caps mx-4 mt-4 flex h-14 w-[calc(100%-2rem)] items-center justify-center gap-2 rounded-none bg-black/85 text-[12px] text-white ring-1 ring-white/25 backdrop-blur transition-transform active:scale-[0.98]"
           >
             ✓ {templateCart.qty} in cart · ₹{inr(templateCart.amt)} — Edit options ▾
           </button>
         ) : inCartQty === 0 ? (
           <button
             onClick={multi ? () => onOpenDetail(product) : add}
-            className={`mx-4 mt-3 flex h-14 w-[calc(100%-2rem)] items-center justify-center gap-2 rounded-2xl bg-gradient-to-r from-rose-500 to-orange-400 text-base font-extrabold text-white shadow-xl shadow-rose-500/40 transition-transform active:scale-[0.97] ${justAdded ? 'animate-pop animate-pulse-ring' : ''}`}
+            className={`label-caps mx-4 mt-4 flex h-14 w-[calc(100%-2rem)] items-center justify-center gap-2.5 rounded-none bg-white text-[12px] text-black transition-transform active:scale-[0.98] ${justAdded ? 'animate-pop' : ''}`}
           >
             <BagPlusIcon className="h-5 w-5" />
             {multi ? `Choose options · from ₹${inr(product.price)}` : `Add to Cart · ₹${inr(product.price)}`}

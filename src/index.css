@@ -8,9 +8,30 @@ html, body, #root {
 }
 
 body {
-  font-family: ui-rounded, "SF Pro Rounded", system-ui, -apple-system, "Segoe UI", sans-serif;
+  /* Neutral grotesque, not rounded. A rounded face (ui-rounded / SF Pro
+     Rounded) reads friendly and childlike — it was the single strongest
+     "not premium" signal in the UI. */
+  font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
   -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
   user-select: none;
+}
+
+/* Editorial display face for product names and prices — the way fashion
+   retail signals premium. Falls back to a Didone-ish system serif. */
+.font-display {
+  font-family: "Playfair Display", "Didot", "Bodoni MT", Georgia, "Times New Roman", serif;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+}
+
+/* Small uppercase meta labels (brand, section) — wide tracking is the other
+   half of the editorial look. */
+.label-caps {
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
 }
 
 /* snap feed */
