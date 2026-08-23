@@ -126,7 +126,7 @@ export default function ProductCard({ product, index, near = true, wished, onTog
         />
       )}
       {(!imgReady || imgFailed) && (
-        <div className="absolute inset-0 grid place-items-center lg:right-[44.44%]">
+        <div className="pointer-events-none absolute inset-0 grid place-items-center lg:right-[44.44%]">
           <span className="animate-float text-[7rem] drop-shadow-[0_18px_24px_rgba(0,0,0,0.25)]">{product.emoji}</span>
         </div>
       )}
@@ -168,7 +168,7 @@ export default function ProductCard({ product, index, near = true, wished, onTog
 
       {/* deal timer */}
       {product.deal && (
-        <div className="absolute left-4 top-28">
+        <div className="pointer-events-none absolute left-4 top-28">
           <DealTimer productId={product.id} />
         </div>
       )}
@@ -197,7 +197,7 @@ export default function ProductCard({ product, index, near = true, wished, onTog
 
       {/* share toast */}
       {shared && (
-        <div className="absolute left-1/2 top-1/2 z-20 -translate-x-1/2 -translate-y-1/2 rounded-full bg-black/75 px-4 py-2 text-sm font-bold text-white backdrop-blur">
+        <div className="pointer-events-none absolute left-1/2 top-1/2 z-20 -translate-x-1/2 -translate-y-1/2 rounded-full bg-black/75 px-4 py-2 text-sm font-bold text-white backdrop-blur">
           {shareMsg}
         </div>
       )}
