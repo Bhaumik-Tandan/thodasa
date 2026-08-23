@@ -18,14 +18,14 @@ export default function Welcome({ onStart }) {
           Thoda<span className="italic text-white/70">Sa</span>
         </h1>
         <p className="mt-4 max-w-[19rem] text-[15px] leading-relaxed text-white/60">
-          Swipe real Indian products, one per screen — and see the tax hiding inside every price.
+          Retail therapy without the receipts. Swipe real Indian products for the fun of it — buy nothing.
         </p>
       </div>
 
       <div className="relative">
         <div className="border-t border-white/12">
           {[
-            ['01', 'Nothing here is for sale. No login, no payment, no catch'],
+            ['01', 'Nothing is for sale. That is the point — browse guilt-free'],
             ['02', 'Tap any price to see how much of it is GST and customs duty'],
             ['03', 'The feed learns your taste as you scroll — all in your browser'],
           ].map(([n, text]) => (

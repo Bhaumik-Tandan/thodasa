@@ -11,7 +11,7 @@
     <link rel="manifest" href="/manifest.webmanifest" />
     <link rel="icon" type="image/png" href="/icon-192.png" />
     <link rel="apple-touch-icon" href="/icon-192.png" />
-    <title>ThodaSa — swipe products, see the tax inside the price</title>
+    <title>ThodaSa — retail therapy without the receipts</title>
 
     <!-- Editorial display serif + neutral UI sans. Only the weights actually
          used, so this stays one small request. -->
@@ -21,7 +21,7 @@
       href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&family=Inter:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
-    <meta name="description" content="Nothing here is for sale — it is a free demo. Swipe through 6,000+ real Indian products one per screen, and every price opens up to show exactly how much of it is GST and customs duty. An AirTag is ₹3,490, of which ₹1,066 is tax. No login." />
+    <meta name="description" content="Retail therapy without spending anything. Swipe real Indian products one per screen, from ₹5 biscuits to Pagani hypercars, purely for the fun of browsing. Nothing is for sale, and that is the point. Tap any price to see how much of it is GST and customs duty." />
 
     <!-- Open Graph / Twitter unfurl -->
     <meta property="og:type" content="website" />
@@ -44,7 +44,7 @@
       "alternateName": ["thodasa.com", "Thoda Sa"],
       "url": "https://thodasa.com/",
       "logo": "https://thodasa.com/icon-512.png",
-      "description": "ThodaSa is a free reels-style shopping concept for India, showing the GST and customs-duty breakdown behind every price.",
+      "description": "ThodaSa is retail therapy without the receipts — a free reels-style feed of real Indian products where nothing is for sale, and every price shows the GST and customs duty inside it.",
       "sameAs": ["https://x.com/TandanBhaumik", "https://github.com/Bhaumik-Tandan/thodasa"],
       "founder": { "@type": "Person", "name": "Bhaumik Tandan", "url": "https://github.com/Bhaumik-Tandan" }
     }
@@ -81,6 +81,8 @@
     <!-- Microsoft Clarity analytics (visitors, recordings, heatmaps) -->
     <script type="text/javascript">
       (function(c,l,a,r,i,t,y){
+        var h = l.location.hostname
+        if (h === 'localhost' || h === '127.0.0.1' || h.endsWith('.local') || l.location.protocol === 'file:') return
         c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
         t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
         y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
