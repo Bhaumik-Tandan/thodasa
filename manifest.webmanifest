@@ -1,7 +1,7 @@
 {
   "name": "ThodaSa — shopping that scrolls like reels",
   "short_name": "ThodaSa",
-  "description": "Swipe real Indian products one per screen and see how much of each price is GST and customs duty. Nothing is for sale — it is a demo.",
+  "description": "Retail therapy without the receipts. Swipe real Indian products for the fun of it — nothing is for sale — and see how much of each price is tax.",
   "start_url": "/",
   "display": "standalone",
   "orientation": "portrait",
