@@ -109,7 +109,7 @@ export default function ProductCard({ product, index, near = true, wished, onTog
           fetchPriority={index === 0 ? 'high' : 'auto'}
           onLoad={() => setImgReady(true)}
           onError={() => setImgFailed(true)}
-          className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-500 lg:w-[55.56%] ${imgReady ? 'opacity-100' : 'opacity-0'}`}
+          className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-500 lg:w-[55.56%] ${imgReady ? 'opacity-100' : 'opacity-0'} ${near && imgReady ? 'photo-drift' : ''}`}
         />
       )}
       {(!imgReady || imgFailed) && (

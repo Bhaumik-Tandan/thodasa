@@ -95,3 +95,23 @@ body {
   75% { transform: rotate(6deg); }
 }
 .animate-wiggle { animation: wiggle 0.35s ease-in-out; }
+
+/* Slow drift on the product photo — the cheapest way to make a static feed read
+   as video. Real product video is not sourceable: a Commons search for rotating
+   sneakers or watches returns nothing, and the few genuine product clips are
+   22MB-800MB each against a 7.6MB total site. This costs zero bytes and zero
+   requests, and it is GPU-composited so it does not touch INP.
+   Applied only to the card in view (see ProductCard `near`), because animating
+   sixty transforms at once is exactly the jank this is meant to avoid. */
+@keyframes photo-drift {
+  0%   { transform: scale(1.06) translate3d(0, 0, 0); }
+  50%  { transform: scale(1.12) translate3d(-1.2%, -1%, 0); }
+  100% { transform: scale(1.06) translate3d(0, 0, 0); }
+}
+.photo-drift {
+  animation: photo-drift 18s ease-in-out infinite;
+  will-change: transform;
+}
+@media (prefers-reduced-motion: reduce) {
+  .photo-drift { animation: none; }
+}
