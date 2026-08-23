@@ -3,6 +3,7 @@ import { useState } from 'react'
 import { VARIANTS_BY_TEMPLATE } from '../data/products'
 import { TrashIcon, MinusIcon, PlusIcon, BagPlusIcon } from './Icons'
 import { canShop, shopTarget, shopUrl } from '../lib/shop'
+import { trackOutbound, trackDutyOpen } from '../lib/track'
 import { deliveryEstimate, termsFor } from '../lib/orderStatus'
 import { gstRate } from '../lib/tax'
 import { landedBreakdown } from '../lib/duty'
@@ -37,7 +38,9 @@ const HIGHLIGHTS = {
 export default function ProductSheet({ product, cart, onAddToCart, onQty, onRemove, onClose }) {
   const variants = VARIANTS_BY_TEMPLATE[product.templateId] ?? [product]
   const [selectedId, setSelectedId] = useState(product.id)
-  const [showDuty, setShowDuty] = useState(false)
+  // Open by default when the number is interesting. Median active time is 37s,
+  // so anything behind an extra tap is effectively invisible.
+  const [showDuty, setShowDuty] = useState(() => landedBreakdown(product).govtShare >= 30)
   const selected = variants.find((v) => v.id === selectedId) ?? variants[0]
   const qty = cart[selected.id]?.qty ?? 0
   const off = selected.deal ? Math.round((1 - selected.price / selected.mrp) * 100) : 0
@@ -124,7 +127,7 @@ export default function ProductSheet({ product, cart, onAddToCart, onQty, onRemo
           return (
             <div className="mt-4 overflow-hidden rounded-2xl border border-gray-200 dark:border-zinc-700">
               <button
-                onClick={() => setShowDuty((v) => !v)}
+                onClick={() => { if (!showDuty) trackDutyOpen(selected); setShowDuty((v) => !v) }}
                 className="flex w-full items-center justify-between px-4 py-3 text-left active:scale-[0.995]"
               >
                 <span>
@@ -162,6 +165,7 @@ export default function ProductSheet({ product, cart, onAddToCart, onQty, onRemo
         {canShop(selected) && (
           <a
             href={shopUrl(selected)}
+            onClick={() => trackOutbound(selected)}
             target="_blank"
             rel="noopener noreferrer"
             className="mt-4 flex items-center justify-between gap-3 rounded-2xl border border-gray-200 bg-gray-50 px-4 py-3 active:scale-[0.99] dark:border-zinc-700 dark:bg-zinc-800/60"

@@ -15,6 +15,8 @@ import Rewards from './components/Rewards'
 import OrderStatusBar from './components/OrderStatusBar'
 import UnlockSheet from './components/UnlockSheet'
 import { LOCKS, isLocked, loadUnlocked, saveUnlocked, lockedTeasers, nextUnlock } from './lib/unlocks'
+import InstallNudge from './components/InstallNudge'
+import { trackAddToCart, trackRemoveFromCart, trackWishlist, trackPurchase, trackUnlock, trackBeginCheckout } from './lib/track'
 import { activeOrders, normalizeOrder } from './lib/orderStatus'
 import { startDay, action as gameAction, onReward, load as loadGame } from './lib/gamify'
 import { HeartIcon, BagIcon, MoonIcon, SunIcon, SearchIcon } from './components/Icons'
@@ -220,6 +222,7 @@ export default function App() {
     setCartBounce(true)
     setTimeout(() => setCartBounce(false), 500)
     recordSignal(product, 'addToCart')
+    trackAddToCart(product)
     gameAction('add')
     playSound('add')
     const msg = COMPLIMENTS[Math.floor(Math.random() * COMPLIMENTS.length)]
@@ -232,6 +235,7 @@ export default function App() {
   }, [])
 
   const removeItem = useCallback((id) => {
+    trackRemoveFromCart()
     setCart((c) => {
       const next = { ...c }
       delete next[id]
@@ -248,7 +252,7 @@ export default function App() {
         if (product) recordSignal(product, 'unwishlist')
       } else {
         next.add(id)
-        if (product) recordSignal(product, 'wishlist')
+        if (product) { recordSignal(product, 'wishlist'); trackWishlist(product) }
         gameAction('wish')
         playSound('wish')
       }
@@ -261,6 +265,7 @@ export default function App() {
     setCart({})
     setBurstKey((k) => k + 1)
     for (const it of items) recordSignal(it.product, 'purchase')
+    trackPurchase(total, items.reduce((n, it) => n + it.qty, 0))
     gameAction('order')
     playSound('order')
   }, [])
@@ -377,12 +382,15 @@ export default function App() {
           </button>
         )}
 
+        <InstallNudge />
+
         {unlockPrompt && (
           <UnlockSheet
             category={unlockPrompt}
             onUnlocked={(cat) => {
               const next = new Set(unlocked); next.add(cat)
               setUnlocked(next); saveUnlocked(next)
+              trackUnlock(cat, LOCKS[cat])
               setUnlockPrompt(null)
               setGameTick((t) => t + 1)
               setBurstKey((k) => k + 1)
@@ -414,7 +422,7 @@ export default function App() {
             cart={cart}
             onQty={setQty}
             onRemove={removeItem}
-            onCheckout={() => openView('checkout')}
+            onCheckout={() => { trackBeginCheckout(cartTotal, cartCount); openView('checkout') }}
             onOrders={() => openView('orders')}
             onClose={closeOverlay}
           />

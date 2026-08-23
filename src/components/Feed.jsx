@@ -10,6 +10,8 @@ export default function Feed({ products, wishlist, onToggleWish, onAddToCart, on
   // cards and grow it as the user approaches the end — like a real feed.
   const BATCH = 30
   const [renderCount, setRenderCount] = useState(BATCH)
+  const observerRef = useRef(null)
+  const observedRef = useRef(new WeakSet())
 
   useEffect(() => {
     // category switch / re-rank: reset to the top batch
@@ -17,16 +19,26 @@ export default function Feed({ products, wishlist, onToggleWish, onAddToCart, on
     setActiveIndex(0)
   }, [products])
 
+  // Scroll fires up to ~120x/sec in a snap container, and this handler reads
+  // scrollTop/clientHeight (a forced synchronous layout) then sets state. Doing
+  // that per event is a large INP contributor; collapsing to one read per frame
+  // gives the same result for a fraction of the main-thread cost.
+  const rafRef = useRef(0)
   const onScroll = () => {
-    const el = ref.current
-    if (!el) return
-    const idx = Math.round(el.scrollTop / el.clientHeight)
-    setActiveIndex((prev) => {
-      if (prev !== idx) onActiveProduct?.(products[idx])
-      return prev === idx ? prev : idx
+    if (rafRef.current) return
+    rafRef.current = requestAnimationFrame(() => {
+      rafRef.current = 0
+      const el = ref.current
+      if (!el || !el.clientHeight) return
+      const idx = Math.round(el.scrollTop / el.clientHeight)
+      setActiveIndex((prev) => {
+        if (prev !== idx) onActiveProduct?.(products[idx])
+        return prev === idx ? prev : idx
+      })
+      if (idx > renderCount - 10) setRenderCount((c) => Math.min(products.length, c + BATCH))
     })
-    if (idx > renderCount - 10) setRenderCount((c) => Math.min(products.length, c + BATCH))
   }
+  useEffect(() => () => rafRef.current && cancelAnimationFrame(rafRef.current), [])
 
   useEffect(() => {
     if (scrollToIndex == null || !ref.current) return
@@ -57,8 +69,14 @@ export default function Feed({ products, wishlist, onToggleWish, onAddToCart, on
       },
       { root, threshold: 0.6 },
     )
-    for (const child of root.children) observer.observe(child)
+    observerRef.current = observer
+    observedRef.current = new WeakSet()
+    for (const child of root.children) {
+      observedRef.current.add(child)
+      observer.observe(child)
+    }
     return () => {
+      observerRef.current = null
       // flush dwell for whatever card is on screen when the feed unmounts
       for (const [id, t] of enteredAt) {
         const product = products.find((p) => p.id === id)
@@ -67,6 +85,21 @@ export default function Feed({ products, wishlist, onToggleWish, onAddToCart, on
       observer.disconnect()
     }
   }, [products, onDwell])
+
+  // The effect above runs once per `products` change, when only the first
+  // BATCH of cards exists — so every card mounted by a later batch was never
+  // observed, and dwell signals silently stopped past card 30. The taste engine
+  // was therefore only ever learning from the first 30 cards of a session.
+  useEffect(() => {
+    const root = ref.current
+    const observer = observerRef.current
+    if (!root || !observer) return
+    for (const child of root.children) {
+      if (observedRef.current.has(child)) continue
+      observedRef.current.add(child)
+      observer.observe(child)
+    }
+  }, [renderCount, products])
 
   if (!products.length) {
     return (
