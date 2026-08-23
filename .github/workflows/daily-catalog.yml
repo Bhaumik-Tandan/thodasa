@@ -63,7 +63,13 @@ jobs:
 
       - name: Deploy to GitHub Pages
         if: steps.fetch.outputs.changed == 'true'
-        run: npx gh-pages -d dist -u "thodasa bot <bot@thodasa.com>" -m "daily catalog $(date -u +%Y-%m-%d)"
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          npx gh-pages -d dist \
+            -r "https://x-access-token:${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" \
+            -u "thodasa bot <bot@thodasa.com>" \
+            -m "daily catalog $(date -u +%Y-%m-%d)"
 
       - name: Ping IndexNow with the new pages
         if: steps.fetch.outputs.changed == 'true'
