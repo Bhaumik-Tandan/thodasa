@@ -53,6 +53,25 @@ export const inrShort = (n) =>
 
 const img = (id) => `https://images.unsplash.com/photo-${id}?w=800&h=1400&fit=crop&q=80&auto=format`
 
+// Requested additions: Apple hardware, laptops and high horology. Photos are
+// Wikimedia Commons product shots, eyeballed before use — a Hublot search also
+// returned an unrelated lingerie photo, and Jacob & Co has no usable watch
+// image on Commons at all, so that brand is deliberately absent rather than
+// illustrated with something wrong.
+const WM_IP16 = 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e2/IPhone_16_Pro_Max_Desert_Titanium_Rear.png/960px-IPhone_16_Pro_Max_Desert_Titanium_Rear.png'
+const WM_IP15 = 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Apple_iPhone_15_Pro.jpg/960px-Apple_iPhone_15_Pro.jpg'
+const WM_MBP = 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/dd/MacBook_Pro_2019_13_inch.jpg/960px-MacBook_Pro_2019_13_inch.jpg'
+const WM_MBA = 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/MacBook_Air_M1.png/960px-MacBook_Air_M1.png'
+const WM_XPS = 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/57/Dell_XPS_15_and_Microsoft_Surface_Pro_-_2020.jpg/960px-Dell_XPS_15_and_Microsoft_Surface_Pro_-_2020.jpg'
+const WM_MSI = 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c9/MSI_Gaming_Laptop_on_wood_floor.jpg/960px-MSI_Gaming_Laptop_on_wood_floor.jpg'
+const WM_THINKPAD = 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/97/Top_cover_of_a_closed_Lenovo_ThinkPad_X220_laptop.jpg/960px-Top_cover_of_a_closed_Lenovo_ThinkPad_X220_laptop.jpg'
+const WM_RM = 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/28/RM_030_Automatic.jpg/960px-RM_030_Automatic.jpg'
+const WM_PATEK = 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/04/Patek-Philippe-Nautilus-5711-1A-010-1.jpg/960px-Patek-Philippe-Nautilus-5711-1A-010-1.jpg'
+const WM_PATEK2 = 'https://upload.wikimedia.org/wikipedia/commons/thumb/f/f6/Patek_Philippe_Nautilus_cronografo_flyback_ref._5980_del_2015.jpg/960px-Patek_Philippe_Nautilus_cronografo_flyback_ref._5980_del_2015.jpg'
+const WM_SEIKO = 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/94/Seiko_SKX781_Orange_Monster_diver_watch_%282026-02-13%29.jpg/960px-Seiko_SKX781_Orange_Monster_diver_watch_%282026-02-13%29.jpg'
+const WM_SEIKO2 = 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/16/Seiko_Automatic_Diver%27s_200m.jpg/960px-Seiko_Automatic_Diver%27s_200m.jpg'
+const WM_HUBLOT = 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a3/Hublot_Geneve.jpg/960px-Hublot_Geneve.jpg'
+
 // Wikimedia product shots used where the generic Unsplash key was wrong.
 // 'shoeYellow' is a Nike Air Max, shared by three products, so Crocs and
 // Relaxo both rendered as Nike sneakers. Credited in WM_CREDITS.
@@ -1142,6 +1161,19 @@ TEMPLATES.push(
 // crediting the author — the catalog used Commons images before this without any
 // credit, which was a licence breach on my part. Rendered in the About sheet.
 export const WM_CREDITS = [
+  { what: 'iPhone 16 Pro Max', file: 'IPhone 16 Pro Max Desert Titanium Rear.png', author: 'Padgriffin', licence: 'CC BY 4.0' },
+  { what: 'iPhone 15 Pro', file: 'Apple iPhone 15 Pro.jpg', author: 'IPHONE 15', licence: 'CC BY-SA 4.0' },
+  { what: 'MacBook Pro', file: 'MacBook Pro 2019 13 inch.jpg', author: 'Laptopsarena', licence: 'CC BY-SA 4.0' },
+  { what: 'MacBook Air', file: 'MacBook Air M1.png', author: 'Padgriffin', licence: 'CC BY-SA 4.0' },
+  { what: 'Dell XPS', file: 'Dell XPS 15 and Microsoft Surface Pro - 2020.jpg', author: 'Tom Page', licence: 'CC BY-SA 2.0' },
+  { what: 'ThinkPad / HP Pavilion', file: 'Top cover of a closed Lenovo ThinkPad X220 laptop.jpg', author: 'Siarhei V', licence: 'CC BY-SA 4.0' },
+  { what: 'MSI gaming laptop', file: 'MSI Gaming Laptop on wood floor.jpg', author: 'Kurt Kaiser', licence: 'CC0' },
+  { what: 'Richard Mille', file: 'RM 030 Automatic.jpg', author: 'Y.Leclercq', licence: 'CC BY-SA 4.0' },
+  { what: 'Patek Philippe Nautilus 5711', file: 'Patek-Philippe-Nautilus-5711-1A-010-1.jpg', author: 'Patek Philippe SA', licence: 'CC BY-SA 4.0' },
+  { what: 'Patek Philippe Nautilus 5980', file: 'Patek Philippe Nautilus cronografo flyback ref. 5980 del 2015.jpg', author: 'EMore98', licence: 'CC BY-SA 4.0' },
+  { what: 'Seiko Orange Monster', file: 'Seiko SKX781 Orange Monster diver watch (2026-02-13).jpg', author: 'Olgierd Rudak', licence: 'CC BY-SA 4.0' },
+  { what: 'Seiko diver 200m', file: "Seiko Automatic Diver's 200m.jpg", author: 'Dnalor 01', licence: 'CC BY-SA 3.0' },
+  { what: 'Hublot', file: 'Hublot Geneve.jpg', author: 'Yorqulov Husan', licence: 'CC BY 4.0' },
   { what: 'Crocs clog', file: 'Crocs-synthetic-clogs.jpg', author: 'Skyeyemx', licence: 'CC BY-SA 4.0' },
   { what: 'Flip-flops', file: 'Green flip flops on red background.jpg', author: 'Steve Johnson', licence: 'CC BY 2.0' },
   { what: 'Dash cams', file: 'Dashcams P1210466.JPG', author: 'Fernost', licence: 'Public domain' },
@@ -1153,6 +1185,30 @@ export const WM_CREDITS = [
   { what: 'Cup soup', file: 'CupSoupChicken.jpg', author: 'Alex Jones', licence: 'Public domain' },
   { what: 'Popcorn', file: 'Bowl of Popcorn (Unsplash).jpg', author: 'Alex Munsell', licence: 'CC0' },
 ]
+
+// ——— Apple hardware, laptops, high horology ———
+TEMPLATES.push(
+  ['Apple', 'iPhone 16 Pro Max', 'gadgets', WM_IP16, '📱', 'Desert titanium. Camera Control ka naya chakkar.', combo(['Desert Titanium', 'Natural Titanium', 'Black Titanium', 'White Titanium'], V(['256GB', 144900], ['512GB', 164900], ['1TB', 184900])), true],
+  ['Apple', 'iPhone 15 Pro', 'gadgets', WM_IP15, '📱', 'Pichla flagship, aadha daam. Smart move.', combo(['Blue Titanium', 'Natural Titanium', 'Black Titanium'], V(['128GB', 119900], ['256GB', 129900]))],
+  ['Apple', 'MacBook Pro 14"', 'gadgets', WM_MBP, '💻', 'M4 Pro. Fan chalta hi nahi, kaam ho jaata hai.', combo(['Space Black', 'Silver'], V(['M4 · 512GB', 169900], ['M4 Pro · 1TB', 249900])), true],
+  ['Apple', 'MacBook Air 13"', 'gadgets', WM_MBA, '💻', 'Bag mein pata bhi nahi chalta. Poora din battery.', combo(['Midnight', 'Starlight', 'Silver', 'Sky Blue'], V(['M4 · 256GB', 99900], ['M4 · 512GB', 119900]))],
+  ['Dell', 'XPS 15 Laptop', 'gadgets', WM_XPS, '💻', 'Windows walon ka MacBook. OLED lelo.', V(['i7 · 16GB · 512GB', 159990], ['i9 · 32GB · 1TB OLED', 219990])],
+  ['Lenovo', 'ThinkPad X1 Carbon', 'gadgets', WM_THINKPAD, '💻', 'Keyboard ke liye log isse khareedte hain. Sach.', V(['i5 · 16GB', 139990], ['i7 · 32GB', 179990])],
+  ['MSI', 'Katana Gaming Laptop', 'gadgets', WM_MSI, '🎮', 'RTX lagi hai. Padhai bhi ho jaayegi, kabhi.', V(['RTX 4050 · 16GB', 84990], ['RTX 4060 · 16GB', 104990])],
+  ['HP', 'Pavilion 14', 'gadgets', WM_THINKPAD, '💻', 'College ka sabse safe pick.', V(['i5 · 16GB · 512GB', 62990])],
+
+  // High horology. 'watches' is a locked tier, so these sit behind 100 coins.
+  ['Richard Mille', 'RM 030 Automatic', 'watches', WM_RM, '⌚', 'Skeleton dial, titanium case. Ghadi nahi, statement.', colors(['Blue Ceramic', 'Titanium', 'Rose Gold'], 16500000), true],
+  ['Richard Mille', 'RM 011 Flyback', 'watches', WM_RM, '⌚', 'F1 paddock ki official ghadi. Daam bhi F1 wala.', colors(['NTPT Carbon', 'Rose Gold'], 21000000)],
+  ['Patek Philippe', 'Nautilus 5711', 'watches', WM_PATEK, '⌚', 'Waiting list saalon ki. Resale MRP se dugna.', colors(['Steel Blue Dial', 'Steel Green Dial'], 9500000), true],
+  ['Patek Philippe', 'Nautilus 5980 Chronograph', 'watches', WM_PATEK2, '⌚', 'Rose gold flyback. Baap ko dikhane layak.', colors(['Rose Gold', 'Steel'], 12500000)],
+  ['Patek Philippe', 'Calatrava', 'watches', WM_PATEK, '⌚', 'Dress watch ka final boss. Simple dikhta hai.', colors(['White Gold', 'Yellow Gold'], 3200000)],
+  ['Hublot', 'Big Bang Unico', 'watches', WM_HUBLOT, '⌚', 'Bada, loud, aur usse koi sharam nahi.', colors(['Titanium', 'King Gold', 'All Black'], 2400000)],
+  ['Hublot', 'Classic Fusion', 'watches', WM_HUBLOT, '⌚', 'Hublot ka sober version. Thoda sa hi loud.', colors(['Titanium', 'Black Ceramic'], 1150000)],
+  ['Seiko', 'Prospex Orange Monster', 'watches', WM_SEIKO, '⌚', 'Enthusiast ki pehli asli ghadi. Legend hai.', colors(['Orange Dial', 'Black Dial'], 42000)],
+  ['Seiko', 'SKX Diver 200m', 'watches', WM_SEIKO2, '⌚', '200m water resistant. Aap 2m jaoge, phir bhi.', colors(['Black Dial', 'Pepsi Bezel', 'Blue Dial'], 35000)],
+  ['Seiko', 'Presage Cocktail Time', 'watches', WM_SEIKO2, '⌚', 'Sunburst dial. Roshni mein ghoomao, bas.', colors(['Starlight', 'Mojito Green', 'Blue Moon'], 48000)],
+)
 
 // ——— Daily arrivals ———
 // Genuinely new real products, fetched by scripts/fetch-daily.mjs on a cron and

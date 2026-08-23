@@ -40,8 +40,10 @@ const FOREIGN = new Set([
   // electronics & appliances
   'Apple', 'Samsung', 'Sony', 'JBL', 'Dyson', 'Xiaomi', 'LG', 'Philips', 'Bosch', 'Casio',
   'iRobot', 'Honeywell', '70mai', 'DDPAI', 'Instant', 'LEGO', 'Hot Wheels',
+  'Dell', 'Lenovo', 'MSI', 'HP',
   // watches & luxury
-  'Rolex', 'Omega', 'TAG Heuer', 'Tissot', 'Louis Vuitton', 'Hermès', 'Chanel', 'Gucci',
+  'Rolex', 'Omega', 'TAG Heuer', 'Tissot', 'Richard Mille', 'Patek Philippe', 'Hublot',
+  'Seiko', 'Louis Vuitton', 'Hermès', 'Chanel', 'Gucci',
   'Prada', 'Dior', 'Balenciaga', 'Versace',
   // fashion & footwear
   'Nike', 'Adidas', 'Puma', 'New Balance', 'Converse', 'Crocs', 'Birkenstock', 'Levi\'s',
