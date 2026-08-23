@@ -63,7 +63,7 @@ jobs:
 
       - name: Deploy to GitHub Pages
         if: steps.fetch.outputs.changed == 'true'
-        run: npx gh-pages -d dist -u "github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>" -m "daily catalog $(date -u +%Y-%m-%d)"
+        run: npx gh-pages -d dist -u "thodasa bot <bot@thodasa.com>" -m "daily catalog $(date -u +%Y-%m-%d)"
 
       - name: Ping IndexNow with the new pages
         if: steps.fetch.outputs.changed == 'true'
