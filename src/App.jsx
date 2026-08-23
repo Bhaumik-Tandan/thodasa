@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useMemo, useState } from 'react'
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { PRODUCTS, TEMPLATE_HEROES, CATEGORIES, inr, inrShort } from './data/products'
 import CategoryChips from './components/CategoryChips'
 import Feed from './components/Feed'
@@ -14,7 +14,7 @@ import Feedback from './components/Feedback'
 import Rewards from './components/Rewards'
 import OrderStatusBar from './components/OrderStatusBar'
 import UnlockSheet from './components/UnlockSheet'
-import { LOCKS, isLocked, loadUnlocked, saveUnlocked } from './lib/unlocks'
+import { LOCKS, isLocked, loadUnlocked, saveUnlocked, lockedTeasers, nextUnlock } from './lib/unlocks'
 import { activeOrders } from './lib/orderStatus'
 import { startDay, action as gameAction, onReward, load as loadGame } from './lib/gamify'
 import { HeartIcon, BagIcon, MoonIcon, SunIcon, SearchIcon } from './components/Icons'
@@ -158,8 +158,28 @@ export default function App() {
       category === 'all' ? PRODUCTS.filter(open)
       : category === 'new' ? PRODUCTS.filter(isNewToday).filter(open)
       : PRODUCTS.filter((p) => p.category === category)
-    return rankFeed(pool, tasteProfile)
+    const ranked = rankFeed(pool, tasteProfile)
+    if (category !== 'all') return ranked
+
+    // Splice locked teasers into the All feed at a fixed cadence. Locked tiers
+    // used to be filtered out completely, so a visitor never discovered that
+    // cars, jets or Dubai real estate existed — the locked chips live off-screen
+    // in a 24-chip scroll and ~85% of browsing happens right here in All.
+    const teasers = lockedTeasers(PRODUCTS, unlocked)
+    if (!teasers.length) return ranked
+    const out = []
+    let t = 0
+    for (let i = 0; i < ranked.length; i++) {
+      out.push(ranked[i])
+      // first tease early enough to be seen in a one-minute session
+      if (t < teasers.length && (i === 4 || (i > 4 && (i - 4) % 11 === 0))) out.push(teasers[t++])
+    }
+    return out
   }, [category, tasteProfile, unlocked])
+
+  // "340 more coins to unlock Cars" — tells people what to do, not just that
+  // something is locked
+  const nextLock = useMemo(() => nextUnlock(unlocked), [unlocked, gameTick])
   // how many of today's rotating drops exist — drives the "N new today" chip
   const newTodayCount = useMemo(() => TEMPLATE_HEROES.filter(isNewToday).length, [])
 
@@ -180,7 +200,13 @@ export default function App() {
     const signal = dwellSignal(ms)
     if (signal) recordSignal(product, signal)
     gameAction('scroll')
+    // Scroll rewards deliberately emit no toast, so the header coin pill never
+    // re-rendered while scrolling — the counter looked frozen and taught people
+    // that browsing earns nothing. Refresh it every few cards instead.
+    scrollTick.current = (scrollTick.current + 1) % 3
+    if (scrollTick.current === 0) setGameTick((t) => t + 1)
   }, [])
+  const scrollTick = useRef(0)
 
   const onSignal = useCallback((product, signal) => { recordSignal(product, signal); if (signal === 'share') gameAction('share') }, [])
 
@@ -261,6 +287,11 @@ export default function App() {
                 className="flex items-center gap-1 rounded-full bg-amber-400/90 px-2.5 py-1.5 text-xs font-black text-black backdrop-blur-md active:scale-90"
               >
                 🪙 <span key={gameTick}>{loadGame().coins.toLocaleString('en-IN')}</span>
+                {nextLock && (
+                  <span className="hidden text-[10px] font-bold text-black/55 sm:inline">
+                    /{nextLock.cost}
+                  </span>
+                )}
               </button>
               <button
                 onClick={() => openView('search')}
@@ -318,6 +349,7 @@ export default function App() {
           onCategory={(cat) => { if (isLocked(cat, unlocked)) { setUnlockPrompt(cat); return } setCategory(cat); setScrollToIndex(0); syncUrl(cat, null) }}
           onDwell={onDwell}
           onActiveProduct={onActiveProduct}
+          onUnlockPrompt={setUnlockPrompt}
           onOpenDetail={openDetail}
           cart={cart}
           cartByTemplate={cartByTemplate}

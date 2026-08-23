@@ -10,15 +10,15 @@ const KEY = 'thodasa.unlocks'
 
 // cost by category — ordered as a progression ladder
 export const LOCKS = {
-  art: 150,
-  watches: 250,
-  jewels: 250,
-  shoes: 200,
-  luxe: 400,
-  bikes: 500,
-  cars: 800,
-  jets: 1500,
-  realty: 2500,
+  art: 60,
+  shoes: 80,
+  watches: 100,
+  jewels: 100,
+  luxe: 150,
+  bikes: 200,
+  cars: 250,
+  jets: 400,
+  realty: 600,
 }
 
 export const isLockable = (cat) => cat in LOCKS
@@ -36,6 +36,27 @@ export const saveUnlocked = (set) => {
 }
 
 export const isLocked = (cat, unlocked = loadUnlocked()) => isLockable(cat) && !unlocked.has(cat)
+
+// One eye-catching product per locked tier, to seed the feed with teasers.
+// Hiding locked categories entirely meant a visitor never learned that cars,
+// jets or Dubai real estate existed at all — and since ~85% of browsing happens
+// in the All feed, the locked chips off-screen in a 24-chip scroll were never
+// discovered. Showing a blurred teaser is how the lock creates desire instead
+// of just removing content.
+export const lockedTeasers = (products, unlocked = loadUnlocked()) => {
+  const out = []
+  for (const cat of Object.keys(LOCKS)) {
+    if (unlocked.has(cat)) continue
+    // priciest item in the tier — the most arresting thing to tease with
+    let best = null
+    for (const p of products) {
+      if (p.category !== cat) continue
+      if (!best || p.price > best.price) best = p
+    }
+    if (best) out.push({ ...best, locked: true, lockCost: LOCKS[cat] })
+  }
+  return out
+}
 
 // next cheapest thing still locked — for "N coins to your next unlock" nudges
 export const nextUnlock = (unlocked = loadUnlocked()) => {

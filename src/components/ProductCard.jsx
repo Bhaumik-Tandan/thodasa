@@ -2,13 +2,58 @@ import { inr } from '../data/products'
 import { useState } from 'react'
 import DealTimer from './DealTimer'
 import { GRADS, CATEGORIES } from '../data/products'
+import { load as loadGame } from '../lib/gamify'
 import { HeartIcon, ShareIcon, BagPlusIcon, TrashIcon, MinusIcon, PlusIcon } from './Icons'
 import { productUrl, productShareText, waShare, xShare, copyLink } from '../lib/share'
 import { deliveryEstimate } from '../lib/orderStatus'
 
 const fmtReviews = (n) => (n >= 1000 ? `${(n / 1000).toFixed(1)}k` : n)
 
-export default function ProductCard({ product, index, near = true, wished, onToggleWish, onAddToCart, onQty, onRemove, onSignal, onOpenDetail, onCategory, inCartQty, templateCart, hasCartBar = false }) {
+export default function ProductCard({ product, index, near = true, wished, onToggleWish, onAddToCart, onQty, onRemove, onSignal, onOpenDetail, onCategory, onUnlockPrompt, inCartQty, templateCart, hasCartBar = false }) {
+  // Locked-tier teaser: shows WHAT is behind the lock and exactly what to do
+  // about it. Locked categories used to be filtered out of the feed entirely,
+  // so nobody knew cars/jets/real estate existed, let alone that they unlock.
+  if (product.locked) {
+    const cat = CATEGORIES.find((c) => c.id === product.category)?.label ?? product.category
+    const coins = loadGame().coins
+    const short = Math.max(0, product.lockCost - coins)
+    return (
+      <section data-index={index} className="snap-card relative h-full w-full overflow-hidden bg-[#0b0b0d]">
+        {near && (
+          <img
+            src={product.img}
+            alt=""
+            aria-hidden="true"
+            className="absolute inset-0 h-full w-full scale-110 object-cover opacity-45 blur-xl"
+          />
+        )}
+        <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-black/70" />
+        <button
+          onClick={() => onUnlockPrompt?.(product.category)}
+          className="absolute inset-0 z-10 flex flex-col items-center justify-center px-8 text-center"
+        >
+          <span className="grid h-14 w-14 place-items-center rounded-full border border-white/25 text-white">
+            <svg viewBox="0 0 24 24" className="h-6 w-6" fill="none" stroke="currentColor" strokeWidth="2">
+              <rect width="14" height="10" x="5" y="11" rx="2" /><path d="M8 11V7a4 4 0 0 1 8 0v4" />
+            </svg>
+          </span>
+          <p className="label-caps mt-5 text-[10px] text-white/50">Locked section</p>
+          <h2 className="font-display mt-2 text-[34px] leading-tight text-white">{cat}</h2>
+          <p className="mt-2 max-w-[17rem] text-[13px] leading-relaxed text-white/60">
+            {product.variantCount > 1 ? `${product.variantCount} options · ` : ''}
+            up to ₹{inr(product.price)} — like the {product.baseName}
+          </p>
+          <span className="label-caps mt-7 bg-white px-5 py-3.5 text-[11px] text-black">
+            {short > 0 ? `${short} more coins to unlock` : `Unlock for ${product.lockCost} coins`}
+          </span>
+          <p className="mt-4 text-[11px] text-white/45">
+            You have 🪙 {inr(coins)} · earn more by scrolling, saving &amp; ordering
+          </p>
+        </button>
+      </section>
+    )
+  }
+
   const multi = product.variantCount > 1
   const [justAdded, setJustAdded] = useState(false)
   const [heartPop, setHeartPop] = useState(false)
