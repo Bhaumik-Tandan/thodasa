@@ -1,5 +1,5 @@
 import { inr } from '../data/products'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import DealTimer from './DealTimer'
 import { GRADS, CATEGORIES } from '../data/products'
 import { load as loadGame } from '../lib/gamify'
@@ -10,7 +10,7 @@ import { landedBreakdown } from '../lib/duty'
 
 const fmtReviews = (n) => (n >= 1000 ? `${(n / 1000).toFixed(1)}k` : n)
 
-export default function ProductCard({ product, index, near = true, wished, onToggleWish, onAddToCart, onQty, onRemove, onSignal, onOpenDetail, onCategory, onUnlockPrompt, inCartQty, templateCart, hasCartBar = false }) {
+export default function ProductCard({ product, index, near = true, wished, onToggleWish, onAddToCart, onQty, onRemove, onSignal, onOpenDetail, onCategory, onUnlockPrompt, inCartQty, templateCart, hasCartBar = false, active = false}) {
   // Locked-tier teaser: shows WHAT is behind the lock and exactly what to do
   // about it. Locked categories used to be filtered out of the feed entirely,
   // so nobody knew cars/jets/real estate existed, let alone that they unlock.
@@ -58,6 +58,18 @@ export default function ProductCard({ product, index, near = true, wished, onTog
   const multi = product.variantCount > 1
   const [justAdded, setJustAdded] = useState(false)
   const [heartPop, setHeartPop] = useState(false)
+  // Multi-angle packshots stand in for the product video that does not exist:
+  // front of pack, then the packaging, ingredients and nutrition panels. Only
+  // the card actually in view cycles — animating every mounted card would burn
+  // mobile data on photos nobody is looking at.
+  const angles = product.imgs && product.imgs.length > 1 ? product.imgs : null
+  const [angle, setAngle] = useState(0)
+  const panel = Boolean(angles) && angle > 0
+  useEffect(() => {
+    if (!angles || !active) { setAngle(0); return }
+    const t = setInterval(() => setAngle((a) => (a + 1) % angles.length), 2600)
+    return () => clearInterval(t)
+  }, [angles, active])
   const [imgReady, setImgReady] = useState(false)
   const [imgFailed, setImgFailed] = useState(false)
   const [shared, setShared] = useState(false)
@@ -104,18 +116,39 @@ export default function ProductCard({ product, index, near = true, wished, onTog
       {/* full-bleed product photo */}
       {!imgFailed && activated && (
         <img
-          src={product.img}
+          src={angles ? angles[angle] : product.img}
           alt={product.name}
+          key={angles ? angle : 'single'}
           fetchPriority={index === 0 ? 'high' : 'auto'}
           onLoad={() => setImgReady(true)}
           onError={() => setImgFailed(true)}
-          className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-500 lg:w-[55.56%] ${imgReady ? 'opacity-100' : 'opacity-0'} ${near && imgReady ? 'photo-drift' : ''}`}
+          className={`absolute inset-0 h-full w-full transition-opacity duration-500 lg:w-[55.56%] ${panel ? 'object-contain p-6 pb-56' : 'object-cover'} ${imgReady ? 'opacity-100' : 'opacity-0'} ${near && imgReady && !angles ? 'photo-drift' : ''}`}
         />
       )}
       {(!imgReady || imgFailed) && (
         <div className="absolute inset-0 grid place-items-center lg:right-[44.44%]">
           <span className="animate-float text-[7rem] drop-shadow-[0_18px_24px_rgba(0,0,0,0.25)]">{product.emoji}</span>
         </div>
+      )}
+
+      {angles && (
+        <div className="pointer-events-none absolute left-1/2 top-20 z-10 flex -translate-x-1/2 gap-1.5 lg:top-8 lg:left-[27.78%]">
+          {angles.map((_, i) => (
+            <span
+              key={i}
+              className={`h-1 rounded-full transition-all duration-300 ${i === angle ? 'w-5 bg-white' : 'w-1.5 bg-white/45'}`}
+            />
+          ))}
+        </div>
+      )}
+
+      {panel && (
+        <img
+          src={angles[angle]}
+          alt=""
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-0 h-full w-full scale-110 object-cover opacity-30 blur-2xl lg:w-[55.56%]"
+        />
       )}
 
       {/* readability gradients */}

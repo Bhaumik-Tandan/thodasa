@@ -126,6 +126,7 @@ export default function Feed({ products, wishlist, onToggleWish, onAddToCart, on
           key={p.id}
           index={i}
           near={Math.abs(i - activeIndex) <= 2}
+          active={i === activeIndex}
           product={p}
           wished={wishlist.has(p.id)}
           onToggleWish={onToggleWish}

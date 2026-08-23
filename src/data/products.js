@@ -4,6 +4,7 @@
 // few Wikimedia Commons product shots (credited in WM_CREDITS),
 // shared across a template's variants — same as Lays 52g vs 90g sharing a shot.
 import DAILY from './daily.js'
+import PACKSHOTS from './packshots.js'
 
 export const CATEGORIES = [
   { id: 'all', label: 'All' },
@@ -1247,6 +1248,23 @@ const DISCOUNT_BANDS = { fashion: 0.45, shoes: 0.4, snacks: 0.2, grocery: 0.18, 
   kitchen: 0.25, accessories: 0.3, gadgets: 0.15, books: 0.1, art: 0.15 }
 const discountBand = (category) => DISCOUNT_BANDS[category] ?? 0.2
 
+const OFF_MAX = 400
+// normalise any Open Food Facts image URL to a sized variant
+const offSized = (url) =>
+  typeof url === 'string' && url.includes('images.openfoodfacts.org')
+    ? url.replace(/\.(full|\d+)\.jpg$/i, `.${OFF_MAX}.jpg`)
+    : url
+
+// /images/products/890/171/913/4845/front_en.11.full.jpg -> 8901719134845
+const barcodeOf = (url) => {
+  const m = typeof url === 'string' && url.match(/\/products\/((?:\d+\/)+)/)
+  return m ? m[1].replace(/\//g, '') : null
+}
+const extraAngles = (photo) => {
+  const code = barcodeOf(photo)
+  return code ? PACKSHOTS[code] ?? null : null
+}
+
   let id = 1
   let templateId = 0
   for (const [brand, name, category, photo, emoji, desc, variants, launch, addedOn] of TEMPLATES) {
@@ -1269,7 +1287,13 @@ const discountBand = (category) => DISCOUNT_BANDS[category] ?? 0.2
         rating: Math.round((3.6 + ((h >> 3) % 13) / 10) * 10) / 10,
         reviews: Math.round(10 ** (1.1 + ((h >> 5) % 300) / 92)),
         grad: h % 8,
-        img: I[photo] ? img(I[photo]) : photo,
+        img: I[photo] ? img(I[photo]) : offSized(photo),
+        // Extra photo angles for Open Food Facts packs (front / packaging /
+        // ingredients / nutrition). Real product video is not sourceable, but
+        // the same pack from several sides is — and on a site about what sits
+        // inside a price, the ingredients panel is the most on-theme second
+        // image there is. See scripts/fetch-packshots.mjs.
+        imgs: extraAngles(photo)?.map(offSized) ?? null,
       })
       if (launch && first) LAUNCH_PICKS.push(id)
       first = false
