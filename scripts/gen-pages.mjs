@@ -6,7 +6,7 @@
 import fs from 'node:fs'
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
-import { TEMPLATE_HEROES, inr } from '../src/data/products.js'
+import { TEMPLATE_HEROES, inr, WM_CREDITS } from '../src/data/products.js'
 import { landedBreakdown as duty } from '../src/lib/duty.js'
 
 const SITE = 'https://thodasa.com'
@@ -104,7 +104,7 @@ const page = (p, related) => {
     actually sold and no payment is ever taken. Indian MRP is inclusive of all
     taxes, so the figures above are extracted from the listed price, not added to
     it, and are indicative.</p>
-    <p style="margin-top:.8rem"><a href="/">Browse 5,900+ finds on ThodaSa →</a></p>
+    <p style="margin-top:.8rem"><a href="/">Browse 5,900+ finds on ThodaSa →</a> &middot; <a href="/credits/">Photo credits</a></p>
   </footer>
 </div>
 </body>
@@ -127,7 +127,72 @@ for (const p of TEMPLATE_HEROES) {
   count++
 }
 
-const urls = [`${SITE}/`, ...TEMPLATE_HEROES.map((p) => `${SITE}/p/${p.slug}/`)]
+// Photo credits page. Most catalog images are Unsplash (licence needs no
+// attribution) but the Wikimedia Commons ones are CC BY / CC BY-SA, which do
+// require crediting the author. They were used without credit before this.
+const creditsPage = `<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Photo credits | ThodaSa</title>
+<meta name="description" content="Image attribution for ThodaSa - Wikimedia Commons product photography under CC BY and CC BY-SA, plus Unsplash and Open Food Facts.">
+<link rel="canonical" href="${SITE}/credits/">
+<style>
+  :root{color-scheme:dark}
+  body{margin:0;background:#0b0b0d;color:#fff;font:16px/1.6 Inter,system-ui,sans-serif}
+  .wrap{max-width:44rem;margin:0 auto;padding:3rem 1.5rem}
+  h1{font-size:1.9rem;margin:.2rem 0 1rem;font-weight:600}
+  h2{font-size:1.05rem;margin:2rem 0 .6rem;font-weight:600}
+  .caps{text-transform:uppercase;letter-spacing:.12em;font-size:.7rem;color:rgba(255,255,255,.45)}
+  a{color:#f0abfc}
+  table{width:100%;border-collapse:collapse;font-size:.88rem;margin-top:.4rem}
+  th,td{text-align:left;padding:.5rem .4rem;border-bottom:1px solid rgba(255,255,255,.09);vertical-align:top}
+  th{color:rgba(255,255,255,.5);font-weight:500;font-size:.72rem;text-transform:uppercase;letter-spacing:.08em}
+  p{color:rgba(255,255,255,.72)}
+  footer{margin-top:3rem;font-size:.8rem;color:rgba(255,255,255,.4)}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <p class="caps"><a href="/" style="text-decoration:none;color:inherit">ThodaSa</a></p>
+  <h1>Photo credits</h1>
+  <p>ThodaSa is a concept demo. Product photography comes from open sources, and
+  the licences below are the reason each one can be used here.</p>
+
+  <h2>Wikimedia Commons</h2>
+  <p>CC BY and CC BY-SA require attribution. Each photo links to its file page,
+  where the full licence text and author details live.</p>
+  <table>
+    <tr><th>Used for</th><th>Author</th><th>Licence</th></tr>
+    ${WM_CREDITS.map((c) => `<tr><td><a href="https://commons.wikimedia.org/wiki/File:${encodeURIComponent(c.file.replace(/ /g, '_'))}">${esc(c.what)}</a></td><td>${esc(c.author)}</td><td>${esc(c.licence)}</td></tr>`).join('\n    ')}
+  </table>
+
+  <h2>Unsplash</h2>
+  <p>Most catalog photography is from <a href="https://unsplash.com/license">Unsplash</a>,
+  whose licence permits commercial use and hotlinking without attribution.
+  Credit is not required, so individual photographers are not listed here.</p>
+
+  <h2>Open Food Facts</h2>
+  <p>Real Indian FMCG packshots and product data come from
+  <a href="https://world.openfoodfacts.org/">Open Food Facts</a>, database under
+  <a href="https://opendatacommons.org/licenses/odbl/1-0/">ODbL</a>, images under
+  CC BY-SA. A GitHub Action refreshes these daily.</p>
+
+  <h2>Brand names</h2>
+  <p>Brand names appear as plain text to describe real products. No logos, brand
+  artwork, or retailer photography are reproduced, and no affiliation or
+  endorsement is implied. Nothing on ThodaSa is actually for sale.</p>
+
+  <footer><p><a href="/">&larr; Back to ThodaSa</a></p></footer>
+</div>
+</body>
+</html>
+`
+fs.mkdirSync(path.join(dist, 'credits'), { recursive: true })
+fs.writeFileSync(path.join(dist, 'credits', 'index.html'), creditsPage)
+
+const urls = [`${SITE}/`, `${SITE}/credits/`, ...TEMPLATE_HEROES.map((p) => `${SITE}/p/${p.slug}/`)]
 fs.writeFileSync(
   path.join(dist, 'sitemap.xml'),
   `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n` +

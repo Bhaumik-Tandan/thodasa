@@ -1,6 +1,7 @@
 // Blinkit/Amazon-style catalog: ~90 famous-product templates × variants
 // (flavour · size · colour) expand into 1000+ SKUs, the way real q-commerce
-// catalogs work. Every image is a verified Unsplash photo (hotlinking allowed),
+// catalogs work. Images are verified Unsplash photos (hotlinking allowed) plus a
+// few Wikimedia Commons product shots (credited in WM_CREDITS),
 // shared across a template's variants — same as Lays 52g vs 90g sharing a shot.
 import DAILY from './daily.js'
 
@@ -1066,6 +1067,68 @@ TEMPLATES.push(
   ['Cream Bell', 'Sandwich Bar', 'icecream', 'iceKulfi', '🥪', 'Biscuit + ice cream. Cheat code.', V(['Single', 40], ['Pack of 4', 149])],
   ['Arun', 'Family Pack Neapolitan', 'icecream', 'iceCones2', '🍧', 'Teen flavour, ek dabba. Sab khush.', V(['1L', 265])],
 )
+
+// ——— Gadgets Indians actually buy ———
+// Prompted by a thread listing the tech Indian households under-buy: dash cams,
+// air purifiers, dishwashers, air fryers, smart watches, AirTags. Four of the six
+// were missing from the catalog entirely. Photos are Wikimedia Commons (real
+// product shots, keyword-searchable) — see WM_CREDITS below for attribution,
+// which CC BY / CC BY-SA require.
+const WM_DASHCAM = 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/43/Dashcams_P1210466.JPG/960px-Dashcams_P1210466.JPG'
+const WM_PURIFIER = 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/eb/Xiaomi_Smart_Air_Purifier_2S.jpg/960px-Xiaomi_Smart_Air_Purifier_2S.jpg'
+const WM_DISHWASHER = 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/KitchenAid_home_dishwasher_-_Open.jpg/960px-KitchenAid_home_dishwasher_-_Open.jpg'
+const WM_AIRTAG = 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Airtag_-_5.jpg/960px-Airtag_-_5.jpg'
+
+TEMPLATES.push(
+  // Dash cams — insurance evidence, not a gadget. Nobody buys one until they need one.
+  ['70mai', 'Dash Cam A510', 'gadgets', WM_DASHCAM, '🎥', 'Front + rear 2.5K. Insurance claim ka proof.', V(['Front only', 8999], ['Front + Rear Kit', 11999])],
+  ['70mai', 'Dash Cam A200', 'gadgets', WM_DASHCAM, '🎥', 'Entry level, kaam poora karta hai.', V(['1080p', 3999])],
+  ['Qubo', 'Dashcam Pro 4K', 'gadgets', WM_DASHCAM, '🎥', 'Hero Group ka. Emergency SOS built in.', V(['4K', 7490], ['4K + 64GB card', 8490])],
+  ['DDPAI', 'Mini5 4K Dash Cam', 'gadgets', WM_DASHCAM, '🎥', 'Built-in 64GB, no card jhanjhat.', V(['4K', 12999])],
+
+  // Air purifiers — Delhi in November makes this a medical device, not a luxury.
+  ['Xiaomi', 'Smart Air Purifier 4 Lite', 'home', WM_PURIFIER, '🌬️', 'Delhi November ka sabse zaroori gadget.', V(['360 m³/h', 9999])],
+  ['Xiaomi', 'Smart Air Purifier 4 Pro', 'home', WM_PURIFIER, '🌬️', 'Bade hall ke liye. App se AQI dekho.', V(['500 m³/h', 24999])],
+  ['Philips', 'Air Purifier AC1215', 'home', WM_PURIFIER, '🌬️', 'HEPA + carbon. Allergy walon ka favourite.', V(['333 m³/h', 12995])],
+  ['Honeywell', 'Air Touch V2', 'home', WM_PURIFIER, '🌬️', 'PM2.5 display, so you know how bad it is.', V(['300 m³/h', 14999])],
+  ['Dyson', 'Purifier Cool Formaldehyde', 'home', WM_PURIFIER, '🌬️', 'Purifier + fan. Imported, so duty bhi.', colors(['White/Gold', 'Nickel'], 57900), true],
+
+  // Dishwashers — the appliance Indian kitchens argue about most ("masala nahi jaata").
+  ['Bosch', 'Series 2 Dishwasher', 'kitchen', WM_DISHWASHER, '🍽️', 'Haan, masala bhi nikal jaata hai. 12 place.', colors(['Silver Inox', 'White'], 36990)],
+  ['Bosch', 'Series 4 Dishwasher', 'kitchen', WM_DISHWASHER, '🍽️', 'Intensive Kadhai mode. Literally.', colors(['Silver Inox', 'Black'], 49990), true],
+  ['IFB', 'Neptune VX Dishwasher', 'kitchen', WM_DISHWASHER, '🍽️', 'Indian utensils ke liye banaya gaya.', V(['12 Place', 42990])],
+  ['Voltas Beko', '8 Place Dishwasher', 'kitchen', WM_DISHWASHER, '🍽️', 'Chhote parivaar, chhota counter.', V(['8 Place', 27990])],
+  ['LG', 'QuadWash Dishwasher', 'kitchen', WM_DISHWASHER, '🍽️', 'TrueSteam. Chamak dekhne layak hai.', V(['14 Place', 57990])],
+
+  // AirTags — nobody thinks they need one until a bag goes missing at Indira Gandhi.
+  ['Apple', 'AirTag', 'gadgets', WM_AIRTAG, '📍', 'Chaabi, bag, ya bhoolne wala dost.', V(['1 Pack', 3490], ['4 Pack', 11900])],
+  ['Apple', 'AirTag Leather Loop', 'gadgets', WM_AIRTAG, '📍', 'Loop ke bina AirTag latkaoge kaise?', colors(['Midnight', 'Saddle Brown'], 3500)],
+
+  // Air fryers — the catalog had exactly one. It is the most-gifted appliance in India.
+  ['Instant', 'Vortex Air Fryer', 'kitchen', 'kitchen', '🍟', 'Samosa reheat karo, crisp wapas aayega.', V(['4L', 8995], ['5.7L', 11995])],
+  ['Havells', 'Air Fryer Prolife', 'kitchen', 'kitchen', '🍟', 'Budget air fryer jo chalta hai.', V(['4L', 6499])],
+  ['Agaro', 'Grand Air Fryer', 'kitchen', 'kitchen', '🍟', 'Bade batch ke liye. Family-size fries.', V(['12L Oven Style', 9999])],
+
+  // Smart watches — real Indian volume brands, not the Swiss stuff in /watches.
+  ['Noise', 'ColorFit Pro 5', 'gadgets', 'appleWatch', '⌚', 'AMOLED, 7-day battery, 3k ke andar.', colors(['Jet Black', 'Silver Grey', 'Rose Pink'], 3499)],
+  ['boAt', 'Wave Sigma 3', 'gadgets', 'appleWatch', '⌚', 'Bada display, BT calling, sasta.', colors(['Active Black', 'Cherry Blossom', 'Teal Green'], 2299)],
+  ['Fire-Boltt', 'Phoenix Ultra', 'gadgets', 'appleWatch', '⌚', 'SpO2, heart rate, 120 sports modes.', colors(['Black', 'Gold', 'Blue'], 1799)],
+  ['Samsung', 'Galaxy Watch 7', 'gadgets', 'appleWatch', '⌚', 'Android walon ka Apple Watch.', combo(['Green', 'Cream'], V(['40mm', 29999], ['44mm', 32999]))],
+)
+
+// Attribution for Wikimedia Commons photos. CC BY and CC BY-SA both require
+// crediting the author — the catalog used Commons images before this without any
+// credit, which was a licence breach on my part. Rendered in the About sheet.
+export const WM_CREDITS = [
+  { what: 'Dash cams', file: 'Dashcams P1210466.JPG', author: 'Fernost', licence: 'Public domain' },
+  { what: 'Air purifier', file: 'Xiaomi Smart Air Purifier 2S.jpg', author: 'GEEK KAZU', licence: 'CC BY 2.0' },
+  { what: 'Dishwasher', file: 'KitchenAid home dishwasher - Open.jpg', author: 'Infrogmation', licence: 'CC BY-SA 4.0' },
+  { what: 'AirTag', file: 'Airtag - 5.jpg', author: 'KKPCW', licence: 'CC BY-SA 4.0' },
+  { what: 'Dyson Supersonic hair dryer', file: 'Dyson Supersonic Hair Dryer 1 2017-01-28.jpg', author: 'FASTILY', licence: 'CC BY-SA 4.0' },
+  { what: 'Dyson Airwrap styler', file: 'Dyson Supersonic Hair Dryer 3 2017-01-28.jpg', author: 'FASTILY', licence: 'CC BY-SA 4.0' },
+  { what: 'Cup soup', file: 'CupSoupChicken.jpg', author: 'Alex Jones', licence: 'Public domain' },
+  { what: 'Popcorn', file: 'Bowl of Popcorn (Unsplash).jpg', author: 'Alex Munsell', licence: 'CC0' },
+]
 
 // ——— Daily arrivals ———
 // Genuinely new real products, fetched by scripts/fetch-daily.mjs on a cron and
