@@ -40,6 +40,10 @@ export default function InstallNudge() {
     try { localStorage.setItem(KEY, String(Date.now())) } catch { /* private mode */ }
   }
 
+  useEffect(() => {
+    if (show) trackInstallPrompt(deferred ? 'shown_android' : 'shown_ios')
+  }, [show, deferred])
+
   if (!show) return null
 
   return (
@@ -60,7 +64,7 @@ export default function InstallNudge() {
           </button>
         )}
         <button
-          onClick={() => close('dismissed')}
+          onClick={() => close(deferred ? 'declined' : 'ios_acknowledged')}
           className={`rounded-xl px-4 py-2.5 text-[13px] font-semibold text-white/70 active:scale-95 ${deferred ? '' : 'flex-1 bg-white/10'}`}
         >
           {deferred ? 'Not now' : 'Got it'}
