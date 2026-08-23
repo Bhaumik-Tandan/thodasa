@@ -44,7 +44,14 @@ const COMPLIMENTS = [
 ]
 
 export default function App() {
-  const [dark, setDark] = useState(() => load('dark', false))
+  // The manual toggle only exists on desktop now (see below), so on mobile the
+  // theme has to come from somewhere: follow the phone's own setting unless the
+  // visitor has explicitly chosen one before.
+  const [dark, setDark] = useState(() => {
+    const stored = load('dark', null)
+    if (stored !== null) return stored
+    try { return window.matchMedia('(prefers-color-scheme: dark)').matches } catch { return false }
+  })
   const [category, setCategory] = useState('all')
   const [cart, setCart] = useState(() => load('cart', {})) // id -> { product, qty }
   const [wishlist, setWishlist] = useState(() => new Set(load('wishlist', [])))
@@ -303,13 +310,13 @@ export default function App() {
             <h1 className="text-xl font-black tracking-tight text-white drop-shadow lg:text-neutral-900 lg:drop-shadow-none lg:dark:text-white">
               Thoda<span className="text-amber-300">Sa</span>
             </h1>
-            <div className="flex items-center gap-2">
+            <div className="flex min-w-0 items-center gap-1.5 sm:gap-2">
               <button
                 onClick={() => openView('rewards')}
                 aria-label="Rewards"
-                className="flex items-center gap-1 rounded-full bg-amber-400/90 px-2.5 py-1.5 text-xs font-black text-black backdrop-blur-md active:scale-90"
+                className="flex min-w-0 shrink items-center gap-1 rounded-full bg-amber-400/90 px-2.5 py-1.5 text-xs font-black text-black backdrop-blur-md active:scale-90"
               >
-                🪙 <span key={gameTick}>{loadGame().coins.toLocaleString('en-IN')}</span>
+                🪙 <span key={gameTick}>{inrShort(loadGame().coins)}</span>
                 {nextLock && (
                   <span className="hidden text-[10px] font-bold text-black/55 sm:inline">
                     /{nextLock.cost}
@@ -319,27 +326,27 @@ export default function App() {
               <button
                 onClick={() => openView('search')}
                 aria-label="Search products"
-                className="grid h-9 w-9 place-items-center rounded-full bg-white/25 text-white backdrop-blur-md active:scale-90 lg:bg-neutral-100 lg:text-neutral-700 lg:dark:bg-white/10 lg:dark:text-white"
+                className="shrink-0 grid h-9 w-9 place-items-center rounded-full bg-white/25 text-white backdrop-blur-md active:scale-90 lg:bg-neutral-100 lg:text-neutral-700 lg:dark:bg-white/10 lg:dark:text-white"
               >
                 <SearchIcon className="h-4.5 w-4.5" />
               </button>
               <button
                 onClick={() => openView('wishlist')}
                 aria-label="Open wishlist"
-                className="flex items-center gap-1 rounded-full bg-white/25 px-2.5 py-1.5 text-xs font-bold text-white backdrop-blur-md active:scale-90 lg:bg-neutral-100 lg:text-neutral-700 lg:dark:bg-white/10 lg:dark:text-white"
+                className="shrink-0 flex items-center gap-1 rounded-full bg-white/25 px-2.5 py-1.5 text-xs font-bold text-white backdrop-blur-md active:scale-90 lg:bg-neutral-100 lg:text-neutral-700 lg:dark:bg-white/10 lg:dark:text-white"
               >
                 <HeartIcon className="h-3.5 w-3.5" /> {wishlist.size}
               </button>
               <button
                 onClick={() => setDark((d) => !d)}
                 aria-label="Toggle dark mode"
-                className="grid h-9 w-9 place-items-center rounded-full bg-white/25 text-white backdrop-blur-md active:scale-90 lg:bg-neutral-100 lg:text-neutral-700 lg:dark:bg-white/10 lg:dark:text-white"
+                className="hidden h-9 w-9 place-items-center rounded-full bg-white/25 text-white backdrop-blur-md active:scale-90 lg:grid lg:bg-neutral-100 lg:text-neutral-700 lg:dark:bg-white/10 lg:dark:text-white"
               >
                 {dark ? <SunIcon /> : <MoonIcon />}
               </button>
               <button
                 onClick={() => openView('cart')}
-                className={`relative flex h-9 items-center gap-1.5 rounded-full bg-white/25 px-2.5 text-white backdrop-blur-md active:scale-90 lg:bg-neutral-100 lg:text-neutral-700 lg:dark:bg-white/10 lg:dark:text-white ${cartBounce ? 'animate-wiggle' : ''}`}
+                className={`relative flex h-9 shrink-0 items-center gap-1.5 rounded-full bg-white/25 px-2.5 text-white backdrop-blur-md active:scale-90 lg:bg-neutral-100 lg:text-neutral-700 lg:dark:bg-white/10 lg:dark:text-white ${cartBounce ? 'animate-wiggle' : ''}`}
                 aria-label="Open cart"
               >
                 <BagIcon className="h-5 w-5" />
