@@ -18,6 +18,31 @@ export const ORDER_STEPS = STEPS
 
 const minutesSince = (iso) => (Date.now() - new Date(iso).getTime()) / 60000
 
+// Orders placed before this module existed have no `date`, so new Date(undefined)
+// produced "Invalid Date" in the status strip, and orders whose items predate the
+// {product, qty} shape threw on product.category and took the whole Orders view
+// down with them — which is why a user with several orders saw only one.
+//
+// Order ids are Date.now().toString(36), so a legacy order's real placement time
+// is recoverable from its own id rather than guessed.
+const EARLIEST = Date.UTC(2020, 0, 1)
+
+const dateFromId = (id) => {
+  const ms = parseInt(String(id ?? ''), 36)
+  return Number.isFinite(ms) && ms > EARLIEST && ms < Date.now() + 864e5 ? ms : null
+}
+
+export const normalizeOrder = (order) => {
+  if (!order || typeof order !== 'object') return null
+  const raw = order.date
+  let ms = typeof raw === 'number' ? raw : raw ? new Date(raw).getTime() : NaN
+  if (!Number.isFinite(ms)) ms = dateFromId(order.id) ?? Date.now()
+  // drop items we cannot price or date; keeping them crashes the timeline
+  const items = (Array.isArray(order.items) ? order.items : []).filter((it) => it?.product?.category)
+  if (!items.length) return null
+  return { ...order, date: new Date(ms).toISOString(), items }
+}
+
 const orderEta = (order) => {
   const placed = new Date(order.date)
   let worst = null
@@ -26,7 +51,9 @@ const orderEta = (order) => {
     if (est.kind !== 'possession' && (worst == null || est.days > worst)) worst = est.days
   }
   // no items, or an order of nothing but property: fall back to a sane default
-  return new Date(placed.getTime() + (worst ?? 3) * 864e5)
+  const days = Number.isFinite(worst) ? worst : 3
+  const base = placed.getTime()
+  return new Date((Number.isFinite(base) ? base : Date.now()) + days * 864e5)
 }
 
 // Amazon-style timeline: every step carries a real date, spread across the
@@ -76,8 +103,11 @@ export const activeOrders = (orders) => {
   return Date.now() - p.eta.getTime() < 2 * 864e5 ? [latest] : []
 }
 
-export const etaText = (d) =>
-  d.toLocaleDateString('en-IN', { weekday: 'short', day: 'numeric', month: 'short' })
+export const etaText = (d) => {
+  const t = d instanceof Date ? d.getTime() : new Date(d).getTime()
+  if (!Number.isFinite(t)) return 'soon'
+  return new Date(t).toLocaleDateString('en-IN', { weekday: 'short', day: 'numeric', month: 'short' })
+}
 
 // ——— Pre-purchase delivery estimate ———
 // Shown on the product before you buy, the way a real store does. Lead time

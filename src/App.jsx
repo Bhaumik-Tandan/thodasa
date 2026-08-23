@@ -15,7 +15,7 @@ import Rewards from './components/Rewards'
 import OrderStatusBar from './components/OrderStatusBar'
 import UnlockSheet from './components/UnlockSheet'
 import { LOCKS, isLocked, loadUnlocked, saveUnlocked, lockedTeasers, nextUnlock } from './lib/unlocks'
-import { activeOrders } from './lib/orderStatus'
+import { activeOrders, normalizeOrder } from './lib/orderStatus'
 import { startDay, action as gameAction, onReward, load as loadGame } from './lib/gamify'
 import { HeartIcon, BagIcon, MoonIcon, SunIcon, SearchIcon } from './components/Icons'
 import { startSession, recordSignal, dwellSignal, rankFeed, isNewToday } from './lib/taste'
@@ -46,7 +46,12 @@ export default function App() {
   const [category, setCategory] = useState('all')
   const [cart, setCart] = useState(() => load('cart', {})) // id -> { product, qty }
   const [wishlist, setWishlist] = useState(() => new Set(load('wishlist', [])))
-  const [orders, setOrders] = useState(() => load('orders', []))
+  const [orders, setOrders] = useState(() => {
+    const raw = load('orders', [])
+    const fixed = (Array.isArray(raw) ? raw : []).map(normalizeOrder).filter(Boolean)
+    if (JSON.stringify(fixed) !== JSON.stringify(raw)) save('orders', fixed)
+    return fixed
+  })
   const [view, setView] = useState('feed') // feed | wishlist | cart | checkout | orders | search
   const [detail, setDetail] = useState(null) // product whose variant sheet is open
   const [welcomed, setWelcomed] = useState(() => load('welcomed', false))

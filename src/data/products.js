@@ -53,6 +53,12 @@ export const inrShort = (n) =>
 
 const img = (id) => `https://images.unsplash.com/photo-${id}?w=800&h=1400&fit=crop&q=80&auto=format`
 
+// Wikimedia product shots used where the generic Unsplash key was wrong.
+// 'shoeYellow' is a Nike Air Max, shared by three products, so Crocs and
+// Relaxo both rendered as Nike sneakers. Credited in WM_CREDITS.
+const WM_CROCS = 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/Crocs-synthetic-clogs.jpg/960px-Crocs-synthetic-clogs.jpg'
+const WM_FLIPFLOP = 'https://upload.wikimedia.org/wikipedia/commons/f/f3/Green_flip_flops_on_red_background.jpg'
+
 // verified photo pool, keyed by what the photo actually shows
 const I = {
   samosa: '1601050690597-df0568f70950', spices: '1596040033229-a9821ebd058d', chai: '1544787219-7f47ccb76574',
@@ -381,7 +387,7 @@ TEMPLATES.push(
   ['New Balance', '550', 'shoes', 'shoeJordan', '👟', 'Dad shoe, gen-Z approved.', shoeVariants(['White/Green', 'White/Grey', 'Navy'], 13000)],
   ['Puma', 'Suede Classic', 'shoes', 'shoeTan', '👟', 'Old-school cool, forever.', shoeVariants(['Red', 'Black', 'Blue'], 6000)],
   ['Converse', 'Chuck 70 High', 'shoes', 'shoeNeon', '👟', 'Canvas classic. Goes with everything.', shoeVariants(['Black', 'Parchment', 'Egret'], 6500)],
-  ['Crocs', 'Classic Clog', 'shoes', 'shoeYellow', '🩴', 'Ugly? Yes. Comfortable? Blasphemously.', colors(['Black', 'Navy', 'Lavender', 'Army Green'], 4000)],
+  ['Crocs', 'Classic Clog', 'shoes', WM_CROCS, '🩴', 'Ugly? Yes. Comfortable? Blasphemously.', colors(['Black', 'Navy', 'Lavender', 'Army Green'], 4000)],
   ['Birkenstock', 'Arizona Sandals', 'shoes', 'shoeTan', '🩴', 'Cork therapy for your feet.', shoeVariants(['Taupe', 'Black', 'Mocha'], 7500)],
 
   // ——— FASHION / CLOTHES ———
@@ -571,7 +577,7 @@ TEMPLATES.push(
   ['Bata', 'Everyday Slippers', 'shoes', 'shoeFlat', '🩴', 'Ghar ka sabse loyal footwear.', shoeVariants(['Brown', 'Black', 'Tan'], 599)],
   ['Steve Madden', 'Block Heels', 'shoes', 'shoeTan', '👠', 'Height + comfort, rare combo.', shoeVariants(['Nude', 'Black', 'Red'], 6999)],
   ['Metro', 'Ethnic Kolhapuris', 'shoes', 'shoeFlat', '🩴', 'Desi, handcrafted, timeless.', shoeVariants(['Tan', 'Brown', 'Multicolour'], 1299)],
-  ['Relaxo', 'Flip-Flops', 'shoes', 'shoeYellow', '🩴', 'Barsaat ka bestie.', colors(['Black', 'Blue', 'Grey', 'Red'], 299)],
+  ['Relaxo', 'Flip-Flops', 'shoes', WM_FLIPFLOP, '🩴', 'Barsaat ka bestie.', colors(['Black', 'Blue', 'Grey', 'Red'], 299)],
 
   // ——— STATIONERY (art supplies) ———
   ['Faber-Castell', 'Coloring Book + Pencils', 'stationery', 'confetti', '🖍️', 'Adult stress-relief, colourful edition.', V(['Mandala Kit', 399], ['Deluxe 48-pc', 799])],
@@ -1120,6 +1126,8 @@ TEMPLATES.push(
 // crediting the author — the catalog used Commons images before this without any
 // credit, which was a licence breach on my part. Rendered in the About sheet.
 export const WM_CREDITS = [
+  { what: 'Crocs clog', file: 'Crocs-synthetic-clogs.jpg', author: 'Skyeyemx', licence: 'CC BY-SA 4.0' },
+  { what: 'Flip-flops', file: 'Green flip flops on red background.jpg', author: 'Steve Johnson', licence: 'CC BY 2.0' },
   { what: 'Dash cams', file: 'Dashcams P1210466.JPG', author: 'Fernost', licence: 'Public domain' },
   { what: 'Air purifier', file: 'Xiaomi Smart Air Purifier 2S.jpg', author: 'GEEK KAZU', licence: 'CC BY 2.0' },
   { what: 'Dishwasher', file: 'KitchenAid home dishwasher - Open.jpg', author: 'Infrogmation', licence: 'CC BY-SA 4.0' },
