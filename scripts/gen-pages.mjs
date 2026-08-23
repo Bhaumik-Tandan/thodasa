@@ -6,7 +6,7 @@
 import fs from 'node:fs'
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
-import { TEMPLATE_HEROES, inr, WM_CREDITS } from '../src/data/products.js'
+import { TEMPLATE_HEROES, inr, WM_CREDITS, CATEGORIES } from '../src/data/products.js'
 import { landedBreakdown as duty } from '../src/lib/duty.js'
 
 const SITE = 'https://thodasa.com'
@@ -104,7 +104,7 @@ const page = (p, related) => {
     actually sold and no payment is ever taken. Indian MRP is inclusive of all
     taxes, so the figures above are extracted from the listed price, not added to
     it, and are indicative.</p>
-    <p style="margin-top:.8rem"><a href="/">Browse 5,900+ finds on ThodaSa →</a> &middot; <a href="/credits/">Photo credits</a></p>
+    <p style="margin-top:.8rem"><a href="/">Open ThodaSa →</a> &middot; <a href="/browse/">Browse all products</a> &middot; <a href="/credits/">Photo credits</a></p>
   </footer>
 </div>
 </body>
@@ -192,7 +192,59 @@ const creditsPage = `<!doctype html>
 fs.mkdirSync(path.join(dist, 'credits'), { recursive: true })
 fs.writeFileSync(path.join(dist, 'credits', 'index.html'), creditsPage)
 
-const urls = [`${SITE}/`, `${SITE}/credits/`, ...TEMPLATE_HEROES.map((p) => `${SITE}/p/${p.slug}/`)]
+// Crawlable HTML index of the whole catalog.
+//
+// URL Inspection reported "Referring page: None detected" for a product page,
+// and the homepage contains zero <a> tags — so the one indexed page was a dead
+// end and Google had no path into the catalog except the sitemap, which it does
+// not prioritise for a new domain. Product pages interlink, but only with each
+// other, so the whole cluster was unreachable. This is a plain HTML sitemap:
+// visible, no cloaking, linked from the homepage and every product footer.
+const byCatSorted = CATEGORIES.filter((c) => c.id !== 'all')
+  .map((c) => ({ ...c, items: (byCat[c.id] ?? []).slice().sort((a, b) => b.price - a.price) }))
+  .filter((c) => c.items.length)
+
+const browsePage = `<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Browse all ${TEMPLATE_HEROES.length} products | ThodaSa</title>
+<meta name="description" content="Every product on ThodaSa, by category - ${byCatSorted.map((c) => c.label).join(', ')}. Each one shows its GST and customs-duty breakdown.">
+<link rel="canonical" href="${SITE}/browse/">
+<style>
+  :root{color-scheme:dark}
+  body{margin:0;background:#0b0b0d;color:#fff;font:16px/1.6 Inter,system-ui,sans-serif}
+  .wrap{max-width:60rem;margin:0 auto;padding:3rem 1.5rem}
+  h1{font-size:1.9rem;margin:.2rem 0 .6rem;font-weight:600}
+  h2{font-size:1.1rem;margin:2.2rem 0 .4rem;font-weight:600;border-bottom:1px solid rgba(255,255,255,.1);padding-bottom:.4rem}
+  .caps{text-transform:uppercase;letter-spacing:.12em;font-size:.7rem;color:rgba(255,255,255,.45)}
+  a{color:#f0abfc;text-decoration:none}
+  a:hover{text-decoration:underline}
+  ul{list-style:none;padding:0;margin:.6rem 0;display:grid;grid-template-columns:repeat(auto-fill,minmax(15rem,1fr));gap:.15rem .9rem}
+  li{font-size:.87rem;padding:.12rem 0}
+  .p{color:rgba(255,255,255,.4);font-size:.8rem}
+  p{color:rgba(255,255,255,.72)}
+  footer{margin-top:3rem;font-size:.8rem;color:rgba(255,255,255,.4)}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <p class="caps"><a href="/" style="color:inherit">ThodaSa</a></p>
+  <h1>Browse all ${TEMPLATE_HEROES.length} products</h1>
+  <p>Every product in the catalog, grouped by category. Each page shows the GST
+  and customs-duty breakdown behind its price. Nothing here is actually for sale.</p>
+  ${byCatSorted.map((c) => `<h2>${esc(c.label)} <span class="p">${c.items.length}</span></h2>
+  <ul>${c.items.map((x) => `<li><a href="/p/${x.slug}/">${esc(x.baseName)}</a> <span class="p">₹${inr(x.price)}</span></li>`).join('')}</ul>`).join('\n  ')}
+  <footer><p><a href="/">&larr; Back to ThodaSa</a> &middot; <a href="/credits/">Photo credits</a></p></footer>
+</div>
+</body>
+</html>
+`
+fs.mkdirSync(path.join(dist, 'browse'), { recursive: true })
+fs.writeFileSync(path.join(dist, 'browse', 'index.html'), browsePage)
+
+const urls = [`${SITE}/`, `${SITE}/browse/`, `${SITE}/credits/`, ...TEMPLATE_HEROES.map((p) => `${SITE}/p/${p.slug}/`)]
 fs.writeFileSync(
   path.join(dist, 'sitemap.xml'),
   `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n` +
