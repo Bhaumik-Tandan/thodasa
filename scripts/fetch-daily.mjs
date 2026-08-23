@@ -10,6 +10,8 @@
 // The app only ever reads a committed JSON file.
 import fs from 'node:fs'
 import { descFor } from './lib/desc.mjs'
+import { TEMPLATE_HEROES } from '../src/data/products.js'
+import { lev } from '../src/lib/fuzzy.js'
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
 
@@ -100,8 +102,84 @@ const emojiFor = (n) => (EMOJI.find(([re]) => re.test(n.toLowerCase())) || [null
 const existing = fs.existsSync(OUT)
   ? (await import(`file://${OUT}?t=${Date.now()}`)).default
   : []
+// Compare loosely: OFF spells the same product a dozen ways ("britannia Bourbon"
+// vs "Britannia Bourbon", "G Biscuit" vs "Parle-G Biscuit"), so strip brand
+// repetition and punctuation before matching.
+const norm = (s) => String(s || '').toLowerCase().replace(/[^a-z0-9]+/g, ' ').trim()
+const nameKey = (brand, name) => {
+  const b = norm(brand), n = norm(name)
+  return (n.startsWith(b) ? n : `${b} ${n}`).replace(/\s+/g, ' ').trim()
+}
+
+// Open Food Facts is community-entered, so the same product arrives spelled a
+// dozen ways: "Good Day cashew cookie" against "Good Day - Cashew Cookies",
+// "Cadbuary" for Cadbury, "Happy happy - Parl" and "Happy happy biscuit - Parle
+// - Parle" as two records of one biscuit. Exact-match dedupe lets all of those
+// through, so names are cleaned and then compared by edit distance.
+const CORPORATE = /\b(limited|ltd|pvt|private|industries|foods? ?(corp|company)?|enterprises|beverages pvt|unilever|itc limited|group)\b/i
+
+const tidy = (name, brand) => {
+  let n = String(name || '')
+  // "Happy happy biscuit - Parle - Parle" -> "Happy happy biscuit"
+  n = n.replace(/\s*[-–]\s*[^-–]{0,18}$/g, (m) => (norm(m).length <= 18 && norm(brand).includes(norm(m).slice(0, 5)) ? '' : m))
+  n = n.replace(/\s*[-–]\s*(parl|parle|amul|britannia|cadbury)\b/gi, '')
+  n = n.replace(/\b\d{1,4}\s?rs\b/gi, '')        // "…Cream & Onion 10rs"
+  n = n.replace(/\s{2,}/g, ' ').replace(/[-–]\s*$/, '').trim()
+  return n
+}
+
+const STOP = new Set(['the','and','with','pack','of','ml','g','kg','l','ltr','gm','pcs','pc','combo','flavour','flavoured','flavor'])
+const tokens = (k) => k.split(' ').filter((t) => t.length > 2 && !STOP.has(t))
+
+const tokenMatch = (a, b) => {
+  if (a === b) return true
+  const tol = a.length <= 6 ? 1 : 2
+  return Math.abs(a.length - b.length) <= tol && lev(a, b, tol) <= tol
+}
+
+// Reject when most of a candidate's meaningful words already describe something
+// in the catalog. Threshold is deliberately high: "Bournville Intense 70% Dark"
+// must survive alongside a plain "Bournville" only if it is genuinely distinct.
+const tooSimilar = (key, pool) => {
+  if (pool.has(key)) return true
+  const kt = tokens(key)
+  if (!kt.length) return false
+  for (const existing of pool) {
+    const et = tokens(existing)
+    if (!et.length) continue
+    let hits = 0
+    for (const t of kt) if (et.some((e) => tokenMatch(t, e))) hits++
+    const overlap = hits / Math.min(kt.length, et.length)
+    if (overlap >= 0.8 && Math.abs(kt.length - et.length) <= 1) return true
+  }
+  return false
+}
+
+// Community data carries brand typos - "Cadbuary", "Brotannica", "Brit" - and a
+// typo'd brand almost always means a duplicate record of a product we already
+// hold under the correct spelling. A brand that is *nearly* a catalog brand but
+// not it is therefore a signal to skip, not to add.
+const KNOWN_BRANDS = new Set(TEMPLATE_HEROES.map((p) => norm(p.brand)).filter((b) => b.length > 3))
+const isBrandTypo = (brand) => {
+  const b = norm(brand)
+  if (!b || KNOWN_BRANDS.has(b)) return false
+  for (const known of KNOWN_BRANDS) {
+    if (Math.abs(known.length - b.length) > 2) continue
+    if (lev(b, known, 2) <= 2) return true
+  }
+  return false
+}
+// junk that community entry leaves behind
+const JUNK = /\((sys|old|new|copy|dup)\)|\btest\b|\bsys\b/i
+
 const seenCodes = new Set(existing.map((p) => p.code))
-const seenNames = new Set(existing.map((p) => `${p.brand}|${p.name}`.toLowerCase()))
+const seenNames = new Set(existing.map((p) => nameKey(p.brand, p.name)))
+// …and everything already in the hand-built catalog
+for (const p of TEMPLATE_HEROES) {
+  seenNames.add(nameKey(p.brand, p.name))
+  seenNames.add(norm(p.baseName))
+}
+console.log(`dedupe set: ${seenNames.size} names (daily + catalog)`)
 console.log(`existing daily items: ${existing.length}`)
 
 const today = new Date().toISOString().slice(0, 10)
@@ -112,23 +190,45 @@ const added = []
 // exposes ~50 pages. So rotate categories by date and paginate inside them —
 // that gives genuinely different products every run instead of the same top
 // hits reshuffled.
-const CATEGORIES = [
-  'biscuits', 'beverages', 'chocolates', 'snacks', 'dairies', 'breakfast-cereals',
-  'chips-and-fries', 'sweet-snacks', 'salty-snacks', 'fruit-juices', 'teas', 'coffees',
-  'noodles', 'sauces', 'spreads', 'ice-creams', 'breads', 'cheeses', 'yogurts',
-  'waters', 'sodas', 'candies', 'nuts', 'spices', 'vegetable-oils', 'rices',
-  'flours', 'jams', 'honeys', 'pastas', 'cakes', 'wafers', 'pickles', 'legumes',
+// Split by whether anyone enjoys seeing the result. The "New in" badge is the
+// only reason a visitor has to come back, and it was delivering buttermilk:
+// 16 of the last 18 arrivals were dairy, because the loop below took up to 50
+// products from the first category it touched and filled the whole quota there.
+// Staples still appear, just not as the whole day's discoveries.
+const FUN = [
+  'chocolates', 'chips-and-fries', 'ice-creams', 'candies', 'sodas', 'biscuits',
+  'sweet-snacks', 'salty-snacks', 'wafers', 'cakes', 'noodles', 'fruit-juices',
+  'breakfast-cereals', 'nuts', 'snacks', 'beverages',
+]
+const BASIC = [
+  'dairies', 'cheeses', 'yogurts', 'teas', 'coffees', 'sauces', 'spreads',
+  'breads', 'waters', 'spices', 'jams', 'honeys', 'pastas', 'pickles',
+  'vegetable-oils', 'rices', 'flours', 'legumes',
 ]
 
+// At most this many per category per run, which is what forces a day's arrivals
+// to span ten-plus categories instead of being one long shelf of paneer.
+const PER_CAT = 3
+
 const dayNum = Math.floor(Date.now() / 864e5)
-// walk a different slice of categories and a different page depth each day
-const catOrder = CATEGORIES.map((c, i) => ({ c, k: (i * 7 + dayNum * 11) % CATEGORIES.length }))
+const rotate = (arr, by) => arr.map((c, i) => ({ c, k: (i * 7 + by * 11) % arr.length }))
   .sort((a, b) => a.k - b.k).map((x) => x.c)
+
+// roughly three fun categories for every staple
+const funOrder = rotate(FUN, dayNum)
+const basicOrder = rotate(BASIC, dayNum)
+const catOrder = []
+while (funOrder.length || basicOrder.length) {
+  catOrder.push(...funOrder.splice(0, 3))
+  if (basicOrder.length) catOrder.push(basicOrder.shift())
+}
 const pageBase = 1 + ((dayNum * 3) % 12)
 
 outer:
 for (const cat of catOrder) {
+  let fromCat = 0
   for (let page = pageBase; page < pageBase + 3; page++) {
+    if (fromCat >= PER_CAT) break
     if (added.length >= WANT) break outer
     const url = 'https://world.openfoodfacts.org/api/v2/search?countries_tags_en=india'
       + `&categories_tags_en=${cat}`
@@ -139,16 +239,21 @@ for (const cat of catOrder) {
     let fresh = 0
     for (const p of d.products) {
       if (added.length >= WANT) break
+      if (fromCat >= PER_CAT) break
       if (!p.code || seenCodes.has(p.code) || !usable(p)) continue
       const brand = (p.brands || '').split(',')[0].trim()
-      const name = clean(p.product_name, brand)
-      const key = `${brand}|${name}`.toLowerCase()
-      if (name.length < 6 || seenNames.has(key)) continue
+      if (!brand || CORPORATE.test(brand)) continue // corporate entity, not a shelf brand
+      if (isBrandTypo(brand)) continue               // misspelt brand = duplicate record
+      if (JUNK.test(p.product_name || '')) continue
+      const name = tidy(clean(p.product_name, brand), brand)
+      const key = nameKey(brand, name)
+      if (name.length < 6 || tooSimilar(key, seenNames)) continue
       const cats = (p.categories_tags || []).join(' ')
-      seenCodes.add(p.code); seenNames.add(key)
+      seenCodes.add(p.code); seenNames.add(key) // added immediately so the rest of this run sees it
       added.push({
         code: p.code, brand, name,
-        img: (p.image_front_url || '').replace(/\.400\.jpg$/, '.full.jpg'),
+        // keep the 400px variant: the `full` original runs to 1.9MB per pack
+        img: (p.image_front_url || '').replace(/\.full\.jpg$/, '.400.jpg'),
         qty: (p.quantity || '').trim().slice(0, 20) || 'Std pack',
         cat: ICE.test(`${name} ${cats}`) ? 'icecream' : GROC.test(`${name} ${cats}`) ? 'grocery' : 'snacks',
         price: priceFor(name, cats, p.quantity || ''),
@@ -157,6 +262,7 @@ for (const cat of catOrder) {
         addedOn: today,
       })
       fresh++
+      fromCat++
     }
     console.log(`${cat} p${page}: +${fresh} (${added.length}/${WANT})`)
     await sleep(2500)
