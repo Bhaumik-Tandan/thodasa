@@ -1,7 +1,7 @@
 {
   "name": "ThodaSa — shopping that scrolls like reels",
   "short_name": "ThodaSa",
-  "description": "Swipe through 1000+ fun finds under ₹499. The feed learns your taste.",
+  "description": "Swipe one product per screen through 6,000+ real finds, from ₹5 biscuits to hypercars. Every price shows its GST and customs duty.",
   "start_url": "/",
   "display": "standalone",
   "orientation": "portrait",
