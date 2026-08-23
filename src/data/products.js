@@ -327,7 +327,23 @@ TEMPLATES.push(
 // ——— LUXE EXPANSION: real brands, configs/colours/sizes (concept demo) ———
 const CAR_COLORS = ['Alpine White', 'Jet Black', 'Storm Grey', 'Racing Red', 'Ocean Blue']
 const CAR_TRIMS = ['Standard', 'Sport', 'Signature']
-const car = (trims, cols, price) => combo(trims, cols.map((c) => [c, price]))
+// Every trim x colour used to carry the identical price, so a BMW 3 Series
+// listed 15 options all at Rs55,00,000 — trims that cost the same undercut the
+// realism more than any wording does. Real ladders are roughly +8% and +15%
+// over base, with a paint premium on anything but the standard colour.
+const TRIM_STEP = [1, 1.08, 1.15]
+const car = (trims, cols, price) =>
+  combo(
+    trims,
+    cols.map((c, ci) => [c, price]),
+    // combo() pairs labels; the multiplier is applied per trim below
+  ).map(([label, p], i) => {
+    const trimIndex = Math.floor(i / cols.length)
+    const colourIndex = i % cols.length
+    const mult = TRIM_STEP[Math.min(trimIndex, TRIM_STEP.length - 1)]
+    const paint = colourIndex === 0 ? 0 : Math.round(price * 0.012 / 1000) * 1000
+    return [label, Math.round((p * mult + paint) / 1000) * 1000]
+  })
 const BIKE_COLORS = ['Racing Red', 'Matte Black', 'Pearl White', 'Neon']
 const BAG_COLORS = ['Noir', 'Beige', 'Bordeaux', 'Powder Blue', 'Emerald', 'Monogram']
 const SHOE_SIZES = ['UK 6', 'UK 7', 'UK 8', 'UK 9', 'UK 10', 'UK 11']
@@ -1157,6 +1173,24 @@ export const LAUNCH_PICKS = []
 
 const build = () => {
   const out = []
+// A third of every variant used to be marked down by 33-47%, which put a fake
+// strikethrough on an Apple AirTag, a Rolex Submariner and a Dubai apartment.
+// Apple holds MRP in India, luxury houses do not discount, and cars, bikes,
+// property and aircraft are not sold against a struck-out price at all.
+const NO_DEAL_CATEGORIES = new Set(['cars', 'bikes', 'realty', 'jets', 'watches', 'luxe', 'jewels'])
+const NO_DEAL_BRANDS = new Set([
+  'Apple', 'Rolex', 'Omega', 'TAG Heuer', 'Louis Vuitton', 'Hermès', 'Hermes',
+  'Chanel', 'Gucci', 'Prada', 'Dior', 'Cartier', 'Pagani', 'Ferrari',
+])
+const dealAllowed = (brand, category) => !NO_DEAL_CATEGORIES.has(category) && !NO_DEAL_BRANDS.has(brand)
+
+// How deep a markdown is plausible. Indian FMCG and fashion genuinely run deep;
+// books are price-fixed on the cover; electronics move a little.
+const DISCOUNT_BANDS = { fashion: 0.45, shoes: 0.4, snacks: 0.2, grocery: 0.18, icecream: 0.12,
+  beauty: 0.3, kpop: 0.15, toys: 0.25, stationery: 0.25, quirky: 0.3, home: 0.25,
+  kitchen: 0.25, accessories: 0.3, gadgets: 0.15, books: 0.1, art: 0.15 }
+const discountBand = (category) => DISCOUNT_BANDS[category] ?? 0.2
+
   let id = 1
   let templateId = 0
   for (const [brand, name, category, photo, emoji, desc, variants, launch, addedOn] of TEMPLATES) {
@@ -1174,8 +1208,8 @@ const build = () => {
         name: `${baseName}${label ? ' — ' + label : ''}`,
         brand, category, emoji, desc,
         price,
-        deal: h % 10 < 3,
-        mrp: Math.round(price * (1.5 + (h % 5) / 10)),
+        deal: dealAllowed(brand, category) && h % 10 < 3,
+        mrp: Math.round(price * (1 + discountBand(category) * (1 + (h % 5) / 10) / 1.2)),
         rating: Math.round((3.6 + ((h >> 3) % 13) / 10) * 10) / 10,
         reviews: Math.round(10 ** (1.1 + ((h >> 5) % 300) / 92)),
         grad: h % 8,

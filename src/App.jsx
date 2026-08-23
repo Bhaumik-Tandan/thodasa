@@ -118,6 +118,19 @@ export default function App() {
     else { setView('feed'); setDetail(null) }
   }, [])
 
+  // No overlay handled Escape — the variant sheet closed on a backdrop click
+  // only, which is fine on touch but wrong on a desktop layout that now has a
+  // real keyboard. Uses the history-aware close so Back stays consistent.
+  useEffect(() => {
+    const onKey = (e) => {
+      if (e.key !== 'Escape') return
+      if (unlockPrompt) { setUnlockPrompt(null); return }
+      if (detail || view !== 'feed') { history.back() }
+    }
+    window.addEventListener('keydown', onKey)
+    return () => window.removeEventListener('keydown', onKey)
+  }, [detail, view, unlockPrompt])
+
   useEffect(() => {
     const onPop = (e) => {
       const st = e.state
