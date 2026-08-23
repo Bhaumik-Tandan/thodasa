@@ -9,6 +9,7 @@
 // Runs from a GitHub Action on a cron — no backend, no runtime API dependency.
 // The app only ever reads a committed JSON file.
 import fs from 'node:fs'
+import { descFor } from './lib/desc.mjs'
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
 
@@ -95,13 +96,6 @@ const EMOJI = [[/biscuit|cookie|rusk/, '🍪'], [/wafer|chips|sev|namkeen/, '�
   [/tea|coffee/, '☕'], [/milk|curd|paneer|cheese|butter|ghee/, '🥛']]
 const emojiFor = (n) => (EMOJI.find(([re]) => re.test(n.toLowerCase())) || [null, '🛒'])[1]
 
-const DESCS = [
-  'Naya aaya hai. Asli pack, asli barcode.',
-  'Fresh arrival — scanned from a real pack.',
-  'Aaj ka naya find. Genuinely real product.',
-  'Just landed. Real brand, real packaging.',
-]
-
 // ---------------------------------------------------------------- main
 const existing = fs.existsSync(OUT)
   ? (await import(`file://${OUT}?t=${Date.now()}`)).default
@@ -159,7 +153,7 @@ for (const cat of catOrder) {
         cat: ICE.test(`${name} ${cats}`) ? 'icecream' : GROC.test(`${name} ${cats}`) ? 'grocery' : 'snacks',
         price: priceFor(name, cats, p.quantity || ''),
         emoji: emojiFor(name),
-        desc: DESCS[added.length % DESCS.length],
+        desc: descFor(name, cats, p.quantity || ''),
         addedOn: today,
       })
       fresh++

@@ -3,7 +3,7 @@ import { useState } from 'react'
 import { VARIANTS_BY_TEMPLATE } from '../data/products'
 import { TrashIcon, MinusIcon, PlusIcon, BagPlusIcon } from './Icons'
 import { canShop, shopTarget, shopUrl } from '../lib/shop'
-import { deliveryEstimate } from '../lib/orderStatus'
+import { deliveryEstimate, termsFor } from '../lib/orderStatus'
 import { gstRate } from '../lib/tax'
 import { landedBreakdown } from '../lib/duty'
 
@@ -16,6 +16,21 @@ const HIGHLIGHTS = {
   accessories: ['True to size', 'Colour accurate to photos', 'Quality checked before dispatch'],
   stationery: ['Smudge-free & long lasting', 'Ideal for gifting', 'Bulk discounts on packs'],
   quirky: ['Guaranteed conversation starter', 'Gift-wrap available', 'No refunds on happiness'],
+  grocery: ['Sealed brand packaging', 'Check the date on the pack', 'Store in a cool, dry place'],
+  icecream: ['Cold-chain delivery', 'Best within 2 days of opening', 'Do not refreeze once melted'],
+  books: ['New paperback edition', 'Pages will smell correct', 'No spoilers in the blurb'],
+  toys: ['Age rating on the box', 'Missing pieces are your problem', 'Batteries not included'],
+  shoes: ['Try both feet before deciding', 'Sizes run Indian, not UK', 'Free size exchange once'],
+  fashion: ['Cotton-first fabric', 'Shrinks a little on first wash', 'Iron inside out'],
+  watches: ['Serviced before dispatch', 'Papers and box included', 'Resale value holds'],
+  jewels: ['Hallmarked, BIS certified', 'Making charges shown separately', 'Buyback at day-rate'],
+  luxe: ['Authenticity card included', 'Dust bag in the box', 'Imported, duty already paid'],
+  art: ['Signed by the artist', 'Unframed unless stated', 'Ships in a rigid tube'],
+  kpop: ['Official label release', 'Photocard is random', 'Counts toward chart sales'],
+  cars: ['On-road price, not ex-showroom', 'Waiting period applies', 'RTO and insurance extra'],
+  bikes: ['On-road price included', 'First service free', 'Helmet is not optional'],
+  jets: ['Delivery slot in 2 years', 'Crew and hangar not included', 'Fuel is the real cost'],
+  realty: ['RERA registered', 'Stamp duty and registry extra', 'Possession date is optimistic'],
 }
 
 // Blinkit-style bottom sheet: pick a flavour/size/colour variant, add to cart.
@@ -89,7 +104,7 @@ export default function ProductSheet({ product, cart, onAddToCart, onQty, onRemo
             ))}
           </ul>
           <p className="mt-2 border-t border-dashed border-gray-200 pt-2 text-xs font-semibold text-gray-500 dark:border-zinc-700 dark:text-gray-400">
-            🚚 {deliveryEstimate(selected).label} · Free over ₹499 · 7-day easy returns · COD available
+            🚚 {[deliveryEstimate(selected).label, ...termsFor(selected)].join(' · ')}
           </p>
         </div>
 

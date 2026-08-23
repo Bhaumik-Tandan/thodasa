@@ -52,18 +52,18 @@ export const levelFor = (xp) => {
 
 // ——— Achievements ———
 export const ACHIEVEMENTS = [
-  { id: 'first_scroll', emoji: '👋', name: 'Welcome!', desc: 'Opened ThodaSa', test: (g) => g.scrolls >= 1 },
-  { id: 'scroll_25', emoji: '📜', name: 'Scroll Warrior', desc: 'Scrolled 25 products', test: (g) => g.scrolls >= 25 },
-  { id: 'scroll_100', emoji: '🌀', name: 'Doom Scroller', desc: 'Scrolled 100 products', test: (g) => g.scrolls >= 100 },
-  { id: 'first_add', emoji: '🛒', name: 'First Blood', desc: 'Added something to cart', test: (g) => g.adds >= 1 },
-  { id: 'add_10', emoji: '🧺', name: 'Cart Filler', desc: 'Added 10 items', test: (g) => g.adds >= 10 },
-  { id: 'wish_5', emoji: '❤️', name: 'Wishful Thinker', desc: 'Saved 5 to wishlist', test: (g) => g.wishes >= 5 },
-  { id: 'first_order', emoji: '📦', name: 'Order Up!', desc: 'Placed an order', test: (g) => g.orders >= 1 },
-  { id: 'streak_3', emoji: '🔥', name: 'On a Roll', desc: '3-day visit streak', test: (g) => g.streak >= 3 },
-  { id: 'streak_7', emoji: '⚡', name: 'Unstoppable', desc: '7-day visit streak', test: (g) => g.streak >= 7 },
-  { id: 'share_1', emoji: '📤', name: 'Spread the Word', desc: 'Shared a find', test: (g) => g.shares >= 1 },
-  { id: 'coins_1000', emoji: '🪙', name: 'Coin Collector', desc: 'Earned 1,000 coins', test: (g) => g.coins >= 1000 },
-  { id: 'level_big', emoji: '👑', name: 'Big Spender Club', desc: 'Reached Big Spender', test: (g) => g.xp >= 3000 },
+  { id: 'first_scroll', emoji: '👋', name: 'Welcome!', desc: 'Aa gaye. Shuru karo.', test: (g) => g.scrolls >= 1 },
+  { id: 'scroll_25', emoji: '📜', name: 'Pachees Paar', desc: '25 products scroll kiye', test: (g) => g.scrolls >= 25 },
+  { id: 'scroll_100', emoji: '🌀', name: 'Doom Scroller', desc: '100 scroll. Kaam kab karoge?', test: (g) => g.scrolls >= 100 },
+  { id: 'first_add', emoji: '🛒', name: 'Pehli Baar', desc: 'Pehla item cart mein', test: (g) => g.adds >= 1 },
+  { id: 'add_10', emoji: '🧺', name: 'Trolley Bhar Gaya', desc: '10 items. Budget ka kya?', test: (g) => g.adds >= 10 },
+  { id: 'wish_5', emoji: '❤️', name: 'Baad Mein Lenge', desc: '5 cheezein wishlist mein', test: (g) => g.wishes >= 5 },
+  { id: 'first_order', emoji: '📦', name: 'Order Ho Gaya', desc: 'Pehla (nakli) order', test: (g) => g.orders >= 1 },
+  { id: 'streak_3', emoji: '🔥', name: 'Teen Din Se', desc: 'Teen din lagatar', test: (g) => g.streak >= 3 },
+  { id: 'streak_7', emoji: '⚡', name: 'Aadat Ho Gayi', desc: 'Poora hafta. Respect.', test: (g) => g.streak >= 7 },
+  { id: 'share_1', emoji: '📤', name: 'Dost Ko Bheja', desc: 'Kuch share kiya', test: (g) => g.shares >= 1 },
+  { id: 'coins_1000', emoji: '🪙', name: 'Hazaar Ka Aankda', desc: '1,000 coins kama liye', test: (g) => g.coins >= 1000 },
+  { id: 'level_big', emoji: '👑', name: 'Kharcha Pani', desc: 'Big Spender level tak', test: (g) => g.xp >= 3000 },
 ]
 
 // pending toasts (coins earned / achievement unlocked) — drained by the UI

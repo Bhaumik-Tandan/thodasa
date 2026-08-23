@@ -126,3 +126,24 @@ export const deliveryEstimate = (product, from = new Date()) => {
     label: `Delivery by ${date.toLocaleDateString('en-IN', { weekday: 'short', day: 'numeric', month: 'short' })}`,
   }
 }
+
+// The terms line was one hardcoded string for everything: "Free over ₹499 ·
+// 7-day easy returns · COD available" sat under a ₹55L BMW and a Dubai island.
+// Generic e-commerce boilerplate applied to a private jet reads as filler, so
+// the terms now follow what the category could plausibly offer.
+const TERMS = {
+  realty: ['Site visit on request', 'Home loan assistance', 'No returns, obviously'],
+  jets: ['Pre-buy inspection included', 'Delivery slot negotiable', 'Financing via broker'],
+  cars: ['Test drive at home', 'Exchange bonus available', 'Loan in 48 hours'],
+  bikes: ['Test ride available', 'Exchange your old one', 'EMI from ₹3,000/mo'],
+  luxe: ['Free shipping', 'Store pickup available', 'Exchange within 14 days'],
+  watches: ['Free insured shipping', 'Authenticity guaranteed', 'Exchange within 14 days'],
+  jewels: ['Free insured shipping', 'Lifetime exchange', 'Buyback at day-rate'],
+  icecream: ['Packed with dry ice', 'No returns on frozen items', 'COD available'],
+}
+const DEFAULT_TERMS = ['Free over ₹499', '7-day easy returns', 'COD available']
+
+export const termsFor = (product) => TERMS[product?.category] ?? DEFAULT_TERMS
+
+// Short form for the feed card, where there is room for one clause only.
+export const shortTerm = (product) => termsFor(product)[0]

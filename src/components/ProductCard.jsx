@@ -5,7 +5,7 @@ import { GRADS, CATEGORIES } from '../data/products'
 import { load as loadGame } from '../lib/gamify'
 import { HeartIcon, ShareIcon, BagPlusIcon, TrashIcon, MinusIcon, PlusIcon } from './Icons'
 import { productUrl, productShareText, waShare, xShare, copyLink } from '../lib/share'
-import { deliveryEstimate } from '../lib/orderStatus'
+import { deliveryEstimate, shortTerm } from '../lib/orderStatus'
 
 const fmtReviews = (n) => (n >= 1000 ? `${(n / 1000).toFixed(1)}k` : n)
 
@@ -233,7 +233,7 @@ export default function ProductCard({ product, index, near = true, wished, onTog
           <div className="mt-3 flex items-baseline gap-2.5">
             <span className="font-display text-[30px] leading-none text-white drop-shadow lg:text-[40px] lg:text-neutral-900 lg:drop-shadow-none lg:dark:text-white">₹{inr(product.price)}</span>
             {product.deal && <span className="text-[13px] font-normal text-white/45 line-through lg:text-neutral-400 lg:dark:text-white/45">₹{inr(product.mrp)}</span>}
-            <span className="label-caps ml-0.5 text-[9px] text-white/60 lg:text-neutral-500 lg:dark:text-white/60">Free over ₹499</span>
+            <span className="label-caps ml-0.5 text-[9px] text-white/60 lg:text-neutral-500 lg:dark:text-white/60">{shortTerm(product)}</span>
           </div>
           <p className="mt-1.5 text-[11px] font-medium text-emerald-300 lg:text-emerald-700 lg:dark:text-emerald-300">
             {deliveryEstimate(product).label}

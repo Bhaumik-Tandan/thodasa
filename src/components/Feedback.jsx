@@ -79,7 +79,7 @@ export default function Feedback() {
               <div className="py-8 text-center">
                 <div className="text-5xl">🙏</div>
                 <p className="mt-3 text-lg font-black text-gray-900 dark:text-white">Shukriya!</p>
-                <p className="text-sm text-gray-500 dark:text-gray-400">Every bit of feedback shapes ThodaSa.</p>
+                <p className="text-sm text-gray-500 dark:text-gray-400">Goes straight to one person. No ticket, no bot.</p>
               </div>
             ) : (
               <>

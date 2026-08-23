@@ -11,7 +11,7 @@ export default [
   "cat": "snacks",
   "price": 25,
   "emoji": "🥛",
-  "desc": "Naya aaya hai. Asli pack, asli barcode.",
+  "desc": "Khatam ho jaye to poora din off track.",
   "addedOn": "2026-08-22"
  },
  {
@@ -23,7 +23,7 @@ export default [
   "cat": "grocery",
   "price": 31,
   "emoji": "🥛",
-  "desc": "Fresh arrival — scanned from a real pack.",
+  "desc": "Dopahar ke khane ke baad. Neend guarantee.",
   "addedOn": "2026-08-22"
  },
  {
@@ -35,7 +35,7 @@ export default [
   "cat": "snacks",
   "price": 73,
   "emoji": "🍫",
-  "desc": "Aaj ka naya find. Genuinely real product.",
+  "desc": "Baantne ke liye tha. Ab nahi hai.",
   "addedOn": "2026-08-22"
  },
  {
@@ -47,7 +47,7 @@ export default [
   "cat": "snacks",
   "price": 187,
   "emoji": "☕",
-  "desc": "Just landed. Real brand, real packaging.",
+  "desc": "Kadak, meethi, aur bilkul abhi.",
   "addedOn": "2026-08-22"
  },
  {
@@ -59,7 +59,7 @@ export default [
   "cat": "snacks",
   "price": 47,
   "emoji": "🛒",
-  "desc": "Naya aaya hai. Asli pack, asli barcode.",
+  "desc": "Ghar mein rakhne wali cheez.",
   "addedOn": "2026-08-22"
  },
  {
@@ -71,7 +71,7 @@ export default [
   "cat": "snacks",
   "price": 172,
   "emoji": "🛒",
-  "desc": "Aaj ka naya find. Genuinely real product.",
+  "desc": "Do cup se kam mein kaam nahi chalta.",
   "addedOn": "2026-08-22"
  },
  {
@@ -83,7 +83,7 @@ export default [
   "cat": "snacks",
   "price": 38,
   "emoji": "🛒",
-  "desc": "Just landed. Real brand, real packaging.",
+  "desc": "Do cup se kam mein kaam nahi chalta.",
   "addedOn": "2026-08-22"
  },
  {
@@ -95,7 +95,7 @@ export default [
   "cat": "snacks",
   "price": 47,
   "emoji": "🛒",
-  "desc": "Naya aaya hai. Asli pack, asli barcode.",
+  "desc": "Barf ke saath. Warna kya fayda.",
   "addedOn": "2026-08-22"
  },
  {
@@ -107,7 +107,7 @@ export default [
   "cat": "snacks",
   "price": 39,
   "emoji": "🛒",
-  "desc": "Aaj ka naya find. Genuinely real product.",
+  "desc": "Ghar mein rakhne wali cheez.",
   "addedOn": "2026-08-22"
  },
  {
@@ -119,7 +119,7 @@ export default [
   "cat": "snacks",
   "price": 150,
   "emoji": "🛒",
-  "desc": "Just landed. Real brand, real packaging.",
+  "desc": "Zaroorat padegi. Aaj ya kal.",
   "addedOn": "2026-08-22"
  },
  {
@@ -131,7 +131,7 @@ export default [
   "cat": "snacks",
   "price": 47,
   "emoji": "🥤",
-  "desc": "Naya aaya hai. Asli pack, asli barcode.",
+  "desc": "Barf ke saath. Warna kya fayda.",
   "addedOn": "2026-08-22"
  },
  {
@@ -143,7 +143,7 @@ export default [
   "cat": "snacks",
   "price": 49,
   "emoji": "🛒",
-  "desc": "Fresh arrival — scanned from a real pack.",
+  "desc": "Gas nahi hai to cold drink kaisa.",
   "addedOn": "2026-08-22"
  },
  {
@@ -155,7 +155,7 @@ export default [
   "cat": "grocery",
   "price": 69,
   "emoji": "🛒",
-  "desc": "Aaj ka naya find. Genuinely real product.",
+  "desc": "Kirana list ka regular member.",
   "addedOn": "2026-08-22"
  },
  {
@@ -167,7 +167,7 @@ export default [
   "cat": "grocery",
   "price": 70,
   "emoji": "🥛",
-  "desc": "Naya aaya hai. Asli pack, asli barcode.",
+  "desc": "Dal mein ek chamach. Baaki sab bahana hai.",
   "addedOn": "2026-08-23"
  },
  {
@@ -179,7 +179,7 @@ export default [
   "cat": "grocery",
   "price": 138,
   "emoji": "🥛",
-  "desc": "Fresh arrival — scanned from a real pack.",
+  "desc": "Pet ko aaram, garmi ko jawab.",
   "addedOn": "2026-08-23"
  },
  {
@@ -191,7 +191,7 @@ export default [
   "cat": "grocery",
   "price": 88,
   "emoji": "🛒",
-  "desc": "Aaj ka naya find. Genuinely real product.",
+  "desc": "Ghar mein rakhne wali cheez.",
   "addedOn": "2026-08-23"
  },
  {
@@ -203,7 +203,7 @@ export default [
   "cat": "snacks",
   "price": 66,
   "emoji": "🥛",
-  "desc": "Just landed. Real brand, real packaging.",
+  "desc": "Khatam ho jaye to poora din off track.",
   "addedOn": "2026-08-23"
  },
  {
@@ -215,7 +215,7 @@ export default [
   "cat": "grocery",
   "price": 141,
   "emoji": "🥛",
-  "desc": "Naya aaya hai. Asli pack, asli barcode.",
+  "desc": "Roti pe lagao. Zyada lagao.",
   "addedOn": "2026-08-23"
  },
  {
@@ -227,7 +227,7 @@ export default [
   "cat": "grocery",
   "price": 138,
   "emoji": "🥛",
-  "desc": "Fresh arrival — scanned from a real pack.",
+  "desc": "Dal mein ek chamach. Baaki sab bahana hai.",
   "addedOn": "2026-08-23"
  },
  {
@@ -239,7 +239,7 @@ export default [
   "cat": "snacks",
   "price": 195,
   "emoji": "🛒",
-  "desc": "Aaj ka naya find. Genuinely real product.",
+  "desc": "Dopahar ke khane ke baad. Neend guarantee.",
   "addedOn": "2026-08-23"
  },
  {
@@ -251,7 +251,7 @@ export default [
   "cat": "snacks",
   "price": 31,
   "emoji": "🥛",
-  "desc": "Just landed. Real brand, real packaging.",
+  "desc": "Khatam ho jaye to poora din off track.",
   "addedOn": "2026-08-23"
  },
  {
@@ -263,7 +263,7 @@ export default [
   "cat": "snacks",
   "price": 125,
   "emoji": "🥛",
-  "desc": "Naya aaya hai. Asli pack, asli barcode.",
+  "desc": "Fridge mein ho to dinner ki tension khatam.",
   "addedOn": "2026-08-23"
  },
  {
@@ -275,7 +275,7 @@ export default [
   "cat": "snacks",
   "price": 86,
   "emoji": "🍫",
-  "desc": "Fresh arrival — scanned from a real pack.",
+  "desc": "Baantne ke liye tha. Ab nahi hai.",
   "addedOn": "2026-08-23"
  },
  {
@@ -287,7 +287,7 @@ export default [
   "cat": "snacks",
   "price": 149,
   "emoji": "🥛",
-  "desc": "Aaj ka naya find. Genuinely real product.",
+  "desc": "Ubaalna mat bhoolna.",
   "addedOn": "2026-08-23"
  },
  {
@@ -299,7 +299,7 @@ export default [
   "cat": "snacks",
   "price": 122,
   "emoji": "🥛",
-  "desc": "Just landed. Real brand, real packaging.",
+  "desc": "Bacchon ko sabzi khilane ka jugaad.",
   "addedOn": "2026-08-23"
  },
  {
@@ -311,7 +311,7 @@ export default [
   "cat": "snacks",
   "price": 43,
   "emoji": "🛒",
-  "desc": "Naya aaya hai. Asli pack, asli barcode.",
+  "desc": "Garmi mein isse behtar kuch nahi.",
   "addedOn": "2026-08-23"
  },
  {
@@ -323,7 +323,7 @@ export default [
   "cat": "grocery",
   "price": 154,
   "emoji": "🥛",
-  "desc": "Fresh arrival — scanned from a real pack.",
+  "desc": "Dal mein ek chamach. Baaki sab bahana hai.",
   "addedOn": "2026-08-23"
  },
  {
@@ -335,7 +335,7 @@ export default [
   "cat": "grocery",
   "price": 144,
   "emoji": "🥛",
-  "desc": "Aaj ka naya find. Genuinely real product.",
+  "desc": "Thanda, gaadha, aur seedha glass mein.",
   "addedOn": "2026-08-23"
  }
 ]
