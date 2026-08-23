@@ -6,6 +6,7 @@ import { load as loadGame } from '../lib/gamify'
 import { HeartIcon, ShareIcon, BagPlusIcon, TrashIcon, MinusIcon, PlusIcon } from './Icons'
 import { productUrl, productShareText, waShare, xShare, copyLink } from '../lib/share'
 import { deliveryEstimate, shortTerm } from '../lib/orderStatus'
+import { landedBreakdown } from '../lib/duty'
 
 const fmtReviews = (n) => (n >= 1000 ? `${(n / 1000).toFixed(1)}k` : n)
 
@@ -238,6 +239,15 @@ export default function ProductCard({ product, index, near = true, wished, onTog
           <p className="mt-1.5 text-[11px] font-medium text-emerald-300 lg:text-emerald-700 lg:dark:text-emerald-300">
             {deliveryEstimate(product).label}
           </p>
+          {(() => {
+            const d = landedBreakdown(product)
+            if (!d.govtShare) return null
+            return (
+              <p className="mt-1 text-[11px] font-medium text-amber-200/90 lg:text-amber-700 lg:dark:text-amber-200/90">
+                ₹{inr(d.govtTotal)} of this is tax &amp; duty · {d.govtShare}%
+              </p>
+            )
+          })()}
           {product.deal && (
             <p className="mt-1 text-[11px] font-medium text-white/55 lg:text-neutral-500 lg:dark:text-white/55">
               {14 + ((product.id * 53) % 87)} logo ne aaj kharida

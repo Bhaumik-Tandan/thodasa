@@ -1,7 +1,7 @@
 {
   "name": "ThodaSa — shopping that scrolls like reels",
   "short_name": "ThodaSa",
-  "description": "Swipe one product per screen through 6,000+ real finds, from ₹5 biscuits to hypercars. Every price shows its GST and customs duty.",
+  "description": "Swipe real Indian products one per screen and see how much of each price is GST and customs duty. Nothing is for sale — it is a demo.",
   "start_url": "/",
   "display": "standalone",
   "orientation": "portrait",

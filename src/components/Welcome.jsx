@@ -18,16 +18,16 @@ export default function Welcome({ onStart }) {
           Thoda<span className="italic text-white/70">Sa</span>
         </h1>
         <p className="mt-4 max-w-[19rem] text-[15px] leading-relaxed text-white/60">
-          Shopping, but it scrolls like reels. One find per screen — swipe up for the next.
+          Swipe real Indian products, one per screen — and see the tax hiding inside every price.
         </p>
       </div>
 
       <div className="relative">
         <div className="border-t border-white/12">
           {[
-            ['01', 'The feed learns your taste as you scroll, save and add'],
-            ['02', 'Cart has a guilt-free meter. It will judge you, lovingly'],
-            ['03', 'Nothing real is sold. No login, no signup, no email'],
+            ['01', 'Nothing here is for sale. No login, no payment, no catch'],
+            ['02', 'Tap any price to see how much of it is GST and customs duty'],
+            ['03', 'The feed learns your taste as you scroll — all in your browser'],
           ].map(([n, text]) => (
             <div key={n} className="flex items-start gap-4 border-b border-white/12 py-4">
               <span className="label-caps mt-0.5 text-[10px] text-white/35">{n}</span>

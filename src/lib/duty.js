@@ -20,16 +20,44 @@
 import { gstRate } from './tax.js'
 
 // Brands manufactured/assembled in India — GST only, no customs.
-const DOMESTIC = new Set([
-  'Amul', 'Parle', 'Britannia', 'Mother Dairy', 'Tata', 'Maggi', 'Nestlé', 'Bisleri',
-  'Thums up', 'Balaji', 'Balaji Wafers', 'Haldiram', 'Vadilal', 'Havmor', 'Naturals',
-  'Arun', 'Cream Bell', 'Kwality Wall\'s', 'Epigamia', 'Nandini', 'Sting', 'Kissan',
-  'Lakme', 'Mamaearth', 'Forest Essentials', 'Kama Ayurveda', 'VLCC', 'Kay Beauty',
-  'Titan', 'FabIndia', 'Raymond', 'Peter England', 'Van Heusen', 'Allen Solly',
-  'Pantaloons', 'Rare Rabbit', 'Urbanic', 'Roadster', 'Bata', 'Relaxo', 'Metro',
-  'Godrej', 'Prestige', 'Preethi', 'Nilkamal', 'Urban Ladder', 'Pepperfry', 'Wakefit',
-  'Jaipur Rugs', 'Chumbak', 'Royal Enfield', 'Bajaj', 'Mahindra', 'Maruti Suzuki',
-  'Zaveri Pearls', 'Pipa Bella', 'Camel', 'Quaker',
+// Imported-or-not used to be decided by an allowlist of DOMESTIC brands, which
+// meant anything unlisted was treated as imported and charged 20% basic customs
+// duty. 230 of 315 brands fell through — almost all of them the invented Indian
+// ones (Slurpp, Doodhwala, MasalaGhar, Namkeen Bros, PowerPeti), so most of the
+// catalog showed inflated tax. An allowlist of domestic brands can never keep
+// up either, because the daily cron invents new Indian names every morning.
+//
+// Inverted: foreign brands are the finite, knowable set. Everything else is
+// Indian by default, which is also the right default for the Indian FMCG that
+// Open Food Facts feeds in.
+const FOREIGN = new Set([
+  // cars & bikes
+  'BMW', 'BMW Motorrad', 'Audi', 'Mercedes-Benz', 'Mercedes-AMG', 'Porsche', 'Ferrari',
+  'Lamborghini', 'Bugatti', 'Pagani', 'Koenigsegg', 'McLaren', 'Rolls-Royce', 'Toyota',
+  'Ducati', 'Harley-Davidson', 'Kawasaki', 'KTM', 'Yamaha',
+  // aircraft
+  'Airbus', 'Bombardier', 'Cessna', 'Dassault', 'Embraer', 'Gulfstream', 'HondaJet', 'Pilatus',
+  // electronics & appliances
+  'Apple', 'Samsung', 'Sony', 'JBL', 'Dyson', 'Xiaomi', 'LG', 'Philips', 'Bosch', 'Casio',
+  'iRobot', 'Honeywell', '70mai', 'DDPAI', 'Instant', 'LEGO', 'Hot Wheels',
+  // watches & luxury
+  'Rolex', 'Omega', 'TAG Heuer', 'Tissot', 'Louis Vuitton', 'Hermès', 'Chanel', 'Gucci',
+  'Prada', 'Dior', 'Balenciaga', 'Versace',
+  // fashion & footwear
+  'Nike', 'Adidas', 'Puma', 'New Balance', 'Converse', 'Crocs', 'Birkenstock', 'Levi\'s',
+  'Steve Madden', 'Zara', 'H&M', 'Uniqlo', 'SHEIN', 'Forever 21', 'Vero Moda', 'ONLY',
+  'Accessorize',
+  // beauty
+  'MAC', 'NARS', 'Maybelline', 'Neutrogena', 'Cetaphil', 'The Ordinary', 'Huda Beauty',
+  'Charlotte Tilbury', 'Fenty Beauty', 'Rare Beauty', 'e.l.f.', 'Sephora Collection',
+  // food & drink brands that are genuinely imported
+  'Red Bull', 'Hershey\'s', 'Kellogg\'s', 'Lay\'s', 'Cadbury', 'Kitkat', 'Passendale',
+  'American garden', 'Bird\'s', 'Dongsuh Foods Corp', 'Faber-Castell',
+  // k-pop merch ships from Korea
+  'BTS', 'BLACKPINK', 'Stray Kids', 'SEVENTEEN', 'TWICE', 'NewJeans', 'aespa', 'ENHYPEN',
+  'EXO', 'LE SSERAFIM',
+  // imported property developers
+  'Emaar', 'Damac', 'Nakheel',
 ])
 
 // Basic Customs Duty by goods type (indicative real slabs).
@@ -62,8 +90,10 @@ const BCD = {
 // GST Compensation Cess — luxury and demerit goods.
 const CESS = { cars: 22, bikes: 3 }
 
-export const isImported = (p) =>
-  !DOMESTIC.has(p.brand) && p.category !== 'realty' && !(p.brand === 'Generic' || p.brand === 'ThodaSa')
+export const isImported = (p) => {
+  if (p.category === 'realty') return false // buildings do not clear customs
+  return FOREIGN.has(p.brand)
+}
 
 // Break an inclusive MRP into duty, surcharge, cess, GST and what's left.
 //
