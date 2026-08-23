@@ -55,7 +55,7 @@ export default function Search({ cart, onAddToCart, onOpenDetail, onClose }) {
         </div>
       </header>
 
-      <div className="flex-1 lg:mx-auto lg:w-full lg:max-w-3xl space-y-2 overflow-y-auto p-3">
+      <div className="flex-1 lg:mx-auto lg:w-full lg:max-w-3xl space-y-2 overflow-y-auto p-3 pb-10">
         {q.trim() ? (
           <>
             <p className="px-1 text-xs font-semibold text-gray-400">{results.length} result{results.length === 1 ? '' : 's'}{results.length === 30 ? '+' : ''}</p>

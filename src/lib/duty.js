@@ -17,7 +17,7 @@
 // MRP is tax-inclusive in India, so everything here is *extracted* from the
 // listed price, never added to it.
 
-import { gstRate } from './tax.js'
+import { gstRate, cessRate } from './tax.js'
 
 // Brands manufactured/assembled in India — GST only, no customs.
 // Imported-or-not used to be decided by an allowlist of DOMESTIC brands, which
@@ -106,7 +106,7 @@ export const landedBreakdown = (product, qty = 1) => {
   const imported = isImported(product)
   const g = gstRate(product) / 100
   const b = imported ? (BCD[product.category] ?? 20) / 100 : 0
-  const c = imported ? (CESS[product.category] ?? 0) / 100 : 0
+  const c = imported ? (CESS[product.category] ?? 0) / 100 : cessRate(product) / 100
 
   const assessable = mrp / ((1 + 1.1 * b) * (1 + g + c))
   const bcd = assessable * b
