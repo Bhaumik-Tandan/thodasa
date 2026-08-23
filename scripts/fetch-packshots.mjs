@@ -57,9 +57,9 @@ for (const [code, name] of codes) {
     for (const kind of ORDER) {
       const disp = si[kind]?.display
       if (!disp) continue
-      // prefer English, else whatever language exists
-      const u = disp.en ?? disp[Object.keys(disp)[0]]
-      if (!u) continue
+      const u = disp.en
+      if (!u) continue // English only: OFF is global and a German ingredients
+                       // panel on an Indian pack is just noise here
       const full = u.replace(/\.400\.jpg$/, '.full.jpg')
       const rev = full.match(/\.(\d+)\.full\.jpg$/)?.[1]
       const dim = rev && sizes[rev]?.sizes?.full

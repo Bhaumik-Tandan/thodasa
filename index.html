@@ -81,6 +81,19 @@
     <!-- Microsoft Clarity analytics (visitors, recordings, heatmaps) -->
     <script type="text/javascript">
       (function(c,l,a,r,i,t,y){
+        // Device-level opt-out, handled before the host guard so it can be
+        // set while testing locally and still apply on the live domain.
+        // Every Spain session in the analytics is the author's own, and those
+        // visits misled badly: ~50 one-second sessions pulled median active
+        // time to 37s while real visitors browsed 14-36 products. Clarity's IP
+        // blocking needs an IP, which changes; this does not.
+        // Visit /?dev=1 once per device to stop reporting, /?dev=0 to resume.
+        try {
+          var q = new URLSearchParams(l.location.search).get('dev')
+          if (q === '1') localStorage.setItem('thodasa.noTrack', '1')
+          if (q === '0') localStorage.removeItem('thodasa.noTrack')
+          if (localStorage.getItem('thodasa.noTrack')) return
+        } catch (e) { /* private mode: fall through and track */ }
         var h = l.location.hostname
         if (h === 'localhost' || h === '127.0.0.1' || h.endsWith('.local') || l.location.protocol === 'file:') return
         c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};

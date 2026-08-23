@@ -6,11 +6,6 @@ export default {
   "https://images.openfoodfacts.org/images/products/890/171/913/4845/ingredients_en.13.full.jpg",
   "https://images.openfoodfacts.org/images/products/890/171/913/4845/nutrition_en.15.full.jpg"
  ],
- "7613035833272": [
-  "https://images.openfoodfacts.org/images/products/761/303/583/3272/front_en.149.full.jpg",
-  "https://images.openfoodfacts.org/images/products/761/303/583/3272/ingredients_fr.168.full.jpg",
-  "https://images.openfoodfacts.org/images/products/761/303/583/3272/nutrition_fr.174.full.jpg"
- ],
  "8902080000227": [
   "https://images.openfoodfacts.org/images/products/890/208/000/0227/front_en.81.full.jpg",
   "https://images.openfoodfacts.org/images/products/890/208/000/0227/ingredients_en.38.full.jpg",
@@ -34,11 +29,6 @@ export default {
  "8901063162914": [
   "https://images.openfoodfacts.org/images/products/890/106/316/2914/ingredients_en.13.full.jpg",
   "https://images.openfoodfacts.org/images/products/890/106/316/2914/nutrition_en.15.full.jpg"
- ],
- "8906010500559": [
-  "https://images.openfoodfacts.org/images/products/890/601/050/0559/front_es.15.full.jpg",
-  "https://images.openfoodfacts.org/images/products/890/601/050/0559/ingredients_es.12.full.jpg",
-  "https://images.openfoodfacts.org/images/products/890/601/050/0559/nutrition_es.7.full.jpg"
  ],
  "8906010500245": [
   "https://images.openfoodfacts.org/images/products/890/601/050/0245/front_en.20.full.jpg",
@@ -207,7 +197,6 @@ export default {
  ],
  "1234567890128": [
   "https://images.openfoodfacts.org/images/products/123/456/789/0128/front_en.119.full.jpg",
-  "https://images.openfoodfacts.org/images/products/123/456/789/0128/ingredients_de.81.full.jpg",
   "https://images.openfoodfacts.org/images/products/123/456/789/0128/nutrition_en.121.full.jpg"
  ],
  "3948764032707": [
@@ -217,8 +206,7 @@ export default {
  ],
  "8906010500214": [
   "https://images.openfoodfacts.org/images/products/890/601/050/0214/front_en.8.full.jpg",
-  "https://images.openfoodfacts.org/images/products/890/601/050/0214/ingredients_en.14.full.jpg",
-  "https://images.openfoodfacts.org/images/products/890/601/050/0214/nutrition_fr.20.full.jpg"
+  "https://images.openfoodfacts.org/images/products/890/601/050/0214/ingredients_en.14.full.jpg"
  ],
  "8906032018513": [
   "https://images.openfoodfacts.org/images/products/890/603/201/8513/front_en.3.full.jpg",
@@ -322,10 +310,6 @@ export default {
  "8903754000062": [
   "https://images.openfoodfacts.org/images/products/890/375/400/0062/front_en.3.full.jpg",
   "https://images.openfoodfacts.org/images/products/890/375/400/0062/nutrition_en.7.full.jpg"
- ],
- "8901491366229": [
-  "https://images.openfoodfacts.org/images/products/890/149/136/6229/front_en.15.full.jpg",
-  "https://images.openfoodfacts.org/images/products/890/149/136/6229/nutrition_es.8.full.jpg"
  ],
  "8901063014411": [
   "https://images.openfoodfacts.org/images/products/890/106/301/4411/front_en.9.full.jpg",
@@ -495,11 +479,6 @@ export default {
   "https://images.openfoodfacts.org/images/products/890/126/215/1696/ingredients_en.21.full.jpg",
   "https://images.openfoodfacts.org/images/products/890/126/215/1696/nutrition_en.10.full.jpg"
  ],
- "0850006000012": [
-  "https://images.openfoodfacts.org/images/products/085/000/600/0012/front_fr.4.full.jpg",
-  "https://images.openfoodfacts.org/images/products/085/000/600/0012/ingredients_fr.13.full.jpg",
-  "https://images.openfoodfacts.org/images/products/085/000/600/0012/nutrition_en.18.full.jpg"
- ],
  "8901262260107": [
   "https://images.openfoodfacts.org/images/products/890/126/226/0107/front_en.3.full.jpg",
   "https://images.openfoodfacts.org/images/products/890/126/226/0107/ingredients_en.6.full.jpg",
@@ -510,7 +489,6 @@ export default {
   "https://images.openfoodfacts.org/images/products/890/126/201/0023/nutrition_en.9.full.jpg"
  ],
  "8901262020046": [
-  "https://images.openfoodfacts.org/images/products/890/126/202/0046/front_fr.4.full.jpg",
   "https://images.openfoodfacts.org/images/products/890/126/202/0046/ingredients_en.6.full.jpg",
   "https://images.openfoodfacts.org/images/products/890/126/202/0046/nutrition_en.15.full.jpg"
  ],
@@ -569,11 +547,6 @@ export default {
   "https://images.openfoodfacts.org/images/products/890/257/900/3302/front_en.3.full.jpg",
   "https://images.openfoodfacts.org/images/products/890/257/900/3302/ingredients_en.13.full.jpg",
   "https://images.openfoodfacts.org/images/products/890/257/900/3302/nutrition_en.14.full.jpg"
- ],
- "8901262030151": [
-  "https://images.openfoodfacts.org/images/products/890/126/203/0151/front_fr.9.full.jpg",
-  "https://images.openfoodfacts.org/images/products/890/126/203/0151/ingredients_fr.3.full.jpg",
-  "https://images.openfoodfacts.org/images/products/890/126/203/0151/nutrition_fr.11.full.jpg"
  ],
  "8901262060011": [
   "https://images.openfoodfacts.org/images/products/890/126/206/0011/front_en.8.full.jpg",
