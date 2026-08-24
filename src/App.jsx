@@ -63,6 +63,7 @@ export default function App() {
   })
   const [view, setView] = useState('feed') // feed | wishlist | cart | checkout | orders | search
   const [detail, setDetail] = useState(null) // product whose variant sheet is open
+  const [detailDuty, setDetailDuty] = useState(false) // opened by tapping the price
   const [welcomed, setWelcomed] = useState(() => load('welcomed', false))
   // reopened from Rewards; kept separate so replaying does not re-trigger
   // first-visit behaviour anywhere else
@@ -118,8 +119,9 @@ export default function App() {
     history.pushState({ ts: 'view', view: v }, '')
   }, [])
 
-  const openDetail = useCallback((p) => {
+  const openDetail = useCallback((p, opts) => {
     setDetail(p)
+    setDetailDuty(!!opts?.duty)
     history.pushState({ ts: 'detail', id: p.templateId }, '')
   }, [])
 
@@ -479,6 +481,7 @@ export default function App() {
         {detail && (
           <ProductSheet
             product={detail}
+            expandDuty={detailDuty}
             cart={cart}
             onAddToCart={addToCart}
             onQty={setQty}

@@ -35,12 +35,14 @@ const HIGHLIGHTS = {
 }
 
 // Blinkit-style bottom sheet: pick a flavour/size/colour variant, add to cart.
-export default function ProductSheet({ product, cart, onAddToCart, onQty, onRemove, onClose }) {
+export default function ProductSheet({ product, cart, onAddToCart, onQty, onRemove, onClose, expandDuty = false }) {
   const variants = VARIANTS_BY_TEMPLATE[product.templateId] ?? [product]
   const [selectedId, setSelectedId] = useState(product.id)
   // Open by default when the number is interesting. Median active time is 37s,
   // so anything behind an extra tap is effectively invisible.
-  const [showDuty, setShowDuty] = useState(() => landedBreakdown(product).govtShare >= 30)
+  // `expandDuty` is set when the sheet was opened by tapping the price, which
+  // is a request for this specific number — never make them tap twice for it.
+  const [showDuty, setShowDuty] = useState(() => expandDuty || landedBreakdown(product).govtShare >= 30)
   const selected = variants.find((v) => v.id === selectedId) ?? variants[0]
   const qty = cart[selected.id]?.qty ?? 0
   const off = selected.deal ? Math.round((1 - selected.price / selected.mrp) * 100) : 0

@@ -281,6 +281,18 @@ export default function ProductCard({ product, index, near = true, wished, onTog
             </button>
           )}
 
+          {/* The price block is a tap target, not decoration. The info panel sits
+              at z-10, above the whole-photo button at z-0, so it swallowed every
+              tap that landed on it — 49 dead taps on the homepage in three days,
+              and the two worst elements on the whole site. Worse, the intro
+              promises "tap any price to see how much of it is GST and customs
+              duty", which was simply not true. */}
+          <button
+            type="button"
+            onClick={() => onOpenDetail(product, { duty: true })}
+            aria-label={`Price breakdown for ${product.baseName ?? product.name}`}
+            className="block w-full text-left active:scale-[0.99]"
+          >
           <div className="mt-3 flex items-baseline gap-2.5">
             <span className="font-display text-[30px] leading-none text-white drop-shadow lg:text-[40px] lg:text-neutral-900 lg:drop-shadow-none lg:dark:text-white">₹{inr(product.price)}</span>
             {product.deal && <span className="text-[13px] font-normal text-white/45 line-through lg:text-neutral-400 lg:dark:text-white/45">₹{inr(product.mrp)}</span>}
@@ -293,11 +305,12 @@ export default function ProductCard({ product, index, near = true, wished, onTog
             const d = landedBreakdown(product)
             if (!d.govtShare) return null
             return (
-              <p className="mt-1 text-[11px] font-medium text-amber-200/90 lg:text-amber-700 lg:dark:text-amber-200/90">
+              <p className="mt-1 text-[11px] font-medium text-amber-200/90 underline decoration-amber-200/30 underline-offset-4 lg:text-amber-700 lg:decoration-amber-700/30 lg:dark:text-amber-200/90">
                 ₹{inr(d.govtTotal)} of this is tax &amp; duty · {d.govtShare}%
               </p>
             )
           })()}
+          </button>
           <p className="mt-1 text-[11px] font-medium text-white/55 lg:text-neutral-500 lg:dark:text-white/55">
             {activityLine(product)}
           </p>
