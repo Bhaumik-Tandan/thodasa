@@ -417,7 +417,7 @@ export default function App() {
           </button>
         )}
 
-        <InstallNudge />
+        <InstallNudge blocked={!welcomed || replayIntro || !!detail || !!unlockPrompt || view !== 'feed'} />
 
         {unlockPrompt && (
           <UnlockSheet

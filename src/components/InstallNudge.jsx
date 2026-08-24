@@ -14,8 +14,14 @@ const KEY = 'thodasa.installNudge'
 const isStandalone = () =>
   window.matchMedia?.('(display-mode: standalone)').matches || window.navigator.standalone === true
 
-export default function InstallNudge() {
-  const [show, setShow] = useState(false)
+// `blocked` is set while anything is layered over the feed. The nudge sits at
+// z-60 — above the product sheet, the cart, every overlay — and used to appear
+// on a blind 45s timer, so whatever you had open at the 45-second mark got a
+// card dropped over it. One visitor landed on the Thar page from search, opened
+// the variants, and the nudge covered two rows of the options grid: 4m20s on
+// the page, 2 clicks. It now waits for a clear screen instead.
+export default function InstallNudge({ blocked = false }) {
+  const [ready, setReady] = useState(false)
   const [deferred, setDeferred] = useState(null)
 
   useEffect(() => {
@@ -30,12 +36,14 @@ export default function InstallNudge() {
     // people dismiss reflexively. Both platforms wait for real engagement.
     const onPrompt = (e) => { e.preventDefault(); setDeferred(e) }
     window.addEventListener('beforeinstallprompt', onPrompt)
-    const t = setTimeout(() => setShow(true), 45000)
+    const t = setTimeout(() => setReady(true), 45000)
     return () => { window.removeEventListener('beforeinstallprompt', onPrompt); clearTimeout(t) }
   }, [])
 
+  const show = ready && !blocked
+
   const close = (action) => {
-    setShow(false)
+    setReady(false)
     trackInstallPrompt(action)
     try { localStorage.setItem(KEY, String(Date.now())) } catch { /* private mode */ }
   }
