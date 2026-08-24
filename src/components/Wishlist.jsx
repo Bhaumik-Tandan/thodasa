@@ -2,6 +2,7 @@ import { inr, PRODUCTS, CATEGORIES } from '../data/products'
 import { HeartIcon } from './Icons'
 import { tasteSummary } from '../lib/taste'
 import { makeShareCard, shareCardBlob } from '../lib/share'
+import { trackShare } from '../lib/track'
 
 const VIBE_COLORS = ['bg-violet-500', 'bg-rose-500', 'bg-amber-500', 'bg-teal-500', 'bg-sky-500']
 
@@ -45,6 +46,7 @@ export default function Wishlist({ wishlist, onToggleWish, onAddToCart, cart, on
                 meterPct: null,
                 colors: ['#8b5cf6', '#ec4899'],
               })
+              trackShare('image', 'wishlist')
               await shareCardBlob(blob, 'thodasa-vibe.png', `My ThodaSa vibe: ${top} \u2014 what's yours? thodasa.com`)
             }}
             className="mt-2.5 w-full rounded-xl border border-gray-200 py-2.5 text-sm font-extrabold text-gray-700 active:scale-[0.98] dark:border-zinc-700 dark:text-gray-200"

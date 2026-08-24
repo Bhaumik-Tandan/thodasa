@@ -5,6 +5,7 @@ import { GRADS, CATEGORIES } from '../data/products'
 import { load as loadGame } from '../lib/gamify'
 import { HeartIcon, ShareIcon, BagPlusIcon, TrashIcon, MinusIcon, PlusIcon } from './Icons'
 import { productUrl, productShareText, waShare, xShare, copyLink } from '../lib/share'
+import { trackShare } from '../lib/track'
 import { deliveryEstimate, shortTerm } from '../lib/orderStatus'
 import { landedBreakdown } from '../lib/duty'
 
@@ -122,6 +123,7 @@ export default function ProductCard({ product, index, near = true, wished, onTog
     else if (how === 'x') xShare(text, url)
     else copyLink(`${text}\n${url}`).then((ok) => toast(ok ? 'Link copied!' : 'Could not copy'))
     setShareOpen(false)
+    trackShare(how === 'wa' ? 'whatsapp' : how === 'x' ? 'x' : 'copy', 'product', product.category)
     onSignal?.(product, 'share')
   }
 

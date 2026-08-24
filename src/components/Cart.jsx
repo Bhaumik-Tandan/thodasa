@@ -1,6 +1,7 @@
 import { inr } from '../data/products'
 import { useEffect, useState } from 'react'
 import { makeShareCard, shareCardBlob } from '../lib/share'
+import { trackShare } from '../lib/track'
 
 const meterFor = (total) => {
   if (total === 0) return { label: 'Cart khali hai 🫙', emoji: '🫙', pct: 0, bar: 'from-gray-300 to-gray-400', note: 'Add something chhota-sa!' }
@@ -57,6 +58,7 @@ export default function Cart({ cart, onQty, onRemove, onCheckout, onOrders, onCl
                 meterPct: Math.min(100, (total / 1000) * 100),
                 colors,
               })
+              trackShare('image', 'cart')
               await shareCardBlob(blob, 'thodasa-verdict.png', `The ThodaSa guilt-free meter has spoken: ${meter.label} (\u20B9${total}) \u2014 thodasa.com`)
             }}
             className="mt-2.5 w-full rounded-xl border border-gray-200 py-2.5 text-sm font-extrabold text-gray-700 active:scale-[0.98] dark:border-zinc-700 dark:text-gray-200"

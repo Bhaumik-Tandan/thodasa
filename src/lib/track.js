@@ -22,7 +22,12 @@ export const trackWishlist = (p) => send('add_to_wishlist', { category: p.catego
 export const trackBeginCheckout = (total, count) => send('begin_checkout', { cart_value: total, cart_items: count })
 export const trackPurchase = (total, count) => send('purchase', { order_value: total, order_items: count })
 export const trackOutbound = (p) => send('outbound_amazon', { category: p.category })
-export const trackShare = (p) => send('share', { category: p.category })
+// Share is the only action that is both a retention trigger and an acquisition
+// channel, and it was the one event defined here that nothing ever called — so
+// every share across five surfaces was invisible. Channel and surface are
+// tagged because "who shares, and from where" is the whole question.
+export const trackShare = (channel, surface, category = '') =>
+  send('share', { channel, surface, category })
 export const trackUnlock = (cat, cost) => send('category_unlocked', { category: cat, cost })
 export const trackDutyOpen = (p) => send('duty_breakdown_opened', { category: p.category })
 export const trackSearch = (q) => send('search', { has_query: q ? 'yes' : 'no' })

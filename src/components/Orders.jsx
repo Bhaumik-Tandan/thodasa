@@ -2,6 +2,7 @@ import { inr } from '../data/products'
 import { useState } from 'react'
 import { orderProgress, etaText } from '../lib/orderStatus'
 import { makeOrderCard, shareCardBlob, orderShareText, haulStats, waShare, xShare, SITE } from '../lib/share'
+import { trackShare } from '../lib/track'
 
 const fmtDate = (iso) => new Date(iso).toLocaleString('en-IN', { day: 'numeric', month: 'short', hour: 'numeric', minute: '2-digit' })
 
@@ -15,6 +16,7 @@ export default function Orders({ orders, onClose }) {
     setBusy(true)
     try {
       const blob = await makeOrderCard(orders)
+      trackShare('image', 'haul')
       await shareCardBlob(blob, 'thodasa-haul.png', `${orderShareText(orders)} ${SITE}`)
     } finally {
       setBusy(false)
@@ -47,13 +49,13 @@ export default function Orders({ orders, onClose }) {
                 {busy ? 'Making image…' : 'Share my haul'}
               </button>
               <button
-                onClick={() => waShare(orderShareText(orders), SITE)}
+                onClick={() => { trackShare('whatsapp', 'haul'); waShare(orderShareText(orders), SITE) }}
                 className="label-caps rounded-none border border-white/25 px-4 py-2.5 text-[10px] text-white active:scale-[0.98]"
               >
                 WhatsApp
               </button>
               <button
-                onClick={() => xShare(orderShareText(orders), SITE)}
+                onClick={() => { trackShare('x', 'haul'); xShare(orderShareText(orders), SITE) }}
                 className="label-caps rounded-none border border-white/25 px-4 py-2.5 text-[10px] text-white active:scale-[0.98]"
               >
                 Post on X
