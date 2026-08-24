@@ -18,9 +18,30 @@ const esc = (s) => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replac
 const page = (p, related) => {
   const url = `${SITE}/p/${p.slug}/`
   const og = p.img.replace('w=800&h=1400', 'w=1200&h=630')
-  const title = `${p.baseName} — ₹${inr(p.price)}${p.variantCount > 1 ? ' onwards' : ''} | ThodaSa`
-  const desc = `${p.desc} ${p.rating}★ (${p.reviews} ratings)${p.deal ? ` · ₹${inr(p.price)}, was ₹${inr(p.mrp)}` : ''}. See the full GST and customs-duty breakdown on ThodaSa — reels-style shopping for India.`
   const d = duty(p)
+  // Search titles lead with the tax question, not the product name.
+  //
+  // They used to read "Mahindra Thar — ₹11,00,000 onwards", which competes head
+  // on with mahindra.com, CarDekho and ZigWheels for a query we cannot win and
+  // have no business winning. Search Console after three days: pages indexed
+  // fine, 2 impressions, 0 clicks, all of it on the brand name "thodasa".
+  //
+  // What these pages uniquely answer is the landed-cost arithmetic, and
+  // "import duty on <thing> in India" is a real query with almost nobody
+  // serving it well. The product name still appears — it just is not the head.
+  // Social keeps the playful copy: og:/twitter: descriptions use p.desc, since
+  // nobody shares a duty calculation to WhatsApp for fun.
+  const taxQuery = d.imported
+    ? `Import duty on ${p.baseName} in India`
+    : `GST on ${p.baseName}`
+  const title = `${taxQuery} | ThodaSa`
+  // Social keeps the product-first headline. These pages exist so a WhatsApp or
+  // X unfurl shows THAT product; "Import duty on Rolex Submariner in India" is
+  // the right thing for a search result and the wrong thing for a share card.
+  const socialTitle = `${p.baseName} — ₹${inr(p.price)}${p.variantCount > 1 ? ' onwards' : ''} | ThodaSa`
+  const desc = d.imported
+    ? `${p.baseName} lists at ₹${inr(p.price)} in India. ₹${inr(d.govtTotal)} of that is customs duty, surcharge and IGST — ${d.govtShare}% of what you pay. Full landed-cost breakdown with the rates applied.`
+    : `${p.baseName} lists at ₹${inr(p.price)}. ₹${inr(d.govtTotal)} of that is GST at ${d.igstRate}% — ${d.govtShare}% of what you pay. MRP in India includes tax, so this is extracted from the price, not added to it.`
   return `<!doctype html>
 <html lang="en">
 <head>
@@ -32,11 +53,11 @@ const page = (p, related) => {
 <meta property="og:type" content="product">
 <meta property="og:url" content="${url}">
 <meta property="og:site_name" content="ThodaSa">
-<meta property="og:title" content="${esc(title)}">
+<meta property="og:title" content="${esc(socialTitle)}">
 <meta property="og:description" content="${esc(p.desc)}">
 <meta property="og:image" content="${og}">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="${esc(title)}">
+<meta name="twitter:title" content="${esc(socialTitle)}">
 <meta name="twitter:description" content="${esc(p.desc)}">
 <meta name="twitter:image" content="${og}">
 <script type="application/ld+json">${JSON.stringify({
@@ -81,7 +102,7 @@ const page = (p, related) => {
   <p class="price">₹${inr(p.price)}${p.deal ? `<span class="mrp">₹${inr(p.mrp)}</span>` : ''}</p>
   <p class="caps" style="margin-top:.5rem">${p.rating}★ · ${inr(p.reviews)} ratings${p.variantCount > 1 ? ` · ${p.variantCount} options` : ''}</p>
 
-  <h2>Where this price goes${d.imported ? ' — imported' : ''}</h2>
+  <h2>${esc(taxQuery)}</h2>
   <table>
     <tr><td>Product value${d.imported ? ' (CIF, landed)' : ''}</td><td>₹${inr(d.assessable)}</td></tr>
     ${d.bcd ? `<tr><td>Basic customs duty @ ${d.bcdRate}%</td><td>₹${inr(d.bcd)}</td></tr>` : ''}
