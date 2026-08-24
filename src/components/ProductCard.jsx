@@ -79,6 +79,9 @@ export default function ProductCard({ product, index, near = true, wished, onTog
   const angles = product.imgs && product.imgs.length > 1 ? product.imgs : null
   const [angle, setAngle] = useState(0)
   const panel = Boolean(angles) && angle > 0
+  // wide subjects need to be seen whole, not cropped to a fragment
+  const WIDE_SUBJECT = new Set(['cars', 'bikes', 'jets', 'realty'])
+  const wide = WIDE_SUBJECT.has(product.category)
   useEffect(() => {
     if (!angles || !active) { setAngle(0); return }
     const t = setInterval(() => setAngle((a) => (a + 1) % angles.length), 2600)
@@ -126,7 +129,7 @@ export default function ProductCard({ product, index, near = true, wished, onTog
   const catLabel = CATEGORIES.find((c) => c.id === product.category)?.label ?? product.category
 
   return (
-    <section data-index={index} className={`snap-card relative h-full w-full overflow-hidden bg-gradient-to-br ${GRADS[product.grad]} lg:grid lg:grid-cols-[1.25fr_1fr] lg:bg-white lg:bg-none lg:dark:bg-[#0b0b0d]`}>
+    <section data-index={index} className={`snap-card relative h-full w-full overflow-hidden ${wide ? 'bg-[#0b0b0d]' : `bg-gradient-to-br ${GRADS[product.grad]}`} lg:grid lg:grid-cols-[1.25fr_1fr] lg:bg-white lg:bg-none lg:dark:bg-[#0b0b0d]`}>
       {/* full-bleed product photo */}
       {!imgFailed && activated && (
         <img
@@ -136,7 +139,7 @@ export default function ProductCard({ product, index, near = true, wished, onTog
           fetchPriority={index === 0 ? 'high' : 'auto'}
           onLoad={() => setImgReady(true)}
           onError={() => setImgFailed(true)}
-          className={`absolute inset-0 h-full w-full transition-opacity duration-500 lg:w-[55.56%] ${panel ? 'object-contain p-6 pb-56' : 'object-cover'} ${imgReady ? 'opacity-100' : 'opacity-0'} ${near && imgReady && !angles ? 'photo-drift' : ''}`}
+          className={`absolute inset-0 h-full w-full transition-opacity duration-500 lg:w-[55.56%] ${panel ? 'object-contain p-6 pb-56' : wide ? 'object-contain pb-44 lg:pb-0' : 'object-cover'} ${imgReady ? 'opacity-100' : 'opacity-0'} ${near && imgReady && !angles ? 'photo-drift' : ''}`}
         />
       )}
       {(!imgReady || imgFailed) && (
@@ -156,12 +159,12 @@ export default function ProductCard({ product, index, near = true, wished, onTog
         </div>
       )}
 
-      {panel && (
+      {(panel || wide) && (
         <img
-          src={angles[angle]}
+          src={panel ? angles[angle] : product.img}
           alt=""
           aria-hidden="true"
-          className="pointer-events-none absolute inset-0 h-full w-full scale-110 object-cover opacity-30 blur-2xl lg:w-[55.56%]"
+          className={`pointer-events-none absolute inset-0 h-full w-full scale-110 object-cover blur-2xl lg:w-[55.56%] ${wide ? 'opacity-60' : 'opacity-30'}`}
         />
       )}
 

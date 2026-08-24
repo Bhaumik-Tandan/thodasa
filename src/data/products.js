@@ -73,6 +73,26 @@ const WM_SEIKO = 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/94/Seik
 const WM_SEIKO2 = 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/16/Seiko_Automatic_Diver%27s_200m.jpg/960px-Seiko_Automatic_Diver%27s_200m.jpg'
 const WM_HUBLOT = 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a3/Hublot_Geneve.jpg/960px-Hublot_Geneve.jpg'
 
+// Indian cars, photographed. Every car in the catalog previously drew from a
+// pool of eight generic Unsplash shots, so a Maruti Swift, a Porsche Taycan and
+// a Koenigsegg Jesko were literally the same image, and the Mahindra Thar shared
+// one with a Lamborghini Urus. These are the actual models.
+const WM_SWIFT = 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/43/Maruti_Suzuki_Swift_4456.JPG/960px-Maruti_Suzuki_Swift_4456.JPG'
+const WM_NEXON = 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e5/2023_Tata_Nexon_XZA%2B_front_view.jpg/960px-2023_Tata_Nexon_XZA%2B_front_view.jpg'
+const WM_HARRIER = 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Tata_Buzzard_Sport%2C_GIMS_2019%2C_Le_Grand-Saconnex_%28GIMS0651%29.jpg/960px-Tata_Buzzard_Sport%2C_GIMS_2019%2C_Le_Grand-Saconnex_%28GIMS0651%29.jpg'
+const WM_XUV700 = 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/ba/2021_Mahindra_XUV700_2.2_AX7_%28India%29_front_view.png/960px-2021_Mahindra_XUV700_2.2_AX7_%28India%29_front_view.png'
+const WM_THAR = 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/13/Mahindra_Thar_Photoshoot_At_Perupalem_Beach_%28West_Godavari_District%2CAP%2CIndia_%29_Djdavid.jpg/960px-Mahindra_Thar_Photoshoot_At_Perupalem_Beach_%28West_Godavari_District%2CAP%2CIndia_%29_Djdavid.jpg'
+const WM_SCORPIO = 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e8/Mahindra_Scorpio_2014.JPG/960px-Mahindra_Scorpio_2014.JPG'
+const WM_CRETA = 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/be/HYUNDAI_CRETA_%2C_iX25_%28SU2%29_China_%281%29.jpg/960px-HYUNDAI_CRETA_%2C_iX25_%28SU2%29_China_%281%29.jpg'
+const WM_PUNCH = 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/1e/2021_Tata_Punch_Creative_%28India%29_front_view_01.png/960px-2021_Tata_Punch_Creative_%28India%29_front_view_01.png'
+const WM_BALENO = 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/5b/2022_Maruti_Suzuki_Baleno_Alpha_%28India%29_front_view.jpg/960px-2022_Maruti_Suzuki_Baleno_Alpha_%28India%29_front_view.jpg'
+const WM_INNOVA = 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/Toyota_Innova_Crysta_2.4_Z_side.jpg/960px-Toyota_Innova_Crysta_2.4_Z_side.jpg'
+const WM_SAFARI = 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Tata_Safari_4x4_front.jpg/960px-Tata_Safari_4x4_front.jpg'
+const WM_IPAD = 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/70/Apple_iPad_Pro_11.jpg/960px-Apple_iPad_Pro_11.jpg'
+const WM_DYSON_VAC = 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/Dyson_Cyclone_V10_Absolute_cordless_stick_vacuum.jpg/960px-Dyson_Cyclone_V10_Absolute_cordless_stick_vacuum.jpg'
+const WM_FORTUNER = 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d0/Toyota_Fortuner_India.jpg/960px-Toyota_Fortuner_India.jpg'
+const WM_FRONX = 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/Suzuki_Fronx_%28front%29.jpg/960px-Suzuki_Fronx_%28front%29.jpg'
+
 // Wikimedia product shots used where the generic Unsplash key was wrong.
 // 'shoeYellow' is a Nike Air Max, shared by three products, so Crocs and
 // Relaxo both rendered as Nike sneakers. Credited in WM_CREDITS.
@@ -391,11 +411,18 @@ TEMPLATES.push(
   ['Ferrari', 'Roma', 'cars', 'carRed', '🏎️', 'La dolce vita on four wheels.', car(['Coupe', 'Spider'], CAR_COLORS, 39000000)],
   ['Rolls-Royce', 'Ghost', 'cars', 'carSedanBlack', '🚘', 'Arrive like you own the building.', car(['Standard', 'Black Badge'], CAR_COLORS, 75000000)],
   ['Bugatti', 'Chiron', 'cars', 'carBugatti', '🏁', '1500 hp. Full ₹499 range, bas thodi upar. Le lo, sasta hai (nahi hai).', car(['Sport', 'Super Sport'], CAR_COLORS, 190000000), true],
-  ['Tata', 'Nexon', 'cars', 'carRoad', '🚙', 'Desi, safe, 5-star. Paisa vasool.', car(['Smart', 'Creative', 'Fearless'], CAR_COLORS, 900000)],
-  ['Tata', 'Harrier', 'cars', 'carRoad', '🚙', 'Bada SUV, chhota budget (relatively).', car(CAR_TRIMS, CAR_COLORS, 1600000)],
-  ['Mahindra', 'Thar', 'cars', 'carMustang', '🚙', 'Off-road ka OG. Instagram reels ready.', car(['AX', 'LX', 'RWD'], CAR_COLORS, 1100000), true],
-  ['Mahindra', 'XUV700', 'cars', 'carRoad', '🚙', 'ADAS wali gaadi. Future aa gaya.', car(['MX', 'AX7', 'AX7 L'], CAR_COLORS, 1500000)],
-  ['Maruti Suzuki', 'Swift', 'cars', 'carBlue', '🚗', 'India ki favourite. Mileage king.', car(['LXi', 'VXi', 'ZXi+'], CAR_COLORS, 700000)],
+  ['Tata', 'Nexon', 'cars', WM_NEXON, '🚙', 'Desi, safe, 5-star. Paisa vasool.', car(['Smart', 'Creative', 'Fearless'], CAR_COLORS, 900000)],
+  ['Tata', 'Harrier', 'cars', WM_HARRIER, '🚙', 'Bada SUV, chhota budget (relatively).', car(CAR_TRIMS, CAR_COLORS, 1600000)],
+  ['Mahindra', 'Thar', 'cars', WM_THAR, '🚙', 'Off-road ka OG. Instagram reels ready.', car(['AX', 'LX', 'RWD'], CAR_COLORS, 1100000), true],
+  ['Mahindra', 'XUV700', 'cars', WM_XUV700, '🚙', 'ADAS wali gaadi. Future aa gaya.', car(['MX', 'AX7', 'AX7 L'], CAR_COLORS, 1500000)],
+  ['Maruti Suzuki', 'Swift', 'cars', WM_SWIFT, '🚗', 'India ki favourite. Mileage king.', car(['LXi', 'VXi', 'ZXi+'], CAR_COLORS, 700000)],
+  ['Mahindra', 'Scorpio-N', 'cars', WM_SCORPIO, '🚙', 'Big Daddy of SUVs. Sadak pe rasta milta hai.', car(['Z4', 'Z8', 'Z8 L'], CAR_COLORS, 1400000), true],
+  ['Hyundai', 'Creta', 'cars', WM_CRETA, '🚙', 'Sabse zyada bikne wali SUV. Wajah hai.', car(['E', 'SX', 'SX(O)'], CAR_COLORS, 1200000)],
+  ['Tata', 'Punch', 'cars', WM_PUNCH, '🚗', 'Chhoti SUV, 5-star safety. Pehli gaadi ka default.', car(['Pure', 'Adventure', 'Creative'], CAR_COLORS, 650000)],
+  ['Tata', 'Safari', 'cars', WM_SAFARI, '🚙', 'Saat log, ek gaadi. Naam mein hi weight hai.', car(['Smart', 'Accomplished', 'Adventure X'], CAR_COLORS, 1800000)],
+  ['Maruti Suzuki', 'Baleno', 'cars', WM_BALENO, '🚗', 'Premium hatchback. Nexa wali feel.', car(['Delta', 'Zeta', 'Alpha'], CAR_COLORS, 800000)],
+  ['Maruti Suzuki', 'Fronx', 'cars', WM_FRONX, '🚗', 'Coupe-SUV. Turbo lo, mileage bhulo.', car(['Sigma', 'Delta+', 'Alpha'], CAR_COLORS, 950000)],
+  ['Toyota', 'Innova Crysta', 'cars', WM_INNOVA, '🚐', 'Poora khandaan, ek gaadi. Resale amar hai.', car(['GX', 'VX', 'ZX'], CAR_COLORS, 2100000)],
 
   // ——— SPORT BIKES ———
   ['Ducati', 'Panigale V4', 'bikes', 'bikeDucati', '🏍️', 'Italian scream on two wheels.', colors(BIKE_COLORS, 2700000), true],
@@ -542,7 +569,7 @@ TEMPLATES.push(
   // BMW M5 (as asked) + a couple more cars
   ['BMW', 'M5 Competition', 'cars', 'carBlue', '🏎️', 'V8 twin-turbo sedan sleeper. 617 hp of grey-suited menace.', car(['Standard', 'Competition'], ['Frozen Grey', 'Alpine White', 'Jet Black', 'Marina Blue', 'Isle of Man Green'], 16500000), true],
   ['Mercedes-Benz', 'G-Wagon G63', 'cars', 'carMustang', '🚙', 'Box on wheels, king of the valet line.', car(['G63', 'G63 AMG'], CAR_COLORS, 35000000)],
-  ['Toyota', 'Fortuner', 'cars', 'carRoad', '🚙', 'Highway ka dabang. Resale value ka baap.', car(['4x2', '4x4', 'Legender'], CAR_COLORS, 3500000)],
+  ['Toyota', 'Fortuner', 'cars', WM_FORTUNER, '🚙', 'Highway ka dabang. Resale value ka baap.', car(['4x2', '4x4', 'Legender'], CAR_COLORS, 3500000)],
 
   // ——— REAL ESTATE ———
   ['Palm Estates', 'Private Island — Dubai', 'realty', 'villa', '🏝️', 'Your own island off Dubai. Neighbours: dolphins.', V(['1 Acre', 850000000], ['3 Acre + Villa', 1900000000]), true],
@@ -552,7 +579,7 @@ TEMPLATES.push(
   ['Godrej', 'Bandra 3BHK', 'realty', 'livingRoom', '🏢', 'Bandra address = instant status.', V(['2 BHK', 45000000], ['3 BHK', 75000000])],
   ['Isprava', 'Goa Beach Villa', 'realty', 'villa', '🌴', 'Portuguese charm, private pool, susegad life.', V(['3 BHK Villa', 65000000], ['5 BHK Estate', 140000000])],
   ['Isprava', 'Lonavala Farmhouse', 'realty', 'cottage', '🏡', 'Weekend escape, monsoon-ready.', V(['2 Acre', 55000000], ['5 Acre Estate', 120000000])],
-  ['DLF', 'Gurgaon Sky Apartment', 'realty', 'livingMin', '🏙️', 'Golf-course view, NCR luxury.', V(['3 BHK', 38000000], ['4 BHK Penthouse', 90000000])],
+  ['DLF', 'Gurgaon Sky Apartment', 'realty', 'apartment', '🏙️', 'Golf-course view, NCR luxury.', V(['3 BHK', 38000000], ['4 BHK Penthouse', 90000000])],
 
   // ——— HOME DECOR (department) ———
   ['Generic', 'Arc Floor Lamp', 'home', 'decorCorner', '💡', 'Reading nook, instantly aesthetic.', colors(['Brass', 'Matte Black', 'Chrome'], 4999)],
@@ -598,9 +625,9 @@ TEMPLATES.push(
 
   // ——— MORE ELECTRONICS ———
   ['Apple', 'iPhone 16', 'gadgets', 'phoneYellow', '📱', 'Base model, still a flex.', combo(['Ultramarine', 'Pink', 'Teal', 'Black'], V(['128GB', 79900], ['256GB', 89900]))],
-  ['Apple', 'iPad Pro M4', 'gadgets', 'phoneDesk', '📱', 'Laptop replacement (for reels).', combo(['Space Black', 'Silver'], V(['11" 256GB', 99900], ['13" 512GB', 149900]))],
+  ['Apple', 'iPad Pro M4', 'gadgets', WM_IPAD, '📱', 'Laptop replacement (for reels).', combo(['Space Black', 'Silver'], V(['11" 256GB', 99900], ['13" 512GB', 149900]))],
   ['Dyson', 'Supersonic Hair Dryer', 'gadgets', 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e2/Dyson_Supersonic_Hair_Dryer_1_2017-01-28.jpg/960px-Dyson_Supersonic_Hair_Dryer_1_2017-01-28.jpg', '💨', 'Salon at home. Yes, worth it.', colors(['Fuchsia', 'Nickel', 'Blue Blush'], 45900), true],
-  ['Dyson', 'V15 Cordless Vacuum', 'gadgets', 'speaker', '🧹', 'Dust ka dushman. Laser detects it all.', V(['V12', 52900], ['V15 Detect', 65900])],
+  ['Dyson', 'V15 Cordless Vacuum', 'gadgets', WM_DYSON_VAC, '🧹', 'Dust ka dushman. Laser detects it all.', V(['V12', 52900], ['V15 Detect', 65900])],
   ['Philips', 'Air Fryer', 'gadgets', 'kitchen', '🍟', 'Guilt-free fries, ghar pe.', combo(['4.1L', '6.2L'], colors(['Black', 'White'], 8999).map((c) => c))],
   ['Preethi', 'Mixer Grinder', 'gadgets', 'kitchen', '🔌', 'Har Indian kitchen ka MVP.', V(['750W 3-Jar', 4499], ['1000W 4-Jar', 6499])],
   ['iRobot', 'Robot Vacuum', 'gadgets', 'arcade', '🤖', 'Ghar ki safai, auto-pilot.', V(['Roomba i3', 24900], ['Roomba j7+', 54900])],
@@ -629,7 +656,7 @@ TEMPLATES.push(
 )
 // ——— 1000+ REAL ESTATE listings: projects × (BHK · view) configs ———
 const HOUSE_PHOTOS = ['houseA', 'houseClassic', 'housePool', 'villaPool2', 'houseModern2', 'houseMinimal', 'houseBrick', 'bungalow', 'houseRust', 'villa', 'modernHouse', 'glassHouse', 'cottage', 'aerialVillas']
-const FLAT_PHOTOS = ['int1', 'int2', 'int3', 'int4', 'int5', 'int6', 'int7', 'kitchenInt', 'kitchenInt2', 'apartment', 'livingRoom', 'livingMin', 'livingWarm', 'livingSofa']
+const FLAT_PHOTOS = ['int1', 'int2', 'int3', 'int4', 'int5', 'int6', 'int7', 'kitchenInt', 'kitchenInt2', 'apartment', 'livingRoom']
 const BHKS = [['1 BHK', 0.55], ['2 BHK', 1], ['3 BHK', 1.5], ['4 BHK', 2.1], ['5 BHK Duplex', 3], ['Penthouse', 4.2]]
 const VIEWS = ['Garden Facing', 'Pool View', 'Park View', 'Corner Unit', 'High Floor', 'Sea Facing', 'City View']
 const realtyConfigs = (base) => BHKS.flatMap(([b, m]) => VIEWS.map((v) => [`${b} · ${v}`, Math.round(base * m)]))
@@ -1162,6 +1189,21 @@ TEMPLATES.push(
 // crediting the author — the catalog used Commons images before this without any
 // credit, which was a licence breach on my part. Rendered in the About sheet.
 export const WM_CREDITS = [
+  { what: 'Maruti Swift', file: 'Maruti Suzuki Swift 4456.JPG', author: 'Premnath Kudva', licence: 'CC BY-SA 3.0' },
+  { what: 'Tata Nexon', file: '2023 Tata Nexon XZA+ front view.jpg', author: 'Dairokkan9', licence: 'CC BY-SA 4.0' },
+  { what: 'Tata Harrier', file: 'Tata Buzzard Sport, GIMS 2019, Le Grand-Saconnex (GIMS0651).jpg', author: 'Matti Blume', licence: 'CC BY-SA 4.0' },
+  { what: 'Mahindra XUV700', file: '2021 Mahindra XUV700 2.2 AX7 (India) front view.png', author: 'DriveSpark', licence: 'CC BY 3.0' },
+  { what: 'Mahindra Thar', file: 'Mahindra Thar Photoshoot At Perupalem Beach (West Godavari District,AP,India ) Djdavid.jpg', author: 'DjDavid1998', licence: 'CC BY-SA 4.0' },
+  { what: 'Mahindra Scorpio', file: 'Mahindra Scorpio 2014.JPG', author: 'Ask27', licence: 'CC BY-SA 4.0' },
+  { what: 'Hyundai Creta', file: 'HYUNDAI CRETA , iX25 (SU2) China (1).jpg', author: 'Dinkun Chen', licence: 'CC BY-SA 4.0' },
+  { what: 'Tata Punch', file: '2021 Tata Punch Creative (India) front view 01.png', author: 'Athira Murali', licence: 'CC BY 3.0' },
+  { what: 'Tata Safari', file: 'Tata Safari 4x4 front.jpg', author: 'Rutger van der Maar', licence: 'CC BY 2.0' },
+  { what: 'Maruti Baleno', file: '2022 Maruti Suzuki Baleno Alpha (India) front view.jpg', author: 'Milind Kwatra', licence: 'CC BY 3.0' },
+  { what: 'Maruti Fronx', file: 'Suzuki Fronx (front).jpg', author: 'Jason Lawrence', licence: 'CC BY 2.0' },
+  { what: 'iPad Pro', file: 'Apple iPad Pro 11.jpg', author: '彭家杰', licence: 'CC BY-SA 4.0' },
+  { what: 'Dyson cordless vacuum', file: 'Dyson Cyclone V10 Absolute cordless stick vacuum.jpg', author: 'MattClayt', licence: 'CC BY-SA 4.0' },
+  { what: 'Toyota Fortuner', file: 'Toyota Fortuner India.jpg', author: 'Saiphani02', licence: 'CC BY-SA 4.0' },
+  { what: 'Toyota Innova Crysta', file: 'Toyota Innova Crysta 2.4 Z side.jpg', author: 'Premnath Kudva', licence: 'CC BY-SA 4.0' },
   { what: 'iPhone 16 Pro Max', file: 'IPhone 16 Pro Max Desert Titanium Rear.png', author: 'Padgriffin', licence: 'CC BY 4.0' },
   { what: 'iPhone 15 Pro', file: 'Apple iPhone 15 Pro.jpg', author: 'IPHONE 15', licence: 'CC BY-SA 4.0' },
   { what: 'MacBook Pro', file: 'MacBook Pro 2019 13 inch.jpg', author: 'Laptopsarena', licence: 'CC BY-SA 4.0' },
