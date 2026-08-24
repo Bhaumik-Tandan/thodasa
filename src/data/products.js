@@ -5,6 +5,7 @@
 // shared across a template's variants — same as Lays 52g vs 90g sharing a shot.
 import DAILY from './daily.js'
 import PACKSHOTS from './packshots.js'
+import ANGLES from './angles.js'
 
 export const CATEGORIES = [
   { id: 'all', label: 'All' },
@@ -1345,7 +1346,7 @@ const extraAngles = (photo) => {
         // the same pack from several sides is — and on a site about what sits
         // inside a price, the ingredients panel is the most on-theme second
         // image there is. See scripts/fetch-packshots.mjs.
-        imgs: extraAngles(photo)?.map(offSized) ?? null,
+        imgs: extraAngles(photo)?.map(offSized) ?? ANGLES[templateId] ?? null,
       })
       if (launch && first) LAUNCH_PICKS.push(id)
       first = false

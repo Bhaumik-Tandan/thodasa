@@ -64,6 +64,9 @@ export default function App() {
   const [view, setView] = useState('feed') // feed | wishlist | cart | checkout | orders | search
   const [detail, setDetail] = useState(null) // product whose variant sheet is open
   const [welcomed, setWelcomed] = useState(() => load('welcomed', false))
+  // reopened from Rewards; kept separate so replaying does not re-trigger
+  // first-visit behaviour anywhere else
+  const [replayIntro, setReplayIntro] = useState(false)
   const [burstKey, setBurstKey] = useState(0)
   const [scrollToIndex, setScrollToIndex] = useState(null)
   const [cartBounce, setCartBounce] = useState(false)
@@ -433,7 +436,7 @@ export default function App() {
         )}
         <Confetti burstKey={burstKey} />
         {view === 'feed' && <Feedback />}
-        {view === 'rewards' && <Rewards onClose={closeOverlay} onChange={() => setGameTick((t) => t + 1)} />}
+        {view === 'rewards' && <Rewards onShowIntro={() => { closeOverlay(); setReplayIntro(true) }} onClose={closeOverlay} onChange={() => setGameTick((t) => t + 1)} />}
         {reward && (
           <div className="animate-slide-up pointer-events-none absolute left-1/2 top-20 z-[55] -translate-x-1/2 rounded-full bg-black/85 px-4 py-2 text-sm font-black text-amber-300 shadow-xl backdrop-blur">
             {reward.type === 'achievement' ? `${reward.achievement.emoji} ${reward.achievement.name} unlocked! +50 🪙` : reward.type === 'compliment' ? reward.reason : `🪙 ${reward.reason}`}
@@ -472,6 +475,7 @@ export default function App() {
           <Search cart={cart} onAddToCart={addToCart} onOpenDetail={openDetail} onClose={closeOverlay} />
         )}
         {!welcomed && <Welcome onStart={() => { setWelcomed(true); save('welcomed', true) }} />}
+        {welcomed && replayIntro && <Welcome replay onStart={() => setReplayIntro(false)} />}
         {detail && (
           <ProductSheet
             product={detail}

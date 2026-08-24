@@ -5,9 +5,21 @@
 // the whole app — it deliberately uses the same editorial language as the
 // product card (Playfair display, tracked caps, solid white CTA, no emoji)
 // rather than the loud gradient it used to have.
-export default function Welcome({ onStart }) {
+// `replay` is set when the visitor reopens this from Rewards rather than seeing
+// it on first load — asked for because there was no way back to the intro once
+// it had been dismissed.
+export default function Welcome({ onStart, replay = false }) {
   return (
     <div className="fixed inset-0 z-[60] mx-auto flex max-w-md flex-col justify-center gap-12 overflow-hidden bg-[#0d0d0f] px-8 py-12 lg:max-w-3xl lg:gap-16 lg:px-16">
+      {replay && (
+        <button
+          onClick={onStart}
+          aria-label="Close"
+          className="absolute right-5 top-5 z-10 grid h-9 w-9 place-items-center rounded-full bg-white/10 text-lg text-white/70 backdrop-blur active:scale-90"
+        >
+          ✕
+        </button>
+      )}
       {/* faint editorial wash so the black isn't flat */}
       <div className="pointer-events-none absolute -right-24 -top-24 h-80 w-80 rounded-full bg-gradient-to-br from-white/8 to-transparent blur-3xl" />
       <div className="pointer-events-none absolute -bottom-32 -left-20 h-80 w-80 rounded-full bg-gradient-to-tr from-white/6 to-transparent blur-3xl" />

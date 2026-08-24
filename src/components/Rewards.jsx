@@ -5,7 +5,7 @@ import { VolumeOnIcon, VolumeOffIcon } from './Icons'
 
 const WHEEL_COLORS = ['#f43f5e', '#fb923c', '#facc15', '#4ade80', '#22d3ee', '#818cf8', '#c084fc', '#f472b6']
 
-export default function Rewards({ onClose, onChange }) {
+export default function Rewards({ onClose, onChange, onShowIntro}) {
   const [g, setG] = useState(() => summary())
   const [snd, setSnd] = useState(() => soundOn())
   const [spinning, setSpinning] = useState(false)
@@ -37,7 +37,14 @@ export default function Rewards({ onClose, onChange }) {
     <div className="animate-slide-up fixed inset-0 z-40 mx-auto flex max-w-md flex-col lg:max-w-none bg-gray-50 dark:bg-zinc-950">
       <header className="lg:mx-auto lg:w-full lg:max-w-2xl flex items-center justify-between border-b border-gray-100 bg-white px-4 py-3 pt-12 dark:border-zinc-800 dark:bg-zinc-900">
         <h1 className="text-lg font-black text-gray-900 dark:text-white">Rewards 🎁</h1>
-        <button onClick={onClose} className="rounded-lg px-3 py-1.5 text-sm font-semibold text-gray-500 active:scale-95 dark:text-gray-300">Close</button>
+        <div className="flex items-center gap-1">
+          {onShowIntro && (
+            <button onClick={onShowIntro} className="rounded-lg px-3 py-1.5 text-sm font-semibold text-violet-600 active:scale-95 dark:text-violet-400">
+              How this works
+            </button>
+          )}
+          <button onClick={onClose} className="rounded-lg px-3 py-1.5 text-sm font-semibold text-gray-500 active:scale-95 dark:text-gray-300">Close</button>
+        </div>
       </header>
 
       <div className="flex-1 lg:mx-auto lg:w-full lg:max-w-2xl space-y-4 overflow-y-auto p-4">
