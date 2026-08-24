@@ -1211,6 +1211,16 @@ TEMPLATES.push(
   ['Seiko', 'Presage Cocktail Time', 'watches', WM_SEIKO2, '⌚', 'Sunburst dial. Roshni mein ghoomao, bas.', colors(['Starlight', 'Mojito Green', 'Blue Moon'], 48000)],
 )
 
+// How many products the last cron drop actually added. Used for the end-of-feed
+// comeback line, so the promise is measured rather than invented.
+export const LAST_DROP_COUNT = (() => {
+  const byDate = {}
+  for (const p of DAILY) if (p.addedOn) byDate[p.addedOn] = (byDate[p.addedOn] ?? 0) + 1
+  const sizes = Object.values(byDate)
+  if (!sizes.length) return 0
+  return Math.min(...sizes)
+})()
+
 // ——— Daily arrivals ———
 // Genuinely new real products, fetched by scripts/fetch-daily.mjs on a cron and
 // committed as data. Before this, the "New in" chip rotated a FIXED catalog by

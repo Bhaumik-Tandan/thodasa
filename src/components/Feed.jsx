@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 import ProductCard from './ProductCard'
+import { LAST_DROP_COUNT } from '../data/products'
 
 export default function Feed({ products, wishlist, onToggleWish, onAddToCart, onQty, onRemove, onSignal, onDwell, onOpenDetail, onCategory, onActiveProduct, onUnlockPrompt, cart, cartByTemplate = {}, hasCartBar = false, scrollToIndex, onScrolled }) {
   const ref = useRef(null)
@@ -147,7 +148,10 @@ export default function Feed({ products, wishlist, onToggleWish, onAddToCart, on
         <section className="snap-card relative flex h-full w-full flex-col items-center justify-center gap-4 bg-gradient-to-br from-violet-500 via-fuchsia-500 to-rose-500 px-8 text-center">
           <span className="animate-float text-7xl">🎢</span>
           <h2 className="text-3xl font-black text-white drop-shadow-lg">Bas, itna hi tha!</h2>
-          <p className="text-base font-medium text-white/85">Aapne saare {products.length} finds dekh liye. Ek aur round?</p>
+          <p className="text-base font-medium text-white/85">Aapne saare {products.length} finds dekh liye.</p>
+          <p className="mt-1 text-sm font-semibold text-white/95">
+            Kal subah {LAST_DROP_COUNT > 0 ? `${LAST_DROP_COUNT} naye products` : 'naye products'} aayenge — aur streak bhi badhega 🔥
+          </p>
           <button
             onClick={restart}
             className="mt-2 rounded-2xl bg-white px-8 py-4 text-base font-extrabold text-fuchsia-600 shadow-xl active:scale-95"

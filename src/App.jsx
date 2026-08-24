@@ -18,7 +18,7 @@ import { LOCKS, isLocked, loadUnlocked, saveUnlocked, lockedTeasers, nextUnlock 
 import InstallNudge from './components/InstallNudge'
 import { trackAddToCart, trackRemoveFromCart, trackWishlist, trackPurchase, trackUnlock, trackBeginCheckout } from './lib/track'
 import { activeOrders, normalizeOrder } from './lib/orderStatus'
-import { startDay, action as gameAction, onReward, load as loadGame } from './lib/gamify'
+import { startDay, action as gameAction, onReward, load as loadGame, canSpin } from './lib/gamify'
 import { HeartIcon, BagIcon, MoonIcon, SunIcon, SearchIcon } from './components/Icons'
 import { startSession, recordSignal, dwellSignal, rankFeed, isNewToday } from './lib/taste'
 import { play as playSound } from './lib/sound'
@@ -207,6 +207,7 @@ export default function App() {
   // "340 more coins to unlock Cars" — tells people what to do, not just that
   // something is locked
   const nextLock = useMemo(() => nextUnlock(unlocked), [unlocked, gameTick])
+  const spinReady = useMemo(() => canSpin(), [gameTick])
   // how many of today's rotating drops exist — drives the "N new today" chip
   const newTodayCount = useMemo(() => TEMPLATE_HEROES.filter(isNewToday).length, [])
 
@@ -314,12 +315,23 @@ export default function App() {
               <button
                 onClick={() => openView('rewards')}
                 aria-label="Rewards"
-                className="flex min-w-0 shrink items-center gap-1 rounded-full bg-amber-400/90 px-2.5 py-1.5 text-xs font-black text-black backdrop-blur-md active:scale-90"
+                className="relative flex min-w-0 shrink items-center gap-1 rounded-full bg-amber-400/90 px-2.5 py-1.5 text-xs font-black text-black backdrop-blur-md active:scale-90"
               >
                 🪙 <span key={gameTick}>{inrShort(loadGame().coins)}</span>
+                {loadGame().streak > 1 && (
+                  <span key={`s${gameTick}`} className="text-[11px] font-black text-black/70">
+                    🔥{loadGame().streak}
+                  </span>
+                )}
                 {nextLock && (
                   <span className="hidden text-[10px] font-bold text-black/55 sm:inline">
                     /{nextLock.cost}
+                  </span>
+                )}
+                {spinReady && (
+                  <span className="absolute -right-0.5 -top-0.5 grid h-3.5 w-3.5 place-items-center">
+                    <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-rose-500 opacity-75" />
+                    <span className="relative h-2.5 w-2.5 rounded-full bg-rose-600 ring-2 ring-white" />
                   </span>
                 )}
               </button>

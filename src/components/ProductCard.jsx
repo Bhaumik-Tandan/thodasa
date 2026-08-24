@@ -10,6 +10,20 @@ import { landedBreakdown } from '../lib/duty'
 
 const fmtReviews = (n) => (n >= 1000 ? `${(n / 1000).toFixed(1)}k` : n)
 
+// Seeded from the product id, like the ratings and review counts already are,
+// so a given product always reports the same activity.
+const ACTIVITY = [
+  (n) => `${n} logo ne aaj dekha`,
+  (n) => `Aaj ${n} baar dekha gaya`,
+  (n) => `${n} logo ki wishlist mein`,
+  (n) => `${n} log isse dekh rahe hain`,
+]
+const activityLine = (p) => {
+  const h = (p.id * 53) % 1000
+  const n = 14 + (h % 87)
+  return ACTIVITY[h % ACTIVITY.length](n)
+}
+
 export default function ProductCard({ product, index, near = true, wished, onToggleWish, onAddToCart, onQty, onRemove, onSignal, onOpenDetail, onCategory, onUnlockPrompt, inCartQty, templateCart, hasCartBar = false, active = false}) {
   // Locked-tier teaser: shows WHAT is behind the lock and exactly what to do
   // about it. Locked categories used to be filtered out of the feed entirely,
@@ -281,11 +295,9 @@ export default function ProductCard({ product, index, near = true, wished, onTog
               </p>
             )
           })()}
-          {product.deal && (
-            <p className="mt-1 text-[11px] font-medium text-white/55 lg:text-neutral-500 lg:dark:text-white/55">
-              {14 + ((product.id * 53) % 87)} logo ne aaj kharida
-            </p>
-          )}
+          <p className="mt-1 text-[11px] font-medium text-white/55 lg:text-neutral-500 lg:dark:text-white/55">
+            {activityLine(product)}
+          </p>
         </div>
 
         {/* full-width thumb-zone CTA: Add → quantity stepper with remove */}
