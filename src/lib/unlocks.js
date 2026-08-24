@@ -8,17 +8,25 @@
 
 const KEY = 'thodasa.unlocks'
 
-// cost by category — ordered as a progression ladder
+// cost by category — ordered as a progression ladder.
+//
+// Repriced after watching a Twitter visitor spend 18 minutes and 104 clicks
+// against a wall of nine padlocks (Clarity, Aug 23). A first session realistically
+// banks ~85 coins: 30 from the day-1 streak, ~40 from scrolling, one add. The old
+// ladder totalled 1,940 and put cars — the thing people arrive for — at 250, so
+// the tier they came to see was unreachable on the visit they came on. Halved
+// across the board and flattened at the top: the first unlock is nearly free,
+// cars lands inside session one, and only realty asks for a second visit.
 export const LOCKS = {
-  art: 60,
-  shoes: 80,
-  watches: 100,
-  jewels: 100,
-  luxe: 150,
-  bikes: 200,
-  cars: 250,
-  jets: 400,
-  realty: 600,
+  art: 25,
+  shoes: 40,
+  jewels: 50,
+  watches: 60,
+  luxe: 80,
+  bikes: 100,
+  cars: 120,
+  jets: 180,
+  realty: 250,
 }
 
 export const isLockable = (cat) => cat in LOCKS
