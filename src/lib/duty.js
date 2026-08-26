@@ -97,16 +97,19 @@ export const isImported = (p) => {
   return FOREIGN.has(p.brand)
 }
 
-// Break an inclusive MRP into duty, surcharge, cess, GST and what's left.
+// The arithmetic, on plain rates rather than on a catalog product.
 //
 //   MRP = A·(1 + b + 0.1b)·(1 + g + c)
 // so A = MRP / ((1 + 1.1b)·(1 + g + c))
-export const landedBreakdown = (product, qty = 1) => {
-  const mrp = product.price * qty
-  const imported = isImported(product)
-  const g = gstRate(product) / 100
-  const b = imported ? (BCD[product.category] ?? 20) / 100 : 0
-  const c = imported ? (CESS[product.category] ?? 0) / 100 : cessRate(product) / 100
+//
+// Split out from landedBreakdown so the standalone calculator at /duty/ and the
+// product cards run the SAME function. Two copies of this formula would drift,
+// and a tax figure that disagrees with itself across two pages of the same site
+// is worse than not showing one at all.
+export const landedFrom = ({ mrp, bcdRate = 0, gstRate = 0, cessRate = 0 }) => {
+  const b = bcdRate / 100
+  const g = gstRate / 100
+  const c = cessRate / 100
 
   const assessable = mrp / ((1 + 1.1 * b) * (1 + g + c))
   const bcd = assessable * b
@@ -117,8 +120,7 @@ export const landedBreakdown = (product, qty = 1) => {
 
   const r = Math.round
   return {
-    imported,
-    mrp,
+    mrp: r(mrp),
     assessable: r(assessable),
     bcd: r(bcd),
     bcdRate: Math.round(b * 1000) / 10,
@@ -128,7 +130,47 @@ export const landedBreakdown = (product, qty = 1) => {
     cess: r(cess),
     cessRate: Math.round(c * 1000) / 10,
     govtTotal: r(bcd + sws + igst + cess),
-    govtShare: Math.round(((bcd + sws + igst + cess) / mrp) * 100),
+    govtShare: mrp > 0 ? Math.round(((bcd + sws + igst + cess) / mrp) * 100) : 0,
+  }
+}
+
+// Goods types for the standalone calculator, keyed to the same BCD and GST
+// tables the catalog uses. `imported` decides whether customs applies at all.
+// Rates are the indicative headline slabs — real classification runs on an
+// 8-digit HSN code and the page says so.
+export const GOODS = [
+  { id: 'phone', label: 'Phone or tablet', cat: 'gadgets', gst: 18, bcd: 20 },
+  { id: 'laptop', label: 'Laptop or computer', cat: 'gadgets', gst: 18, bcd: 20 },
+  { id: 'audio', label: 'Headphones, speakers, wearables', cat: 'gadgets', gst: 18, bcd: 20 },
+  { id: 'camera', label: 'Camera or lens', cat: 'gadgets', gst: 18, bcd: 20 },
+  { id: 'watch', label: 'Wristwatch', cat: 'watches', gst: 18, bcd: 20 },
+  { id: 'jewellery', label: 'Gold or silver jewellery', cat: 'jewels', gst: 3, bcd: 20 },
+  { id: 'bag', label: 'Handbag, luggage, leather goods', cat: 'luxe', gst: 18, bcd: 20 },
+  { id: 'perfume', label: 'Perfume or cosmetics', cat: 'beauty', gst: 18, bcd: 20 },
+  { id: 'clothing', label: 'Clothing (above ₹1,000)', cat: 'fashion', gst: 12, bcd: 20 },
+  { id: 'footwear', label: 'Footwear (above ₹1,000)', cat: 'shoes', gst: 18, bcd: 20 },
+  { id: 'car', label: 'Car (fully built import)', cat: 'cars', gst: 28, bcd: 70, cess: 22 },
+  { id: 'bike', label: 'Motorcycle', cat: 'bikes', gst: 28, bcd: 50, cess: 3 },
+  { id: 'toy', label: 'Toys and games', cat: 'toys', gst: 12, bcd: 70 },
+  { id: 'book', label: 'Printed books', cat: 'books', gst: 0, bcd: 0 },
+  { id: 'stationery', label: 'Stationery', cat: 'stationery', gst: 12, bcd: 10 },
+  { id: 'homeware', label: 'Homeware and kitchen', cat: 'home', gst: 18, bcd: 20 },
+  { id: 'food', label: 'Packaged food and snacks', cat: 'snacks', gst: 12, bcd: 30 },
+  { id: 'softdrink', label: 'Aerated or energy drink', cat: 'snacks', gst: 28, bcd: 30, cess: 12 },
+  { id: 'staples', label: 'Kitchen staples (atta, dal, rice)', cat: 'grocery', gst: 5, bcd: 30 },
+]
+
+// Break an inclusive MRP into duty, surcharge, cess, GST and what's left.
+export const landedBreakdown = (product, qty = 1) => {
+  const imported = isImported(product)
+  return {
+    imported,
+    ...landedFrom({
+      mrp: product.price * qty,
+      bcdRate: imported ? (BCD[product.category] ?? 20) : 0,
+      gstRate: gstRate(product),
+      cessRate: imported ? (CESS[product.category] ?? 0) : cessRate(product),
+    }),
   }
 }
 

@@ -9,12 +9,25 @@ import { fileURLToPath } from 'node:url'
 import { TEMPLATE_HEROES, inr, WM_CREDITS, CATEGORIES } from '../src/data/products.js'
 import TYPE_CREDITS from '../src/data/typeCredits.js'
 import { landedBreakdown as duty } from '../src/lib/duty.js'
+import { landedFrom, GOODS } from '../src/lib/duty.js'
+import { dutyPage, BROWSER_MATH } from './lib/duty-page.mjs'
 
 const SITE = 'https://thodasa.com'
 const root = path.join(path.dirname(fileURLToPath(import.meta.url)), '..')
 const dist = path.join(root, 'dist')
 
 const esc = (s) => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/"/g, '&quot;')
+
+// Catalog category -> the closest goods type in the calculator, so the link
+// from a product page arrives pre-filled rather than on a blank form.
+const GOODS_BY_CAT = {
+  gadgets: 'phone', watches: 'watch', jewels: 'jewellery', luxe: 'bag', beauty: 'perfume',
+  fashion: 'clothing', shoes: 'footwear', cars: 'car', bikes: 'bike', toys: 'toy',
+  books: 'book', stationery: 'stationery', home: 'homeware', kitchen: 'homeware',
+  snacks: 'food', icecream: 'food', grocery: 'staples', accessories: 'bag',
+  art: 'stationery', kpop: 'homeware', quirky: 'homeware',
+}
+const dutyGoods = (cat) => GOODS_BY_CAT[cat] ?? 'phone'
 
 const page = (p, related) => {
   const url = `${SITE}/p/${p.slug}/`
@@ -112,7 +125,8 @@ const page = (p, related) => {
     <tr><td>${d.imported ? 'IGST' : 'GST'} @ ${d.igstRate}%</td><td>₹${inr(d.igst)}</td></tr>
     <tr><td><strong>You pay</strong></td><td><strong>₹${inr(p.price)}</strong></td></tr>
   </table>
-  <p class="caps" style="margin-top:.7rem">${d.govtShare}% of this price is duty &amp; tax</p>
+  <p class="caps" style="margin-top:.7rem">${d.govtShare}% of this price is duty &amp; tax &middot;
+    <a href="/duty/?price=${p.price}&amp;goods=${dutyGoods(p.category)}&amp;imported=${d.imported ? 1 : 0}">work it out for anything &rarr;</a></p>
 
   <a class="cta" href="/?p=${p.templateId}">Open in ThodaSa</a>
 
@@ -126,7 +140,7 @@ const page = (p, related) => {
     actually sold and no payment is ever taken. Indian MRP is inclusive of all
     taxes, so the figures above are extracted from the listed price, not added to
     it, and are indicative.</p>
-    <p style="margin-top:.8rem"><a href="/">Open ThodaSa →</a> &middot; <a href="/browse/">Browse all products</a> &middot; <a href="/credits/">Photo credits</a></p>
+    <p style="margin-top:.8rem"><a href="/">Open ThodaSa →</a> &middot; <a href="/duty/">Duty &amp; GST calculator</a> &middot; <a href="/browse/">Browse all products</a> &middot; <a href="/credits/">Photo credits</a></p>
   </footer>
 </div>
 </body>
@@ -147,6 +161,39 @@ for (const p of TEMPLATE_HEROES) {
   fs.mkdirSync(dir, { recursive: true })
   fs.writeFileSync(path.join(dir, 'index.html'), page(p, related))
   count++
+}
+
+// Landed-cost calculator at /duty/.
+//
+// The page carries its own copy of the formula so it works as a single static
+// file with no module loading. That copy is a drift risk, so it is eval'd here
+// and checked against lib/duty.js across a spread of rates and prices. If the
+// two ever disagree the build fails rather than shipping a site whose tax
+// figures contradict each other page to page.
+{
+  // eslint-disable-next-line no-eval
+  const inline = eval(`(function(){${BROWSER_MATH}; return landed})()`)
+  const cases = []
+  for (const mrp of [0, 1, 999, 25000, 144900, 12500000]) {
+    for (const g of GOODS) {
+      cases.push([mrp, g.bcd, g.gst, g.cess ?? 0])
+      cases.push([mrp, 0, g.gst, 0])
+    }
+  }
+  for (const [mrp, b, g, c] of cases) {
+    const a = inline(mrp, b, g, c)
+    const e = landedFrom({ mrp, bcdRate: b, gstRate: g, cessRate: c })
+    for (const k of ['mrp', 'assessable', 'bcd', 'sws', 'igst', 'cess', 'govtTotal', 'govtShare']) {
+      if (a[k] !== e[k]) {
+        console.error(`duty formula drift at mrp=${mrp} b=${b} g=${g} c=${c}: ${k} ${a[k]} !== ${e[k]}`)
+        process.exit(1)
+      }
+    }
+  }
+  const dutyDir = path.join(dist, 'duty')
+  fs.mkdirSync(dutyDir, { recursive: true })
+  fs.writeFileSync(path.join(dutyDir, 'index.html'), dutyPage({ site: SITE, goods: GOODS }))
+  console.log(`duty calculator: formula verified across ${cases.length} cases`)
 }
 
 // Photo credits page. Most catalog images are Unsplash (licence needs no
@@ -268,7 +315,7 @@ const browsePage = `<!doctype html>
   and customs-duty breakdown behind its price. Nothing here is actually for sale.</p>
   ${byCatSorted.map((c) => `<h2>${esc(c.label)} <span class="p">${c.items.length}</span></h2>
   <ul>${c.items.map((x) => `<li><a href="/p/${x.slug}/">${esc(x.baseName)}</a> <span class="p">₹${inr(x.price)}</span></li>`).join('')}</ul>`).join('\n  ')}
-  <footer><p><a href="/">&larr; Back to ThodaSa</a> &middot; <a href="/credits/">Photo credits</a></p></footer>
+  <footer><p><a href="/">&larr; Back to ThodaSa</a> &middot; <a href="/duty/">Duty &amp; GST calculator</a> &middot; <a href="/credits/">Photo credits</a></p></footer>
 </div>
 </body>
 </html>
@@ -276,7 +323,9 @@ const browsePage = `<!doctype html>
 fs.mkdirSync(path.join(dist, 'browse'), { recursive: true })
 fs.writeFileSync(path.join(dist, 'browse', 'index.html'), browsePage)
 
-const urls = [`${SITE}/`, `${SITE}/browse/`, `${SITE}/credits/`, ...TEMPLATE_HEROES.map((p) => `${SITE}/p/${p.slug}/`)]
+// /duty/ sits second on purpose. It is the only page here with a search query
+// genuinely behind it, and sitemap order is a weak crawl-priority signal.
+const urls = [`${SITE}/`, `${SITE}/duty/`, `${SITE}/browse/`, `${SITE}/credits/`, ...TEMPLATE_HEROES.map((p) => `${SITE}/p/${p.slug}/`)]
 fs.writeFileSync(
   path.join(dist, 'sitemap.xml'),
   `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n` +
