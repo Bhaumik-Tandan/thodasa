@@ -2,7 +2,7 @@ import { inr } from '../data/products'
 import { useState } from 'react'
 import { VARIANTS_BY_TEMPLATE } from '../data/products'
 import { TrashIcon, MinusIcon, PlusIcon, BagPlusIcon } from './Icons'
-import { canShop, shopTarget, shopUrl } from '../lib/shop'
+import { canShop, shopTarget, shopUrl, isAffiliate } from '../lib/shop'
 import { trackOutbound, trackDutyOpen } from '../lib/track'
 import { deliveryEstimate, termsFor } from '../lib/orderStatus'
 import { gstRate } from '../lib/tax'
@@ -177,7 +177,9 @@ export default function ProductSheet({ product, cart, onAddToCart, onQty, onRemo
                 Find it on {shopTarget(selected)}
               </span>
               <span className="block text-[11px] text-gray-500 dark:text-gray-400">
-                Opens a search — this demo doesn't sell anything
+                {isAffiliate()
+                  ? 'Opens a search. We may earn a commission — it costs you nothing'
+                  : "Opens a search — this demo doesn't sell anything"}
               </span>
             </span>
             <span className="text-lg text-gray-400">↗</span>

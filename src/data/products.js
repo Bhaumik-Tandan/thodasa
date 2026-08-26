@@ -6,6 +6,7 @@
 import DAILY from './daily.js'
 import PACKSHOTS from './packshots.js'
 import ANGLES from './angles.js'
+import TYPE_PHOTOS from './typePhotos.js'
 
 export const CATEGORIES = [
   { id: 'all', label: 'All' },
@@ -1313,6 +1314,24 @@ const barcodeOf = (url) => {
   const m = typeof url === 'string' && url.match(/\/products\/((?:\d+\/)+)/)
   return m ? m[1].replace(/\//g, '') : null
 }
+// Products with no second photo of their own borrow TYPE photos: more pictures
+// of the same kind of thing, not the same object. Half this catalog is invented
+// brands, so a second shot of a Glowuh serum does not exist and never will —
+// but the hero was already a stock photo of the type, so the carousel stays as
+// honest as the card always was.
+//
+// The offset walks the pool by templateId so two neighbouring cards in the same
+// category do not show the same three pictures, which is exactly what makes a
+// shared pool obvious.
+const typeAngles = (category, templateId, hero) => {
+  const pool = TYPE_PHOTOS[category]
+  if (!pool || pool.length < 3) return null
+  const start = templateId % pool.length
+  const picks = [hero]
+  for (let i = 0; i < 2; i++) picks.push(pool[(start + i) % pool.length])
+  return picks
+}
+
 const extraAngles = (photo) => {
   const code = barcodeOf(photo)
   return code ? PACKSHOTS[code] ?? null : null
@@ -1346,7 +1365,7 @@ const extraAngles = (photo) => {
         // the same pack from several sides is — and on a site about what sits
         // inside a price, the ingredients panel is the most on-theme second
         // image there is. See scripts/fetch-packshots.mjs.
-        imgs: extraAngles(photo)?.map(offSized) ?? ANGLES[templateId] ?? null,
+        imgs: extraAngles(photo)?.map(offSized) ?? ANGLES[templateId] ?? typeAngles(category, templateId, photo) ?? null,
       })
       if (launch && first) LAUNCH_PICKS.push(id)
       first = false

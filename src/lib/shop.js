@@ -70,6 +70,23 @@ const query = (p) => {
   return REAL_BRANDS.has(p.brand) ? `${p.brand} ${bare}` : bare
 }
 
+// Amazon Associates tracking id. Empty until the account is approved — every
+// outbound click before this was set earned exactly nothing, which quietly made
+// the whole affiliate model theoretical. Set it and the same clicks start
+// paying; leave it empty and the links still work, just unattributed.
+//
+// Amazon India requires 3 qualifying sales within 180 days of signup or they
+// close the account, so this is deliberately not filled in with a guess.
+export const AMAZON_TAG = ''
+
+// True only when we actually stand to earn from the link. The UI keys its
+// disclosure off this, so the site never claims a commercial relationship it
+// does not have — and never hides one it does.
+export const isAffiliate = () => AMAZON_TAG.length > 0
+
 // Amazon's /s?k= search endpoint is stable and well known. (Myntra would suit
 // apparel better, but its search URL format is not something to guess at.)
-export const shopUrl = (p) => `https://www.amazon.in/s?k=${encodeURIComponent(query(p))}`
+export const shopUrl = (p) => {
+  const url = `https://www.amazon.in/s?k=${encodeURIComponent(query(p))}`
+  return AMAZON_TAG ? `${url}&tag=${encodeURIComponent(AMAZON_TAG)}` : url
+}

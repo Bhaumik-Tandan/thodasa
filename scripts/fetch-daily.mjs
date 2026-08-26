@@ -98,6 +98,73 @@ const EMOJI = [[/biscuit|cookie|rusk/, '🍪'], [/wafer|chips|sev|namkeen/, '�
   [/tea|coffee/, '☕'], [/milk|curd|paneer|cheese|butter|ghee/, '🥛']]
 const emojiFor = (n) => (EMOJI.find(([re]) => re.test(n.toLowerCase())) || [null, '🛒'])[1]
 
+// --- non-food sources ---
+//
+// Open Food Facts only has food, so every "New in" arrival was a snack or a
+// staple no matter how the categories were weighted. Its sibling databases --
+// Open Products Facts (household, stationery, electronics) and Open Beauty
+// Facts (cosmetics) -- use the identical API shape and also carry India data,
+// which is what finally lets the daily drop be the useful everyday stuff
+// people browse for rather than another shelf of biscuits.
+// Every short keyword is anchored on BOTH sides. A trailing \b alone is not
+// enough and this is the fourth time that lesson has cost something here:
+// /pen\b/ matches "O-pen--products-facts", the tag Open Products Facts stamps
+// on every single record, so the first version of this filed a Samsung phone,
+// Fevicol and Surf Excel all as stationery. /led\b/ matches "called",
+// /pan\b/ matches "Japan", /file\b/ matches "profile". Anchor both ends.
+const NONFOOD_CAT = [
+  [/shampoo|\bsoap\b|face ?wash|serum|cream|lotion|lipstick|kajal|kohl|talc|deodorant|perfume|\bnail\b|mascara|sunscreen|hair ?conditioner|moisturis/i, 'beauty'],
+  [/\bpens?\b|pencil|notebook|\bdiary\b|eraser|sharpener|marker|stapler|\bglue\b|\btape\b|\bfiles?\b|stationery/i, 'stationery'],
+  [/\bbulbs?\b|\bled\b|batter(y|ies)|charger|\bcables?\b|adapter|earphone|headphone|speaker|\bmouse\b|keyboard|torch|smartwatch|powerbank/i, 'gadgets'],
+  [/\bbottles?\b|tiffin|lunch ?box|container|\bjars?\b|\bpans?\b|kadai|cooker|utensil|casserole|flask|\bmugs?\b|\bplates?\b|\bspoons?\b/i, 'kitchen'],
+  [/detergent|fabric ?(conditioner|softener)|cleaner|phenyl|\bmops?\b|broom|freshener|dustbin|napkin|tissue|\btowels?\b|\bmats?\b|bucket|hanger/i, 'home'],
+]
+const nonFoodCat = (name, cats, fallback) =>
+  (NONFOOD_CAT.find(([re]) => re.test(`${name} ${cats}`)) || [null, fallback])[1]
+
+const NONFOOD_PRICE = {
+  beauty: [149, 550], stationery: [30, 180], gadgets: [199, 1400],
+  kitchen: [120, 700], home: [60, 400],
+}
+const nonFoodPrice = (cat, name) => {
+  const [lo, spread] = NONFOOD_PRICE[cat] ?? [99, 300]
+  return lo + ([...name].reduce((a, c) => a + c.charCodeAt(0), 0) % spread)
+}
+const NONFOOD_EMOJI = {
+  beauty: '💄', stationery: '✏️', gadgets: '🔌',
+  kitchen: '🍳', home: '🧹',
+}
+
+// descFor() falls back to kirana lines -- "Kirana list ka regular member" is
+// fine for atta and wrong for a smartwatch, so non-food gets its own copy.
+const NONFOOD_DESC = {
+  beauty: [
+    'Sunday self-care ka regular.', 'Ek baar try karo, phir baat karenge.',
+    'Dressing table pe jagah pakki.', 'Glow ka shortcut. Sort of.',
+  ],
+  stationery: [
+    'Notes acche lagne lagte hain isse.', 'Exam season ka silent partner.',
+    'Desk pe rakha, kaam pe laga.', 'Har list yahin se shuru hoti hai.',
+  ],
+  gadgets: [
+    'Charge karo, bhool jao. Chalta rahega.', 'Ek cable jo actually kaam karta hai.',
+    'Chhota gadget, bada farq.', 'Roz use hoga, roz.',
+  ],
+  kitchen: [
+    'Kitchen mein sabse zyada uthaya jaane wala.', 'Dhoke saaf, phir wahi kaam.',
+    'Ek baar kharida, saalon chalega.', 'Tiffin se dinner tak.',
+  ],
+  home: [
+    'Ghar thoda saaf, mood thoda better.', 'Rakh do kone mein, kaam karta rahega.',
+    'Boring hai. Zaroori bhi hai.', 'Har ghar mein ek hota hai.',
+  ],
+}
+const nonFoodDesc = (cat, name) => {
+  const lines = NONFOOD_DESC[cat]
+  if (!lines) return null
+  return lines[[...name].reduce((a, c) => a + c.charCodeAt(0), 0) % lines.length]
+}
+
 // ---------------------------------------------------------------- main
 const existing = fs.existsSync(OUT)
   ? (await import(`file://${OUT}?t=${Date.now()}`)).default
@@ -224,48 +291,86 @@ while (funOrder.length || basicOrder.length) {
 }
 const pageBase = 1 + ((dayNum * 3) % 12)
 
+// Sources, in the order they are drained. Food first because it has the most
+// India coverage by far; the sibling databases then top up the day with the
+// useful non-food stuff that OFF simply does not contain.
+// Each source gets its OWN share of the day's quota rather than draining in
+// order. WANT is 15 and PER_CAT is 3, so five food categories filled the whole
+// run and the non-food sources below were never reached even once — wired up
+// and functionally dead. Splitting the quota is what actually makes the daily
+// drop stop being all snacks.
+const SOURCES = [
+  { host: 'world.openfoodfacts.org', cats: catOrder, kind: 'food', want: Math.round(WANT * 0.5) },
+  { host: 'world.openproductsfacts.org', cats: [null], kind: 'product', want: Math.round(WANT * 0.3) },
+  { host: 'world.openbeautyfacts.org', cats: [null], kind: 'beauty', want: WANT - Math.round(WANT * 0.5) - Math.round(WANT * 0.3) },
+]
+
 outer:
-for (const cat of catOrder) {
-  let fromCat = 0
-  for (let page = pageBase; page < pageBase + 3; page++) {
-    if (fromCat >= PER_CAT) break
-    if (added.length >= WANT) break outer
-    const url = 'https://world.openfoodfacts.org/api/v2/search?countries_tags_en=india'
-      + `&categories_tags_en=${cat}`
-      + '&fields=code,product_name,brands,image_front_url,quantity,categories_tags'
-      + `&page_size=50&page=${page}&sort_by=unique_scans_n`
-    const d = await get(url)
-    if (!d?.products?.length) { console.log(`${cat} p${page}: unavailable`); continue }
-    let fresh = 0
-    for (const p of d.products) {
-      if (added.length >= WANT) break
-      if (fromCat >= PER_CAT) break
-      if (!p.code || seenCodes.has(p.code) || !usable(p)) continue
-      const brand = (p.brands || '').split(',')[0].trim()
-      if (!brand || CORPORATE.test(brand)) continue // corporate entity, not a shelf brand
-      if (isBrandTypo(brand)) continue               // misspelt brand = duplicate record
-      if (JUNK.test(p.product_name || '')) continue
-      const name = tidy(clean(p.product_name, brand), brand)
-      const key = nameKey(brand, name)
-      if (name.length < 6 || tooSimilar(key, seenNames)) continue
-      const cats = (p.categories_tags || []).join(' ')
-      seenCodes.add(p.code); seenNames.add(key) // added immediately so the rest of this run sees it
-      added.push({
-        code: p.code, brand, name,
-        // keep the 400px variant: the `full` original runs to 1.9MB per pack
-        img: (p.image_front_url || '').replace(/\.full\.jpg$/, '.400.jpg'),
-        qty: (p.quantity || '').trim().slice(0, 20) || 'Std pack',
-        cat: ICE.test(`${name} ${cats}`) ? 'icecream' : GROC.test(`${name} ${cats}`) ? 'grocery' : 'snacks',
-        price: priceFor(name, cats, p.quantity || ''),
-        emoji: emojiFor(name),
-        desc: descFor(name, cats, p.quantity || ''),
-        addedOn: today,
-      })
-      fresh++
-      fromCat++
+for (const src of SOURCES) {
+  const budget = added.length + src.want // this source may not exceed its share
+  for (const cat of src.cats) {
+    let fromCat = 0
+    for (let page = pageBase; page < pageBase + 3; page++) {
+      if (fromCat >= (cat ? PER_CAT : src.want)) break
+      if (added.length >= budget) break
+      if (added.length >= WANT) break outer
+      // The sibling databases hold only a few hundred India records each, so
+      // they are walked unfiltered — a category filter there returns nothing.
+      const url = `https://${src.host}/api/v2/search?countries_tags_en=india`
+        + (cat ? `&categories_tags_en=${cat}` : '')
+        + '&fields=code,product_name,brands,image_front_url,quantity,categories_tags'
+        + `&page_size=50&page=${page}&sort_by=unique_scans_n`
+      const d = await get(url)
+      const label = cat ?? src.kind
+      if (!d?.products?.length) { console.log(`${label} p${page}: unavailable`); continue }
+      let fresh = 0
+      for (const p of d.products) {
+        if (added.length >= WANT || added.length >= budget) break
+        if (fromCat >= (cat ? PER_CAT : src.want)) break
+        if (!p.code || seenCodes.has(p.code) || !usable(p)) continue
+        const brand = (p.brands || '').split(',')[0].trim()
+        if (!brand || CORPORATE.test(brand)) continue // corporate entity, not a shelf brand
+        if (isBrandTypo(brand)) continue               // misspelt brand = duplicate record
+        if (JUNK.test(p.product_name || '')) continue
+        const name = tidy(clean(p.product_name, brand), brand)
+        const key = nameKey(brand, name)
+        if (name.length < 6 || tooSimilar(key, seenNames)) continue
+        const cats = (p.categories_tags || []).join(' ')
+
+        // Food keeps its existing snack/grocery/icecream split. Non-food is
+        // routed by keyword, and anything that cannot be placed is skipped
+        // rather than dumped into 'snacks' — a shampoo filed as a snack is
+        // worse than no arrival at all.
+        let category, price, emoji
+        if (src.kind === 'food') {
+          category = ICE.test(`${name} ${cats}`) ? 'icecream' : GROC.test(`${name} ${cats}`) ? 'grocery' : 'snacks'
+          price = priceFor(name, cats, p.quantity || '')
+          emoji = emojiFor(name)
+        } else {
+          category = nonFoodCat(name, cats, src.kind === 'beauty' ? 'beauty' : null)
+          if (!category) continue
+          price = nonFoodPrice(category, name)
+          emoji = NONFOOD_EMOJI[category] ?? '🛒'
+        }
+
+        seenCodes.add(p.code); seenNames.add(key) // added immediately so the rest of this run sees it
+        added.push({
+          code: p.code, brand, name,
+          // keep the 400px variant: the `full` original runs to 1.9MB per pack
+          img: (p.image_front_url || '').replace(/\.full\.jpg$/, '.400.jpg'),
+          qty: (p.quantity || '').trim().slice(0, 20) || 'Std pack',
+          cat: category,
+          price,
+          emoji,
+          desc: (src.kind === 'food' ? null : nonFoodDesc(category, name)) ?? descFor(name, cats, p.quantity || ''),
+          addedOn: today,
+        })
+        fresh++
+        fromCat++
+      }
+      console.log(`${label} p${page}: +${fresh} (${added.length}/${WANT})`)
+      await sleep(2500)
     }
-    console.log(`${cat} p${page}: +${fresh} (${added.length}/${WANT})`)
-    await sleep(2500)
   }
 }
 

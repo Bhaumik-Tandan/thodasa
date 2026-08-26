@@ -7,6 +7,7 @@ import fs from 'node:fs'
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { TEMPLATE_HEROES, inr, WM_CREDITS, CATEGORIES } from '../src/data/products.js'
+import TYPE_CREDITS from '../src/data/typeCredits.js'
 import { landedBreakdown as duty } from '../src/lib/duty.js'
 
 const SITE = 'https://thodasa.com'
@@ -187,6 +188,16 @@ const creditsPage = `<!doctype html>
   <table>
     <tr><th>Used for</th><th>Author</th><th>Licence</th></tr>
     ${WM_CREDITS.map((c) => `<tr><td><a href="https://commons.wikimedia.org/wiki/File:${encodeURIComponent(c.file.replace(/ /g, '_'))}">${esc(c.what)}</a></td><td>${esc(c.author)}</td><td>${esc(c.licence)}</td></tr>`).join('\n    ')}
+  </table>
+
+  <h2>Wikimedia Commons — type photography</h2>
+  <p>Around half this catalog is invented brands, so a second photograph of the
+  specific product does not exist. Those cards borrow <em>type</em> photos
+  instead: more pictures of the same kind of thing. These are credited here on
+  the same terms as everything else.</p>
+  <table>
+    <tr><th>Used for</th><th>Author</th><th>Licence</th></tr>
+    ${TYPE_CREDITS.map((c) => `<tr><td><a href="https://commons.wikimedia.org/wiki/File:${encodeURIComponent(c.file.replace(/ /g, '_'))}">${esc(c.what)}</a></td><td>${esc(c.author)}</td><td>${esc(c.licence)}</td></tr>`).join('\n    ')}
   </table>
 
   <h2>Unsplash</h2>
