@@ -1333,20 +1333,23 @@ const barcodeOf = (url) => {
 }
 // Products with no second photo of their own borrow TYPE photos: more pictures
 // of the same kind of thing, not the same object. Half this catalog is invented
-// brands, so a second shot of a Glowuh serum does not exist and never will —
-// but the hero was already a stock photo of the type, so the carousel stays as
-// honest as the card always was.
+// brands, so a second shot of a Glowuh serum does not exist and never will.
 //
-// The offset walks the pool by templateId so two neighbouring cards in the same
-// category do not show the same three pictures, which is exactly what makes a
-// shared pool obvious.
-const typeAngles = (category, templateId, hero) => {
-  const pool = TYPE_PHOTOS[category]
-  if (!pool || pool.length < 3) return null
-  const start = templateId % pool.length
-  const picks = [hero]
-  for (let i = 0; i < 2; i++) picks.push(pool[(start + i) % pool.length])
-  return picks
+// Keyed to a SUBJECT, and only lent to a product whose own name says it IS that
+// subject. The first version keyed them to the category, which gave all 64
+// fashion products kurta photos — blazers, hoodies and slim jeans included —
+// and put lipstick on shampoo. Of 233 products given a carousel, 22 were shown
+// a photo of what they actually are. Matching on the name costs most of the
+// coverage and is the only version worth shipping: one accurate photo beats
+// three that look like placeholders, because that is what they looked like.
+const typeAngles = (category, name, hero) => {
+  const subjects = TYPE_PHOTOS[category]
+  if (!subjects) return null
+  for (const { match, urls } of Object.values(subjects)) {
+    if (!new RegExp(match, 'i').test(name)) continue
+    return [hero, ...urls.slice(0, 2)]
+  }
+  return null
 }
 
 const extraAngles = (photo) => {
@@ -1382,7 +1385,7 @@ const extraAngles = (photo) => {
         // the same pack from several sides is — and on a site about what sits
         // inside a price, the ingredients panel is the most on-theme second
         // image there is. See scripts/fetch-packshots.mjs.
-        imgs: extraAngles(photo)?.map(offSized) ?? ANGLES[templateId] ?? typeAngles(category, templateId, photo) ?? null,
+        imgs: extraAngles(photo)?.map(offSized) ?? ANGLES[templateId] ?? typeAngles(category, baseName, photo) ?? null,
       })
       if (launch && first) LAUNCH_PICKS.push(id)
       first = false

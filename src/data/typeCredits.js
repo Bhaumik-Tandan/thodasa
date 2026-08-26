@@ -133,12 +133,6 @@ export default [
   "licence": "CC0"
  },
  {
-  "what": "gadgets · keyboard",
-  "file": "QWERTY keyboard.jpg",
-  "author": "MichaelMaggs",
-  "licence": "CC BY-SA 3.0"
- },
- {
   "what": "jewels · gold",
   "file": "Gold necklace MET DP122704.jpg",
   "author": "Unknown",
