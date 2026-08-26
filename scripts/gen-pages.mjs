@@ -6,7 +6,7 @@
 import fs from 'node:fs'
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
-import { TEMPLATE_HEROES, inr, WM_CREDITS, CATEGORIES } from '../src/data/products.js'
+import { TEMPLATE_HEROES, inr, WM_CREDITS, CATEGORIES, resized } from '../src/data/products.js'
 import TYPE_CREDITS from '../src/data/typeCredits.js'
 import { landedBreakdown as duty } from '../src/lib/duty.js'
 import { landedFrom, GOODS } from '../src/lib/duty.js'
@@ -31,7 +31,7 @@ const dutyGoods = (cat) => GOODS_BY_CAT[cat] ?? 'phone'
 
 const page = (p, related) => {
   const url = `${SITE}/p/${p.slug}/`
-  const og = p.img.replace('w=800&h=1400', 'w=1200&h=630')
+  const og = resized(p.img, 1200, 630)
   const d = duty(p)
   // Search titles lead with the tax question, not the product name.
   //

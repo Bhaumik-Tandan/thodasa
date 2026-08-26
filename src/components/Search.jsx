@@ -1,4 +1,4 @@
-import { inr } from '../data/products'
+import { inr, resized } from '../data/products'
 import { useMemo, useState } from 'react'
 import { PRODUCTS, TEMPLATE_HEROES } from '../data/products'
 import { pickedForYou } from '../lib/taste'
@@ -18,7 +18,7 @@ export default function Search({ cart, onAddToCart, onOpenDetail, onClose }) {
     <button onClick={() => onOpenDetail(p)} className="flex w-full items-center gap-3 rounded-2xl border border-gray-100 bg-white p-3 text-left active:scale-[0.99] dark:border-zinc-800 dark:bg-zinc-900">
       <div className="relative h-14 w-14 shrink-0 overflow-hidden rounded-xl bg-gray-100 dark:bg-zinc-800">
         <span className="absolute inset-0 grid place-items-center text-2xl">{p.emoji}</span>
-        <img src={p.img.replace('w=800&h=1400', 'w=120&h=120')} alt="" loading="lazy" className="absolute inset-0 h-full w-full object-cover" onError={(e) => { e.currentTarget.style.display = 'none' }} />
+        <img src={resized(p.img, 120, 120)} alt="" loading="lazy" className="absolute inset-0 h-full w-full object-cover" onError={(e) => { e.currentTarget.style.display = 'none' }} />
       </div>
       <div className="min-w-0 flex-1">
         {badge && <span className="text-[10px] font-black uppercase tracking-wide text-violet-500">{badge}</span>}

@@ -1,7 +1,7 @@
 import { inr } from '../data/products'
 import { useState, useEffect } from 'react'
 import DealTimer from './DealTimer'
-import { GRADS, CATEGORIES } from '../data/products'
+import { GRADS, CATEGORIES, WIDE_SUBJECT } from '../data/products'
 import { load as loadGame } from '../lib/gamify'
 import { HeartIcon, ShareIcon, BagPlusIcon, TrashIcon, MinusIcon, PlusIcon } from './Icons'
 import { productUrl, productShareText, waShare, xShare, copyLink } from '../lib/share'
@@ -80,8 +80,9 @@ export default function ProductCard({ product, index, near = true, wished, onTog
   const angles = product.imgs && product.imgs.length > 1 ? product.imgs : null
   const [angle, setAngle] = useState(0)
   const panel = Boolean(angles) && angle > 0
-  // wide subjects need to be seen whole, not cropped to a fragment
-  const WIDE_SUBJECT = new Set(['cars', 'bikes', 'jets', 'realty'])
+  // wide subjects need to be seen whole, not cropped to a fragment.
+  // Shared with the catalog so the crop requested from Unsplash and the
+  // object-fit used to display it can never disagree about what is wide.
   const wide = WIDE_SUBJECT.has(product.category)
   useEffect(() => {
     if (!angles || !active) { setAngle(0); return }

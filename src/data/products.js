@@ -54,7 +54,24 @@ export const inrShort = (n) =>
   : n >= 1e4 ? `${(n / 1e3).toFixed(1)}k`
   : inr(n)
 
-const img = (id) => `https://images.unsplash.com/photo-${id}?w=800&h=1400&fit=crop&q=80&auto=format`
+// Subjects that are wider than they are tall. A car, a jet or a building shot
+// into a portrait frame loses its nose and tail.
+export const WIDE_SUBJECT = new Set(['cars', 'bikes', 'jets', 'realty'])
+
+// Unsplash crops server-side to whatever aspect you ask for, so requesting
+// w=800&h=1400 for a Praetor 600 chops the aircraft in the SOURCE FILE. The
+// card then renders it with object-contain and faithfully shows a mutilated
+// photo — it looked like a CSS clipping bug and was actually the URL.
+const img = (id, wide = false) =>
+  `https://images.unsplash.com/photo-${id}?w=${wide ? 1200 : 800}&h=${wide ? 800 : 1400}&fit=crop&q=80&auto=format`
+
+// Hero URLs no longer all share one aspect, so callers that used to do
+// .replace('w=800&h=1400', ...) would now silently no-op on exactly the wide
+// images that need resizing most. Swap whatever dimensions are actually there.
+export const resized = (url, w, h) =>
+  typeof url === 'string' && url.includes('images.unsplash.com')
+    ? url.replace(/([?&])w=\d+&h=\d+/, `$1w=${w}&h=${h}`)
+    : url
 
 // Requested additions: Apple hardware, laptops and high horology. Photos are
 // Wikimedia Commons product shots, eyeballed before use — a Hublot search also
@@ -1359,7 +1376,7 @@ const extraAngles = (photo) => {
         rating: Math.round((3.6 + ((h >> 3) % 13) / 10) * 10) / 10,
         reviews: Math.round(10 ** (1.1 + ((h >> 5) % 300) / 92)),
         grad: h % 8,
-        img: I[photo] ? img(I[photo]) : offSized(photo),
+        img: I[photo] ? img(I[photo], WIDE_SUBJECT.has(category)) : offSized(photo),
         // Extra photo angles for Open Food Facts packs (front / packaging /
         // ingredients / nutrition). Real product video is not sourceable, but
         // the same pack from several sides is — and on a site about what sits
