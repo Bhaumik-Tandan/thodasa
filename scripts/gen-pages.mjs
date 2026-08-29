@@ -33,22 +33,24 @@ const page = (p, related) => {
   const url = `${SITE}/p/${p.slug}/`
   const og = resized(p.img, 1200, 630)
   const d = duty(p)
-  // Search titles lead with the tax question, not the product name.
+  // Search titles lead with the query people actually type, third revision,
+  // each driven by Search Console rather than taste:
   //
-  // They used to read "Mahindra Thar — ₹11,00,000 onwards", which competes head
-  // on with mahindra.com, CarDekho and ZigWheels for a query we cannot win and
-  // have no business winning. Search Console after three days: pages indexed
-  // fine, 2 impressions, 0 clicks, all of it on the brand name "thodasa".
+  //   v1  "Mahindra Thar — ₹11,00,000 onwards"  — competed with CarDekho for a
+  //       query we could never win. 3 days: 2 impressions, both the brand name.
+  //   v2  "Import duty on <thing> in India"     — my guess at the query. It
+  //       unlocked impressions (32 → 248/week, position ~19) but earned 1 click
+  //       at 0.4% CTR, because the real query the pages surface for is
+  //       "<thing> price in india" — jets above all (Honda Jet Elite 2: 21
+  //       impressions, Gulfstream G650ER: 12), an empty niche nobody covers.
+  //   v3  "<thing> price in India — N% of it is tax/GST" — the searcher's own
+  //       words first, the number nobody else has as the reason to click.
   //
-  // What these pages uniquely answer is the landed-cost arithmetic, and
-  // "import duty on <thing> in India" is a real query with almost nobody
-  // serving it well. The product name still appears — it just is not the head.
-  // Social keeps the playful copy: og:/twitter: descriptions use p.desc, since
-  // nobody shares a duty calculation to WhatsApp for fun.
+  // The h2 keeps the duty/GST phrasing so both query families stay on the page.
   const taxQuery = d.imported
     ? `Import duty on ${p.baseName} in India`
     : `GST on ${p.baseName}`
-  const title = `${taxQuery} | ThodaSa`
+  const title = `${p.baseName} price in India — ${d.govtShare}% of it is ${d.imported ? 'duty & tax' : 'GST'} | ThodaSa`
   // Social keeps the product-first headline. These pages exist so a WhatsApp or
   // X unfurl shows THAT product; "Import duty on Rolex Submariner in India" is
   // the right thing for a search result and the wrong thing for a share card.
