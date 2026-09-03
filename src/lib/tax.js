@@ -48,7 +48,7 @@ const FOOD_SLABS = [
   // 12% BEFORE the 5% staples band on purpose: "Masala Noodles" and "Masala Sev"
   // are noodles and namkeen with a masala flavour, not spices, and the earlier
   // ordering taxed them at 5%. Product type has to win over flavour words.
-  [/namkeen|bhujia|\bsevs?\b|farsan|murmura|noodles?\b|pasta|vermicelli|wafers?\b|\bchips\b|lays?\b|kurkure|bingo|pringles|chipps|\bbutter\b|cheese|\bjuices?\b|nectar|squash|frooti|maaza|\bslice\b|ketchup|kissan|sauces?\b|pickle|chutney|honey|\boats?\b|soya|sticks?\b/, 12],
+  [/namkeen|bhujia|\bsevs?\b|farsan|murmura|noodles?\b|pasta|vermicelli|wafers?\b|\bchips\b|lays?\b|kurkure|bingo|pringles|chipps|\bbutter\b(?! ?milk)|cheese|\bjuices?\b|nectar|squash|frooti|maaza|\bslice\b|ketchup|kissan|sauces?\b|pickle|chutney|honey|\boats?\b|soya|sticks?\b/, 12],
   // 5%: kitchen staples, dairy drinks, tea and coffee
   [/\bteas?\b|coffee|cofe\b|\bmilks?\b|\bdahi\b|curd|yoghurt|yogurt|paneer|\blassi\b|butter ?milk|chaas\b|\bspices?\b|\bmasalas?\b|\bsalts?\b|\bsugars?\b|\battas?\b|\bdals?\b|\brice\b|\bflours?\b|besan|poha|suji|maida|papad|\bghee\b/, 5],
 ]
