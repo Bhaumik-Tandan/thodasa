@@ -37,6 +37,7 @@ const FOREIGN = new Set([
   'Ducati', 'Harley-Davidson', 'Kawasaki', 'KTM', 'Yamaha',
   // aircraft
   'Airbus', 'Bombardier', 'Cessna', 'Dassault', 'Embraer', 'Gulfstream', 'HondaJet', 'Pilatus',
+  'Beechcraft', 'Daher', 'Piper', 'Cirrus', 'Diamond', 'Robinson', 'Bell', 'Leonardo', 'Sikorsky',
   // electronics & appliances
   'Apple', 'Samsung', 'Sony', 'JBL', 'Dyson', 'Xiaomi', 'LG', 'Philips', 'Bosch', 'Casio',
   'iRobot', 'Honeywell', '70mai', 'DDPAI', 'Instant', 'LEGO', 'Hot Wheels',

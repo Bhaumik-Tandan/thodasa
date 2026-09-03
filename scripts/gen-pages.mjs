@@ -8,6 +8,7 @@ import path from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { TEMPLATE_HEROES, inr, WM_CREDITS, CATEGORIES, resized } from '../src/data/products.js'
 import TYPE_CREDITS from '../src/data/typeCredits.js'
+import { AIRCRAFT_CREDITS } from '../src/data/aircraft.js'
 import { landedBreakdown as duty } from '../src/lib/duty.js'
 import { landedFrom, GOODS } from '../src/lib/duty.js'
 import { dutyPage, BROWSER_MATH } from './lib/duty-page.mjs'
@@ -165,6 +166,35 @@ for (const p of TEMPLATE_HEROES) {
   count++
 }
 
+// Redirect stubs for slugs that moved when daily-cron templateIds were
+// rebased to 5000 (products.js, DAILY_ID_BASE). GitHub Pages cannot serve real
+// 301s, so each old URL gets a zero-delay meta refresh plus a canonical to the
+// new URL — the combination Google treats as a redirect. slug-freeze.json is
+// the pre-rebase URL inventory; anything in it that no longer exists but whose
+// product still does gets a stub. Daily pages had live rankings when this
+// shipped (kitkat win gold at position 8), which is the whole reason not to
+// just let them 404.
+{
+  const frozen = JSON.parse(fs.readFileSync(path.join(root, 'src/data/slug-freeze.json'), 'utf8'))
+  const bySlug = new Set(TEMPLATE_HEROES.map((p) => p.slug))
+  const byKey = new Map(TEMPLATE_HEROES.map((p) => [`${p.brand}\u0000${p.baseName}`, p.slug]))
+  let stubs = 0
+  for (const f of frozen) {
+    if (bySlug.has(f.slug)) continue
+    const target = byKey.get(`${f.brand}\u0000${f.baseName}`)
+    if (!target) continue // product itself is gone; a 404 is honest
+    const dir = path.join(dist, 'p', f.slug)
+    fs.mkdirSync(dir, { recursive: true })
+    fs.writeFileSync(path.join(dir, 'index.html'),
+      `<!doctype html><html lang="en"><head><meta charset="utf-8">` +
+      `<meta http-equiv="refresh" content="0;url=${SITE}/p/${target}/">` +
+      `<link rel="canonical" href="${SITE}/p/${target}/">` +
+      `<title>Moved</title></head><body><p>Moved to <a href="${SITE}/p/${target}/">${target}</a></p></body></html>`)
+    stubs++
+  }
+  console.log(`redirect stubs for moved slugs: ${stubs}`)
+}
+
 // Landed-cost calculator at /duty/.
 //
 // The page carries its own copy of the formula so it works as a single static
@@ -237,6 +267,14 @@ const creditsPage = `<!doctype html>
   <table>
     <tr><th>Used for</th><th>Author</th><th>Licence</th></tr>
     ${WM_CREDITS.map((c) => `<tr><td><a href="https://commons.wikimedia.org/wiki/File:${encodeURIComponent(c.file.replace(/ /g, '_'))}">${esc(c.what)}</a></td><td>${esc(c.author)}</td><td>${esc(c.licence)}</td></tr>`).join('\n    ')}
+  </table>
+
+  <h2>Wikimedia Commons — aircraft</h2>
+  <p>The aviation catalog uses photographs of the actual aircraft models, all
+  from Wikimedia Commons. Each links to its file page.</p>
+  <table>
+    <tr><th>Used for</th><th>Author</th><th>Licence</th></tr>
+    ${AIRCRAFT_CREDITS.map((c) => `<tr><td><a href="https://commons.wikimedia.org/wiki/File:${encodeURIComponent(c.file.replace(/ /g, '_'))}">${esc(c.what)}</a></td><td>${esc(c.author)}</td><td>${esc(c.licence)}</td></tr>`).join('\n    ')}
   </table>
 
   <h2>Wikimedia Commons — type photography</h2>

@@ -1,0 +1,4842 @@
+[
+ {
+  "slug": "slurpp-2-minute-masala-noodles-1",
+  "brand": "Slurpp",
+  "baseName": "Slurpp 2-Minute Masala Noodles"
+ },
+ {
+  "slug": "crunchlab-potato-chips-2",
+  "brand": "CrunchLab",
+  "baseName": "CrunchLab Potato Chips"
+ },
+ {
+  "slug": "tedha-crunchy-snack-3",
+  "brand": "Tedha",
+  "baseName": "Tedha Crunchy Snack"
+ },
+ {
+  "slug": "namkeen-bros-bhujia-4",
+  "brand": "Namkeen Bros",
+  "baseName": "Namkeen Bros Bhujia"
+ },
+ {
+  "slug": "kokoa-silk-chocolate-bar-5",
+  "brand": "Kokoa",
+  "baseName": "Kokoa Silk Chocolate Bar"
+ },
+ {
+  "slug": "goodold-glucose-biscuits-6",
+  "brand": "GoodOld",
+  "baseName": "GoodOld Glucose Biscuits"
+ },
+ {
+  "slug": "sunnyside-butter-cookies-7",
+  "brand": "SunnySide",
+  "baseName": "SunnySide Butter Cookies"
+ },
+ {
+  "slug": "twisto-choco-chip-biscuits-8",
+  "brand": "TwistO",
+  "baseName": "TwistO Choco Chip Biscuits"
+ },
+ {
+  "slug": "noodly-long-noodles-9",
+  "brand": "Noodly",
+  "baseName": "Noodly Long Noodles"
+ },
+ {
+  "slug": "wokboy-schezwan-chutney-10",
+  "brand": "WokBoy",
+  "baseName": "WokBoy Schezwan Chutney"
+ },
+ {
+  "slug": "popkarma-instant-popcorn-11",
+  "brand": "PopKarma",
+  "baseName": "PopKarma Instant Popcorn"
+ },
+ {
+  "slug": "naav-fruit-drink-12",
+  "brand": "Naav",
+  "baseName": "Naav Fruit Drink"
+ },
+ {
+  "slug": "fizzysaeb-fizz-sparkling-drink-13",
+  "brand": "FizzySaeb",
+  "baseName": "FizzySaeb Fizz Sparkling Drink"
+ },
+ {
+  "slug": "morningmood-classic-instant-coffee-14",
+  "brand": "MorningMood",
+  "baseName": "MorningMood Classic Instant Coffee"
+ },
+ {
+  "slug": "kadak-tea-gold-15",
+  "brand": "Kadak",
+  "baseName": "Kadak Tea Gold"
+ },
+ {
+  "slug": "choconutty-hazelnut-spread-16",
+  "brand": "ChocoNutty",
+  "baseName": "ChocoNutty Hazelnut Spread"
+ },
+ {
+  "slug": "mixify-strawberry-preserve-17",
+  "brand": "Mixify",
+  "baseName": "Mixify Strawberry Preserve"
+ },
+ {
+  "slug": "masalaghar-masala-box-refill-18",
+  "brand": "MasalaGhar",
+  "baseName": "MasalaGhar Masala Box Refill"
+ },
+ {
+  "slug": "doodhwala-cheese-slices-19",
+  "brand": "Doodhwala",
+  "baseName": "Doodhwala Cheese Slices"
+ },
+ {
+  "slug": "angleattack-mad-angles-20",
+  "brand": "AngleAttack",
+  "baseName": "AngleAttack Mad Angles"
+ },
+ {
+  "slug": "kohl-co-deep-kajal-21",
+  "brand": "Kohl&Co",
+  "baseName": "Kohl&Co Deep Kajal"
+ },
+ {
+  "slug": "lineup-bold-wing-liner-22",
+  "brand": "LineUp",
+  "baseName": "LineUp Bold Wing Liner"
+ },
+ {
+  "slug": "kohl-co-office-proof-matte-lipstick-23",
+  "brand": "Kohl&Co",
+  "baseName": "Kohl&Co Office-Proof Matte Lipstick"
+ },
+ {
+  "slug": "boldmove-matte-as-hell-lip-crayon-24",
+  "brand": "BoldMove",
+  "baseName": "BoldMove Matte As Hell Lip Crayon"
+ },
+ {
+  "slug": "mittiglow-ubtan-glow-face-wash-25",
+  "brand": "MittiGlow",
+  "baseName": "MittiGlow Ubtan Glow Face Wash"
+ },
+ {
+  "slug": "mittiglow-onion-hair-shampoo-26",
+  "brand": "MittiGlow",
+  "baseName": "MittiGlow Onion Hair Shampoo"
+ },
+ {
+  "slug": "teatree-co-green-tea-face-wash-27",
+  "brand": "TeaTree Co",
+  "baseName": "TeaTree Co Green Tea Face Wash"
+ },
+ {
+  "slug": "barescience-niacinamide-10-serum-28",
+  "brand": "BareScience",
+  "baseName": "BareScience Niacinamide 10% Serum"
+ },
+ {
+  "slug": "glowwow-vitamin-c-face-serum-29",
+  "brand": "GlowWow",
+  "baseName": "GlowWow Vitamin C Face Serum"
+ },
+ {
+  "slug": "softsaga-soft-moisturising-cream-30",
+  "brand": "SoftSaga",
+  "baseName": "SoftSaga Soft Moisturising Cream"
+ },
+ {
+  "slug": "coldcare-cold-cream-31",
+  "brand": "ColdCare",
+  "baseName": "ColdCare Cold Cream"
+ },
+ {
+  "slug": "neemnest-purifying-neem-face-wash-32",
+  "brand": "NeemNest",
+  "baseName": "NeemNest Purifying Neem Face Wash"
+ },
+ {
+  "slug": "maskmandi-sheet-mask-33",
+  "brand": "MaskMandi",
+  "baseName": "MaskMandi Sheet Mask"
+ },
+ {
+  "slug": "ittarwala-luxury-perfume-34",
+  "brand": "IttarWala",
+  "baseName": "IttarWala Luxury Perfume"
+ },
+ {
+  "slug": "daadhidon-beard-growth-oil-35",
+  "brand": "DaadhiDon",
+  "baseName": "DaadhiDon Beard Growth Oil"
+ },
+ {
+  "slug": "shadestreet-nail-enamel-36",
+  "brand": "ShadeStreet",
+  "baseName": "ShadeStreet Nail Enamel"
+ },
+ {
+  "slug": "liplore-lip-balm-spf-37",
+  "brand": "LipLore",
+  "baseName": "LipLore Lip Balm SPF"
+ },
+ {
+  "slug": "soundloot-airbuds-131-tws-38",
+  "brand": "SoundLoot",
+  "baseName": "SoundLoot AirBuds 131 TWS"
+ },
+ {
+  "slug": "soundloot-bassbuds-wired-39",
+  "brand": "SoundLoot",
+  "baseName": "SoundLoot BassBuds Wired"
+ },
+ {
+  "slug": "powerpeti-10000mah-power-bank-40",
+  "brand": "PowerPeti",
+  "baseName": "PowerPeti 10000mAh Power Bank"
+ },
+ {
+  "slug": "plugpoint-konnect-charging-cable-41",
+  "brand": "PlugPoint",
+  "baseName": "PlugPoint Konnect Charging Cable"
+ },
+ {
+  "slug": "datadabba-chotu-3-0-pendrive-42",
+  "brand": "DataDabba",
+  "baseName": "DataDabba Chotu 3.0 Pendrive"
+ },
+ {
+  "slug": "clickclick-clicker-wired-mouse-43",
+  "brand": "ClickClick",
+  "baseName": "ClickClick Clicker Wired Mouse"
+ },
+ {
+  "slug": "strapstory-smartwatch-strap-44",
+  "brand": "StrapStory",
+  "baseName": "StrapStory Smartwatch Strap"
+ },
+ {
+  "slug": "popsocket-grip-45",
+  "brand": "Generic",
+  "baseName": "Popsocket Grip"
+ },
+ {
+  "slug": "plugpoint-foldable-phone-stand-46",
+  "brand": "PlugPoint",
+  "baseName": "PlugPoint Foldable Phone Stand"
+ },
+ {
+  "slug": "led-ring-light-10-47",
+  "brand": "Generic",
+  "baseName": "LED Ring Light 10\""
+ },
+ {
+  "slug": "cable-protector-set-48",
+  "brand": "Generic",
+  "baseName": "Cable Protector Set"
+ },
+ {
+  "slug": "phone-case-iphone-49",
+  "brand": "Generic",
+  "baseName": "Phone Case iPhone"
+ },
+ {
+  "slug": "phone-case-samsung-50",
+  "brand": "Generic",
+  "baseName": "Phone Case Samsung"
+ },
+ {
+  "slug": "soundloot-boombox-mini-bt-speaker-51",
+  "brand": "SoundLoot",
+  "baseName": "SoundLoot Boombox Mini BT Speaker"
+ },
+ {
+  "slug": "glowghar-led-bulb-9w-b22-52",
+  "brand": "GlowGhar",
+  "baseName": "GlowGhar LED Bulb 9W B22"
+ },
+ {
+  "slug": "fairy-string-lights-53",
+  "brand": "Generic",
+  "baseName": "Fairy String Lights"
+ },
+ {
+  "slug": "scented-jar-candle-54",
+  "brand": "Generic",
+  "baseName": "Scented Jar Candle"
+ },
+ {
+  "slug": "dhoopbatti-co-agarbatti-pack-55",
+  "brand": "DhoopBatti Co",
+  "baseName": "DhoopBatti Co Agarbatti Pack"
+ },
+ {
+  "slug": "glow-star-ceiling-pack-56",
+  "brand": "Generic",
+  "baseName": "Glow Star Ceiling Pack"
+ },
+ {
+  "slug": "cushion-cover-set-57",
+  "brand": "Generic",
+  "baseName": "Cushion Cover Set"
+ },
+ {
+  "slug": "sunset-projection-lamp-58",
+  "brand": "Generic",
+  "baseName": "Sunset Projection Lamp"
+ },
+ {
+  "slug": "khushbukart-room-freshener-blocks-59",
+  "brand": "KhushbuKart",
+  "baseName": "KhushbuKart Room Freshener Blocks"
+ },
+ {
+  "slug": "mini-cactus-planter-60",
+  "brand": "Generic",
+  "baseName": "Mini Cactus Planter"
+ },
+ {
+  "slug": "wall-d-cor-photo-frames-61",
+  "brand": "Generic",
+  "baseName": "Wall Décor Photo Frames"
+ },
+ {
+  "slug": "gala-spin-mop-refill-62",
+  "brand": "Gala",
+  "baseName": "Gala Spin Mop Refill"
+ },
+ {
+  "slug": "bamboo-hangers-63",
+  "brand": "Generic",
+  "baseName": "Bamboo Hangers"
+ },
+ {
+  "slug": "thandagaram-thermosteel-bottle-64",
+  "brand": "ThandaGaram",
+  "baseName": "ThandaGaram Thermosteel Bottle"
+ },
+ {
+  "slug": "sipsip-everyday-water-bottle-65",
+  "brand": "SipSip",
+  "baseName": "SipSip Everyday Water Bottle"
+ },
+ {
+  "slug": "chopshop-handy-veggie-chopper-66",
+  "brand": "ChopShop",
+  "baseName": "ChopShop Handy Veggie Chopper"
+ },
+ {
+  "slug": "chingari-gas-lighter-67",
+  "brand": "Chingari",
+  "baseName": "Chingari Gas Lighter"
+ },
+ {
+  "slug": "masala-dabba-steel-68",
+  "brand": "Generic",
+  "baseName": "Masala Dabba Steel"
+ },
+ {
+  "slug": "glassghar-glass-mug-set-69",
+  "brand": "GlassGhar",
+  "baseName": "GlassGhar Glass Mug Set"
+ },
+ {
+  "slug": "measuring-spoon-set-70",
+  "brand": "Generic",
+  "baseName": "Measuring Spoon Set"
+ },
+ {
+  "slug": "dabbadost-lunch-tiffin-set-71",
+  "brand": "DabbaDost",
+  "baseName": "DabbaDost Lunch Tiffin Set"
+ },
+ {
+  "slug": "gym-shaker-bottle-72",
+  "brand": "Generic",
+  "baseName": "Gym Shaker Bottle"
+ },
+ {
+  "slug": "shadesquad-uv-protected-sunglasses-73",
+  "brand": "ShadeSquad",
+  "baseName": "ShadeSquad UV Protected Sunglasses"
+ },
+ {
+  "slug": "beach-shades-74",
+  "brand": "Generic",
+  "baseName": "Beach Shades"
+ },
+ {
+  "slug": "graphic-cotton-tee-75",
+  "brand": "Generic",
+  "baseName": "Graphic Cotton Tee"
+ },
+ {
+  "slug": "topitales-baseball-cap-76",
+  "brand": "TopiTales",
+  "baseName": "TopiTales Baseball Cap"
+ },
+ {
+  "slug": "canvas-tote-bag-77",
+  "brand": "Generic",
+  "baseName": "Canvas Tote Bag"
+ },
+ {
+  "slug": "bagbazaar-casual-daypack-mini-78",
+  "brand": "BagBazaar",
+  "baseName": "BagBazaar Casual Daypack Mini"
+ },
+ {
+  "slug": "cotton-crew-socks-79",
+  "brand": "Generic",
+  "baseName": "Cotton Crew Socks"
+ },
+ {
+  "slug": "statement-earrings-80",
+  "brand": "Generic",
+  "baseName": "Statement Earrings"
+ },
+ {
+  "slug": "pearl-charm-necklace-81",
+  "brand": "Generic",
+  "baseName": "Pearl Charm Necklace"
+ },
+ {
+  "slug": "scrunchie-set-velvet-82",
+  "brand": "Generic",
+  "baseName": "Scrunchie Set Velvet"
+ },
+ {
+  "slug": "minimal-analog-watch-83",
+  "brand": "Generic",
+  "baseName": "Minimal Analog Watch"
+ },
+ {
+  "slug": "copykitaab-spiral-notebook-84",
+  "brand": "CopyKitaab",
+  "baseName": "CopyKitaab Spiral Notebook"
+ },
+ {
+  "slug": "pencilpeti-pencil-kit-box-85",
+  "brand": "PencilPeti",
+  "baseName": "PencilPeti Pencil Kit Box"
+ },
+ {
+  "slug": "inkinc-v5-hi-tecpoint-pen-86",
+  "brand": "InkInc",
+  "baseName": "InkInc V5 Hi-Tecpoint Pen"
+ },
+ {
+  "slug": "rangrez-connector-pens-87",
+  "brand": "RangRez",
+  "baseName": "RangRez Connector Pens"
+ },
+ {
+  "slug": "geobox-geometry-box-88",
+  "brand": "GeoBox",
+  "baseName": "GeoBox Geometry Box"
+ },
+ {
+  "slug": "sticky-notes-combo-89",
+  "brand": "Generic",
+  "baseName": "Sticky Notes Combo"
+ },
+ {
+  "slug": "aesthetic-highlighters-90",
+  "brand": "Generic",
+  "baseName": "Aesthetic Highlighters"
+ },
+ {
+  "slug": "daily-planner-a5-91",
+  "brand": "Generic",
+  "baseName": "Daily Planner A5"
+ },
+ {
+  "slug": "jodtod-1-second-instant-glue-92",
+  "brand": "JodTod",
+  "baseName": "JodTod 1-Second Instant Glue"
+ },
+ {
+  "slug": "mystery-gift-box-93",
+  "brand": "ThodaSa",
+  "baseName": "Mystery Gift Box"
+ },
+ {
+  "slug": "samosa-squishy-toy-94",
+  "brand": "Generic",
+  "baseName": "Samosa Squishy Toy"
+ },
+ {
+  "slug": "desi-meme-stickers-95",
+  "brand": "Generic",
+  "baseName": "Desi Meme Stickers"
+ },
+ {
+  "slug": "googly-eyes-mega-pack-96",
+  "brand": "Generic",
+  "baseName": "Googly Eyes Mega Pack"
+ },
+ {
+  "slug": "mini-claw-machine-97",
+  "brand": "Generic",
+  "baseName": "Mini Claw Machine"
+ },
+ {
+  "slug": "desk-bobblehead-98",
+  "brand": "Generic",
+  "baseName": "Desk Bobblehead"
+ },
+ {
+  "slug": "mini-designer-chair-d-cor-99",
+  "brand": "Generic",
+  "baseName": "Mini Designer Chair Décor"
+ },
+ {
+  "slug": "taashparty-dosti-todo-card-game-100",
+  "brand": "TaashParty",
+  "baseName": "TaashParty Dosti-Todo Card Game"
+ },
+ {
+  "slug": "magic-8-ball-desi-edition-101",
+  "brand": "Generic",
+  "baseName": "Magic 8 Ball Desi Edition"
+ },
+ {
+  "slug": "keychain-collection-102",
+  "brand": "Generic",
+  "baseName": "Keychain Collection"
+ },
+ {
+  "slug": "designer-phone-case-103",
+  "brand": "Generic",
+  "baseName": "Designer Phone Case"
+ },
+ {
+  "slug": "anime-phone-case-104",
+  "brand": "Generic",
+  "baseName": "Anime Phone Case"
+ },
+ {
+  "slug": "graphic-tee-drop-2-105",
+  "brand": "Generic",
+  "baseName": "Graphic Tee Drop 2"
+ },
+ {
+  "slug": "oversized-tee-106",
+  "brand": "Generic",
+  "baseName": "Oversized Tee"
+ },
+ {
+  "slug": "rangrani-matte-luxe-lipstick-107",
+  "brand": "RangRani",
+  "baseName": "RangRani Matte Luxe Lipstick"
+ },
+ {
+  "slug": "nail-paint-minis-108",
+  "brand": "Generic",
+  "baseName": "Nail Paint Minis"
+ },
+ {
+  "slug": "popsocket-drop-2-109",
+  "brand": "Generic",
+  "baseName": "Popsocket Drop 2"
+ },
+ {
+  "slug": "watch-strap-20mm-silicone-110",
+  "brand": "Generic",
+  "baseName": "Watch Strap 20mm Silicone"
+ },
+ {
+  "slug": "cushion-cover-solids-111",
+  "brand": "Generic",
+  "baseName": "Cushion Cover Solids"
+ },
+ {
+  "slug": "tealight-candles-112",
+  "brand": "Generic",
+  "baseName": "Tealight Candles"
+ },
+ {
+  "slug": "kids-sipper-bottle-113",
+  "brand": "Generic",
+  "baseName": "Kids Sipper Bottle"
+ },
+ {
+  "slug": "keychain-drop-2-114",
+  "brand": "Generic",
+  "baseName": "Keychain Drop 2"
+ },
+ {
+  "slug": "sticker-sheet-packs-115",
+  "brand": "Generic",
+  "baseName": "Sticker Sheet Packs"
+ },
+ {
+  "slug": "washi-tape-rolls-116",
+  "brand": "Generic",
+  "baseName": "Washi Tape Rolls"
+ },
+ {
+  "slug": "pastel-gel-pens-117",
+  "brand": "Generic",
+  "baseName": "Pastel Gel Pens"
+ },
+ {
+  "slug": "hair-claw-clips-118",
+  "brand": "Generic",
+  "baseName": "Hair Claw Clips"
+ },
+ {
+  "slug": "fridge-magnet-cities-119",
+  "brand": "Generic",
+  "baseName": "Fridge Magnet Cities"
+ },
+ {
+  "slug": "wall-poster-a3-120",
+  "brand": "Generic",
+  "baseName": "Wall Poster A3"
+ },
+ {
+  "slug": "soupnation-cup-soup-sachets-121",
+  "brand": "SoupNation",
+  "baseName": "SoupNation Cup Soup Sachets"
+ },
+ {
+  "slug": "nachonation-nacho-crisps-122",
+  "brand": "NachoNation",
+  "baseName": "NachoNation Nacho Crisps"
+ },
+ {
+  "slug": "bakedyaar-baked-chips-123",
+  "brand": "BakedYaar",
+  "baseName": "BakedYaar Baked Chips"
+ },
+ {
+  "slug": "noodly-dark-fantasy-choco-fills-124",
+  "brand": "Noodly",
+  "baseName": "Noodly Dark Fantasy Choco Fills"
+ },
+ {
+  "slug": "doodhwala-chocolate-minis-125",
+  "brand": "Doodhwala",
+  "baseName": "Doodhwala Chocolate Minis"
+ },
+ {
+  "slug": "gaming-mousepad-xl-126",
+  "brand": "Generic",
+  "baseName": "Gaming Mousepad XL"
+ },
+ {
+  "slug": "laptop-sleeve-127",
+  "brand": "Generic",
+  "baseName": "Laptop Sleeve"
+ },
+ {
+  "slug": "ceramic-planter-pastel-128",
+  "brand": "Generic",
+  "baseName": "Ceramic Planter Pastel"
+ },
+ {
+  "slug": "coaster-set-quirky-129",
+  "brand": "Generic",
+  "baseName": "Coaster Set Quirky"
+ },
+ {
+  "slug": "socks-drop-2-prints-130",
+  "brand": "Generic",
+  "baseName": "Socks Drop 2 — Prints"
+ },
+ {
+  "slug": "tempered-glass-guard-131",
+  "brand": "Generic",
+  "baseName": "Tempered Glass Guard"
+ },
+ {
+  "slug": "soundloot-flexbeat-neckband-132",
+  "brand": "SoundLoot",
+  "baseName": "SoundLoot FlexBeat Neckband"
+ },
+ {
+  "slug": "greenleaf-green-tea-bags-133",
+  "brand": "GreenLeaf",
+  "baseName": "GreenLeaf Green Tea Bags"
+ },
+ {
+  "slug": "nutsforyou-trail-mix-pouch-134",
+  "brand": "NutsForYou",
+  "baseName": "NutsForYou Trail Mix Pouch"
+ },
+ {
+  "slug": "photo-clip-string-lights-135",
+  "brand": "Generic",
+  "baseName": "Photo Clip String Lights"
+ },
+ {
+  "slug": "led-diya-pack-136",
+  "brand": "Generic",
+  "baseName": "LED Diya Pack"
+ },
+ {
+  "slug": "metal-bookmark-137",
+  "brand": "Generic",
+  "baseName": "Metal Bookmark"
+ },
+ {
+  "slug": "bmw-3-series-sedan-138",
+  "brand": "BMW",
+  "baseName": "BMW 3 Series Sedan"
+ },
+ {
+  "slug": "bmw-m4-competition-139",
+  "brand": "BMW",
+  "baseName": "BMW M4 Competition"
+ },
+ {
+  "slug": "bmw-x5-xdrive-140",
+  "brand": "BMW",
+  "baseName": "BMW X5 xDrive"
+ },
+ {
+  "slug": "bmw-i7-electric-141",
+  "brand": "BMW",
+  "baseName": "BMW i7 Electric"
+ },
+ {
+  "slug": "mercedes-benz-c-class-142",
+  "brand": "Mercedes-Benz",
+  "baseName": "Mercedes-Benz C-Class"
+ },
+ {
+  "slug": "mercedes-benz-s-class-143",
+  "brand": "Mercedes-Benz",
+  "baseName": "Mercedes-Benz S-Class"
+ },
+ {
+  "slug": "mercedes-amg-gt-coupe-144",
+  "brand": "Mercedes-AMG",
+  "baseName": "Mercedes-AMG GT Coupe"
+ },
+ {
+  "slug": "audi-a6-sedan-145",
+  "brand": "Audi",
+  "baseName": "Audi A6 Sedan"
+ },
+ {
+  "slug": "audi-q7-suv-146",
+  "brand": "Audi",
+  "baseName": "Audi Q7 SUV"
+ },
+ {
+  "slug": "audi-r8-v10-147",
+  "brand": "Audi",
+  "baseName": "Audi R8 V10"
+ },
+ {
+  "slug": "porsche-911-carrera-148",
+  "brand": "Porsche",
+  "baseName": "Porsche 911 Carrera"
+ },
+ {
+  "slug": "porsche-cayenne-149",
+  "brand": "Porsche",
+  "baseName": "Porsche Cayenne"
+ },
+ {
+  "slug": "porsche-taycan-150",
+  "brand": "Porsche",
+  "baseName": "Porsche Taycan"
+ },
+ {
+  "slug": "lamborghini-hurac-n-151",
+  "brand": "Lamborghini",
+  "baseName": "Lamborghini Huracán"
+ },
+ {
+  "slug": "lamborghini-urus-152",
+  "brand": "Lamborghini",
+  "baseName": "Lamborghini Urus"
+ },
+ {
+  "slug": "ferrari-roma-153",
+  "brand": "Ferrari",
+  "baseName": "Ferrari Roma"
+ },
+ {
+  "slug": "rolls-royce-ghost-154",
+  "brand": "Rolls-Royce",
+  "baseName": "Rolls-Royce Ghost"
+ },
+ {
+  "slug": "bugatti-chiron-155",
+  "brand": "Bugatti",
+  "baseName": "Bugatti Chiron"
+ },
+ {
+  "slug": "tata-nexon-156",
+  "brand": "Tata",
+  "baseName": "Tata Nexon"
+ },
+ {
+  "slug": "tata-harrier-157",
+  "brand": "Tata",
+  "baseName": "Tata Harrier"
+ },
+ {
+  "slug": "mahindra-thar-158",
+  "brand": "Mahindra",
+  "baseName": "Mahindra Thar"
+ },
+ {
+  "slug": "mahindra-xuv700-159",
+  "brand": "Mahindra",
+  "baseName": "Mahindra XUV700"
+ },
+ {
+  "slug": "maruti-suzuki-swift-160",
+  "brand": "Maruti Suzuki",
+  "baseName": "Maruti Suzuki Swift"
+ },
+ {
+  "slug": "mahindra-scorpio-n-161",
+  "brand": "Mahindra",
+  "baseName": "Mahindra Scorpio-N"
+ },
+ {
+  "slug": "hyundai-creta-162",
+  "brand": "Hyundai",
+  "baseName": "Hyundai Creta"
+ },
+ {
+  "slug": "tata-punch-163",
+  "brand": "Tata",
+  "baseName": "Tata Punch"
+ },
+ {
+  "slug": "tata-safari-164",
+  "brand": "Tata",
+  "baseName": "Tata Safari"
+ },
+ {
+  "slug": "maruti-suzuki-baleno-165",
+  "brand": "Maruti Suzuki",
+  "baseName": "Maruti Suzuki Baleno"
+ },
+ {
+  "slug": "maruti-suzuki-fronx-166",
+  "brand": "Maruti Suzuki",
+  "baseName": "Maruti Suzuki Fronx"
+ },
+ {
+  "slug": "toyota-innova-crysta-167",
+  "brand": "Toyota",
+  "baseName": "Toyota Innova Crysta"
+ },
+ {
+  "slug": "ducati-panigale-v4-168",
+  "brand": "Ducati",
+  "baseName": "Ducati Panigale V4"
+ },
+ {
+  "slug": "ducati-monster-169",
+  "brand": "Ducati",
+  "baseName": "Ducati Monster"
+ },
+ {
+  "slug": "kawasaki-ninja-zx-10r-170",
+  "brand": "Kawasaki",
+  "baseName": "Kawasaki Ninja ZX-10R"
+ },
+ {
+  "slug": "kawasaki-z900-171",
+  "brand": "Kawasaki",
+  "baseName": "Kawasaki Z900"
+ },
+ {
+  "slug": "yamaha-yzf-r1-172",
+  "brand": "Yamaha",
+  "baseName": "Yamaha YZF-R1"
+ },
+ {
+  "slug": "yamaha-mt-15-173",
+  "brand": "Yamaha",
+  "baseName": "Yamaha MT-15"
+ },
+ {
+  "slug": "ktm-duke-390-174",
+  "brand": "KTM",
+  "baseName": "KTM Duke 390"
+ },
+ {
+  "slug": "ktm-rc-390-175",
+  "brand": "KTM",
+  "baseName": "KTM RC 390"
+ },
+ {
+  "slug": "royal-enfield-classic-350-176",
+  "brand": "Royal Enfield",
+  "baseName": "Royal Enfield Classic 350"
+ },
+ {
+  "slug": "royal-enfield-continental-gt-650-177",
+  "brand": "Royal Enfield",
+  "baseName": "Royal Enfield Continental GT 650"
+ },
+ {
+  "slug": "bmw-motorrad-s-1000-rr-178",
+  "brand": "BMW Motorrad",
+  "baseName": "BMW Motorrad S 1000 RR"
+ },
+ {
+  "slug": "harley-davidson-iron-883-179",
+  "brand": "Harley-Davidson",
+  "baseName": "Harley-Davidson Iron 883"
+ },
+ {
+  "slug": "bajaj-pulsar-ns200-180",
+  "brand": "Bajaj",
+  "baseName": "Bajaj Pulsar NS200"
+ },
+ {
+  "slug": "nike-air-jordan-1-high-181",
+  "brand": "Nike",
+  "baseName": "Nike Air Jordan 1 High"
+ },
+ {
+  "slug": "nike-air-force-1-182",
+  "brand": "Nike",
+  "baseName": "Nike Air Force 1"
+ },
+ {
+  "slug": "nike-air-max-90-183",
+  "brand": "Nike",
+  "baseName": "Nike Air Max 90"
+ },
+ {
+  "slug": "nike-dunk-low-184",
+  "brand": "Nike",
+  "baseName": "Nike Dunk Low"
+ },
+ {
+  "slug": "adidas-ultraboost-185",
+  "brand": "Adidas",
+  "baseName": "Adidas Ultraboost"
+ },
+ {
+  "slug": "adidas-samba-og-186",
+  "brand": "Adidas",
+  "baseName": "Adidas Samba OG"
+ },
+ {
+  "slug": "adidas-yeezy-boost-350-187",
+  "brand": "Adidas",
+  "baseName": "Adidas Yeezy Boost 350"
+ },
+ {
+  "slug": "new-balance-550-188",
+  "brand": "New Balance",
+  "baseName": "New Balance 550"
+ },
+ {
+  "slug": "puma-suede-classic-189",
+  "brand": "Puma",
+  "baseName": "Puma Suede Classic"
+ },
+ {
+  "slug": "converse-chuck-70-high-190",
+  "brand": "Converse",
+  "baseName": "Converse Chuck 70 High"
+ },
+ {
+  "slug": "crocs-classic-clog-191",
+  "brand": "Crocs",
+  "baseName": "Crocs Classic Clog"
+ },
+ {
+  "slug": "birkenstock-arizona-sandals-192",
+  "brand": "Birkenstock",
+  "baseName": "Birkenstock Arizona Sandals"
+ },
+ {
+  "slug": "zara-oversized-blazer-193",
+  "brand": "Zara",
+  "baseName": "Zara Oversized Blazer"
+ },
+ {
+  "slug": "zara-slim-fit-shirt-194",
+  "brand": "Zara",
+  "baseName": "Zara Slim Fit Shirt"
+ },
+ {
+  "slug": "h-m-cotton-hoodie-195",
+  "brand": "H&M",
+  "baseName": "H&M Cotton Hoodie"
+ },
+ {
+  "slug": "uniqlo-airism-tee-196",
+  "brand": "Uniqlo",
+  "baseName": "Uniqlo AIRism Tee"
+ },
+ {
+  "slug": "levi-s-511-slim-jeans-197",
+  "brand": "Levi's",
+  "baseName": "Levi's 511 Slim Jeans"
+ },
+ {
+  "slug": "raymond-3-piece-suit-198",
+  "brand": "Raymond",
+  "baseName": "Raymond 3-Piece Suit"
+ },
+ {
+  "slug": "gucci-gg-hoodie-199",
+  "brand": "Gucci",
+  "baseName": "Gucci GG Hoodie"
+ },
+ {
+  "slug": "versace-baroque-shirt-200",
+  "brand": "Versace",
+  "baseName": "Versace Baroque Shirt"
+ },
+ {
+  "slug": "balenciaga-oversized-tee-201",
+  "brand": "Balenciaga",
+  "baseName": "Balenciaga Oversized Tee"
+ },
+ {
+  "slug": "fabindia-cotton-kurta-202",
+  "brand": "FabIndia",
+  "baseName": "FabIndia Cotton Kurta"
+ },
+ {
+  "slug": "rolex-submariner-203",
+  "brand": "Rolex",
+  "baseName": "Rolex Submariner"
+ },
+ {
+  "slug": "rolex-datejust-41-204",
+  "brand": "Rolex",
+  "baseName": "Rolex Datejust 41"
+ },
+ {
+  "slug": "omega-speedmaster-205",
+  "brand": "Omega",
+  "baseName": "Omega Speedmaster"
+ },
+ {
+  "slug": "omega-seamaster-206",
+  "brand": "Omega",
+  "baseName": "Omega Seamaster"
+ },
+ {
+  "slug": "tag-heuer-carrera-207",
+  "brand": "TAG Heuer",
+  "baseName": "TAG Heuer Carrera"
+ },
+ {
+  "slug": "tissot-prx-powermatic-208",
+  "brand": "Tissot",
+  "baseName": "Tissot PRX Powermatic"
+ },
+ {
+  "slug": "apple-watch-ultra-2-209",
+  "brand": "Apple",
+  "baseName": "Apple Watch Ultra 2"
+ },
+ {
+  "slug": "apple-watch-series-10-210",
+  "brand": "Apple",
+  "baseName": "Apple Watch Series 10"
+ },
+ {
+  "slug": "casio-g-shock-211",
+  "brand": "Casio",
+  "baseName": "Casio G-Shock"
+ },
+ {
+  "slug": "titan-edge-slim-212",
+  "brand": "Titan",
+  "baseName": "Titan Edge Slim"
+ },
+ {
+  "slug": "louis-vuitton-neverfull-mm-213",
+  "brand": "Louis Vuitton",
+  "baseName": "Louis Vuitton Neverfull MM"
+ },
+ {
+  "slug": "louis-vuitton-speedy-25-214",
+  "brand": "Louis Vuitton",
+  "baseName": "Louis Vuitton Speedy 25"
+ },
+ {
+  "slug": "dior-lady-dior-215",
+  "brand": "Dior",
+  "baseName": "Dior Lady Dior"
+ },
+ {
+  "slug": "dior-saddle-bag-216",
+  "brand": "Dior",
+  "baseName": "Dior Saddle Bag"
+ },
+ {
+  "slug": "gucci-gg-marmont-217",
+  "brand": "Gucci",
+  "baseName": "Gucci GG Marmont"
+ },
+ {
+  "slug": "chanel-classic-flap-218",
+  "brand": "Chanel",
+  "baseName": "Chanel Classic Flap"
+ },
+ {
+  "slug": "herm-s-birkin-30-219",
+  "brand": "Hermès",
+  "baseName": "Hermès Birkin 30"
+ },
+ {
+  "slug": "prada-galleria-saffiano-220",
+  "brand": "Prada",
+  "baseName": "Prada Galleria Saffiano"
+ },
+ {
+  "slug": "studio-editions-abstract-canvas-221",
+  "brand": "Studio Editions",
+  "baseName": "Studio Editions Abstract Canvas"
+ },
+ {
+  "slug": "studio-editions-modern-abstract-ii-222",
+  "brand": "Studio Editions",
+  "baseName": "Studio Editions Modern Abstract II"
+ },
+ {
+  "slug": "heritage-prints-classical-reproduction-223",
+  "brand": "Heritage Prints",
+  "baseName": "Heritage Prints Classical Reproduction"
+ },
+ {
+  "slug": "heritage-prints-landscape-oil-224",
+  "brand": "Heritage Prints",
+  "baseName": "Heritage Prints Landscape Oil"
+ },
+ {
+  "slug": "atelier-original-signed-original-225",
+  "brand": "Atelier Original",
+  "baseName": "Atelier Original Signed Original"
+ },
+ {
+  "slug": "atomic-habits-226",
+  "brand": "Generic",
+  "baseName": "Atomic Habits"
+ },
+ {
+  "slug": "ikigai-227",
+  "brand": "Generic",
+  "baseName": "Ikigai"
+ },
+ {
+  "slug": "the-psychology-of-money-228",
+  "brand": "Generic",
+  "baseName": "The Psychology of Money"
+ },
+ {
+  "slug": "rich-dad-poor-dad-229",
+  "brand": "Generic",
+  "baseName": "Rich Dad Poor Dad"
+ },
+ {
+  "slug": "the-alchemist-230",
+  "brand": "Generic",
+  "baseName": "The Alchemist"
+ },
+ {
+  "slug": "sapiens-231",
+  "brand": "Generic",
+  "baseName": "Sapiens"
+ },
+ {
+  "slug": "wings-of-fire-232",
+  "brand": "Generic",
+  "baseName": "Wings of Fire"
+ },
+ {
+  "slug": "milk-and-honey-233",
+  "brand": "Generic",
+  "baseName": "Milk and Honey"
+ },
+ {
+  "slug": "the-god-of-small-things-234",
+  "brand": "Generic",
+  "baseName": "The God of Small Things"
+ },
+ {
+  "slug": "a-suitable-boy-235",
+  "brand": "Generic",
+  "baseName": "A Suitable Boy"
+ },
+ {
+  "slug": "train-to-pakistan-236",
+  "brand": "Generic",
+  "baseName": "Train to Pakistan"
+ },
+ {
+  "slug": "the-white-tiger-237",
+  "brand": "Generic",
+  "baseName": "The White Tiger"
+ },
+ {
+  "slug": "shoe-dog-238",
+  "brand": "Generic",
+  "baseName": "Shoe Dog"
+ },
+ {
+  "slug": "zero-to-one-239",
+  "brand": "Generic",
+  "baseName": "Zero to One"
+ },
+ {
+  "slug": "deep-work-240",
+  "brand": "Generic",
+  "baseName": "Deep Work"
+ },
+ {
+  "slug": "thinking-fast-and-slow-241",
+  "brand": "Generic",
+  "baseName": "Thinking, Fast and Slow"
+ },
+ {
+  "slug": "the-subtle-art-of-not-giving-a-f-ck-242",
+  "brand": "Generic",
+  "baseName": "The Subtle Art of Not Giving a F*ck"
+ },
+ {
+  "slug": "1984-243",
+  "brand": "Generic",
+  "baseName": "1984"
+ },
+ {
+  "slug": "to-kill-a-mockingbird-244",
+  "brand": "Generic",
+  "baseName": "To Kill a Mockingbird"
+ },
+ {
+  "slug": "the-great-gatsby-245",
+  "brand": "Generic",
+  "baseName": "The Great Gatsby"
+ },
+ {
+  "slug": "harry-potter-box-set-246",
+  "brand": "Generic",
+  "baseName": "Harry Potter Box Set"
+ },
+ {
+  "slug": "the-hobbit-247",
+  "brand": "Generic",
+  "baseName": "The Hobbit"
+ },
+ {
+  "slug": "dune-248",
+  "brand": "Generic",
+  "baseName": "Dune"
+ },
+ {
+  "slug": "the-silent-patient-249",
+  "brand": "Generic",
+  "baseName": "The Silent Patient"
+ },
+ {
+  "slug": "gone-girl-250",
+  "brand": "Generic",
+  "baseName": "Gone Girl"
+ },
+ {
+  "slug": "it-ends-with-us-251",
+  "brand": "Generic",
+  "baseName": "It Ends with Us"
+ },
+ {
+  "slug": "the-midnight-library-252",
+  "brand": "Generic",
+  "baseName": "The Midnight Library"
+ },
+ {
+  "slug": "educated-253",
+  "brand": "Generic",
+  "baseName": "Educated"
+ },
+ {
+  "slug": "the-power-of-now-254",
+  "brand": "Generic",
+  "baseName": "The Power of Now"
+ },
+ {
+  "slug": "can-t-hurt-me-255",
+  "brand": "Generic",
+  "baseName": "Can't Hurt Me"
+ },
+ {
+  "slug": "the-5-am-club-256",
+  "brand": "Generic",
+  "baseName": "The 5 AM Club"
+ },
+ {
+  "slug": "verity-257",
+  "brand": "Generic",
+  "baseName": "Verity"
+ },
+ {
+  "slug": "a-thousand-splendid-suns-258",
+  "brand": "Generic",
+  "baseName": "A Thousand Splendid Suns"
+ },
+ {
+  "slug": "the-kite-runner-259",
+  "brand": "Generic",
+  "baseName": "The Kite Runner"
+ },
+ {
+  "slug": "norwegian-wood-260",
+  "brand": "Generic",
+  "baseName": "Norwegian Wood"
+ },
+ {
+  "slug": "the-book-thief-261",
+  "brand": "Generic",
+  "baseName": "The Book Thief"
+ },
+ {
+  "slug": "becoming-262",
+  "brand": "Generic",
+  "baseName": "Becoming"
+ },
+ {
+  "slug": "the-palace-of-illusions-263",
+  "brand": "Generic",
+  "baseName": "The Palace of Illusions"
+ },
+ {
+  "slug": "the-immortals-of-meluha-264",
+  "brand": "Generic",
+  "baseName": "The Immortals of Meluha"
+ },
+ {
+  "slug": "the-hunger-games-265",
+  "brand": "Generic",
+  "baseName": "The Hunger Games"
+ },
+ {
+  "slug": "the-catcher-in-the-rye-266",
+  "brand": "Generic",
+  "baseName": "The Catcher in the Rye"
+ },
+ {
+  "slug": "anna-karenina-267",
+  "brand": "Generic",
+  "baseName": "Anna Karenina"
+ },
+ {
+  "slug": "pride-and-prejudice-268",
+  "brand": "Generic",
+  "baseName": "Pride and Prejudice"
+ },
+ {
+  "slug": "the-da-vinci-code-269",
+  "brand": "Generic",
+  "baseName": "The Da Vinci Code"
+ },
+ {
+  "slug": "the-little-prince-270",
+  "brand": "Generic",
+  "baseName": "The Little Prince"
+ },
+ {
+  "slug": "the-maze-runner-271",
+  "brand": "Generic",
+  "baseName": "The Maze Runner"
+ },
+ {
+  "slug": "divergent-272",
+  "brand": "Generic",
+  "baseName": "Divergent"
+ },
+ {
+  "slug": "harry-potter-the-sorcerer-s-stone-273",
+  "brand": "Generic",
+  "baseName": "Harry Potter & the Sorcerer's Stone"
+ },
+ {
+  "slug": "harry-potter-the-cursed-child-274",
+  "brand": "Generic",
+  "baseName": "Harry Potter & the Cursed Child"
+ },
+ {
+  "slug": "the-way-of-kings-275",
+  "brand": "Generic",
+  "baseName": "The Way of Kings"
+ },
+ {
+  "slug": "a-game-of-thrones-276",
+  "brand": "Generic",
+  "baseName": "A Game of Thrones"
+ },
+ {
+  "slug": "the-girl-with-the-dragon-tattoo-277",
+  "brand": "Generic",
+  "baseName": "The Girl with the Dragon Tattoo"
+ },
+ {
+  "slug": "the-fault-in-our-stars-278",
+  "brand": "Generic",
+  "baseName": "The Fault in Our Stars"
+ },
+ {
+  "slug": "twilight-279",
+  "brand": "Generic",
+  "baseName": "Twilight"
+ },
+ {
+  "slug": "project-hail-mary-280",
+  "brand": "Generic",
+  "baseName": "Project Hail Mary"
+ },
+ {
+  "slug": "where-the-crawdads-sing-281",
+  "brand": "Generic",
+  "baseName": "Where the Crawdads Sing"
+ },
+ {
+  "slug": "bmw-m5-competition-282",
+  "brand": "BMW",
+  "baseName": "BMW M5 Competition"
+ },
+ {
+  "slug": "mercedes-benz-g-wagon-g63-283",
+  "brand": "Mercedes-Benz",
+  "baseName": "Mercedes-Benz G-Wagon G63"
+ },
+ {
+  "slug": "toyota-fortuner-284",
+  "brand": "Toyota",
+  "baseName": "Toyota Fortuner"
+ },
+ {
+  "slug": "palm-estates-private-island-dubai-285",
+  "brand": "Palm Estates",
+  "baseName": "Palm Estates Private Island — Dubai"
+ },
+ {
+  "slug": "palm-estates-palm-jumeirah-villa-286",
+  "brand": "Palm Estates",
+  "baseName": "Palm Estates Palm Jumeirah Villa"
+ },
+ {
+  "slug": "emaar-burj-khalifa-penthouse-287",
+  "brand": "Emaar",
+  "baseName": "Emaar Burj Khalifa Penthouse"
+ },
+ {
+  "slug": "lodha-worli-sea-facing-flat-288",
+  "brand": "Lodha",
+  "baseName": "Lodha Worli Sea-Facing Flat"
+ },
+ {
+  "slug": "godrej-bandra-3bhk-289",
+  "brand": "Godrej",
+  "baseName": "Godrej Bandra 3BHK"
+ },
+ {
+  "slug": "isprava-goa-beach-villa-290",
+  "brand": "Isprava",
+  "baseName": "Isprava Goa Beach Villa"
+ },
+ {
+  "slug": "isprava-lonavala-farmhouse-291",
+  "brand": "Isprava",
+  "baseName": "Isprava Lonavala Farmhouse"
+ },
+ {
+  "slug": "dlf-gurgaon-sky-apartment-292",
+  "brand": "DLF",
+  "baseName": "DLF Gurgaon Sky Apartment"
+ },
+ {
+  "slug": "arc-floor-lamp-293",
+  "brand": "Generic",
+  "baseName": "Arc Floor Lamp"
+ },
+ {
+  "slug": "table-lamp-294",
+  "brand": "Generic",
+  "baseName": "Table Lamp"
+ },
+ {
+  "slug": "urban-ladder-accent-armchair-295",
+  "brand": "Urban Ladder",
+  "baseName": "Urban Ladder Accent Armchair"
+ },
+ {
+  "slug": "pepperfry-coffee-table-296",
+  "brand": "Pepperfry",
+  "baseName": "Pepperfry Coffee Table"
+ },
+ {
+  "slug": "sofa-cover-set-297",
+  "brand": "Generic",
+  "baseName": "Sofa Cover Set"
+ },
+ {
+  "slug": "chumbak-ceramic-flower-vase-298",
+  "brand": "Chumbak",
+  "baseName": "Chumbak Ceramic Flower Vase"
+ },
+ {
+  "slug": "decorative-wall-mirror-299",
+  "brand": "Generic",
+  "baseName": "Decorative Wall Mirror"
+ },
+ {
+  "slug": "chumbak-brass-showpiece-300",
+  "brand": "Chumbak",
+  "baseName": "Chumbak Brass Showpiece"
+ },
+ {
+  "slug": "blackout-curtains-301",
+  "brand": "Generic",
+  "baseName": "Blackout Curtains"
+ },
+ {
+  "slug": "candle-holder-set-302",
+  "brand": "Generic",
+  "baseName": "Candle Holder Set"
+ },
+ {
+  "slug": "photo-frame-set-303",
+  "brand": "Generic",
+  "baseName": "Photo Frame Set"
+ },
+ {
+  "slug": "jaipur-rugs-handwoven-area-rug-304",
+  "brand": "Jaipur Rugs",
+  "baseName": "Jaipur Rugs Handwoven Area Rug"
+ },
+ {
+  "slug": "wall-clock-305",
+  "brand": "Generic",
+  "baseName": "Wall Clock"
+ },
+ {
+  "slug": "peel-stick-wallpaper-306",
+  "brand": "Generic",
+  "baseName": "Peel & Stick Wallpaper"
+ },
+ {
+  "slug": "framed-wall-art-set-of-3-307",
+  "brand": "Generic",
+  "baseName": "Framed Wall Art (Set of 3)"
+ },
+ {
+  "slug": "resin-sculpture-308",
+  "brand": "Generic",
+  "baseName": "Resin Sculpture"
+ },
+ {
+  "slug": "wakefit-upholstered-bed-309",
+  "brand": "Wakefit",
+  "baseName": "Wakefit Upholstered Bed"
+ },
+ {
+  "slug": "bedsheet-set-cotton-310",
+  "brand": "Generic",
+  "baseName": "Bedsheet Set (Cotton)"
+ },
+ {
+  "slug": "nilkamal-storage-cabinet-311",
+  "brand": "Nilkamal",
+  "baseName": "Nilkamal Storage Cabinet"
+ },
+ {
+  "slug": "cushion-cover-set-of-5-312",
+  "brand": "Generic",
+  "baseName": "Cushion Cover (Set of 5)"
+ },
+ {
+  "slug": "urbanic-midi-dress-313",
+  "brand": "Urbanic",
+  "baseName": "Urbanic Midi Dress"
+ },
+ {
+  "slug": "shein-bodycon-dress-314",
+  "brand": "SHEIN",
+  "baseName": "SHEIN Bodycon Dress"
+ },
+ {
+  "slug": "zara-satin-slip-maxi-315",
+  "brand": "Zara",
+  "baseName": "Zara Satin Slip Maxi"
+ },
+ {
+  "slug": "only-utility-jumpsuit-316",
+  "brand": "ONLY",
+  "baseName": "ONLY Utility Jumpsuit"
+ },
+ {
+  "slug": "vero-moda-co-ord-set-317",
+  "brand": "Vero Moda",
+  "baseName": "Vero Moda Co-ord Set"
+ },
+ {
+  "slug": "h-m-ribbed-crop-top-318",
+  "brand": "H&M",
+  "baseName": "H&M Ribbed Crop Top"
+ },
+ {
+  "slug": "h-m-cotton-tank-top-319",
+  "brand": "H&M",
+  "baseName": "H&M Cotton Tank Top"
+ },
+ {
+  "slug": "roadster-denim-shorts-320",
+  "brand": "Roadster",
+  "baseName": "Roadster Denim Shorts"
+ },
+ {
+  "slug": "levi-s-high-waist-mom-jeans-321",
+  "brand": "Levi's",
+  "baseName": "Levi's High-Waist Mom Jeans"
+ },
+ {
+  "slug": "zara-wide-leg-trousers-322",
+  "brand": "Zara",
+  "baseName": "Zara Wide-Leg Trousers"
+ },
+ {
+  "slug": "forever-21-skater-skirt-323",
+  "brand": "Forever 21",
+  "baseName": "Forever 21 Skater Skirt"
+ },
+ {
+  "slug": "urbanic-oversized-shirt-324",
+  "brand": "Urbanic",
+  "baseName": "Urbanic Oversized Shirt"
+ },
+ {
+  "slug": "accessorize-statement-rings-set-325",
+  "brand": "Accessorize",
+  "baseName": "Accessorize Statement Rings (Set)"
+ },
+ {
+  "slug": "zaveri-pearls-jhumka-earrings-326",
+  "brand": "Zaveri Pearls",
+  "baseName": "Zaveri Pearls Jhumka Earrings"
+ },
+ {
+  "slug": "pipa-bella-charm-bracelet-327",
+  "brand": "Pipa Bella",
+  "baseName": "Pipa Bella Charm Bracelet"
+ },
+ {
+  "slug": "accessorize-hoop-earrings-328",
+  "brand": "Accessorize",
+  "baseName": "Accessorize Hoop Earrings"
+ },
+ {
+  "slug": "apple-iphone-16-329",
+  "brand": "Apple",
+  "baseName": "Apple iPhone 16"
+ },
+ {
+  "slug": "apple-ipad-pro-m4-330",
+  "brand": "Apple",
+  "baseName": "Apple iPad Pro M4"
+ },
+ {
+  "slug": "dyson-supersonic-hair-dryer-331",
+  "brand": "Dyson",
+  "baseName": "Dyson Supersonic Hair Dryer"
+ },
+ {
+  "slug": "dyson-v15-cordless-vacuum-332",
+  "brand": "Dyson",
+  "baseName": "Dyson V15 Cordless Vacuum"
+ },
+ {
+  "slug": "philips-air-fryer-333",
+  "brand": "Philips",
+  "baseName": "Philips Air Fryer"
+ },
+ {
+  "slug": "preethi-mixer-grinder-334",
+  "brand": "Preethi",
+  "baseName": "Preethi Mixer Grinder"
+ },
+ {
+  "slug": "irobot-robot-vacuum-335",
+  "brand": "iRobot",
+  "baseName": "iRobot Robot Vacuum"
+ },
+ {
+  "slug": "apple-airpods-pro-2-336",
+  "brand": "Apple",
+  "baseName": "Apple AirPods Pro 2"
+ },
+ {
+  "slug": "sony-wh-1000xm5-337",
+  "brand": "Sony",
+  "baseName": "Sony WH-1000XM5"
+ },
+ {
+  "slug": "jbl-flip-6-speaker-338",
+  "brand": "JBL",
+  "baseName": "JBL Flip 6 Speaker"
+ },
+ {
+  "slug": "adidas-adilette-sliders-339",
+  "brand": "Adidas",
+  "baseName": "Adidas Adilette Sliders"
+ },
+ {
+  "slug": "bata-everyday-slippers-340",
+  "brand": "Bata",
+  "baseName": "Bata Everyday Slippers"
+ },
+ {
+  "slug": "steve-madden-block-heels-341",
+  "brand": "Steve Madden",
+  "baseName": "Steve Madden Block Heels"
+ },
+ {
+  "slug": "metro-ethnic-kolhapuris-342",
+  "brand": "Metro",
+  "baseName": "Metro Ethnic Kolhapuris"
+ },
+ {
+  "slug": "relaxo-flip-flops-343",
+  "brand": "Relaxo",
+  "baseName": "Relaxo Flip-Flops"
+ },
+ {
+  "slug": "faber-castell-coloring-book-pencils-344",
+  "brand": "Faber-Castell",
+  "baseName": "Faber-Castell Coloring Book + Pencils"
+ },
+ {
+  "slug": "camel-acrylic-paint-set-345",
+  "brand": "Camel",
+  "baseName": "Camel Acrylic Paint Set"
+ },
+ {
+  "slug": "canvas-board-pack-346",
+  "brand": "Generic",
+  "baseName": "Canvas Board Pack"
+ },
+ {
+  "slug": "sketchpro-sketch-pens-markers-347",
+  "brand": "Sketchpro",
+  "baseName": "Sketchpro Sketch Pens & Markers"
+ },
+ {
+  "slug": "vlcc-gold-facial-kit-348",
+  "brand": "VLCC",
+  "baseName": "VLCC Gold Facial Kit"
+ },
+ {
+  "slug": "lakme-complete-makeup-kit-349",
+  "brand": "Lakme",
+  "baseName": "Lakme Complete Makeup Kit"
+ },
+ {
+  "slug": "mamaearth-skincare-combo-350",
+  "brand": "Mamaearth",
+  "baseName": "Mamaearth Skincare Combo"
+ },
+ {
+  "slug": "kay-beauty-nail-art-kit-351",
+  "brand": "Kay Beauty",
+  "baseName": "Kay Beauty Nail Art Kit"
+ },
+ {
+  "slug": "lodha-marquise-worli-352",
+  "brand": "Lodha",
+  "baseName": "Lodha Marquise — Worli"
+ },
+ {
+  "slug": "lodha-bellissimo-mahalaxmi-353",
+  "brand": "Lodha",
+  "baseName": "Lodha Bellissimo — Mahalaxmi"
+ },
+ {
+  "slug": "oberoi-realty-three-sixty-west-worli-354",
+  "brand": "Oberoi Realty",
+  "baseName": "Oberoi Realty Three Sixty West — Worli"
+ },
+ {
+  "slug": "oberoi-realty-sky-city-borivali-355",
+  "brand": "Oberoi Realty",
+  "baseName": "Oberoi Realty Sky City — Borivali"
+ },
+ {
+  "slug": "rustomjee-crown-prabhadevi-356",
+  "brand": "Rustomjee",
+  "baseName": "Rustomjee Crown — Prabhadevi"
+ },
+ {
+  "slug": "godrej-platinum-bandra-357",
+  "brand": "Godrej",
+  "baseName": "Godrej Platinum — Bandra"
+ },
+ {
+  "slug": "hiranandani-gardens-powai-358",
+  "brand": "Hiranandani",
+  "baseName": "Hiranandani Gardens — Powai"
+ },
+ {
+  "slug": "dlf-the-camellias-golf-course-rd-359",
+  "brand": "DLF",
+  "baseName": "DLF The Camellias — Golf Course Rd"
+ },
+ {
+  "slug": "dlf-the-crest-gurgaon-360",
+  "brand": "DLF",
+  "baseName": "DLF The Crest — Gurgaon"
+ },
+ {
+  "slug": "m3m-golf-estate-gurgaon-361",
+  "brand": "M3M",
+  "baseName": "M3M Golf Estate — Gurgaon"
+ },
+ {
+  "slug": "sobha-city-gurgaon-362",
+  "brand": "Sobha",
+  "baseName": "Sobha City — Gurgaon"
+ },
+ {
+  "slug": "prestige-golfshire-villa-bangalore-363",
+  "brand": "Prestige",
+  "baseName": "Prestige Golfshire Villa — Bangalore"
+ },
+ {
+  "slug": "prestige-lakeside-habitat-whitefield-364",
+  "brand": "Prestige",
+  "baseName": "Prestige Lakeside Habitat — Whitefield"
+ },
+ {
+  "slug": "brigade-exotica-bangalore-365",
+  "brand": "Brigade",
+  "baseName": "Brigade Exotica — Bangalore"
+ },
+ {
+  "slug": "sobha-dream-acres-bangalore-366",
+  "brand": "Sobha",
+  "baseName": "Sobha Dream Acres — Bangalore"
+ },
+ {
+  "slug": "total-environment-windmills-of-your-mind-bangalore-367",
+  "brand": "Total Environment",
+  "baseName": "Total Environment Windmills of Your Mind — Bangalore"
+ },
+ {
+  "slug": "embassy-boulevard-villa-bangalore-368",
+  "brand": "Embassy",
+  "baseName": "Embassy Boulevard Villa — Bangalore"
+ },
+ {
+  "slug": "mahindra-luminare-sector-59-369",
+  "brand": "Mahindra",
+  "baseName": "Mahindra Luminare — Sector 59"
+ },
+ {
+  "slug": "tata-housing-primanti-gurgaon-370",
+  "brand": "Tata Housing",
+  "baseName": "Tata Housing Primanti — Gurgaon"
+ },
+ {
+  "slug": "ats-marigold-gurgaon-371",
+  "brand": "ATS",
+  "baseName": "ATS Marigold — Gurgaon"
+ },
+ {
+  "slug": "purva-silversands-pune-372",
+  "brand": "Purva",
+  "baseName": "Purva Silversands — Pune"
+ },
+ {
+  "slug": "kolte-patil-life-republic-pune-373",
+  "brand": "Kolte Patil",
+  "baseName": "Kolte Patil Life Republic — Pune"
+ },
+ {
+  "slug": "godrej-woods-noida-374",
+  "brand": "Godrej",
+  "baseName": "Godrej Woods — Noida"
+ },
+ {
+  "slug": "ats-knightsbridge-noida-375",
+  "brand": "ATS",
+  "baseName": "ATS Knightsbridge — Noida"
+ },
+ {
+  "slug": "emaar-palm-hills-gurgaon-376",
+  "brand": "Emaar",
+  "baseName": "Emaar Palm Hills — Gurgaon"
+ },
+ {
+  "slug": "emaar-beachfront-dubai-marina-377",
+  "brand": "Emaar",
+  "baseName": "Emaar Beachfront — Dubai Marina"
+ },
+ {
+  "slug": "damac-cavalli-tower-dubai-378",
+  "brand": "Damac",
+  "baseName": "Damac Cavalli Tower — Dubai"
+ },
+ {
+  "slug": "nakheel-palm-jumeirah-villa-dubai-379",
+  "brand": "Nakheel",
+  "baseName": "Nakheel Palm Jumeirah Villa — Dubai"
+ },
+ {
+  "slug": "emaar-downtown-views-dubai-380",
+  "brand": "Emaar",
+  "baseName": "Emaar Downtown Views — Dubai"
+ },
+ {
+  "slug": "sobha-hartland-villa-dubai-381",
+  "brand": "Sobha",
+  "baseName": "Sobha Hartland Villa — Dubai"
+ },
+ {
+  "slug": "isprava-heritage-villa-goa-382",
+  "brand": "Isprava",
+  "baseName": "Isprava Heritage Villa — Goa"
+ },
+ {
+  "slug": "isprava-riverfront-estate-alibaug-383",
+  "brand": "Isprava",
+  "baseName": "Isprava Riverfront Estate — Alibaug"
+ },
+ {
+  "slug": "ozone-hill-retreat-lonavala-384",
+  "brand": "Ozone",
+  "baseName": "Ozone Hill Retreat — Lonavala"
+ },
+ {
+  "slug": "casagrand-boulevard-chennai-385",
+  "brand": "Casagrand",
+  "baseName": "Casagrand Boulevard — Chennai"
+ },
+ {
+  "slug": "prestige-bougainvillea-chennai-386",
+  "brand": "Prestige",
+  "baseName": "Prestige Bougainvillea — Chennai"
+ },
+ {
+  "slug": "merlin-the-fifth-avenue-kolkata-387",
+  "brand": "Merlin",
+  "baseName": "Merlin The Fifth Avenue — Kolkata"
+ },
+ {
+  "slug": "ps-group-panorama-kolkata-388",
+  "brand": "PS Group",
+  "baseName": "PS Group Panorama — Kolkata"
+ },
+ {
+  "slug": "my-home-bhooja-hyderabad-389",
+  "brand": "My Home",
+  "baseName": "My Home Bhooja — Hyderabad"
+ },
+ {
+  "slug": "aparna-sarovar-grande-hyderabad-390",
+  "brand": "Aparna",
+  "baseName": "Aparna Sarovar Grande — Hyderabad"
+ },
+ {
+  "slug": "phoenix-one-bangalore-west-bangalore-391",
+  "brand": "Phoenix",
+  "baseName": "Phoenix One Bangalore West — Bangalore"
+ },
+ {
+  "slug": "sephora-collection-cream-lip-stain-392",
+  "brand": "Sephora Collection",
+  "baseName": "Sephora Collection Cream Lip Stain"
+ },
+ {
+  "slug": "huda-beauty-obsessions-palette-393",
+  "brand": "Huda Beauty",
+  "baseName": "Huda Beauty Obsessions Palette"
+ },
+ {
+  "slug": "mac-retro-matte-lipstick-394",
+  "brand": "MAC",
+  "baseName": "MAC Retro Matte Lipstick"
+ },
+ {
+  "slug": "nars-blush-orgasm-395",
+  "brand": "NARS",
+  "baseName": "NARS Blush — Orgasm"
+ },
+ {
+  "slug": "rare-beauty-soft-pinch-blush-396",
+  "brand": "Rare Beauty",
+  "baseName": "Rare Beauty Soft Pinch Blush"
+ },
+ {
+  "slug": "fenty-beauty-pro-filt-r-foundation-397",
+  "brand": "Fenty Beauty",
+  "baseName": "Fenty Beauty Pro Filt'r Foundation"
+ },
+ {
+  "slug": "charlotte-tilbury-pillow-talk-lipstick-398",
+  "brand": "Charlotte Tilbury",
+  "baseName": "Charlotte Tilbury Pillow Talk Lipstick"
+ },
+ {
+  "slug": "the-ordinary-niacinamide-10-399",
+  "brand": "The Ordinary",
+  "baseName": "The Ordinary Niacinamide 10%"
+ },
+ {
+  "slug": "the-ordinary-hyaluronic-acid-400",
+  "brand": "The Ordinary",
+  "baseName": "The Ordinary Hyaluronic Acid"
+ },
+ {
+  "slug": "cetaphil-gentle-cleanser-401",
+  "brand": "Cetaphil",
+  "baseName": "Cetaphil Gentle Cleanser"
+ },
+ {
+  "slug": "neutrogena-hydro-boost-gel-402",
+  "brand": "Neutrogena",
+  "baseName": "Neutrogena Hydro Boost Gel"
+ },
+ {
+  "slug": "forest-essentials-facial-ubtan-403",
+  "brand": "Forest Essentials",
+  "baseName": "Forest Essentials Facial Ubtan"
+ },
+ {
+  "slug": "kama-ayurveda-rose-water-404",
+  "brand": "Kama Ayurveda",
+  "baseName": "Kama Ayurveda Rose Water"
+ },
+ {
+  "slug": "maybelline-fit-me-foundation-405",
+  "brand": "Maybelline",
+  "baseName": "Maybelline Fit Me Foundation"
+ },
+ {
+  "slug": "e-l-f-halo-glow-filter-406",
+  "brand": "e.l.f.",
+  "baseName": "e.l.f. Halo Glow Filter"
+ },
+ {
+  "slug": "dyson-airwrap-styler-407",
+  "brand": "Dyson",
+  "baseName": "Dyson Airwrap Styler"
+ },
+ {
+  "slug": "bts-love-yourself-answer-album-408",
+  "brand": "BTS",
+  "baseName": "BTS Love Yourself 結 'Answer' (Album)"
+ },
+ {
+  "slug": "bts-come-over-album-409",
+  "brand": "BTS",
+  "baseName": "BTS Come Over (Album)"
+ },
+ {
+  "slug": "bts-map-of-the-soul-7-album-410",
+  "brand": "BTS",
+  "baseName": "BTS MAP OF THE SOUL : 7 (Album)"
+ },
+ {
+  "slug": "bts-the-most-beautiful-moment-in-life-young-forever-album-411",
+  "brand": "BTS",
+  "baseName": "BTS The Most Beautiful Moment in Life: Young Forever (Album)"
+ },
+ {
+  "slug": "bts-dark-wild-album-412",
+  "brand": "BTS",
+  "baseName": "BTS DARK&WILD (Album)"
+ },
+ {
+  "slug": "bts-love-yourself-tear-album-413",
+  "brand": "BTS",
+  "baseName": "BTS Love Yourself 轉 'Tear' (Album)"
+ },
+ {
+  "slug": "blackpink-as-if-it-s-your-last-album-414",
+  "brand": "BLACKPINK",
+  "baseName": "BLACKPINK AS IF IT'S YOUR LAST (Album)"
+ },
+ {
+  "slug": "blackpink-pink-venom-album-415",
+  "brand": "BLACKPINK",
+  "baseName": "BLACKPINK Pink Venom (Album)"
+ },
+ {
+  "slug": "blackpink-the-album-album-416",
+  "brand": "BLACKPINK",
+  "baseName": "BLACKPINK THE ALBUM (Album)"
+ },
+ {
+  "slug": "blackpink-kill-this-love-album-417",
+  "brand": "BLACKPINK",
+  "baseName": "BLACKPINK KILL THIS LOVE (Album)"
+ },
+ {
+  "slug": "blackpink-square-two-album-418",
+  "brand": "BLACKPINK",
+  "baseName": "BLACKPINK SQUARE TWO (Album)"
+ },
+ {
+  "slug": "blackpink-square-up-album-419",
+  "brand": "BLACKPINK",
+  "baseName": "BLACKPINK SQUARE UP (Album)"
+ },
+ {
+  "slug": "stray-kids-this-that-album-420",
+  "brand": "Stray Kids",
+  "baseName": "Stray Kids THIS & THAT (Album)"
+ },
+ {
+  "slug": "stray-kids-skz-replay-2026-pt-1-album-421",
+  "brand": "Stray Kids",
+  "baseName": "Stray Kids SKZ-REPLAY 2026 Pt.1 (Album)"
+ },
+ {
+  "slug": "stray-kids-run-it-album-422",
+  "brand": "Stray Kids",
+  "baseName": "Stray Kids RUN IT (Album)"
+ },
+ {
+  "slug": "stray-kids-ate-album-423",
+  "brand": "Stray Kids",
+  "baseName": "Stray Kids ATE (Album)"
+ },
+ {
+  "slug": "stray-kids-noeasy-album-424",
+  "brand": "Stray Kids",
+  "baseName": "Stray Kids NOEASY (Album)"
+ },
+ {
+  "slug": "stray-kids-karma-album-425",
+  "brand": "Stray Kids",
+  "baseName": "Stray Kids KARMA (Album)"
+ },
+ {
+  "slug": "seventeen-you-made-my-dawn-album-426",
+  "brand": "SEVENTEEN",
+  "baseName": "SEVENTEEN YOU MADE MY DAWN (Album)"
+ },
+ {
+  "slug": "seventeen-darl-ing-album-427",
+  "brand": "SEVENTEEN",
+  "baseName": "SEVENTEEN Darl+Ing (Album)"
+ },
+ {
+  "slug": "seventeen-fml-album-428",
+  "brand": "SEVENTEEN",
+  "baseName": "SEVENTEEN FML (Album)"
+ },
+ {
+  "slug": "seventeen-heng-gar-album-429",
+  "brand": "SEVENTEEN",
+  "baseName": "SEVENTEEN Heng:garæ (Album)"
+ },
+ {
+  "slug": "seventeen-attacca-album-430",
+  "brand": "SEVENTEEN",
+  "baseName": "SEVENTEEN Attacca (Album)"
+ },
+ {
+  "slug": "seventeen-your-choice-album-431",
+  "brand": "SEVENTEEN",
+  "baseName": "SEVENTEEN Your Choice (Album)"
+ },
+ {
+  "slug": "twice-fancy-you-album-432",
+  "brand": "TWICE",
+  "baseName": "TWICE FANCY YOU (Album)"
+ },
+ {
+  "slug": "twice-formula-of-love-o-t-3-album-433",
+  "brand": "TWICE",
+  "baseName": "TWICE Formula of Love: O+T=<3 (Album)"
+ },
+ {
+  "slug": "twice-cry-for-me-album-434",
+  "brand": "TWICE",
+  "baseName": "TWICE CRY FOR ME (Album)"
+ },
+ {
+  "slug": "twice-eyes-wide-open-album-435",
+  "brand": "TWICE",
+  "baseName": "TWICE Eyes wide open (Album)"
+ },
+ {
+  "slug": "twice-feel-special-album-436",
+  "brand": "TWICE",
+  "baseName": "TWICE Feel Special (Album)"
+ },
+ {
+  "slug": "twice-moonlight-sunrise-album-437",
+  "brand": "TWICE",
+  "baseName": "TWICE MOONLIGHT SUNRISE (Album)"
+ },
+ {
+  "slug": "newjeans-1st-ep-new-jeans-album-438",
+  "brand": "NewJeans",
+  "baseName": "NewJeans 1st EP 'New Jeans' (Album)"
+ },
+ {
+  "slug": "newjeans-2nd-ep-get-up-album-439",
+  "brand": "NewJeans",
+  "baseName": "NewJeans 2nd EP 'Get Up' (Album)"
+ },
+ {
+  "slug": "newjeans-omg-apple-music-edition-album-440",
+  "brand": "NewJeans",
+  "baseName": "NewJeans OMG (Apple Music Edition) (Album)"
+ },
+ {
+  "slug": "newjeans-how-sweet-album-441",
+  "brand": "NewJeans",
+  "baseName": "NewJeans How Sweet (Album)"
+ },
+ {
+  "slug": "newjeans-omg-album-442",
+  "brand": "NewJeans",
+  "baseName": "NewJeans 'OMG' (Album)"
+ },
+ {
+  "slug": "newjeans-ditto-album-443",
+  "brand": "NewJeans",
+  "baseName": "NewJeans Ditto (Album)"
+ },
+ {
+  "slug": "aespa-lemonade-the-2nd-album-album-444",
+  "brand": "aespa",
+  "baseName": "aespa LEMONADE - The 2nd Album (Album)"
+ },
+ {
+  "slug": "aespa-synk-aexis-line-2026-special-digital-single-album-445",
+  "brand": "aespa",
+  "baseName": "aespa SYNK : aeXIS LINE - 2026 Special Digital Single (Album)"
+ },
+ {
+  "slug": "aespa-better-things-album-446",
+  "brand": "aespa",
+  "baseName": "aespa Better Things (Album)"
+ },
+ {
+  "slug": "aespa-kiss-n-tell-album-447",
+  "brand": "aespa",
+  "baseName": "aespa KISS N TELL (Album)"
+ },
+ {
+  "slug": "aespa-wda-whole-different-animal-feat-g-dragon-album-448",
+  "brand": "aespa",
+  "baseName": "aespa WDA (Whole Different Animal) [feat. G-DRAGON] (Album)"
+ },
+ {
+  "slug": "aespa-rich-man-the-6th-mini-album-album-449",
+  "brand": "aespa",
+  "baseName": "aespa Rich Man - The 6th Mini Album (Album)"
+ },
+ {
+  "slug": "exo-the-1st-album-xoxo-repackage-album-450",
+  "brand": "EXO",
+  "baseName": "EXO The 1st Album 'XOXO' (Repackage) (Album)"
+ },
+ {
+  "slug": "exo-the-war-the-4th-album-album-451",
+  "brand": "EXO",
+  "baseName": "EXO THE WAR - The 4th Album (Album)"
+ },
+ {
+  "slug": "exo-ex-act-the-3rd-album-album-452",
+  "brand": "EXO",
+  "baseName": "EXO EX’ACT - The 3rd Album (Album)"
+ },
+ {
+  "slug": "exo-sing-for-you-winter-special-album-2015-album-453",
+  "brand": "EXO",
+  "baseName": "EXO SING FOR YOU - Winter Special Album, 2015 (Album)"
+ },
+ {
+  "slug": "exo-obsession-the-6th-album-album-454",
+  "brand": "EXO",
+  "baseName": "EXO OBSESSION - The 6th Album (Album)"
+ },
+ {
+  "slug": "exo-reverxe-the-8th-album-album-455",
+  "brand": "EXO",
+  "baseName": "EXO REVERXE - The 8th Album (Album)"
+ },
+ {
+  "slug": "enhypen-the-sin-bliss-korean-ver-album-456",
+  "brand": "ENHYPEN",
+  "baseName": "ENHYPEN THE SIN : BLISS (Korean Ver.) (Album)"
+ },
+ {
+  "slug": "enhypen-the-sin-bliss-english-ver-album-457",
+  "brand": "ENHYPEN",
+  "baseName": "ENHYPEN THE SIN : BLISS (English Ver.) (Album)"
+ },
+ {
+  "slug": "enhypen-the-sin-bliss-album-458",
+  "brand": "ENHYPEN",
+  "baseName": "ENHYPEN THE SIN : BLISS (Album)"
+ },
+ {
+  "slug": "enhypen-the-sin-bliss-chinese-ver-album-459",
+  "brand": "ENHYPEN",
+  "baseName": "ENHYPEN THE SIN : BLISS (Chinese Ver.) (Album)"
+ },
+ {
+  "slug": "enhypen-the-sin-bliss-japanese-ver-album-460",
+  "brand": "ENHYPEN",
+  "baseName": "ENHYPEN THE SIN : BLISS (Japanese Ver.) (Album)"
+ },
+ {
+  "slug": "enhypen-the-sin-vanish-album-461",
+  "brand": "ENHYPEN",
+  "baseName": "ENHYPEN THE SIN : VANISH (Album)"
+ },
+ {
+  "slug": "le-sserafim-hot-album-462",
+  "brand": "LE SSERAFIM",
+  "baseName": "LE SSERAFIM HOT (Album)"
+ },
+ {
+  "slug": "le-sserafim-celebration-album-463",
+  "brand": "LE SSERAFIM",
+  "baseName": "LE SSERAFIM CELEBRATION (Album)"
+ },
+ {
+  "slug": "le-sserafim-unforgiven-album-464",
+  "brand": "LE SSERAFIM",
+  "baseName": "LE SSERAFIM UNFORGIVEN (Album)"
+ },
+ {
+  "slug": "le-sserafim-crazy-album-465",
+  "brand": "LE SSERAFIM",
+  "baseName": "LE SSERAFIM CRAZY (Album)"
+ },
+ {
+  "slug": "le-sserafim-antifragile-album-466",
+  "brand": "LE SSERAFIM",
+  "baseName": "LE SSERAFIM ANTIFRAGILE (Album)"
+ },
+ {
+  "slug": "le-sserafim-easy-album-467",
+  "brand": "LE SSERAFIM",
+  "baseName": "LE SSERAFIM EASY (Album)"
+ },
+ {
+  "slug": "bts-official-lightstick-468",
+  "brand": "BTS",
+  "baseName": "BTS Official Lightstick"
+ },
+ {
+  "slug": "bts-photocard-binder-set-469",
+  "brand": "BTS",
+  "baseName": "BTS Photocard Binder Set"
+ },
+ {
+  "slug": "bts-tour-hoodie-470",
+  "brand": "BTS",
+  "baseName": "BTS Tour Hoodie"
+ },
+ {
+  "slug": "bts-poster-set-471",
+  "brand": "BTS",
+  "baseName": "BTS Poster Set"
+ },
+ {
+  "slug": "blackpink-official-lightstick-472",
+  "brand": "BLACKPINK",
+  "baseName": "BLACKPINK Official Lightstick"
+ },
+ {
+  "slug": "blackpink-photocard-binder-set-473",
+  "brand": "BLACKPINK",
+  "baseName": "BLACKPINK Photocard Binder Set"
+ },
+ {
+  "slug": "blackpink-tour-hoodie-474",
+  "brand": "BLACKPINK",
+  "baseName": "BLACKPINK Tour Hoodie"
+ },
+ {
+  "slug": "blackpink-poster-set-475",
+  "brand": "BLACKPINK",
+  "baseName": "BLACKPINK Poster Set"
+ },
+ {
+  "slug": "stray-kids-official-lightstick-476",
+  "brand": "Stray Kids",
+  "baseName": "Stray Kids Official Lightstick"
+ },
+ {
+  "slug": "stray-kids-photocard-binder-set-477",
+  "brand": "Stray Kids",
+  "baseName": "Stray Kids Photocard Binder Set"
+ },
+ {
+  "slug": "stray-kids-tour-hoodie-478",
+  "brand": "Stray Kids",
+  "baseName": "Stray Kids Tour Hoodie"
+ },
+ {
+  "slug": "stray-kids-poster-set-479",
+  "brand": "Stray Kids",
+  "baseName": "Stray Kids Poster Set"
+ },
+ {
+  "slug": "seventeen-official-lightstick-480",
+  "brand": "SEVENTEEN",
+  "baseName": "SEVENTEEN Official Lightstick"
+ },
+ {
+  "slug": "seventeen-photocard-binder-set-481",
+  "brand": "SEVENTEEN",
+  "baseName": "SEVENTEEN Photocard Binder Set"
+ },
+ {
+  "slug": "seventeen-tour-hoodie-482",
+  "brand": "SEVENTEEN",
+  "baseName": "SEVENTEEN Tour Hoodie"
+ },
+ {
+  "slug": "seventeen-poster-set-483",
+  "brand": "SEVENTEEN",
+  "baseName": "SEVENTEEN Poster Set"
+ },
+ {
+  "slug": "twice-official-lightstick-484",
+  "brand": "TWICE",
+  "baseName": "TWICE Official Lightstick"
+ },
+ {
+  "slug": "twice-photocard-binder-set-485",
+  "brand": "TWICE",
+  "baseName": "TWICE Photocard Binder Set"
+ },
+ {
+  "slug": "twice-tour-hoodie-486",
+  "brand": "TWICE",
+  "baseName": "TWICE Tour Hoodie"
+ },
+ {
+  "slug": "twice-poster-set-487",
+  "brand": "TWICE",
+  "baseName": "TWICE Poster Set"
+ },
+ {
+  "slug": "newjeans-official-lightstick-488",
+  "brand": "NewJeans",
+  "baseName": "NewJeans Official Lightstick"
+ },
+ {
+  "slug": "newjeans-photocard-binder-set-489",
+  "brand": "NewJeans",
+  "baseName": "NewJeans Photocard Binder Set"
+ },
+ {
+  "slug": "newjeans-tour-hoodie-490",
+  "brand": "NewJeans",
+  "baseName": "NewJeans Tour Hoodie"
+ },
+ {
+  "slug": "newjeans-poster-set-491",
+  "brand": "NewJeans",
+  "baseName": "NewJeans Poster Set"
+ },
+ {
+  "slug": "aespa-official-lightstick-492",
+  "brand": "aespa",
+  "baseName": "aespa Official Lightstick"
+ },
+ {
+  "slug": "aespa-photocard-binder-set-493",
+  "brand": "aespa",
+  "baseName": "aespa Photocard Binder Set"
+ },
+ {
+  "slug": "aespa-tour-hoodie-494",
+  "brand": "aespa",
+  "baseName": "aespa Tour Hoodie"
+ },
+ {
+  "slug": "aespa-poster-set-495",
+  "brand": "aespa",
+  "baseName": "aespa Poster Set"
+ },
+ {
+  "slug": "exo-official-lightstick-496",
+  "brand": "EXO",
+  "baseName": "EXO Official Lightstick"
+ },
+ {
+  "slug": "exo-photocard-binder-set-497",
+  "brand": "EXO",
+  "baseName": "EXO Photocard Binder Set"
+ },
+ {
+  "slug": "exo-tour-hoodie-498",
+  "brand": "EXO",
+  "baseName": "EXO Tour Hoodie"
+ },
+ {
+  "slug": "exo-poster-set-499",
+  "brand": "EXO",
+  "baseName": "EXO Poster Set"
+ },
+ {
+  "slug": "enhypen-official-lightstick-500",
+  "brand": "ENHYPEN",
+  "baseName": "ENHYPEN Official Lightstick"
+ },
+ {
+  "slug": "enhypen-photocard-binder-set-501",
+  "brand": "ENHYPEN",
+  "baseName": "ENHYPEN Photocard Binder Set"
+ },
+ {
+  "slug": "enhypen-tour-hoodie-502",
+  "brand": "ENHYPEN",
+  "baseName": "ENHYPEN Tour Hoodie"
+ },
+ {
+  "slug": "enhypen-poster-set-503",
+  "brand": "ENHYPEN",
+  "baseName": "ENHYPEN Poster Set"
+ },
+ {
+  "slug": "le-sserafim-official-lightstick-504",
+  "brand": "LE SSERAFIM",
+  "baseName": "LE SSERAFIM Official Lightstick"
+ },
+ {
+  "slug": "le-sserafim-photocard-binder-set-505",
+  "brand": "LE SSERAFIM",
+  "baseName": "LE SSERAFIM Photocard Binder Set"
+ },
+ {
+  "slug": "le-sserafim-tour-hoodie-506",
+  "brand": "LE SSERAFIM",
+  "baseName": "LE SSERAFIM Tour Hoodie"
+ },
+ {
+  "slug": "le-sserafim-poster-set-507",
+  "brand": "LE SSERAFIM",
+  "baseName": "LE SSERAFIM Poster Set"
+ },
+ {
+  "slug": "gulfstream-g650er-508",
+  "brand": "Gulfstream",
+  "baseName": "Gulfstream G650ER"
+ },
+ {
+  "slug": "bombardier-global-7500-509",
+  "brand": "Bombardier",
+  "baseName": "Bombardier Global 7500"
+ },
+ {
+  "slug": "dassault-falcon-8x-510",
+  "brand": "Dassault",
+  "baseName": "Dassault Falcon 8X"
+ },
+ {
+  "slug": "embraer-praetor-600-511",
+  "brand": "Embraer",
+  "baseName": "Embraer Praetor 600"
+ },
+ {
+  "slug": "cessna-citation-longitude-512",
+  "brand": "Cessna",
+  "baseName": "Cessna Citation Longitude"
+ },
+ {
+  "slug": "hondajet-elite-ii-513",
+  "brand": "HondaJet",
+  "baseName": "HondaJet Elite II"
+ },
+ {
+  "slug": "airbus-acj-twotwenty-514",
+  "brand": "Airbus",
+  "baseName": "Airbus ACJ TwoTwenty"
+ },
+ {
+  "slug": "pilatus-pc-24-super-versatile-jet-515",
+  "brand": "Pilatus",
+  "baseName": "Pilatus PC-24 Super Versatile Jet"
+ },
+ {
+  "slug": "pagani-huayra-516",
+  "brand": "Pagani",
+  "baseName": "Pagani Huayra"
+ },
+ {
+  "slug": "pagani-utopia-517",
+  "brand": "Pagani",
+  "baseName": "Pagani Utopia"
+ },
+ {
+  "slug": "pagani-zonda-r-518",
+  "brand": "Pagani",
+  "baseName": "Pagani Zonda R"
+ },
+ {
+  "slug": "koenigsegg-jesko-519",
+  "brand": "Koenigsegg",
+  "baseName": "Koenigsegg Jesko"
+ },
+ {
+  "slug": "mclaren-p1-520",
+  "brand": "McLaren",
+  "baseName": "McLaren P1"
+ },
+ {
+  "slug": "lego-star-wars-millennium-falcon-521",
+  "brand": "LEGO",
+  "baseName": "LEGO Star Wars Millennium Falcon"
+ },
+ {
+  "slug": "lego-technic-bugatti-chiron-522",
+  "brand": "LEGO",
+  "baseName": "LEGO Technic Bugatti Chiron"
+ },
+ {
+  "slug": "lego-icons-titanic-523",
+  "brand": "LEGO",
+  "baseName": "LEGO Icons Titanic"
+ },
+ {
+  "slug": "lego-harry-potter-hogwarts-castle-524",
+  "brand": "LEGO",
+  "baseName": "LEGO Harry Potter Hogwarts Castle"
+ },
+ {
+  "slug": "lego-architecture-taj-mahal-525",
+  "brand": "LEGO",
+  "baseName": "LEGO Architecture Taj Mahal"
+ },
+ {
+  "slug": "lego-city-police-station-526",
+  "brand": "LEGO",
+  "baseName": "LEGO City Police Station"
+ },
+ {
+  "slug": "lego-botanicals-bouquet-527",
+  "brand": "LEGO",
+  "baseName": "LEGO Botanicals Bouquet"
+ },
+ {
+  "slug": "lego-minecraft-the-crafting-table-528",
+  "brand": "LEGO",
+  "baseName": "LEGO Minecraft The Crafting Table"
+ },
+ {
+  "slug": "lego-ninjago-temple-529",
+  "brand": "LEGO",
+  "baseName": "LEGO Ninjago Temple"
+ },
+ {
+  "slug": "lego-collectible-minifigure-530",
+  "brand": "LEGO",
+  "baseName": "LEGO Collectible Minifigure"
+ },
+ {
+  "slug": "hot-wheels-20-car-gift-pack-531",
+  "brand": "Hot Wheels",
+  "baseName": "Hot Wheels 20-Car Gift Pack"
+ },
+ {
+  "slug": "hot-wheels-ultimate-garage-playset-532",
+  "brand": "Hot Wheels",
+  "baseName": "Hot Wheels Ultimate Garage Playset"
+ },
+ {
+  "slug": "hot-wheels-track-builder-loop-kit-533",
+  "brand": "Hot Wheels",
+  "baseName": "Hot Wheels Track Builder Loop Kit"
+ },
+ {
+  "slug": "hot-wheels-monster-trucks-5-pack-534",
+  "brand": "Hot Wheels",
+  "baseName": "Hot Wheels Monster Trucks 5-Pack"
+ },
+ {
+  "slug": "hot-wheels-premium-car-culture-535",
+  "brand": "Hot Wheels",
+  "baseName": "Hot Wheels Premium Car Culture"
+ },
+ {
+  "slug": "amul-toned-milk-pouch-536",
+  "brand": "Amul",
+  "baseName": "Amul Toned Milk Pouch"
+ },
+ {
+  "slug": "amul-butter-537",
+  "brand": "Amul",
+  "baseName": "Amul Butter"
+ },
+ {
+  "slug": "amul-cheese-slices-538",
+  "brand": "Amul",
+  "baseName": "Amul Cheese Slices"
+ },
+ {
+  "slug": "amul-paneer-fresh-block-539",
+  "brand": "Amul",
+  "baseName": "Amul Paneer Fresh Block"
+ },
+ {
+  "slug": "mother-dairy-curd-cup-540",
+  "brand": "Mother Dairy",
+  "baseName": "Mother Dairy Curd Cup"
+ },
+ {
+  "slug": "epigamia-greek-yogurt-541",
+  "brand": "Epigamia",
+  "baseName": "Epigamia Greek Yogurt"
+ },
+ {
+  "slug": "nandini-fresh-ghee-542",
+  "brand": "Nandini",
+  "baseName": "Nandini Fresh Ghee"
+ },
+ {
+  "slug": "farmfresh-daily-vegetable-basket-543",
+  "brand": "FarmFresh",
+  "baseName": "FarmFresh Daily Vegetable Basket"
+ },
+ {
+  "slug": "farmfresh-onion-potato-combo-544",
+  "brand": "FarmFresh",
+  "baseName": "FarmFresh Onion Potato Combo"
+ },
+ {
+  "slug": "farmfresh-tomato-545",
+  "brand": "FarmFresh",
+  "baseName": "FarmFresh Tomato"
+ },
+ {
+  "slug": "farmfresh-leafy-greens-pack-546",
+  "brand": "FarmFresh",
+  "baseName": "FarmFresh Leafy Greens Pack"
+ },
+ {
+  "slug": "farmfresh-exotic-veggies-box-547",
+  "brand": "FarmFresh",
+  "baseName": "FarmFresh Exotic Veggies Box"
+ },
+ {
+  "slug": "fruitcart-seasonal-fruit-box-548",
+  "brand": "FruitCart",
+  "baseName": "FruitCart Seasonal Fruit Box"
+ },
+ {
+  "slug": "fruitcart-banana-bunch-549",
+  "brand": "FruitCart",
+  "baseName": "FruitCart Banana Bunch"
+ },
+ {
+  "slug": "fruitcart-alphonso-mango-crate-550",
+  "brand": "FruitCart",
+  "baseName": "FruitCart Alphonso Mango Crate"
+ },
+ {
+  "slug": "fruitcart-imported-fruit-mix-551",
+  "brand": "FruitCart",
+  "baseName": "FruitCart Imported Fruit Mix"
+ },
+ {
+  "slug": "bakehouse-whole-wheat-bread-552",
+  "brand": "BakeHouse",
+  "baseName": "BakeHouse Whole Wheat Bread"
+ },
+ {
+  "slug": "bakehouse-butter-croissant-553",
+  "brand": "BakeHouse",
+  "baseName": "BakeHouse Butter Croissant"
+ },
+ {
+  "slug": "bakehouse-artisan-sourdough-loaf-554",
+  "brand": "BakeHouse",
+  "baseName": "BakeHouse Artisan Sourdough Loaf"
+ },
+ {
+  "slug": "bakehouse-bakery-fresh-bun-pack-555",
+  "brand": "BakeHouse",
+  "baseName": "BakeHouse Bakery Fresh Bun Pack"
+ },
+ {
+  "slug": "bakehouse-assorted-cookie-jar-556",
+  "brand": "BakeHouse",
+  "baseName": "BakeHouse Assorted Cookie Jar"
+ },
+ {
+  "slug": "nutking-premium-almonds-557",
+  "brand": "NutKing",
+  "baseName": "NutKing Premium Almonds"
+ },
+ {
+  "slug": "nutking-cashew-whole-w240-558",
+  "brand": "NutKing",
+  "baseName": "NutKing Cashew Whole W240"
+ },
+ {
+  "slug": "nutking-pistachio-roasted-salted-559",
+  "brand": "NutKing",
+  "baseName": "NutKing Pistachio Roasted & Salted"
+ },
+ {
+  "slug": "nutking-medjool-dates-560",
+  "brand": "NutKing",
+  "baseName": "NutKing Medjool Dates"
+ },
+ {
+  "slug": "nutking-walnut-kernels-561",
+  "brand": "NutKing",
+  "baseName": "NutKing Walnut Kernels"
+ },
+ {
+  "slug": "nutking-trail-mix-seeds-562",
+  "brand": "NutKing",
+  "baseName": "NutKing Trail Mix & Seeds"
+ },
+ {
+  "slug": "nutking-dry-fruit-gift-hamper-563",
+  "brand": "NutKing",
+  "baseName": "NutKing Dry Fruit Gift Hamper"
+ },
+ {
+  "slug": "dailystaples-basmati-rice-564",
+  "brand": "DailyStaples",
+  "baseName": "DailyStaples Basmati Rice"
+ },
+ {
+  "slug": "dailystaples-toor-dal-565",
+  "brand": "DailyStaples",
+  "baseName": "DailyStaples Toor Dal"
+ },
+ {
+  "slug": "dailystaples-atta-whole-wheat-566",
+  "brand": "DailyStaples",
+  "baseName": "DailyStaples Atta Whole Wheat"
+ },
+ {
+  "slug": "dailystaples-cooking-oil-567",
+  "brand": "DailyStaples",
+  "baseName": "DailyStaples Cooking Oil"
+ },
+ {
+  "slug": "dailystaples-sugar-salt-combo-568",
+  "brand": "DailyStaples",
+  "baseName": "DailyStaples Sugar & Salt Combo"
+ },
+ {
+  "slug": "dailystaples-monthly-grocery-hamper-569",
+  "brand": "DailyStaples",
+  "baseName": "DailyStaples Monthly Grocery Hamper"
+ },
+ {
+  "slug": "dailystaples-fresh-market-basket-570",
+  "brand": "DailyStaples",
+  "baseName": "DailyStaples Fresh Market Basket"
+ },
+ {
+  "slug": "zaveri-pearls-kundan-choker-set-571",
+  "brand": "Zaveri Pearls",
+  "baseName": "Zaveri Pearls Kundan Choker Set"
+ },
+ {
+  "slug": "zaveri-pearls-temple-jewellery-set-572",
+  "brand": "Zaveri Pearls",
+  "baseName": "Zaveri Pearls Temple Jewellery Set"
+ },
+ {
+  "slug": "zaveri-pearls-pearl-necklace-set-573",
+  "brand": "Zaveri Pearls",
+  "baseName": "Zaveri Pearls Pearl Necklace Set"
+ },
+ {
+  "slug": "zaveri-pearls-polki-bridal-set-574",
+  "brand": "Zaveri Pearls",
+  "baseName": "Zaveri Pearls Polki Bridal Set"
+ },
+ {
+  "slug": "accessorize-jhumka-earrings-575",
+  "brand": "Accessorize",
+  "baseName": "Accessorize Jhumka Earrings"
+ },
+ {
+  "slug": "accessorize-oxidised-silver-earrings-576",
+  "brand": "Accessorize",
+  "baseName": "Accessorize Oxidised Silver Earrings"
+ },
+ {
+  "slug": "accessorize-hoop-earrings-set-577",
+  "brand": "Accessorize",
+  "baseName": "Accessorize Hoop Earrings Set"
+ },
+ {
+  "slug": "accessorize-stud-earrings-pack-578",
+  "brand": "Accessorize",
+  "baseName": "Accessorize Stud Earrings Pack"
+ },
+ {
+  "slug": "accessorize-layered-chain-necklace-579",
+  "brand": "Accessorize",
+  "baseName": "Accessorize Layered Chain Necklace"
+ },
+ {
+  "slug": "accessorize-pendant-necklace-580",
+  "brand": "Accessorize",
+  "baseName": "Accessorize Pendant Necklace"
+ },
+ {
+  "slug": "accessorize-choker-necklace-581",
+  "brand": "Accessorize",
+  "baseName": "Accessorize Choker Necklace"
+ },
+ {
+  "slug": "accessorize-bangle-set-582",
+  "brand": "Accessorize",
+  "baseName": "Accessorize Bangle Set"
+ },
+ {
+  "slug": "accessorize-cuff-bracelet-583",
+  "brand": "Accessorize",
+  "baseName": "Accessorize Cuff Bracelet"
+ },
+ {
+  "slug": "accessorize-charm-bracelet-584",
+  "brand": "Accessorize",
+  "baseName": "Accessorize Charm Bracelet"
+ },
+ {
+  "slug": "accessorize-adjustable-ring-set-585",
+  "brand": "Accessorize",
+  "baseName": "Accessorize Adjustable Ring Set"
+ },
+ {
+  "slug": "accessorize-statement-cocktail-ring-586",
+  "brand": "Accessorize",
+  "baseName": "Accessorize Statement Cocktail Ring"
+ },
+ {
+  "slug": "accessorize-anklet-pair-587",
+  "brand": "Accessorize",
+  "baseName": "Accessorize Anklet Pair"
+ },
+ {
+  "slug": "accessorize-nose-pin-set-588",
+  "brand": "Accessorize",
+  "baseName": "Accessorize Nose Pin Set"
+ },
+ {
+  "slug": "accessorize-maang-tikka-589",
+  "brand": "Accessorize",
+  "baseName": "Accessorize Maang Tikka"
+ },
+ {
+  "slug": "accessorize-hair-accessory-set-590",
+  "brand": "Accessorize",
+  "baseName": "Accessorize Hair Accessory Set"
+ },
+ {
+  "slug": "snoozeco-cotton-pyjama-set-591",
+  "brand": "SnoozeCo",
+  "baseName": "SnoozeCo Cotton Pyjama Set"
+ },
+ {
+  "slug": "snoozeco-satin-night-suit-592",
+  "brand": "SnoozeCo",
+  "baseName": "SnoozeCo Satin Night Suit"
+ },
+ {
+  "slug": "snoozeco-night-dress-593",
+  "brand": "SnoozeCo",
+  "baseName": "SnoozeCo Night Dress"
+ },
+ {
+  "slug": "snoozeco-lounge-co-ord-set-594",
+  "brand": "SnoozeCo",
+  "baseName": "SnoozeCo Lounge Co-ord Set"
+ },
+ {
+  "slug": "snoozeco-shorts-tee-night-set-595",
+  "brand": "SnoozeCo",
+  "baseName": "SnoozeCo Shorts & Tee Night Set"
+ },
+ {
+  "slug": "snoozeco-robe-slip-set-596",
+  "brand": "SnoozeCo",
+  "baseName": "SnoozeCo Robe & Slip Set"
+ },
+ {
+  "slug": "snoozeco-fleece-winter-pyjama-597",
+  "brand": "SnoozeCo",
+  "baseName": "SnoozeCo Fleece Winter Pyjama"
+ },
+ {
+  "slug": "snoozeco-printed-sleep-tee-598",
+  "brand": "SnoozeCo",
+  "baseName": "SnoozeCo Printed Sleep Tee"
+ },
+ {
+  "slug": "urbancarry-everyday-tote-bag-599",
+  "brand": "UrbanCarry",
+  "baseName": "UrbanCarry Everyday Tote Bag"
+ },
+ {
+  "slug": "urbancarry-mini-sling-bag-600",
+  "brand": "UrbanCarry",
+  "baseName": "UrbanCarry Mini Sling Bag"
+ },
+ {
+  "slug": "urbancarry-laptop-backpack-601",
+  "brand": "UrbanCarry",
+  "baseName": "UrbanCarry Laptop Backpack"
+ },
+ {
+  "slug": "urbancarry-canvas-belt-602",
+  "brand": "UrbanCarry",
+  "baseName": "UrbanCarry Canvas Belt"
+ },
+ {
+  "slug": "urbancarry-silk-scarf-603",
+  "brand": "UrbanCarry",
+  "baseName": "UrbanCarry Silk Scarf"
+ },
+ {
+  "slug": "urbancarry-sunglasses-wayfarer-604",
+  "brand": "UrbanCarry",
+  "baseName": "UrbanCarry Sunglasses Wayfarer"
+ },
+ {
+  "slug": "urbancarry-oversized-sunglasses-605",
+  "brand": "UrbanCarry",
+  "baseName": "UrbanCarry Oversized Sunglasses"
+ },
+ {
+  "slug": "urbancarry-card-holder-wallet-606",
+  "brand": "UrbanCarry",
+  "baseName": "UrbanCarry Card Holder Wallet"
+ },
+ {
+  "slug": "urbancarry-hair-claw-clip-set-607",
+  "brand": "UrbanCarry",
+  "baseName": "UrbanCarry Hair Claw Clip Set"
+ },
+ {
+  "slug": "urbancarry-watch-strap-set-608",
+  "brand": "UrbanCarry",
+  "baseName": "UrbanCarry Watch Strap Set"
+ },
+ {
+  "slug": "inkwell-hardbound-notebook-609",
+  "brand": "InkWell",
+  "baseName": "InkWell Hardbound Notebook"
+ },
+ {
+  "slug": "inkwell-fountain-pen-610",
+  "brand": "InkWell",
+  "baseName": "InkWell Fountain Pen"
+ },
+ {
+  "slug": "inkwell-gel-pen-pack-611",
+  "brand": "InkWell",
+  "baseName": "InkWell Gel Pen Pack"
+ },
+ {
+  "slug": "inkwell-rollerball-pen-612",
+  "brand": "InkWell",
+  "baseName": "InkWell Rollerball Pen"
+ },
+ {
+  "slug": "inkwell-desk-organiser-set-613",
+  "brand": "InkWell",
+  "baseName": "InkWell Desk Organiser Set"
+ },
+ {
+  "slug": "inkwell-sticky-notes-mega-pack-614",
+  "brand": "InkWell",
+  "baseName": "InkWell Sticky Notes Mega Pack"
+ },
+ {
+  "slug": "inkwell-highlighter-set-615",
+  "brand": "InkWell",
+  "baseName": "InkWell Highlighter Set"
+ },
+ {
+  "slug": "inkwell-planner-journal-616",
+  "brand": "InkWell",
+  "baseName": "InkWell Planner & Journal"
+ },
+ {
+  "slug": "inkwell-sketching-pencil-kit-617",
+  "brand": "InkWell",
+  "baseName": "InkWell Sketching Pencil Kit"
+ },
+ {
+  "slug": "inkwell-washi-tape-sticker-set-618",
+  "brand": "InkWell",
+  "baseName": "InkWell Washi Tape & Sticker Set"
+ },
+ {
+  "slug": "glowuh-matte-liquid-lipstick-619",
+  "brand": "Glowuh",
+  "baseName": "Glowuh Matte Liquid Lipstick"
+ },
+ {
+  "slug": "glowuh-lip-cheek-tint-620",
+  "brand": "Glowuh",
+  "baseName": "Glowuh Lip & Cheek Tint"
+ },
+ {
+  "slug": "glowuh-eyeshadow-palette-621",
+  "brand": "Glowuh",
+  "baseName": "Glowuh Eyeshadow Palette"
+ },
+ {
+  "slug": "glowuh-kajal-eyeliner-duo-622",
+  "brand": "Glowuh",
+  "baseName": "Glowuh Kajal & Eyeliner Duo"
+ },
+ {
+  "slug": "glowuh-mascara-volume-boost-623",
+  "brand": "Glowuh",
+  "baseName": "Glowuh Mascara Volume Boost"
+ },
+ {
+  "slug": "glowuh-foundation-stick-624",
+  "brand": "Glowuh",
+  "baseName": "Glowuh Foundation Stick"
+ },
+ {
+  "slug": "glowuh-compact-powder-625",
+  "brand": "Glowuh",
+  "baseName": "Glowuh Compact Powder"
+ },
+ {
+  "slug": "glowuh-blush-highlighter-palette-626",
+  "brand": "Glowuh",
+  "baseName": "Glowuh Blush & Highlighter Palette"
+ },
+ {
+  "slug": "glowuh-concealer-627",
+  "brand": "Glowuh",
+  "baseName": "Glowuh Concealer"
+ },
+ {
+  "slug": "glowuh-setting-spray-628",
+  "brand": "Glowuh",
+  "baseName": "Glowuh Setting Spray"
+ },
+ {
+  "slug": "glowuh-facial-kit-salon-series-629",
+  "brand": "Glowuh",
+  "baseName": "Glowuh Facial Kit Salon Series"
+ },
+ {
+  "slug": "glowuh-sheet-mask-pack-630",
+  "brand": "Glowuh",
+  "baseName": "Glowuh Sheet Mask Pack"
+ },
+ {
+  "slug": "glowuh-vitamin-c-serum-631",
+  "brand": "Glowuh",
+  "baseName": "Glowuh Vitamin C Serum"
+ },
+ {
+  "slug": "glowuh-makeup-brush-set-632",
+  "brand": "Glowuh",
+  "baseName": "Glowuh Makeup Brush Set"
+ },
+ {
+  "slug": "glowuh-nail-polish-set-633",
+  "brand": "Glowuh",
+  "baseName": "Glowuh Nail Polish Set"
+ },
+ {
+  "slug": "peter-england-formal-shirt-634",
+  "brand": "Peter England",
+  "baseName": "Peter England Formal Shirt"
+ },
+ {
+  "slug": "peter-england-slim-fit-check-shirt-635",
+  "brand": "Peter England",
+  "baseName": "Peter England Slim Fit Check Shirt"
+ },
+ {
+  "slug": "peter-england-formal-trousers-636",
+  "brand": "Peter England",
+  "baseName": "Peter England Formal Trousers"
+ },
+ {
+  "slug": "peter-england-round-neck-t-shirt-637",
+  "brand": "Peter England",
+  "baseName": "Peter England Round Neck T-Shirt"
+ },
+ {
+  "slug": "van-heusen-egyptian-cotton-formal-shirt-638",
+  "brand": "Van Heusen",
+  "baseName": "Van Heusen Egyptian Cotton Formal Shirt"
+ },
+ {
+  "slug": "van-heusen-self-design-formal-shirt-639",
+  "brand": "Van Heusen",
+  "baseName": "Van Heusen Self-Design Formal Shirt"
+ },
+ {
+  "slug": "van-heusen-flat-front-formal-trousers-640",
+  "brand": "Van Heusen",
+  "baseName": "Van Heusen Flat-Front Formal Trousers"
+ },
+ {
+  "slug": "van-heusen-two-piece-suit-641",
+  "brand": "Van Heusen",
+  "baseName": "Van Heusen Two-Piece Suit"
+ },
+ {
+  "slug": "van-heusen-three-piece-wedding-suit-642",
+  "brand": "Van Heusen",
+  "baseName": "Van Heusen Three-Piece Wedding Suit"
+ },
+ {
+  "slug": "allen-solly-casual-linen-shirt-643",
+  "brand": "Allen Solly",
+  "baseName": "Allen Solly Casual Linen Shirt"
+ },
+ {
+  "slug": "allen-solly-chambray-casual-shirt-644",
+  "brand": "Allen Solly",
+  "baseName": "Allen Solly Chambray Casual Shirt"
+ },
+ {
+  "slug": "allen-solly-slim-fit-chinos-645",
+  "brand": "Allen Solly",
+  "baseName": "Allen Solly Slim Fit Chinos"
+ },
+ {
+  "slug": "allen-solly-polo-t-shirt-646",
+  "brand": "Allen Solly",
+  "baseName": "Allen Solly Polo T-Shirt"
+ },
+ {
+  "slug": "allen-solly-printed-casual-shirt-647",
+  "brand": "Allen Solly",
+  "baseName": "Allen Solly Printed Casual Shirt"
+ },
+ {
+  "slug": "pantaloons-slim-fit-casual-shirt-648",
+  "brand": "Pantaloons",
+  "baseName": "Pantaloons Slim Fit Casual Shirt"
+ },
+ {
+  "slug": "pantaloons-graphic-print-t-shirt-649",
+  "brand": "Pantaloons",
+  "baseName": "Pantaloons Graphic Print T-Shirt"
+ },
+ {
+  "slug": "pantaloons-slim-fit-jeans-650",
+  "brand": "Pantaloons",
+  "baseName": "Pantaloons Slim Fit Jeans"
+ },
+ {
+  "slug": "pantaloons-oversized-t-shirt-651",
+  "brand": "Pantaloons",
+  "baseName": "Pantaloons Oversized T-Shirt"
+ },
+ {
+  "slug": "pantaloons-formal-trousers-652",
+  "brand": "Pantaloons",
+  "baseName": "Pantaloons Formal Trousers"
+ },
+ {
+  "slug": "h-m-regular-fit-cotton-shirt-653",
+  "brand": "H&M",
+  "baseName": "H&M Regular Fit Cotton Shirt"
+ },
+ {
+  "slug": "h-m-relaxed-fit-printed-tee-654",
+  "brand": "H&M",
+  "baseName": "H&M Relaxed Fit Printed Tee"
+ },
+ {
+  "slug": "h-m-slim-fit-jeans-655",
+  "brand": "H&M",
+  "baseName": "H&M Slim Fit Jeans"
+ },
+ {
+  "slug": "h-m-cotton-crew-neck-3-pack-656",
+  "brand": "H&M",
+  "baseName": "H&M Cotton Crew-Neck 3-Pack"
+ },
+ {
+  "slug": "h-m-cargo-trousers-657",
+  "brand": "H&M",
+  "baseName": "H&M Cargo Trousers"
+ },
+ {
+  "slug": "rare-rabbit-signature-cotton-shirt-658",
+  "brand": "Rare Rabbit",
+  "baseName": "Rare Rabbit Signature Cotton Shirt"
+ },
+ {
+  "slug": "rare-rabbit-textured-resort-shirt-659",
+  "brand": "Rare Rabbit",
+  "baseName": "Rare Rabbit Textured Resort Shirt"
+ },
+ {
+  "slug": "rare-rabbit-relaxed-trousers-660",
+  "brand": "Rare Rabbit",
+  "baseName": "Rare Rabbit Relaxed Trousers"
+ },
+ {
+  "slug": "rare-rabbit-heavyweight-tee-661",
+  "brand": "Rare Rabbit",
+  "baseName": "Rare Rabbit Heavyweight Tee"
+ },
+ {
+  "slug": "rare-rabbit-overshirt-662",
+  "brand": "Rare Rabbit",
+  "baseName": "Rare Rabbit Overshirt"
+ },
+ {
+  "slug": "louis-vuitton-monogram-cotton-shirt-663",
+  "brand": "Louis Vuitton",
+  "baseName": "Louis Vuitton Monogram Cotton Shirt"
+ },
+ {
+  "slug": "louis-vuitton-damier-print-t-shirt-664",
+  "brand": "Louis Vuitton",
+  "baseName": "Louis Vuitton Damier Print T-Shirt"
+ },
+ {
+  "slug": "louis-vuitton-tailored-wool-trousers-665",
+  "brand": "Louis Vuitton",
+  "baseName": "Louis Vuitton Tailored Wool Trousers"
+ },
+ {
+  "slug": "louis-vuitton-two-piece-wool-suit-666",
+  "brand": "Louis Vuitton",
+  "baseName": "Louis Vuitton Two-Piece Wool Suit"
+ },
+ {
+  "slug": "louis-vuitton-denim-jeans-667",
+  "brand": "Louis Vuitton",
+  "baseName": "Louis Vuitton Denim Jeans"
+ },
+ {
+  "slug": "parle-g-biscuit-668",
+  "brand": "Parle",
+  "baseName": "Parle-G Biscuit"
+ },
+ {
+  "slug": "nestl-perrier-669",
+  "brand": "Nestlé",
+  "baseName": "Nestlé Perrier"
+ },
+ {
+  "slug": "sting-energy-670",
+  "brand": "Sting",
+  "baseName": "Sting Energy"
+ },
+ {
+  "slug": "britannia-bourbon-671",
+  "brand": "Britannia",
+  "baseName": "Britannia Bourbon"
+ },
+ {
+  "slug": "red-bull-energy-drink-672",
+  "brand": "Red Bull",
+  "baseName": "Red Bull Energy Drink"
+ },
+ {
+  "slug": "britannia-good-day-cashew-cookies-673",
+  "brand": "Britannia",
+  "baseName": "Britannia Good Day - Cashew Cookies"
+ },
+ {
+  "slug": "britannia-marie-gold-biscuit-674",
+  "brand": "Britannia",
+  "baseName": "Britannia Marie Gold Biscuit"
+ },
+ {
+  "slug": "balaji-mung-dal-675",
+  "brand": "Balaji",
+  "baseName": "Balaji Mung Dal"
+ },
+ {
+  "slug": "balaji-wafers-masala-sev-murmura-676",
+  "brand": "Balaji Wafers",
+  "baseName": "Balaji Wafers Masala Sev Murmura"
+ },
+ {
+  "slug": "balaji-wafers-panjabi-tadka-677",
+  "brand": "Balaji",
+  "baseName": "Balaji Wafers panjabi tadka"
+ },
+ {
+  "slug": "balaji-wheels-678",
+  "brand": "Balaji",
+  "baseName": "Balaji Wheels"
+ },
+ {
+  "slug": "coca-cola-sprite-679",
+  "brand": "Coca-Cola",
+  "baseName": "Coca-Cola Sprite"
+ },
+ {
+  "slug": "balaji-potato-wafers-680",
+  "brand": "Balaji",
+  "baseName": "Balaji Potato Wafers"
+ },
+ {
+  "slug": "cadbury-original-oreo-681",
+  "brand": "Cadbury",
+  "baseName": "Cadbury Original Oreo"
+ },
+ {
+  "slug": "tata-salt-682",
+  "brand": "Tata",
+  "baseName": "Tata Salt"
+ },
+ {
+  "slug": "quaker-white-oats-683",
+  "brand": "Quaker",
+  "baseName": "Quaker White Oats"
+ },
+ {
+  "slug": "bisleri-1ltr-made-in-india-684",
+  "brand": "Bisleri",
+  "baseName": "Bisleri 1ltr MADE IN INDIA"
+ },
+ {
+  "slug": "cadbury-dairy-milk-685",
+  "brand": "Cadbury",
+  "baseName": "Cadbury Dairy Milk"
+ },
+ {
+  "slug": "balaji-chataka-pataka-tangy-tomato-686",
+  "brand": "Balaji",
+  "baseName": "Balaji Chataka Pataka Tangy Tomato"
+ },
+ {
+  "slug": "kinley-mineral-water-1ltr-687",
+  "brand": "Kinley",
+  "baseName": "Kinley Mineral Water 1ltr"
+ },
+ {
+  "slug": "kissan-fresh-tomato-688",
+  "brand": "Kissan",
+  "baseName": "Kissan Fresh Tomato"
+ },
+ {
+  "slug": "balaji-aloo-sev-689",
+  "brand": "Balaji",
+  "baseName": "Balaji Aloo Sev"
+ },
+ {
+  "slug": "britannia-jimjam-57g-57-690",
+  "brand": "Britannia",
+  "baseName": "Britannia Jimjam 57g (57)"
+ },
+ {
+  "slug": "amul-pasteurized-butter-691",
+  "brand": "Amul",
+  "baseName": "Amul Pasteurized Butter"
+ },
+ {
+  "slug": "coca-cola-thumsup-692",
+  "brand": "Coca-Cola",
+  "baseName": "Coca-Cola Thumsup"
+ },
+ {
+  "slug": "amul-masti-spiced-buttermilk-200ml-693",
+  "brand": "Amul",
+  "baseName": "Amul Masti Spiced Buttermilk 200ml"
+ },
+ {
+  "slug": "balaji-chataka-pataka-694",
+  "brand": "Balaji",
+  "baseName": "Balaji Chataka pataka"
+ },
+ {
+  "slug": "balaji-namkeen-balaji-farali-chivda-695",
+  "brand": "Balaji Namkeen",
+  "baseName": "Balaji Namkeen Balaji Farali Chivda"
+ },
+ {
+  "slug": "kurkure-puffcorn-696",
+  "brand": "Kurkure",
+  "baseName": "Kurkure Puffcorn"
+ },
+ {
+  "slug": "parle-krackjack-697",
+  "brand": "Parle",
+  "baseName": "Parle Krackjack"
+ },
+ {
+  "slug": "balaji-wafers-crunchex-698",
+  "brand": "Balaji",
+  "baseName": "Balaji Wafers Crunchex"
+ },
+ {
+  "slug": "ching-s-secret-schezwan-chutney-699",
+  "brand": "Ching's Secret",
+  "baseName": "Ching's Secret Schezwan Chutney"
+ },
+ {
+  "slug": "kitkat-mini-chocolate-coated-wafer-700",
+  "brand": "Kitkat",
+  "baseName": "Kitkat Mini chocolate coated wafer"
+ },
+ {
+  "slug": "britannia-marie-gold-701",
+  "brand": "Britannia",
+  "baseName": "Britannia Marie Gold"
+ },
+ {
+  "slug": "coca-cola-diet-coke-702",
+  "brand": "Coca-Cola",
+  "baseName": "Coca-Cola Diet coke"
+ },
+ {
+  "slug": "parle-monaco-703",
+  "brand": "Parle",
+  "baseName": "Parle Monaco"
+ },
+ {
+  "slug": "maggi-masala-magic-704",
+  "brand": "Maggi",
+  "baseName": "Maggi Masala magic"
+ },
+ {
+  "slug": "kurkure-masala-munch-705",
+  "brand": "Kurkure",
+  "baseName": "Kurkure Masala Munch"
+ },
+ {
+  "slug": "amul-taaza-milky-milk-706",
+  "brand": "Amul",
+  "baseName": "Amul Taaza Milky Milk"
+ },
+ {
+  "slug": "hindustan-coca-cola-beverages-pvt-ltd-maaza-origina-707",
+  "brand": "Hindustan Coca-Cola Beverages Pvt Ltd.",
+  "baseName": "Hindustan Coca-Cola Beverages Pvt Ltd. Maaza Origina"
+ },
+ {
+  "slug": "balaji-wafers-shing-bhujiya-nimbu-chatka-708",
+  "brand": "Balaji Wafers",
+  "baseName": "Balaji Wafers Shing Bhujiya - Nimbu Chatka"
+ },
+ {
+  "slug": "balaji-crunchm-709",
+  "brand": "Balaji",
+  "baseName": "Balaji Crunchm"
+ },
+ {
+  "slug": "munch-chocolat-en-poudre-710",
+  "brand": "Munch",
+  "baseName": "Munch Chocolat en poudre"
+ },
+ {
+  "slug": "parle-g-250g-711",
+  "brand": "Parle",
+  "baseName": "Parle-G 250g"
+ },
+ {
+  "slug": "coca-cola-company-sprite-712",
+  "brand": "Coca-Cola Company",
+  "baseName": "Coca-Cola Company Sprite"
+ },
+ {
+  "slug": "balaji-wafers-sev-murmura-713",
+  "brand": "Balaji Wafers",
+  "baseName": "Balaji Wafers Sev Murmura"
+ },
+ {
+  "slug": "patanjali-doodh-biscuits-714",
+  "brand": "Patanjali",
+  "baseName": "Patanjali Doodh Biscuits"
+ },
+ {
+  "slug": "balaji-wafers-simply-salted-715",
+  "brand": "Balaji Wafers",
+  "baseName": "Balaji Wafers Simply Salted"
+ },
+ {
+  "slug": "bingo-tedhe-medhe-716",
+  "brand": "Bingo",
+  "baseName": "Bingo Tedhe Medhe"
+ },
+ {
+  "slug": "parle-hide-seek-120g-717",
+  "brand": "Parle",
+  "baseName": "Parle Hide & Seek 120G"
+ },
+ {
+  "slug": "kissan-mixed-fruit-jam-718",
+  "brand": "Kissan",
+  "baseName": "Kissan Mixed Fruit Jam"
+ },
+ {
+  "slug": "parle-happy-happy-choco-chip-biscuit-719",
+  "brand": "Parle",
+  "baseName": "Parle Happy Happy Choco Chip Biscuit"
+ },
+ {
+  "slug": "lay-s-potato-chips-720",
+  "brand": "Lay's",
+  "baseName": "Lay's Potato Chips"
+ },
+ {
+  "slug": "haldiram-s-aloo-bhujia-721",
+  "brand": "Haldiram's",
+  "baseName": "Haldiram's Aloo bhujia"
+ },
+ {
+  "slug": "haldirams-haldiram-s-soya-sticks-722",
+  "brand": "Haldirams",
+  "baseName": "Haldirams Haldiram's Soya sticks"
+ },
+ {
+  "slug": "haldiram-s-moong-dal-723",
+  "brand": "Haldiram's",
+  "baseName": "Haldiram's Moong Dal"
+ },
+ {
+  "slug": "kellogg-s-chocos-724",
+  "brand": "Kellogg's",
+  "baseName": "Kellogg's Chocos"
+ },
+ {
+  "slug": "balaji-potato-chips-725",
+  "brand": "Balaji",
+  "baseName": "Balaji Potato chips"
+ },
+ {
+  "slug": "parle-hide-seek-726",
+  "brand": "Parle",
+  "baseName": "Parle Hide & Seek"
+ },
+ {
+  "slug": "haldiram-moong-dal-727",
+  "brand": "Haldiram",
+  "baseName": "Haldiram Moong dal"
+ },
+ {
+  "slug": "cadbury-bourn-vita-500gram-pauch-728",
+  "brand": "Cadbury",
+  "baseName": "Cadbury Bourn Vita 500Gram Pauch"
+ },
+ {
+  "slug": "amul-butter-729",
+  "brand": "Amul",
+  "baseName": "Amul Butter"
+ },
+ {
+  "slug": "lay-s-lays-classics-salted-20rs-730",
+  "brand": "Lay's",
+  "baseName": "Lay's Lays Classics Salted 20rs"
+ },
+ {
+  "slug": "nestl-maggi-noodles-masala-731",
+  "brand": "Nestlé",
+  "baseName": "Nestlé Maggi noodles masala"
+ },
+ {
+  "slug": "balaji-wafers-scoopitos-masala-flavour-732",
+  "brand": "Balaji Wafers",
+  "baseName": "Balaji Wafers Scoopitos Masala Flavour"
+ },
+ {
+  "slug": "kissan-fresh-tomato-ketchup-733",
+  "brand": "Kissan",
+  "baseName": "Kissan Fresh Tomato Ketchup"
+ },
+ {
+  "slug": "kellogg-s-muesli-fruit-nut-seeds-734",
+  "brand": "Kellogg's",
+  "baseName": "Kellogg's Muesli Fruit, Nut & Seeds"
+ },
+ {
+  "slug": "haldiram-phalhari-chiwda-735",
+  "brand": "Haldiram",
+  "baseName": "Haldiram Phalhari Chiwda"
+ },
+ {
+  "slug": "tata-water-1ltr-736",
+  "brand": "Tata",
+  "baseName": "Tata Water 1ltr"
+ },
+ {
+  "slug": "kurkure-solid-masti-masala-twisteez-crisps-737",
+  "brand": "Kurkure",
+  "baseName": "Kurkure Solid Masti Masala Twisteez Crisps"
+ },
+ {
+  "slug": "britannia-vita-marie-gold-738",
+  "brand": "Britannia",
+  "baseName": "Britannia Vita Marie Gold"
+ },
+ {
+  "slug": "lay-s-west-indies-hot-n-sweet-chilli-potato-chips-739",
+  "brand": "Lay's",
+  "baseName": "Lay's West Indies' Hot 'n' Sweet Chilli Potato Chips"
+ },
+ {
+  "slug": "aquafina-is-sold-by-pepsico-packaged-drinking-water-740",
+  "brand": "Aquafina Is Sold By Pepsico",
+  "baseName": "Aquafina Is Sold By Pepsico Packaged Drinking Water"
+ },
+ {
+  "slug": "frooti-125ml-741",
+  "brand": "Frooti",
+  "baseName": "Frooti 125ml"
+ },
+ {
+  "slug": "parle-agro-appy-fizz-appy-fizz-742",
+  "brand": "Parle Agro Appy Fizz",
+  "baseName": "Parle Agro Appy Fizz Appy Fizz"
+ },
+ {
+  "slug": "lay-s-lays-american-cream-onion-743",
+  "brand": "Lay's",
+  "baseName": "Lay's Lays american cream onion"
+ },
+ {
+  "slug": "the-coca-cola-company-coca-cola-744",
+  "brand": "The Coca-Cola Company",
+  "baseName": "The Coca-Cola Company Coca-Cola"
+ },
+ {
+  "slug": "nestl-kitkat-win-gold-745",
+  "brand": "Nestlé",
+  "baseName": "Nestlé KitKat win gold"
+ },
+ {
+  "slug": "sunfeast-is-sold-by-itc-limited-dark-fantasy-746",
+  "brand": "Sunfeast Is Sold By Itc Limited",
+  "baseName": "Sunfeast Is Sold By Itc Limited Dark Fantasy"
+ },
+ {
+  "slug": "amul-vanilla-royale-tub-747",
+  "brand": "Amul",
+  "baseName": "Amul Vanilla Royale Tub"
+ },
+ {
+  "slug": "amul-chocolate-truffle-tub-748",
+  "brand": "Amul",
+  "baseName": "Amul Chocolate Truffle Tub"
+ },
+ {
+  "slug": "amul-butterscotch-tub-749",
+  "brand": "Amul",
+  "baseName": "Amul Butterscotch Tub"
+ },
+ {
+  "slug": "kwality-wall-s-cornetto-cone-750",
+  "brand": "Kwality Wall's",
+  "baseName": "Kwality Wall's Cornetto Cone"
+ },
+ {
+  "slug": "kwality-wall-s-feast-bar-751",
+  "brand": "Kwality Wall's",
+  "baseName": "Kwality Wall's Feast Bar"
+ },
+ {
+  "slug": "kwality-wall-s-trixy-cup-752",
+  "brand": "Kwality Wall's",
+  "baseName": "Kwality Wall's Trixy Cup"
+ },
+ {
+  "slug": "mother-dairy-kulfi-stick-753",
+  "brand": "Mother Dairy",
+  "baseName": "Mother Dairy Kulfi Stick"
+ },
+ {
+  "slug": "mother-dairy-fruit-ice-candy-754",
+  "brand": "Mother Dairy",
+  "baseName": "Mother Dairy Fruit Ice Candy"
+ },
+ {
+  "slug": "vadilal-gulab-jamun-ice-cream-755",
+  "brand": "Vadilal",
+  "baseName": "Vadilal Gulab Jamun Ice Cream"
+ },
+ {
+  "slug": "vadilal-roasted-almond-cone-756",
+  "brand": "Vadilal",
+  "baseName": "Vadilal Roasted Almond Cone"
+ },
+ {
+  "slug": "havmor-rajwadi-kesar-pista-757",
+  "brand": "Havmor",
+  "baseName": "Havmor Rajwadi Kesar Pista"
+ },
+ {
+  "slug": "havmor-choco-dip-bar-758",
+  "brand": "Havmor",
+  "baseName": "Havmor Choco Dip Bar"
+ },
+ {
+  "slug": "naturals-tender-coconut-759",
+  "brand": "Naturals",
+  "baseName": "Naturals Tender Coconut"
+ },
+ {
+  "slug": "naturals-alphonso-mango-760",
+  "brand": "Naturals",
+  "baseName": "Naturals Alphonso Mango"
+ },
+ {
+  "slug": "baskin-robbins-ice-cream-cake-761",
+  "brand": "Baskin Robbins",
+  "baseName": "Baskin Robbins Ice Cream Cake"
+ },
+ {
+  "slug": "baskin-robbins-scoop-tub-762",
+  "brand": "Baskin Robbins",
+  "baseName": "Baskin Robbins Scoop Tub"
+ },
+ {
+  "slug": "cream-bell-sandwich-bar-763",
+  "brand": "Cream Bell",
+  "baseName": "Cream Bell Sandwich Bar"
+ },
+ {
+  "slug": "arun-family-pack-neapolitan-764",
+  "brand": "Arun",
+  "baseName": "Arun Family Pack Neapolitan"
+ },
+ {
+  "slug": "70mai-dash-cam-a510-765",
+  "brand": "70mai",
+  "baseName": "70mai Dash Cam A510"
+ },
+ {
+  "slug": "70mai-dash-cam-a200-766",
+  "brand": "70mai",
+  "baseName": "70mai Dash Cam A200"
+ },
+ {
+  "slug": "qubo-dashcam-pro-4k-767",
+  "brand": "Qubo",
+  "baseName": "Qubo Dashcam Pro 4K"
+ },
+ {
+  "slug": "ddpai-mini5-4k-dash-cam-768",
+  "brand": "DDPAI",
+  "baseName": "DDPAI Mini5 4K Dash Cam"
+ },
+ {
+  "slug": "xiaomi-smart-air-purifier-4-lite-769",
+  "brand": "Xiaomi",
+  "baseName": "Xiaomi Smart Air Purifier 4 Lite"
+ },
+ {
+  "slug": "xiaomi-smart-air-purifier-4-pro-770",
+  "brand": "Xiaomi",
+  "baseName": "Xiaomi Smart Air Purifier 4 Pro"
+ },
+ {
+  "slug": "philips-air-purifier-ac1215-771",
+  "brand": "Philips",
+  "baseName": "Philips Air Purifier AC1215"
+ },
+ {
+  "slug": "honeywell-air-touch-v2-772",
+  "brand": "Honeywell",
+  "baseName": "Honeywell Air Touch V2"
+ },
+ {
+  "slug": "dyson-purifier-cool-formaldehyde-773",
+  "brand": "Dyson",
+  "baseName": "Dyson Purifier Cool Formaldehyde"
+ },
+ {
+  "slug": "bosch-series-2-dishwasher-774",
+  "brand": "Bosch",
+  "baseName": "Bosch Series 2 Dishwasher"
+ },
+ {
+  "slug": "bosch-series-4-dishwasher-775",
+  "brand": "Bosch",
+  "baseName": "Bosch Series 4 Dishwasher"
+ },
+ {
+  "slug": "ifb-neptune-vx-dishwasher-776",
+  "brand": "IFB",
+  "baseName": "IFB Neptune VX Dishwasher"
+ },
+ {
+  "slug": "voltas-beko-8-place-dishwasher-777",
+  "brand": "Voltas Beko",
+  "baseName": "Voltas Beko 8 Place Dishwasher"
+ },
+ {
+  "slug": "lg-quadwash-dishwasher-778",
+  "brand": "LG",
+  "baseName": "LG QuadWash Dishwasher"
+ },
+ {
+  "slug": "apple-airtag-779",
+  "brand": "Apple",
+  "baseName": "Apple AirTag"
+ },
+ {
+  "slug": "apple-airtag-leather-loop-780",
+  "brand": "Apple",
+  "baseName": "Apple AirTag Leather Loop"
+ },
+ {
+  "slug": "instant-vortex-air-fryer-781",
+  "brand": "Instant",
+  "baseName": "Instant Vortex Air Fryer"
+ },
+ {
+  "slug": "havells-air-fryer-prolife-782",
+  "brand": "Havells",
+  "baseName": "Havells Air Fryer Prolife"
+ },
+ {
+  "slug": "agaro-grand-air-fryer-783",
+  "brand": "Agaro",
+  "baseName": "Agaro Grand Air Fryer"
+ },
+ {
+  "slug": "noise-colorfit-pro-5-784",
+  "brand": "Noise",
+  "baseName": "Noise ColorFit Pro 5"
+ },
+ {
+  "slug": "boat-wave-sigma-3-785",
+  "brand": "boAt",
+  "baseName": "boAt Wave Sigma 3"
+ },
+ {
+  "slug": "fire-boltt-phoenix-ultra-786",
+  "brand": "Fire-Boltt",
+  "baseName": "Fire-Boltt Phoenix Ultra"
+ },
+ {
+  "slug": "samsung-galaxy-watch-7-787",
+  "brand": "Samsung",
+  "baseName": "Samsung Galaxy Watch 7"
+ },
+ {
+  "slug": "apple-iphone-16-pro-max-788",
+  "brand": "Apple",
+  "baseName": "Apple iPhone 16 Pro Max"
+ },
+ {
+  "slug": "apple-iphone-15-pro-789",
+  "brand": "Apple",
+  "baseName": "Apple iPhone 15 Pro"
+ },
+ {
+  "slug": "apple-macbook-pro-14-790",
+  "brand": "Apple",
+  "baseName": "Apple MacBook Pro 14\""
+ },
+ {
+  "slug": "apple-macbook-air-13-791",
+  "brand": "Apple",
+  "baseName": "Apple MacBook Air 13\""
+ },
+ {
+  "slug": "dell-xps-15-laptop-792",
+  "brand": "Dell",
+  "baseName": "Dell XPS 15 Laptop"
+ },
+ {
+  "slug": "lenovo-thinkpad-x1-carbon-793",
+  "brand": "Lenovo",
+  "baseName": "Lenovo ThinkPad X1 Carbon"
+ },
+ {
+  "slug": "msi-katana-gaming-laptop-794",
+  "brand": "MSI",
+  "baseName": "MSI Katana Gaming Laptop"
+ },
+ {
+  "slug": "hp-pavilion-14-795",
+  "brand": "HP",
+  "baseName": "HP Pavilion 14"
+ },
+ {
+  "slug": "richard-mille-rm-030-automatic-796",
+  "brand": "Richard Mille",
+  "baseName": "Richard Mille RM 030 Automatic"
+ },
+ {
+  "slug": "richard-mille-rm-011-flyback-797",
+  "brand": "Richard Mille",
+  "baseName": "Richard Mille RM 011 Flyback"
+ },
+ {
+  "slug": "patek-philippe-nautilus-5711-798",
+  "brand": "Patek Philippe",
+  "baseName": "Patek Philippe Nautilus 5711"
+ },
+ {
+  "slug": "patek-philippe-nautilus-5980-chronograph-799",
+  "brand": "Patek Philippe",
+  "baseName": "Patek Philippe Nautilus 5980 Chronograph"
+ },
+ {
+  "slug": "patek-philippe-calatrava-800",
+  "brand": "Patek Philippe",
+  "baseName": "Patek Philippe Calatrava"
+ },
+ {
+  "slug": "hublot-big-bang-unico-801",
+  "brand": "Hublot",
+  "baseName": "Hublot Big Bang Unico"
+ },
+ {
+  "slug": "hublot-classic-fusion-802",
+  "brand": "Hublot",
+  "baseName": "Hublot Classic Fusion"
+ },
+ {
+  "slug": "seiko-prospex-orange-monster-803",
+  "brand": "Seiko",
+  "baseName": "Seiko Prospex Orange Monster"
+ },
+ {
+  "slug": "seiko-skx-diver-200m-804",
+  "brand": "Seiko",
+  "baseName": "Seiko SKX Diver 200m"
+ },
+ {
+  "slug": "seiko-presage-cocktail-time-805",
+  "brand": "Seiko",
+  "baseName": "Seiko Presage Cocktail Time"
+ },
+ {
+  "slug": "smoodh-flavoured-milk-806",
+  "brand": "Smoodh",
+  "baseName": "Smoodh Flavoured Milk"
+ },
+ {
+  "slug": "heritage-butter-milk-807",
+  "brand": "Heritage",
+  "baseName": "Heritage Butter milk"
+ },
+ {
+  "slug": "smoodh-chocolate-milk-808",
+  "brand": "Smoodh",
+  "baseName": "Smoodh Chocolate Milk"
+ },
+ {
+  "slug": "tata-tea-agni-809",
+  "brand": "Tata",
+  "baseName": "Tata Tea Agni"
+ },
+ {
+  "slug": "real-green-apple-810",
+  "brand": "Real",
+  "baseName": "Real Green Apple"
+ },
+ {
+  "slug": "dongsuh-foods-corp-maxim-mocha-gold-811",
+  "brand": "Dongsuh Foods Corp",
+  "baseName": "Dongsuh Foods Corp Maxim Mocha gold"
+ },
+ {
+  "slug": "amul-kool-cofe-812",
+  "brand": "Amul",
+  "baseName": "Amul Kool Cofe"
+ },
+ {
+  "slug": "coca-cola-limca-2ltr-pet-813",
+  "brand": "Coca Cola",
+  "baseName": "Coca Cola Limca 2ltr pet"
+ },
+ {
+  "slug": "so-good-india-almond-fresh-814",
+  "brand": "so good india",
+  "baseName": "so good india Almond Fresh"
+ },
+ {
+  "slug": "soy-milky-soy-beverage-815",
+  "brand": "Soy Milky",
+  "baseName": "Soy Milky Soy beverage"
+ },
+ {
+  "slug": "coca-cola-maaza-refresh-mango-drink-816",
+  "brand": "Coca cola",
+  "baseName": "Coca cola Maaza Refresh Mango Drink"
+ },
+ {
+  "slug": "coca-cola-minute-maid-817",
+  "brand": "Coca-Cola",
+  "baseName": "Coca-Cola Minute maid"
+ },
+ {
+  "slug": "american-garden-apple-cider-vinegar-818",
+  "brand": "American garden",
+  "baseName": "American garden Apple cider vinegar"
+ },
+ {
+  "slug": "amul-pasteurized-butter-819",
+  "brand": "Amul",
+  "baseName": "Amul Pasteurized Butter"
+ },
+ {
+  "slug": "amul-masti-spiced-buttermilk-200ml-820",
+  "brand": "Amul",
+  "baseName": "Amul Masti Spiced Buttermilk 200ml"
+ },
+ {
+  "slug": "bird-s-original-custard-powder-821",
+  "brand": "Bird's",
+  "baseName": "Bird's Original Custard powder"
+ },
+ {
+  "slug": "amul-taaza-milky-milk-822",
+  "brand": "Amul",
+  "baseName": "Amul Taaza Milky Milk"
+ },
+ {
+  "slug": "amul-butter-823",
+  "brand": "AMUL",
+  "baseName": "Amul Butter"
+ },
+ {
+  "slug": "paragon-partners-govardhan-pure-cow-ghee-500ml-824",
+  "brand": "Paragon Partners",
+  "baseName": "Paragon Partners Govardhan pure cow ghee 500ml"
+ },
+ {
+  "slug": "milky-mist-farm-fresh-sahi-plain-yoghurt-825",
+  "brand": "Milky Mist",
+  "baseName": "Milky Mist Farm Fresh Sahi Plain Yoghurt"
+ },
+ {
+  "slug": "gokul-pasteurised-full-cream-milk-826",
+  "brand": "Gokul",
+  "baseName": "Gokul Pasteurised full cream milk"
+ },
+ {
+  "slug": "amul-malai-paneer-fresh-827",
+  "brand": "Amul",
+  "baseName": "Amul Malai Paneer Fresh"
+ },
+ {
+  "slug": "parle-agro-smoodh-chocolate-828",
+  "brand": "Parle Agro",
+  "baseName": "Parle Agro Smoodh chocolate"
+ },
+ {
+  "slug": "chitale-pasteurised-cow-milk-829",
+  "brand": "Chitale",
+  "baseName": "Chitale Pasteurised Cow Milk"
+ },
+ {
+  "slug": "amul-cheese-830",
+  "brand": "Amul",
+  "baseName": "Amul cheese"
+ },
+ {
+  "slug": "amul-lassi-200ml-831",
+  "brand": "Amul",
+  "baseName": "Amul Lassi 200ml"
+ },
+ {
+  "slug": "gowardhan-pure-cow-ghee-832",
+  "brand": "Gowardhan",
+  "baseName": "Gowardhan Pure cow ghee"
+ },
+ {
+  "slug": "amul-butter-milk-amul-833",
+  "brand": "Amul",
+  "baseName": "Amul Butter milk amul"
+ },
+ {
+  "slug": "amul-cheese-slices-834",
+  "brand": "Amul",
+  "baseName": "Amul Cheese slices"
+ },
+ {
+  "slug": "amul-fresh-cream-835",
+  "brand": "Amul",
+  "baseName": "Amul Fresh Cream"
+ },
+ {
+  "slug": "amul-lassi-250-ml-836",
+  "brand": "Amul",
+  "baseName": "Amul Lassi 250 ml"
+ },
+ {
+  "slug": "coca-cola-yaourt-nature-sucres-u-837",
+  "brand": "Coca Cola",
+  "baseName": "Coca Cola Yaourt nature sucres U"
+ },
+ {
+  "slug": "amul-gold-milky-milk-838",
+  "brand": "Amul",
+  "baseName": "Amul Gold Milky Milk"
+ },
+ {
+  "slug": "amul-pasteurised-butter-839",
+  "brand": "Amul",
+  "baseName": "Amul Pasteurised butter"
+ },
+ {
+  "slug": "amul-pure-milk-cheese-slices-840",
+  "brand": "Amul",
+  "baseName": "Amul Pure Milk Cheese Slices"
+ },
+ {
+  "slug": "amul-taaza-1ltr-841",
+  "brand": "Amul",
+  "baseName": "Amul Taaza 1ltr"
+ },
+ {
+  "slug": "amul-dahi-yogurt-842",
+  "brand": "Amul",
+  "baseName": "Amul Dahi Yogurt"
+ },
+ {
+  "slug": "gokul-pasteurised-cow-milk-843",
+  "brand": "Gokul",
+  "baseName": "Gokul Pasteurised Cow Milk"
+ },
+ {
+  "slug": "milky-mist-greek-yogurt-844",
+  "brand": "Milky Mist",
+  "baseName": "Milky Mist Greek Yogurt"
+ },
+ {
+  "slug": "amul-masti-845",
+  "brand": "Amul",
+  "baseName": "Amul Masti"
+ },
+ {
+  "slug": "amul-tadka-chhach-probiotic-buttermilk-846",
+  "brand": "Amul",
+  "baseName": "Amul Tadka Chhach Probiotic Buttermilk"
+ },
+ {
+  "slug": "smoodh-masala-flavoured-buttermilk-847",
+  "brand": "Smoodh",
+  "baseName": "Smoodh Masala Flavoured Buttermilk"
+ },
+ {
+  "slug": "parle-agro-smoodh-chaas-848",
+  "brand": "Parle Agro",
+  "baseName": "Parle Agro Smoodh Chaas"
+ },
+ {
+  "slug": "passendale-classic-849",
+  "brand": "Passendale",
+  "baseName": "Passendale classic"
+ },
+ {
+  "slug": "amul-gee-850",
+  "brand": "Amul",
+  "baseName": "Amul gee"
+ },
+ {
+  "slug": "godrej-jersey-badam-flavoured-milk-851",
+  "brand": "Godrej Jersey",
+  "baseName": "Godrej Jersey Badam Flavoured Milk"
+ },
+ {
+  "slug": "amul-kool-kesar-flavour-180ml-852",
+  "brand": "Amul",
+  "baseName": "Amul Kool Kesar Flavour 180ml"
+ },
+ {
+  "slug": "smoodh-lassi-853",
+  "brand": "Smoodh",
+  "baseName": "Smoodh Lassi"
+ },
+ {
+  "slug": "amul-ghee-1ltr-854",
+  "brand": "Amul",
+  "baseName": "Amul Ghee 1ltr"
+ },
+ {
+  "slug": "amul-cheese-spread-855",
+  "brand": "Amul",
+  "baseName": "Amul Cheese Spread"
+ },
+ {
+  "slug": "hershey-s-milk-shake-chocolate-flavour-180ml-856",
+  "brand": "Hershey's",
+  "baseName": "Hershey's Milk shake chocolate flavour 180ml"
+ },
+ {
+  "slug": "cavin-s-cavins-masala-chaasa-180-ml-857",
+  "brand": "Cavin's",
+  "baseName": "Cavin's Cavins Masala Chaasa 180 ml"
+ },
+ {
+  "slug": "amul-diced-cheese-858",
+  "brand": "Amul",
+  "baseName": "Amul Diced Cheese"
+ },
+ {
+  "slug": "amul-shrikhand-badam-pista-859",
+  "brand": "Amul",
+  "baseName": "Amul Shrikhand badam pista"
+ },
+ {
+  "slug": "pintola-peanut-butter-860",
+  "brand": "Pintola",
+  "baseName": "Pintola Peanut butter"
+ },
+ {
+  "slug": "milky-mist-fruit-yogurt-blueberry-861",
+  "brand": "Milky Mist",
+  "baseName": "Milky Mist Fruit Yogurt Blueberry"
+ },
+ {
+  "slug": "milky-mist-paneer-862",
+  "brand": "Milky Mist",
+  "baseName": "Milky Mist Paneer"
+ },
+ {
+  "slug": "heritage-total-curd-863",
+  "brand": "heritage",
+  "baseName": "heritage Total Curd"
+ },
+ {
+  "slug": "amul-chocominis-864",
+  "brand": "Amul",
+  "baseName": "Amul Chocominis"
+ },
+ {
+  "slug": "cadbury-bournville-intense-70-dark-865",
+  "brand": "Cadbury",
+  "baseName": "Cadbury Bournville Intense 70% Dark"
+ },
+ {
+  "slug": "cadbury-5-star-chocolate-bar-866",
+  "brand": "Cadbury",
+  "baseName": "Cadbury 5 Star Chocolate Bar"
+ },
+ {
+  "slug": "balaji-masala-masti-867",
+  "brand": "Balaji",
+  "baseName": "Balaji Masala Masti"
+ },
+ {
+  "slug": "lay-s-lays-india-s-magic-masala-868",
+  "brand": "Lay's",
+  "baseName": "Lay's Lays India's Magic Masala"
+ },
+ {
+  "slug": "balaji-wafers-shing-bhujia-869",
+  "brand": "Balaji Wafers",
+  "baseName": "Balaji Wafers Shing Bhujia"
+ },
+ {
+  "slug": "parle-happy-happy-870",
+  "brand": "Parle",
+  "baseName": "Parle Happy happy"
+ },
+ {
+  "slug": "chocolove-ginger-crystallized-in-dark-chocolate-871",
+  "brand": "Chocolove",
+  "baseName": "Chocolove Ginger Crystallized In Dark Chocolate"
+ },
+ {
+  "slug": "nature-valley-crunchy-872",
+  "brand": "Nature Valley",
+  "baseName": "Nature valley crunchy"
+ },
+ {
+  "slug": "nutella-873",
+  "brand": "Nutella",
+  "baseName": "Nutella"
+ },
+ {
+  "slug": "myfitness-peanut-butter-874",
+  "brand": "Myfitness",
+  "baseName": "Myfitness Peanut Butter"
+ },
+ {
+  "slug": "dabur-honey-squeezy-875",
+  "brand": "Dabur",
+  "baseName": "Dabur Honey Squeezy"
+ },
+ {
+  "slug": "lotte-choco-pie-876",
+  "brand": "Lotte",
+  "baseName": "Lotte Choco Pie"
+ },
+ {
+  "slug": "parle-g-800-g-877",
+  "brand": "Parle",
+  "baseName": "Parle g 800 g"
+ },
+ {
+  "slug": "kurkure-chilli-chatka-878",
+  "brand": "Kurkure",
+  "baseName": "Kurkure Chilli Chatka"
+ },
+ {
+  "slug": "maggi-2-minute-noodle-879",
+  "brand": "Maggi",
+  "baseName": "Maggi 2 Minute Noodle"
+ },
+ {
+  "slug": "sunfeast-yippee-noodles-880",
+  "brand": "Sunfeast",
+  "baseName": "Sunfeast Yippee noodles"
+ },
+ {
+  "slug": "itc-sunfeast-yippee-noodles-magic-masala-881",
+  "brand": "ITC",
+  "baseName": "ITC Sunfeast Yippee! noodles Magic Masala"
+ },
+ {
+  "slug": "parles-s-potato-piri-piri-chips-882",
+  "brand": "parles's",
+  "baseName": "parles's Potato Piri Piri Chips"
+ },
+ {
+  "slug": "mccain-french-fries-883",
+  "brand": "McCain",
+  "baseName": "McCain French Fries"
+ },
+ {
+  "slug": "pringles-pringls-884",
+  "brand": "Pringles",
+  "baseName": "Pringles Pringls"
+ },
+ {
+  "slug": "nanda-s-cream-bun-885",
+  "brand": "Nanda's",
+  "baseName": "Nanda's Cream Bun"
+ },
+ {
+  "slug": "golden-bite-suji-rusk-886",
+  "brand": "Golden Bite",
+  "baseName": "Golden Bite Suji Rusk"
+ },
+ {
+  "slug": "bangladesh-lite-bite-mini-toast-classic-887",
+  "brand": "Bangladesh",
+  "baseName": "Bangladesh Lite Bite Mini Toast Classic"
+ },
+ {
+  "slug": "fdc-enerzal-orange-flavour-888",
+  "brand": "FDC",
+  "baseName": "FDC Enerzal Orange Flavour"
+ },
+ {
+  "slug": "137-degrees-real-almond-milk-889",
+  "brand": "137 Degrees",
+  "baseName": "137 Degrees Real Almond Milk"
+ },
+ {
+  "slug": "paper-boat-swing-juicier-drink-yummy-guava-890",
+  "brand": "Paper boat",
+  "baseName": "Paper boat Swing Juicier Drink Yummy Guava"
+ },
+ {
+  "slug": "britannia-5050-maska-chaska-300g-891",
+  "brand": "Britannia",
+  "baseName": "Britannia 5050 maska chaska (300g)"
+ },
+ {
+  "slug": "goman-as-coop-croissant-naturell-60g-892",
+  "brand": "GOMAN AS",
+  "baseName": "GOMAN AS Coop Croissant Naturell 60g"
+ },
+ {
+  "slug": "britannia-good-day-cashew-cookies-medium-pack-600g-893",
+  "brand": "Britannia",
+  "baseName": "Britannia Good Day Cashew Cookies Medium Pack 600g"
+ },
+ {
+  "slug": "paper-boat-chikki-894",
+  "brand": "Paper Boat",
+  "baseName": "Paper Boat Chikki"
+ },
+ {
+  "slug": "britannia-milk-bikis-895",
+  "brand": "Britannia",
+  "baseName": "Britannia Milk bikis"
+ },
+ {
+  "slug": "kellogg-s-museli-nuts-delight-896",
+  "brand": "Kellogg's",
+  "baseName": "Kellogg's Museli Nuts delight"
+ },
+ {
+  "slug": "prabhuji-bhujia-muchy-masti-897",
+  "brand": "Prabhuji",
+  "baseName": "Prabhuji Bhujia - Muchy Masti"
+ },
+ {
+  "slug": "brb-potato-popped-chips-bhel-898",
+  "brand": "Brb",
+  "baseName": "Brb Potato Popped Chips - Bhel"
+ },
+ {
+  "slug": "act-2-nachos-cripsy-crunchy-899",
+  "brand": "Act 2",
+  "baseName": "Act 2 Nachos Cripsy & Crunchy"
+ },
+ {
+  "slug": "nutritius-peanut-butter-chikki-900",
+  "brand": "Nutritius",
+  "baseName": "Nutritius Peanut butter chikki"
+ },
+ {
+  "slug": "cheetos-masala-balls-901",
+  "brand": "Cheetos",
+  "baseName": "Cheetos Masala Balls"
+ },
+ {
+  "slug": "ziggy-donut-cake-902",
+  "brand": "Ziggy",
+  "baseName": "Ziggy DONUT CAKE"
+ },
+ {
+  "slug": "sunfeast-moms-magic-cashew-almonds-903",
+  "brand": "Sunfeast",
+  "baseName": "Sunfeast Moms magic Cashew & Almonds"
+ },
+ {
+  "slug": "britannia-nutri-choice-arrowroot-904",
+  "brand": "Britannia",
+  "baseName": "Britannia Nutri choice Arrowroot"
+ },
+ {
+  "slug": "unbic-choco-cookies-905",
+  "brand": "unbic",
+  "baseName": "unbic Choco Cookies"
+ },
+ {
+  "slug": "gopal-wafers-lemon-chilli-906",
+  "brand": "Gopal wafers",
+  "baseName": "Gopal wafers Lemon chilli"
+ },
+ {
+  "slug": "saffola-munchiez-ragi-chips-907",
+  "brand": "Saffola",
+  "baseName": "Saffola Munchiez Ragi Chips"
+ },
+ {
+  "slug": "crax-pasta-crunch-908",
+  "brand": "Crax",
+  "baseName": "Crax Pasta Crunch"
+ },
+ {
+  "slug": "4700-bc-corn-chips-salt-and-truffle-909",
+  "brand": "4700 BC",
+  "baseName": "4700 BC Corn Chips, Salt And truffle"
+ },
+ {
+  "slug": "patanjali-navratan-mixture-910",
+  "brand": "Patanjali",
+  "baseName": "Patanjali Navratan Mixture"
+ },
+ {
+  "slug": "good-life-pista-roasted-salted-911",
+  "brand": "Good Life",
+  "baseName": "Good Life Pista Roasted & Salted"
+ },
+ {
+  "slug": "britannia-gobbles-fruit-cake-55gm-912",
+  "brand": "Britannia",
+  "baseName": "Britannia Gobbles fruit cake 55gm"
+ },
+ {
+  "slug": "parle-g-gold-475gm-rs-67-913",
+  "brand": "Parle",
+  "baseName": "Parle G gold 475gm rs 67"
+ },
+ {
+  "slug": "gopal-namkeen-tomato-cup-914",
+  "brand": "Gopal namkeen",
+  "baseName": "Gopal namkeen Tomato cup"
+ },
+ {
+  "slug": "bisk-farm-nice-915",
+  "brand": "Bisk Farm",
+  "baseName": "Bisk Farm Nice"
+ },
+ {
+  "slug": "sunfeast-dark-fantasy-desserts-choco-nut-dipped-916",
+  "brand": "Sunfeast",
+  "baseName": "Sunfeast Dark Fantasy Desserts Choco Nut Dipped"
+ },
+ {
+  "slug": "tata-soulfull-rusk-elaichi-917",
+  "brand": "Tata Soulfull",
+  "baseName": "Tata Soulfull Rusk Elaichi"
+ },
+ {
+  "slug": "tata-tea-premium-918",
+  "brand": "Tata Tea",
+  "baseName": "Tata Tea Premium"
+ },
+ {
+  "slug": "horlicks-juniors-horlicks-vanilla-flavour-500g-pet-919",
+  "brand": "Horlicks",
+  "baseName": "Horlicks Juniors Horlicks Vanilla flavour 500g Pet"
+ },
+ {
+  "slug": "neycer-920",
+  "brand": "Neycer",
+  "baseName": "Neycer"
+ },
+ {
+  "slug": "winkies-fruit-cake-921",
+  "brand": "winkies",
+  "baseName": "winkies Fruit Cake"
+ },
+ {
+  "slug": "sunfeast-caker-23gm-922",
+  "brand": "Sunfeast",
+  "baseName": "Sunfeast Caker 23gm"
+ },
+ {
+  "slug": "royal-toast-real-elaichi-toasted-bread-923",
+  "brand": "Royal Toast",
+  "baseName": "Royal Toast Real Elaichi Toasted Bread"
+ },
+ {
+  "slug": "saffola-masala-oats-classic-masala-924",
+  "brand": "Saffola",
+  "baseName": "Saffola Masala Oats - Classic Masala"
+ },
+ {
+  "slug": "yoga-bar-millet-muesli-925",
+  "brand": "Yoga Bar",
+  "baseName": "Yoga Bar Millet Muesli"
+ },
+ {
+  "slug": "yoga-bar-muesli-dark-chocolate-cranberry-926",
+  "brand": "Yoga bar",
+  "baseName": "Yoga bar Muesli dark chocolate cranberry"
+ },
+ {
+  "slug": "hot-tamales-chewy-spicy-candies-927",
+  "brand": "Hot Tamales",
+  "baseName": "Hot Tamales Chewy spicy candies"
+ },
+ {
+  "slug": "haldiram-s-soan-papdi-indian-sweets-928",
+  "brand": "Haldiram's",
+  "baseName": "Haldiram's Soan Papdi (indian Sweets)"
+ },
+ {
+  "slug": "tic-tac-mint-929",
+  "brand": "Tic Tac",
+  "baseName": "Tic Tac Mint"
+ },
+ {
+  "slug": "maggi-2-minute-noodles-masala-taste-930",
+  "brand": "Maggi",
+  "baseName": "Maggi 2-Minute Noodles Masala Taste"
+ },
+ {
+  "slug": "maggi-masala-veg-atta-noodles-931",
+  "brand": "Maggi",
+  "baseName": "Maggi Masala Veg Atta Noodles"
+ },
+ {
+  "slug": "classmate-exercise-book-140-pages-932",
+  "brand": "Classmate",
+  "baseName": "Classmate Exercise Book 140 pages"
+ },
+ {
+  "slug": "hp-hewlett-packard-hp-5500-wireless-mouse-933",
+  "brand": "HP (Hewlett-Packard)",
+  "baseName": "HP (Hewlett-Packard) HP 5500 Wireless Mouse"
+ },
+ {
+  "slug": "camlin-white-glue-934",
+  "brand": "Camlin",
+  "baseName": "Camlin White Glue"
+ },
+ {
+  "slug": "eveready-1012-battery-aaa-r03-1-5v-935",
+  "brand": "EVEREADY",
+  "baseName": "EVEREADY 1012 Battery-Aaa R03/1.5v"
+ },
+ {
+  "slug": "brillon-dranex-drain-cleaner-936",
+  "brand": "Brillon",
+  "baseName": "Brillon Dranex Drain Cleaner"
+ },
+ {
+  "slug": "cosrx-low-ph-good-morning-gel-cleanser-937",
+  "brand": "COSRX",
+  "baseName": "COSRX Low PH good morning gel cleanser"
+ },
+ {
+  "slug": "patanjali-dant-kanti-natural-toothpaste-938",
+  "brand": "Patanjali",
+  "baseName": "Patanjali Dant Kanti Natural Toothpaste"
+ },
+ {
+  "slug": "b-natural-orange-juice-1ltr-tpk-939",
+  "brand": "B Natural",
+  "baseName": "B Natural Orange Juice 1ltr tpk"
+ },
+ {
+  "slug": "storia-pomegranate-750ml-940",
+  "brand": "storia",
+  "baseName": "storia Pomegranate 750ml"
+ },
+ {
+  "slug": "horlicks-classic-malt-941",
+  "brand": "Horlicks",
+  "baseName": "Horlicks Classic Malt"
+ },
+ {
+  "slug": "amul-dark-chocolate-942",
+  "brand": "Amul",
+  "baseName": "Amul Dark Chocolate"
+ },
+ {
+  "slug": "britannia-50-50-gol-maal-943",
+  "brand": "Britannia",
+  "baseName": "Britannia 50 50 Gol Maal"
+ },
+ {
+  "slug": "britannia-tiger-krunch-chocochips-944",
+  "brand": "Britannia",
+  "baseName": "Britannia Tiger Krunch ChocoChips"
+ },
+ {
+  "slug": "greenland-kappalandy-peanuts-945",
+  "brand": "Greenland",
+  "baseName": "Greenland Kappalandy Peanuts"
+ },
+ {
+  "slug": "jack-jill-roasted-peanut-946",
+  "brand": "Jack & Jill",
+  "baseName": "Jack & Jill Roasted peanut"
+ },
+ {
+  "slug": "eveready-aaa-batteries-947",
+  "brand": "Eveready",
+  "baseName": "Eveready AAA BATTERIES"
+ },
+ {
+  "slug": "prestige-pressure-cooker-4l-948",
+  "brand": "Prestige",
+  "baseName": "Prestige Pressure cooker 4L"
+ },
+ {
+  "slug": "gala-floor-cloth-949",
+  "brand": "Gala",
+  "baseName": "Gala Floor Cloth"
+ },
+ {
+  "slug": "piramal-caladryl-lotion-950",
+  "brand": "Piramal",
+  "baseName": "Piramal Caladryl Lotion"
+ },
+ {
+  "slug": "ehcp-clean-plus-floor-cleaner-951",
+  "brand": "EHCP",
+  "baseName": "EHCP Clean Plus Floor Cleaner"
+ },
+ {
+  "slug": "himalaya-saunf-mouthwash-952",
+  "brand": "Himalaya",
+  "baseName": "Himalaya Saunf Mouthwash"
+ },
+ {
+  "slug": "himalaya-baby-cream-953",
+  "brand": "Himalaya",
+  "baseName": "Himalaya Baby Cream"
+ },
+ {
+  "slug": "cornitos-roasted-cashew-954",
+  "brand": "Cornitos",
+  "baseName": "Cornitos Roasted Cashew"
+ },
+ {
+  "slug": "charlie-corn-chips-955",
+  "brand": "Charlie",
+  "baseName": "Charlie CORN CHips"
+ },
+ {
+  "slug": "protein-chef-high-protein-madras-mix-956",
+  "brand": "Protein chef",
+  "baseName": "Protein chef High protein Madras mix"
+ },
+ {
+  "slug": "sunfeast-957",
+  "brand": "Sunfeast",
+  "baseName": "Sunfeast"
+ },
+ {
+  "slug": "cadbury-dairy-milk-silk-bubbly-chocolate-958",
+  "brand": "Cadbury",
+  "baseName": "Cadbury Dairy Milk Silk Bubbly Chocolate"
+ },
+ {
+  "slug": "nestl-milkybar-959",
+  "brand": "Nestlé",
+  "baseName": "Nestlé Milkybar"
+ },
+ {
+  "slug": "britannia-nice-time-8-960",
+  "brand": "Britannia",
+  "baseName": "Britannia Nice time (8)"
+ },
+ {
+  "slug": "parle-pale-fab-bourbon-961",
+  "brand": "parle",
+  "baseName": "parle Pale Fab Bourbon"
+ },
+ {
+  "slug": "leeford-dermiford-cream-962",
+  "brand": "Leeford",
+  "baseName": "Leeford Dermiford cream"
+ },
+ {
+  "slug": "lenovo-ac-adapter-963",
+  "brand": "Lenovo",
+  "baseName": "Lenovo AC Adapter"
+ },
+ {
+  "slug": "godrej-magic-floor-cleaner-500-ml-964",
+  "brand": "Godrej",
+  "baseName": "Godrej Magic floor cleaner 500 ml"
+ },
+ {
+  "slug": "doms-a4-notebook-965",
+  "brand": "DOMS",
+  "baseName": "DOMS A4 Notebook"
+ },
+ {
+  "slug": "prestige-dosa-tawa-966",
+  "brand": "Prestige",
+  "baseName": "Prestige Dosa Tawa"
+ },
+ {
+  "slug": "patanjali-kesh-kanti-hair-cleanser-967",
+  "brand": "Patanjali",
+  "baseName": "Patanjali Kesh kanti Hair Cleanser"
+ },
+ {
+  "slug": "jeeves-herbal-hair-oil-968",
+  "brand": "Jeeves Herbal",
+  "baseName": "Jeeves Herbal Hair Oil"
+ }
+]

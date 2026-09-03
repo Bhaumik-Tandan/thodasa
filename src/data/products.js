@@ -4,6 +4,7 @@
 // few Wikimedia Commons product shots (credited in WM_CREDITS),
 // shared across a template's variants — same as Lays 52g vs 90g sharing a shot.
 import DAILY from './daily.js'
+import { AIRCRAFT } from './aircraft.js'
 import PACKSHOTS from './packshots.js'
 import ANGLES from './angles.js'
 import TYPE_PHOTOS from './typePhotos.js'
@@ -1287,6 +1288,34 @@ export const LAST_DROP_COUNT = (() => {
 // committed as data. Before this, the "New in" chip rotated a FIXED catalog by
 // date — so a returning visitor saw the same items reshuffled and had no reason
 // to come back twice. These carry a real addedOn date.
+// ——— AVIATION EXPANSION ———
+//
+// The first Search Console data with real volume showed one unmistakable
+// pattern: '<aircraft> price in india' queries hitting page 1 within days
+// (Gulfstream G650ER at position 5.2, Praetor 600 at 7.0) — a niche nobody
+// else covers in INR. These 33 aircraft each get a page in that niche.
+// Appended at the END of the static section so no existing templateId moves;
+// the daily rebase below keeps daily ids clear of them forever.
+const AIR_VARIANTS = {
+  jet: (base) => combo(['Standard Cabin', 'Executive', 'VVIP Suite'], ['Pearl White', 'Midnight Black', 'Custom Livery'].map((c) => [c, base])),
+  prop: (base) => colors(['Standard', 'Executive'], base),
+  heli: (base) => colors(['Utility', 'VIP'], base),
+}
+const AIR_EMOJI = { jet: '✈️', prop: '🛩️', heli: '🚁' }
+for (const a of AIRCRAFT) {
+  TEMPLATES.push([a.brand, a.name, 'jets', a.img, AIR_EMOJI[a.kind], a.desc, AIR_VARIANTS[a.kind](a.price)])
+}
+
+// templateId is positional, and the slug (= the URL Google indexes) embeds it.
+// Daily-cron arrivals used to continue the static section's numbering, which
+// meant ANY insertion into the static catalog renumbered every daily page and
+// 404'd its indexed URL — including daily items already ranking on page 1.
+// Daily items now start at a fixed base, so the static catalog can grow freely
+// below it and the two sections can never shift each other again.
+export const DAILY_ID_BASE = 5000
+const STATIC_TEMPLATE_COUNT = TEMPLATES.length
+if (STATIC_TEMPLATE_COUNT >= DAILY_ID_BASE) throw new Error('static catalog reached DAILY_ID_BASE — raise the base')
+
 for (const p of DAILY) {
   TEMPLATES.push([
     p.brand, p.name, p.cat, p.img, p.emoji || '🛒', p.desc,
@@ -1359,8 +1388,10 @@ const extraAngles = (photo) => {
 
   let id = 1
   let templateId = 0
+  let row = 0
   for (const [brand, name, category, photo, emoji, desc, variants, launch, addedOn] of TEMPLATES) {
-    templateId++
+    row++
+    templateId = row <= STATIC_TEMPLATE_COUNT ? row : DAILY_ID_BASE + (row - STATIC_TEMPLATE_COUNT)
     const skipBrand = brand === 'Generic' || brand === 'ThodaSa' || name.toLowerCase().startsWith(brand.toLowerCase())
     const baseName = `${skipBrand ? '' : brand + ' '}${name}`.trim()
     const slug = baseName.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '') + '-' + templateId
