@@ -3,6 +3,16 @@ import { CATEGORIES } from '../data/products'
 export default function CategoryChips({ active, onSelect, newCount = 0, locks = {}, unlocked = new Set() }) {
   return (
     <div className="flex gap-2 overflow-x-auto px-4 py-2 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+      {/* The calculator, first and always visible. Returning visitors skip the
+          intro (welcomed flag persists), so this is the only in-feed door to
+          /duty/ for them — and the tax number is what the engaged 13% actually
+          come for. Styled apart from the category chips with the amber accent. */}
+      <a
+        href="/duty/"
+        className="label-caps flex shrink-0 items-center gap-1.5 whitespace-nowrap rounded-none border border-amber-300/70 px-3.5 py-2 text-[10px] text-amber-300 active:scale-95 lg:border-amber-500/60 lg:text-amber-600 lg:dark:border-amber-300/70 lg:dark:text-amber-300"
+      >
+        🧮 Duty calc
+      </a>
       {/* Today's drops. The catalog already rotates a fresh slice every day —
           this is the only thing that tells a returning visitor so. */}
       {newCount > 0 && (
