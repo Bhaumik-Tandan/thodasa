@@ -1,14 +1,23 @@
 import { inr, resized } from '../data/products'
-import { useMemo, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import { PRODUCTS, TEMPLATE_HEROES } from '../data/products'
 import { pickedForYou } from '../lib/taste'
 import { SearchIcon, BagPlusIcon } from './Icons'
 import { searchProducts } from '../lib/fuzzy'
+import { trackSearch } from '../lib/track'
 
 const POPULAR = ['Noodles', 'Earbuds', 'Kajal', 'Chips', 'Bottle', 'Candle', 'Tee', 'Stickers', 'Perfume', 'Sunglasses']
 
 export default function Search({ cart, onAddToCart, onOpenDetail, onClose }) {
   const [q, setQ] = useState('')
+  // trackSearch existed in lib/track and was called from nowhere — the same
+  // defect that made every share invisible. Debounced so a 9-letter query
+  // counts once, not nine times.
+  useEffect(() => {
+    if (q.trim().length < 2) return
+    const t = setTimeout(() => trackSearch(q), 1200)
+    return () => clearTimeout(t)
+  }, [q])
   const forYou = useMemo(() => pickedForYou(TEMPLATE_HEROES, 6), [])
 
   // typo-tolerant: exact substring first, fuzzy fallback (see lib/fuzzy.js)
