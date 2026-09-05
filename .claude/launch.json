@@ -4,9 +4,23 @@
     {
       "name": "thodasa",
       "runtimeExecutable": "npm",
-      "runtimeArgs": ["run", "dev"],
+      "runtimeArgs": [
+        "run",
+        "dev"
+      ],
       "cwd": "/Users/bhaumiktandan/thodasa",
       "port": 5199
+    },
+    {
+      "name": "thodasa-dist",
+      "runtimeExecutable": "sh",
+      "runtimeArgs": [
+        "-c",
+        "exec npx vite preview --port ${PORT:-5198} --strictPort"
+      ],
+      "cwd": "/Users/bhaumiktandan/thodasa",
+      "port": 5198,
+      "autoPort": true
     }
   ]
 }

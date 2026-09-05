@@ -12,6 +12,8 @@ import { AIRCRAFT_CREDITS } from '../src/data/aircraft.js'
 import { landedBreakdown as duty } from '../src/lib/duty.js'
 import { landedFrom, GOODS } from '../src/lib/duty.js'
 import { dutyPage, BROWSER_MATH } from './lib/duty-page.mjs'
+import { vsPage, vsHubPage } from './lib/dubai-page.mjs'
+import { VS_DUBAI, compareDubai, AED_INR, BAGGAGE_ALLOWANCE } from '../src/data/vsDubai.js'
 
 const SITE = 'https://thodasa.com'
 const root = path.join(path.dirname(fileURLToPath(import.meta.url)), '..')
@@ -228,6 +230,38 @@ for (const p of TEMPLATE_HEROES) {
   console.log(`duty calculator: formula verified across ${cases.length} cases`)
 }
 
+// Dubai vs India comparison pages at /vs/ and /vs/<slug>/. All figures come
+// from compareDubai() at build time — a sanity gate here refuses to ship a page
+// whose verdict doesn't reconcile, since a wrong "Dubai saving" is exactly the
+// credibility these pages trade on.
+{
+  const rows = VS_DUBAI.map((item) => ({ item, cmp: compareDubai(item) }))
+  for (const { item, cmp } of rows) {
+    if (cmp.landedHome !== cmp.dubaiAfterRefund + cmp.baggageDuty ||
+        cmp.honestSaving !== item.inr - cmp.landedHome ||
+        cmp.dubaiInr <= 0 || item.inr <= 0) {
+      console.error(`vs-dubai model does not reconcile for ${item.slug}`)
+      process.exit(1)
+    }
+    // an "honest saving" bigger than half the Indian price means one side's
+    // price is fantasy (this exact gate caught a ₹1.12cr Rolex "saving")
+    if (Math.abs(cmp.honestSaving) > item.inr * 0.5) {
+      console.error(`vs-dubai implausible saving for ${item.slug}: ₹${cmp.honestSaving} on ₹${item.inr}`)
+      process.exit(1)
+    }
+  }
+  const model = { AED_INR, BAGGAGE_ALLOWANCE }
+  fs.mkdirSync(path.join(dist, 'vs'), { recursive: true })
+  fs.writeFileSync(path.join(dist, 'vs', 'index.html'), vsHubPage({ site: SITE, rows, model }))
+  for (const r of rows) {
+    const others = rows.filter((x) => x.item.slug !== r.item.slug)
+    const dir = path.join(dist, 'vs', r.item.slug)
+    fs.mkdirSync(dir, { recursive: true })
+    fs.writeFileSync(path.join(dir, 'index.html'), vsPage({ site: SITE, item: r.item, cmp: r.cmp, model, others }))
+  }
+  console.log(`dubai comparisons: hub + ${rows.length} pages, model reconciled`)
+}
+
 // Photo credits page. Most catalog images are Unsplash (licence needs no
 // attribution) but the Wikimedia Commons ones are CC BY / CC BY-SA, which do
 // require crediting the author. They were used without credit before this.
@@ -365,7 +399,12 @@ fs.writeFileSync(path.join(dist, 'browse', 'index.html'), browsePage)
 
 // /duty/ sits second on purpose. It is the only page here with a search query
 // genuinely behind it, and sitemap order is a weak crawl-priority signal.
-const urls = [`${SITE}/`, `${SITE}/duty/`, `${SITE}/browse/`, `${SITE}/credits/`, ...TEMPLATE_HEROES.map((p) => `${SITE}/p/${p.slug}/`)]
+const urls = [
+  `${SITE}/`, `${SITE}/duty/`,
+  `${SITE}/vs/`, ...VS_DUBAI.map((i) => `${SITE}/vs/${i.slug}/`),
+  `${SITE}/browse/`, `${SITE}/credits/`,
+  ...TEMPLATE_HEROES.map((p) => `${SITE}/p/${p.slug}/`),
+]
 fs.writeFileSync(
   path.join(dist, 'sitemap.xml'),
   `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n` +

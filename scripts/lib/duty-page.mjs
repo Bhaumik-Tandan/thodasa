@@ -169,10 +169,12 @@ export const dutyPage = ({ site, goods }) => {
   <h2>Why it exists</h2>
   <p>A hypercar listed at $2.6M abroad sells for roughly three times that here
   and people assume someone is gouging them. Usually it is duty. Same for the
-  phone that costs a third more than it does in Dubai.</p>
+  phone that costs a third more than it does in Dubai — though
+  <a href="/vs/">once you count customs on the way home, the Dubai deal mostly
+  evaporates too</a>.</p>
   <p style="margin-top:1.2rem"><a href="/">See it applied across 900 real Indian products →</a></p>
 
-  <footer>ThodaSa · <a href="/browse/">Browse products</a> · <a href="/credits/">Photo credits</a></footer>
+  <footer>ThodaSa · <a href="/vs/">Dubai vs India prices</a> · <a href="/browse/">Browse products</a> · <a href="/credits/">Photo credits</a></footer>
 </div>
 <script>
 var RATES = ${rates};
