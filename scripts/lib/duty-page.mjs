@@ -12,6 +12,8 @@
 // fails the build if it ever drifts. A tax figure that disagrees with itself
 // across two pages of the same site is worse than showing none.
 
+import { CLARITY_SNIPPET } from './clarity.mjs'
+
 const esc = (s) => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/"/g, '&quot;')
 
 // Kept as a string so gen-pages can both embed it AND eval it for the
@@ -118,6 +120,7 @@ export const dutyPage = ({ site, goods }) => {
   a{color:rgba(255,255,255,.8)}
   footer{margin-top:3rem;font-size:.8rem;color:rgba(255,255,255,.4)}
 </style>
+${CLARITY_SNIPPET}
 </head>
 <body>
 <div class="wrap">

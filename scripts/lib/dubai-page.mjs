@@ -10,6 +10,8 @@
 // All figures are computed at BUILD time from src/data/vsDubai.js — there is no
 // inline JS copy of the model, so page and model cannot drift.
 
+import { CLARITY_SNIPPET } from './clarity.mjs'
+
 const esc = (s) => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/"/g, '&quot;')
 const inr = (n) => Math.round(Math.abs(n)).toLocaleString('en-IN')
 
@@ -56,6 +58,7 @@ ${jsonld ? `<script type="application/ld+json">${JSON.stringify(jsonld)}</script
   li{padding:.3rem 0;font-size:.92rem}
   footer{margin-top:3rem;font-size:.8rem;color:rgba(255,255,255,.4)}
 </style>
+${CLARITY_SNIPPET}
 </head>
 <body>
 <div class="wrap">

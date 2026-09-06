@@ -13,6 +13,7 @@ import { landedBreakdown as duty } from '../src/lib/duty.js'
 import { landedFrom, GOODS } from '../src/lib/duty.js'
 import { dutyPage, BROWSER_MATH } from './lib/duty-page.mjs'
 import { vsPage, vsHubPage } from './lib/dubai-page.mjs'
+import { CLARITY_SNIPPET } from './lib/clarity.mjs'
 import { VS_DUBAI, compareDubai, AED_INR, BAGGAGE_ALLOWANCE } from '../src/data/vsDubai.js'
 
 const SITE = 'https://thodasa.com'
@@ -111,6 +112,7 @@ const page = (p, related) => {
   a{color:rgba(255,255,255,.75)}
   footer{margin-top:3rem;font-size:.8rem;color:rgba(255,255,255,.4)}
 </style>
+${CLARITY_SNIPPET}
 </head>
 <body>
 <div class="wrap">
@@ -287,6 +289,7 @@ const creditsPage = `<!doctype html>
   p{color:rgba(255,255,255,.72)}
   footer{margin-top:3rem;font-size:.8rem;color:rgba(255,255,255,.4)}
 </style>
+${CLARITY_SNIPPET}
 </head>
 <body>
 <div class="wrap">
@@ -380,6 +383,7 @@ const browsePage = `<!doctype html>
   p{color:rgba(255,255,255,.72)}
   footer{margin-top:3rem;font-size:.8rem;color:rgba(255,255,255,.4)}
 </style>
+${CLARITY_SNIPPET}
 </head>
 <body>
 <div class="wrap">
