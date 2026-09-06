@@ -38,6 +38,21 @@
   a{color:rgba(255,255,255,.75)}
   footer{margin-top:3rem;font-size:.8rem;color:rgba(255,255,255,.4)}
 </style>
+<script>
+  (function (c, l, a, r, i, t, y) {
+    try {
+      var q = new URLSearchParams(l.location.search).get('dev')
+      if (q === '1') localStorage.setItem('thodasa.noTrack', '1')
+      if (q === '0') localStorage.removeItem('thodasa.noTrack')
+      if (localStorage.getItem('thodasa.noTrack')) return
+    } catch (e) { /* private mode: fall through and track */ }
+    var h = l.location.hostname
+    if (h === 'localhost' || h === '127.0.0.1' || h.endsWith('.local') || l.location.protocol === 'file:') return
+    c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+    t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+    y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+  })(window, document, "clarity", "script", "y63dkbbpsv");
+</script>
 </head>
 <body>
 <div class="wrap">
@@ -64,12 +79,12 @@
 
   <h2>More in snacks</h2>
   <ul>
-    <li><a href="/p/real-green-apple-5005/">Real Green Apple — ₹47</a></li>
-    <li><a href="/p/dongsuh-foods-corp-maxim-mocha-gold-5006/">Dongsuh Foods Corp Maxim Mocha gold — ₹172</a></li>
-    <li><a href="/p/amul-kool-cofe-5007/">Amul Kool Cofe — ₹38</a></li>
-    <li><a href="/p/coca-cola-limca-2ltr-pet-5008/">Coca Cola Limca 2ltr pet — ₹47</a></li>
-    <li><a href="/p/so-good-india-almond-fresh-5009/">so good india Almond Fresh — ₹39</a></li>
-    <li><a href="/p/soy-milky-soy-beverage-5010/">Soy Milky Soy beverage — ₹150</a></li>
+    <li><a href="/p/sunfeast-caker-23gm-5117/">Sunfeast Caker 23gm — ₹41</a></li>
+    <li><a href="/p/hot-tamales-chewy-spicy-candies-5122/">Hot Tamales Chewy spicy candies — ₹35</a></li>
+    <li><a href="/p/haldiram-s-soan-papdi-indian-sweets-5123/">Haldiram's Soan Papdi (indian Sweets) — ₹24</a></li>
+    <li><a href="/p/tic-tac-mint-5124/">Tic Tac Mint — ₹30</a></li>
+    <li><a href="/p/b-natural-orange-juice-1ltr-tpk-5134/">B Natural Orange Juice 1ltr tpk — ₹58</a></li>
+    <li><a href="/p/storia-pomegranate-750ml-5135/">storia Pomegranate 750ml — ₹44</a></li>
   </ul>
 
   <footer>

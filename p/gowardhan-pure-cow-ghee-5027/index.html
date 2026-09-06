@@ -38,6 +38,21 @@
   a{color:rgba(255,255,255,.75)}
   footer{margin-top:3rem;font-size:.8rem;color:rgba(255,255,255,.4)}
 </style>
+<script>
+  (function (c, l, a, r, i, t, y) {
+    try {
+      var q = new URLSearchParams(l.location.search).get('dev')
+      if (q === '1') localStorage.setItem('thodasa.noTrack', '1')
+      if (q === '0') localStorage.removeItem('thodasa.noTrack')
+      if (localStorage.getItem('thodasa.noTrack')) return
+    } catch (e) { /* private mode: fall through and track */ }
+    var h = l.location.hostname
+    if (h === 'localhost' || h === '127.0.0.1' || h.endsWith('.local') || l.location.protocol === 'file:') return
+    c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+    t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+    y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+  })(window, document, "clarity", "script", "y63dkbbpsv");
+</script>
 </head>
 <body>
 <div class="wrap">
@@ -64,12 +79,12 @@
 
   <h2>More in grocery</h2>
   <ul>
-    <li><a href="/p/lay-s-potato-chips-720/">Lay's Potato Chips — ₹36</a></li>
-    <li><a href="/p/haldiram-s-moong-dal-723/">Haldiram's Moong Dal — ₹25</a></li>
-    <li><a href="/p/kellogg-s-chocos-724/">Kellogg's Chocos — ₹35</a></li>
-    <li><a href="/p/haldiram-moong-dal-727/">Haldiram Moong dal — ₹66</a></li>
-    <li><a href="/p/amul-butter-729/">Amul Butter — ₹163</a></li>
-    <li><a href="/p/lay-s-lays-classics-salted-20rs-730/">Lay's Lays Classics Salted 20rs — ₹10</a></li>
+    <li><a href="/p/amul-butter-milk-amul-5028/">Amul Butter milk amul — ₹144</a></li>
+    <li><a href="/p/coca-cola-yaourt-nature-sucres-u-5032/">Coca Cola Yaourt nature sucres U — ₹69</a></li>
+    <li><a href="/p/amul-pasteurised-butter-5034/">Amul Pasteurised butter — ₹95</a></li>
+    <li><a href="/p/amul-tadka-chhach-probiotic-buttermilk-5041/">Amul Tadka Chhach Probiotic Buttermilk — ₹64</a></li>
+    <li><a href="/p/smoodh-masala-flavoured-buttermilk-5042/">Smoodh Masala Flavoured Buttermilk — ₹40</a></li>
+    <li><a href="/p/parle-agro-smoodh-chaas-5043/">Parle Agro Smoodh Chaas — ₹80</a></li>
   </ul>
 
   <footer>

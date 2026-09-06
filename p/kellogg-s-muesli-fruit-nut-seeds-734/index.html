@@ -38,6 +38,21 @@
   a{color:rgba(255,255,255,.75)}
   footer{margin-top:3rem;font-size:.8rem;color:rgba(255,255,255,.4)}
 </style>
+<script>
+  (function (c, l, a, r, i, t, y) {
+    try {
+      var q = new URLSearchParams(l.location.search).get('dev')
+      if (q === '1') localStorage.setItem('thodasa.noTrack', '1')
+      if (q === '0') localStorage.removeItem('thodasa.noTrack')
+      if (localStorage.getItem('thodasa.noTrack')) return
+    } catch (e) { /* private mode: fall through and track */ }
+    var h = l.location.hostname
+    if (h === 'localhost' || h === '127.0.0.1' || h.endsWith('.local') || l.location.protocol === 'file:') return
+    c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+    t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+    y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+  })(window, document, "clarity", "script", "y63dkbbpsv");
+</script>
 </head>
 <body>
 <div class="wrap">
@@ -64,12 +79,12 @@
 
   <h2>More in grocery</h2>
   <ul>
-    <li><a href="/p/golden-bite-suji-rusk-5081/">Golden Bite Suji Rusk — ₹34</a></li>
-    <li><a href="/p/bangladesh-lite-bite-mini-toast-classic-5082/">Bangladesh Lite Bite Mini Toast Classic — ₹30</a></li>
-    <li><a href="/p/kellogg-s-museli-nuts-delight-5091/">Kellogg's Museli Nuts delight — ₹180</a></li>
-    <li><a href="/p/brb-potato-popped-chips-bhel-5093/">Brb Potato Popped Chips - Bhel — ₹32</a></li>
-    <li><a href="/p/nutritius-peanut-butter-chikki-5095/">Nutritius Peanut butter chikki — ₹34</a></li>
-    <li><a href="/p/cheetos-masala-balls-5096/">Cheetos Masala Balls — ₹17</a></li>
+    <li><a href="/p/cavin-s-cavins-masala-chaasa-180-ml-5052/">Cavin's Cavins Masala Chaasa 180 ml — ₹58</a></li>
+    <li><a href="/p/pintola-peanut-butter-5055/">Pintola Peanut butter — ₹115</a></li>
+    <li><a href="/p/cadbury-5-star-chocolate-bar-5061/">Cadbury 5 Star Chocolate Bar — ₹20</a></li>
+    <li><a href="/p/balaji-masala-masti-5062/">Balaji Masala Masti — ₹33</a></li>
+    <li><a href="/p/lay-s-lays-india-s-magic-masala-5063/">Lay's Lays India's Magic Masala — ₹36</a></li>
+    <li><a href="/p/chocolove-ginger-crystallized-in-dark-chocolate-5066/">Chocolove Ginger Crystallized In Dark Chocolate — ₹19</a></li>
   </ul>
 
   <footer>

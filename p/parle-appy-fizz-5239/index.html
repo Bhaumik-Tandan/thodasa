@@ -38,6 +38,21 @@
   a{color:rgba(255,255,255,.75)}
   footer{margin-top:3rem;font-size:.8rem;color:rgba(255,255,255,.4)}
 </style>
+<script>
+  (function (c, l, a, r, i, t, y) {
+    try {
+      var q = new URLSearchParams(l.location.search).get('dev')
+      if (q === '1') localStorage.setItem('thodasa.noTrack', '1')
+      if (q === '0') localStorage.removeItem('thodasa.noTrack')
+      if (localStorage.getItem('thodasa.noTrack')) return
+    } catch (e) { /* private mode: fall through and track */ }
+    var h = l.location.hostname
+    if (h === 'localhost' || h === '127.0.0.1' || h.endsWith('.local') || l.location.protocol === 'file:') return
+    c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+    t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+    y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+  })(window, document, "clarity", "script", "y63dkbbpsv");
+</script>
 </head>
 <body>
 <div class="wrap">
@@ -64,12 +79,12 @@
 
   <h2>More in snacks</h2>
   <ul>
-    <li><a href="/p/coca-cola-limca-2ltr-pet-5008/">Coca Cola Limca 2ltr pet — ₹47</a></li>
-    <li><a href="/p/so-good-india-almond-fresh-5009/">so good india Almond Fresh — ₹39</a></li>
-    <li><a href="/p/soy-milky-soy-beverage-5010/">Soy Milky Soy beverage — ₹150</a></li>
-    <li><a href="/p/coca-cola-maaza-refresh-mango-drink-5011/">Coca cola Maaza Refresh Mango Drink — ₹47</a></li>
-    <li><a href="/p/coca-cola-minute-maid-5012/">Coca-Cola Minute maid — ₹49</a></li>
-    <li><a href="/p/amul-taaza-milky-milk-5017/">Amul Taaza Milky Milk — ₹66</a></li>
+    <li><a href="/p/saffola-crunchies-millet-cones-5227/">Saffola Crunchies Millet Cones — ₹25</a></li>
+    <li><a href="/p/paper-boat-classic-salted-cashews-5228/">Paper Boat Classic Salted Cashews — ₹33</a></li>
+    <li><a href="/p/coca-cola-coca-cola-coke-brand-750ml-5236/">Coca-Cola Coca Cola Coke Brand 750ml — ₹31</a></li>
+    <li><a href="/p/kinley-original-strong-soda-5237/">kinley . ORIGINAL STRONG SODA — ₹51</a></li>
+    <li><a href="/p/coca-cola-coke-zero-5238/">Coca Cola Coke Zero — ₹54</a></li>
+    <li><a href="/p/tropicana-fruitz-5240/">Tropicana Fruitz — ₹25</a></li>
   </ul>
 
   <footer>

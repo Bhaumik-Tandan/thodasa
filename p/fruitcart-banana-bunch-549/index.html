@@ -38,6 +38,21 @@
   a{color:rgba(255,255,255,.75)}
   footer{margin-top:3rem;font-size:.8rem;color:rgba(255,255,255,.4)}
 </style>
+<script>
+  (function (c, l, a, r, i, t, y) {
+    try {
+      var q = new URLSearchParams(l.location.search).get('dev')
+      if (q === '1') localStorage.setItem('thodasa.noTrack', '1')
+      if (q === '0') localStorage.removeItem('thodasa.noTrack')
+      if (localStorage.getItem('thodasa.noTrack')) return
+    } catch (e) { /* private mode: fall through and track */ }
+    var h = l.location.hostname
+    if (h === 'localhost' || h === '127.0.0.1' || h.endsWith('.local') || l.location.protocol === 'file:') return
+    c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+    t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+    y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+  })(window, document, "clarity", "script", "y63dkbbpsv");
+</script>
 </head>
 <body>
 <div class="wrap">
@@ -64,12 +79,12 @@
 
   <h2>More in grocery</h2>
   <ul>
-    <li><a href="/p/heritage-butter-milk-5002/">Heritage Butter milk — ₹31</a></li>
-    <li><a href="/p/american-garden-apple-cider-vinegar-5013/">American garden Apple cider vinegar — ₹69</a></li>
-    <li><a href="/p/amul-pasteurized-butter-5014/">Amul Pasteurized Butter — ₹70</a></li>
-    <li><a href="/p/amul-masti-spiced-buttermilk-200ml-5015/">Amul Masti Spiced Buttermilk 200ml — ₹138</a></li>
-    <li><a href="/p/bird-s-original-custard-powder-5016/">Bird's Original Custard powder — ₹88</a></li>
-    <li><a href="/p/amul-butter-5018/">Amul Butter — ₹141</a></li>
+    <li><a href="/p/nutking-premium-almonds-557/">NutKing Premium Almonds — ₹289</a></li>
+    <li><a href="/p/nutking-cashew-whole-w240-558/">NutKing Cashew Whole W240 — ₹349</a></li>
+    <li><a href="/p/nutking-pistachio-roasted-salted-559/">NutKing Pistachio Roasted &amp; Salted — ₹399</a></li>
+    <li><a href="/p/nutking-medjool-dates-560/">NutKing Medjool Dates — ₹320</a></li>
+    <li><a href="/p/nutking-walnut-kernels-561/">NutKing Walnut Kernels — ₹419</a></li>
+    <li><a href="/p/nutking-trail-mix-seeds-562/">NutKing Trail Mix &amp; Seeds — ₹245</a></li>
   </ul>
 
   <footer>

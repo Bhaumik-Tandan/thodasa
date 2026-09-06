@@ -38,6 +38,21 @@
   a{color:rgba(255,255,255,.75)}
   footer{margin-top:3rem;font-size:.8rem;color:rgba(255,255,255,.4)}
 </style>
+<script>
+  (function (c, l, a, r, i, t, y) {
+    try {
+      var q = new URLSearchParams(l.location.search).get('dev')
+      if (q === '1') localStorage.setItem('thodasa.noTrack', '1')
+      if (q === '0') localStorage.removeItem('thodasa.noTrack')
+      if (localStorage.getItem('thodasa.noTrack')) return
+    } catch (e) { /* private mode: fall through and track */ }
+    var h = l.location.hostname
+    if (h === 'localhost' || h === '127.0.0.1' || h.endsWith('.local') || l.location.protocol === 'file:') return
+    c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+    t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+    y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+  })(window, document, "clarity", "script", "y63dkbbpsv");
+</script>
 </head>
 <body>
 <div class="wrap">
@@ -64,12 +79,12 @@
 
   <h2>More in snacks</h2>
   <ul>
-    <li><a href="/p/amul-taaza-1ltr-5036/">Amul Taaza 1ltr — ₹206</a></li>
-    <li><a href="/p/amul-dahi-yogurt-5037/">Amul Dahi Yogurt — ₹126</a></li>
-    <li><a href="/p/gokul-pasteurised-cow-milk-5038/">Gokul Pasteurised Cow Milk — ₹149</a></li>
-    <li><a href="/p/milky-mist-greek-yogurt-5039/">Milky Mist Greek Yogurt — ₹126</a></li>
-    <li><a href="/p/amul-masti-5040/">Amul Masti — ₹131</a></li>
-    <li><a href="/p/passendale-classic-5044/">Passendale classic — ₹72</a></li>
+    <li><a href="/p/haldiram-khatta-meetha-5250/">Haldiram Khatta Meetha — ₹43</a></li>
+    <li><a href="/p/haldiram-s-taka-tak-5251/">Haldiram's Taka tak — ₹27</a></li>
+    <li><a href="/p/britannia-brit-50-50-maska-chaska-40g-20-5253/">Britannia Brit 50-50 maska chaska 40g (20) — ₹24</a></li>
+    <li><a href="/p/britannia-jim-jam92-g-5255/">Britannia Jim jam92 g — ₹44</a></li>
+    <li><a href="/p/patanjali-nariyal-biscuits-5256/">Patanjali Nariyal Biscuits — ₹40</a></li>
+    <li><a href="/p/slurpp-2-minute-masala-noodles-1/">Slurpp 2-Minute Masala Noodles — ₹60</a></li>
   </ul>
 
   <footer>

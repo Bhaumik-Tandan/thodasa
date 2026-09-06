@@ -38,6 +38,21 @@
   a{color:rgba(255,255,255,.75)}
   footer{margin-top:3rem;font-size:.8rem;color:rgba(255,255,255,.4)}
 </style>
+<script>
+  (function (c, l, a, r, i, t, y) {
+    try {
+      var q = new URLSearchParams(l.location.search).get('dev')
+      if (q === '1') localStorage.setItem('thodasa.noTrack', '1')
+      if (q === '0') localStorage.removeItem('thodasa.noTrack')
+      if (localStorage.getItem('thodasa.noTrack')) return
+    } catch (e) { /* private mode: fall through and track */ }
+    var h = l.location.hostname
+    if (h === 'localhost' || h === '127.0.0.1' || h.endsWith('.local') || l.location.protocol === 'file:') return
+    c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+    t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+    y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+  })(window, document, "clarity", "script", "y63dkbbpsv");
+</script>
 </head>
 <body>
 <div class="wrap">
@@ -64,12 +79,12 @@
 
   <h2>More in snacks</h2>
   <ul>
-    <li><a href="/p/vadilal-bomber-5192/">Vadilal bomber — ₹24</a></li>
-    <li><a href="/p/entisi-macadamia-dragees-5195/">Entisi Macadamia Dragees — ₹29</a></li>
-    <li><a href="/p/campco-dark-delight-5196/">Campco Dark Delight — ₹23</a></li>
-    <li><a href="/p/jaglate-jaggery-milk-chocolate-disc-5197/">Jaglate Jaggery Milk Chocolate Disc — ₹27</a></li>
-    <li><a href="/p/cadbury-gadour-dairy-milk-chocolate-fruit-nut-5207/">Cadbury Gadour Dairy milk chocolate fruit &amp; nut — ₹27</a></li>
-    <li><a href="/p/pepisco-india-cheetos-5208/">PepisCo India Cheetos — ₹35</a></li>
+    <li><a href="/p/haldiram-s-aloo-bhujia-721/">Haldiram's Aloo bhujia — ₹33</a></li>
+    <li><a href="/p/haldirams-haldiram-s-soya-sticks-722/">Haldirams Haldiram's Soya sticks — ₹77</a></li>
+    <li><a href="/p/balaji-potato-chips-725/">Balaji Potato chips — ₹20</a></li>
+    <li><a href="/p/parle-hide-seek-726/">Parle Hide &amp; Seek — ₹14</a></li>
+    <li><a href="/p/cadbury-bourn-vita-500gram-pauch-728/">Cadbury Bourn Vita 500Gram Pauch — ₹20</a></li>
+    <li><a href="/p/nestl-maggi-noodles-masala-731/">Nestlé Maggi noodles masala — ₹44</a></li>
   </ul>
 
   <footer>

@@ -38,6 +38,21 @@
   a{color:rgba(255,255,255,.75)}
   footer{margin-top:3rem;font-size:.8rem;color:rgba(255,255,255,.4)}
 </style>
+<script>
+  (function (c, l, a, r, i, t, y) {
+    try {
+      var q = new URLSearchParams(l.location.search).get('dev')
+      if (q === '1') localStorage.setItem('thodasa.noTrack', '1')
+      if (q === '0') localStorage.removeItem('thodasa.noTrack')
+      if (localStorage.getItem('thodasa.noTrack')) return
+    } catch (e) { /* private mode: fall through and track */ }
+    var h = l.location.hostname
+    if (h === 'localhost' || h === '127.0.0.1' || h.endsWith('.local') || l.location.protocol === 'file:') return
+    c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+    t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+    y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+  })(window, document, "clarity", "script", "y63dkbbpsv");
+</script>
 </head>
 <body>
 <div class="wrap">
@@ -64,12 +79,12 @@
 
   <h2>More in beauty</h2>
   <ul>
-    <li><a href="/p/kohl-co-deep-kajal-21/">Kohl&amp;Co Deep Kajal — ₹199</a></li>
-    <li><a href="/p/lineup-bold-wing-liner-22/">LineUp Bold Wing Liner — ₹199</a></li>
-    <li><a href="/p/kohl-co-office-proof-matte-lipstick-23/">Kohl&amp;Co Office-Proof Matte Lipstick — ₹425</a></li>
-    <li><a href="/p/boldmove-matte-as-hell-lip-crayon-24/">BoldMove Matte As Hell Lip Crayon — ₹449</a></li>
-    <li><a href="/p/mittiglow-ubtan-glow-face-wash-25/">MittiGlow Ubtan Glow Face Wash — ₹149</a></li>
-    <li><a href="/p/mittiglow-onion-hair-shampoo-26/">MittiGlow Onion Hair Shampoo — ₹199</a></li>
+    <li><a href="/p/e-l-f-halo-glow-filter-406/">e.l.f. Halo Glow Filter — ₹1,250</a></li>
+    <li><a href="/p/dyson-airwrap-styler-407/">Dyson Airwrap Styler — ₹45,900</a></li>
+    <li><a href="/p/glowuh-matte-liquid-lipstick-619/">Glowuh Matte Liquid Lipstick — ₹649</a></li>
+    <li><a href="/p/glowuh-lip-cheek-tint-620/">Glowuh Lip &amp; Cheek Tint — ₹549</a></li>
+    <li><a href="/p/glowuh-eyeshadow-palette-621/">Glowuh Eyeshadow Palette — ₹1,299</a></li>
+    <li><a href="/p/glowuh-kajal-eyeliner-duo-622/">Glowuh Kajal &amp; Eyeliner Duo — ₹449</a></li>
   </ul>
 
   <footer>

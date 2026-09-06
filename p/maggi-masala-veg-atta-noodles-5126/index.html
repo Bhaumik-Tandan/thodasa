@@ -38,6 +38,21 @@
   a{color:rgba(255,255,255,.75)}
   footer{margin-top:3rem;font-size:.8rem;color:rgba(255,255,255,.4)}
 </style>
+<script>
+  (function (c, l, a, r, i, t, y) {
+    try {
+      var q = new URLSearchParams(l.location.search).get('dev')
+      if (q === '1') localStorage.setItem('thodasa.noTrack', '1')
+      if (q === '0') localStorage.removeItem('thodasa.noTrack')
+      if (localStorage.getItem('thodasa.noTrack')) return
+    } catch (e) { /* private mode: fall through and track */ }
+    var h = l.location.hostname
+    if (h === 'localhost' || h === '127.0.0.1' || h.endsWith('.local') || l.location.protocol === 'file:') return
+    c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+    t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+    y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+  })(window, document, "clarity", "script", "y63dkbbpsv");
+</script>
 </head>
 <body>
 <div class="wrap">
@@ -64,12 +79,12 @@
 
   <h2>More in grocery</h2>
   <ul>
-    <li><a href="/p/4700-bc-corn-chips-salt-and-truffle-5104/">4700 BC Corn Chips, Salt And truffle — ₹36</a></li>
-    <li><a href="/p/tata-soulfull-rusk-elaichi-5112/">Tata Soulfull Rusk Elaichi — ₹30</a></li>
-    <li><a href="/p/royal-toast-real-elaichi-toasted-bread-5118/">Royal Toast Real Elaichi Toasted Bread — ₹23</a></li>
-    <li><a href="/p/saffola-masala-oats-classic-masala-5119/">Saffola Masala Oats - Classic Masala — ₹167</a></li>
-    <li><a href="/p/yoga-bar-millet-muesli-5120/">Yoga Bar Millet Muesli — ₹169</a></li>
-    <li><a href="/p/yoga-bar-muesli-dark-chocolate-cranberry-5121/">Yoga bar Muesli dark chocolate cranberry — ₹21</a></li>
+    <li><a href="/p/fruitcart-imported-fruit-mix-551/">FruitCart Imported Fruit Mix — ₹549</a></li>
+    <li><a href="/p/bakehouse-whole-wheat-bread-552/">BakeHouse Whole Wheat Bread — ₹45</a></li>
+    <li><a href="/p/bakehouse-butter-croissant-553/">BakeHouse Butter Croissant — ₹110</a></li>
+    <li><a href="/p/bakehouse-artisan-sourdough-loaf-554/">BakeHouse Artisan Sourdough Loaf — ₹180</a></li>
+    <li><a href="/p/bakehouse-bakery-fresh-bun-pack-555/">BakeHouse Bakery Fresh Bun Pack — ₹55</a></li>
+    <li><a href="/p/bakehouse-assorted-cookie-jar-556/">BakeHouse Assorted Cookie Jar — ₹175</a></li>
   </ul>
 
   <footer>

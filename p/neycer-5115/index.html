@@ -38,6 +38,21 @@
   a{color:rgba(255,255,255,.75)}
   footer{margin-top:3rem;font-size:.8rem;color:rgba(255,255,255,.4)}
 </style>
+<script>
+  (function (c, l, a, r, i, t, y) {
+    try {
+      var q = new URLSearchParams(l.location.search).get('dev')
+      if (q === '1') localStorage.setItem('thodasa.noTrack', '1')
+      if (q === '0') localStorage.removeItem('thodasa.noTrack')
+      if (localStorage.getItem('thodasa.noTrack')) return
+    } catch (e) { /* private mode: fall through and track */ }
+    var h = l.location.hostname
+    if (h === 'localhost' || h === '127.0.0.1' || h.endsWith('.local') || l.location.protocol === 'file:') return
+    c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+    t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+    y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+  })(window, document, "clarity", "script", "y63dkbbpsv");
+</script>
 </head>
 <body>
 <div class="wrap">
@@ -64,12 +79,12 @@
 
   <h2>More in snacks</h2>
   <ul>
-    <li><a href="/p/sunfeast-dark-fantasy-desserts-choco-nut-dipped-5111/">Sunfeast Dark Fantasy Desserts Choco Nut Dipped — ₹48</a></li>
-    <li><a href="/p/tata-tea-premium-5113/">Tata Tea Premium — ₹185</a></li>
-    <li><a href="/p/horlicks-juniors-horlicks-vanilla-flavour-500g-pet-5114/">Horlicks Juniors Horlicks Vanilla flavour 500g Pet — ₹24</a></li>
-    <li><a href="/p/winkies-fruit-cake-5116/">winkies Fruit Cake — ₹16</a></li>
-    <li><a href="/p/sunfeast-caker-23gm-5117/">Sunfeast Caker 23gm — ₹41</a></li>
-    <li><a href="/p/hot-tamales-chewy-spicy-candies-5122/">Hot Tamales Chewy spicy candies — ₹35</a></li>
+    <li><a href="/p/bisleri-1ltr-made-in-india-684/">Bisleri 1ltr MADE IN INDIA — ₹35</a></li>
+    <li><a href="/p/cadbury-dairy-milk-685/">Cadbury Dairy Milk — ₹47</a></li>
+    <li><a href="/p/balaji-chataka-pataka-tangy-tomato-686/">Balaji Chataka Pataka Tangy Tomato — ₹38</a></li>
+    <li><a href="/p/kinley-mineral-water-1ltr-687/">Kinley Mineral Water 1ltr — ₹43</a></li>
+    <li><a href="/p/balaji-aloo-sev-689/">Balaji Aloo Sev — ₹25</a></li>
+    <li><a href="/p/coca-cola-thumsup-692/">Coca-Cola Thumsup — ₹37</a></li>
   </ul>
 
   <footer>

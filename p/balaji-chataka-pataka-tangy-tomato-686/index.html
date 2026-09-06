@@ -38,6 +38,21 @@
   a{color:rgba(255,255,255,.75)}
   footer{margin-top:3rem;font-size:.8rem;color:rgba(255,255,255,.4)}
 </style>
+<script>
+  (function (c, l, a, r, i, t, y) {
+    try {
+      var q = new URLSearchParams(l.location.search).get('dev')
+      if (q === '1') localStorage.setItem('thodasa.noTrack', '1')
+      if (q === '0') localStorage.removeItem('thodasa.noTrack')
+      if (localStorage.getItem('thodasa.noTrack')) return
+    } catch (e) { /* private mode: fall through and track */ }
+    var h = l.location.hostname
+    if (h === 'localhost' || h === '127.0.0.1' || h.endsWith('.local') || l.location.protocol === 'file:') return
+    c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+    t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+    y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+  })(window, document, "clarity", "script", "y63dkbbpsv");
+</script>
 </head>
 <body>
 <div class="wrap">
@@ -64,12 +79,12 @@
 
   <h2>More in snacks</h2>
   <ul>
-    <li><a href="/p/orion-k-snack-rings-3x-spicy-5260/">Orion K Snack Rings 3x Spicy — ₹25</a></li>
-    <li><a href="/p/orion-turtle-chips-spicy-devil-5261/">Orion Turtle chips spicy devil — ₹25</a></li>
-    <li><a href="/p/yu-100-coconut-water-5262/">Yu 100% coconut water — ₹56</a></li>
-    <li><a href="/p/govind-funzz-pista-flavoured-milk-5263/">Govind Funzz Pista Flavoured Milk — ₹23</a></li>
-    <li><a href="/p/the-whole-truth-double-cocoa-protein-bar-5265/">The Whole Truth Double Cocoa Protein Bar — ₹18</a></li>
-    <li><a href="/p/slurpp-2-minute-masala-noodles-1/">Slurpp 2-Minute Masala Noodles — ₹60</a></li>
+    <li><a href="/p/cadbury-bourn-vita-500gram-pauch-728/">Cadbury Bourn Vita 500Gram Pauch — ₹20</a></li>
+    <li><a href="/p/nestl-maggi-noodles-masala-731/">Nestlé Maggi noodles masala — ₹44</a></li>
+    <li><a href="/p/balaji-wafers-scoopitos-masala-flavour-732/">Balaji Wafers Scoopitos Masala Flavour — ₹16</a></li>
+    <li><a href="/p/haldiram-phalhari-chiwda-735/">Haldiram Phalhari Chiwda — ₹97</a></li>
+    <li><a href="/p/tata-water-1ltr-736/">Tata Water 1ltr — ₹37</a></li>
+    <li><a href="/p/kurkure-solid-masti-masala-twisteez-crisps-737/">Kurkure Solid Masti Masala Twisteez Crisps — ₹32</a></li>
   </ul>
 
   <footer>

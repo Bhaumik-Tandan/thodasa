@@ -38,6 +38,21 @@
   a{color:rgba(255,255,255,.75)}
   footer{margin-top:3rem;font-size:.8rem;color:rgba(255,255,255,.4)}
 </style>
+<script>
+  (function (c, l, a, r, i, t, y) {
+    try {
+      var q = new URLSearchParams(l.location.search).get('dev')
+      if (q === '1') localStorage.setItem('thodasa.noTrack', '1')
+      if (q === '0') localStorage.removeItem('thodasa.noTrack')
+      if (localStorage.getItem('thodasa.noTrack')) return
+    } catch (e) { /* private mode: fall through and track */ }
+    var h = l.location.hostname
+    if (h === 'localhost' || h === '127.0.0.1' || h.endsWith('.local') || l.location.protocol === 'file:') return
+    c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+    t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+    y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+  })(window, document, "clarity", "script", "y63dkbbpsv");
+</script>
 </head>
 <body>
 <div class="wrap">
@@ -64,12 +79,12 @@
 
   <h2>More in beauty</h2>
   <ul>
-    <li><a href="/p/lakme-complete-makeup-kit-349/">Lakme Complete Makeup Kit — ₹1,499</a></li>
-    <li><a href="/p/mamaearth-skincare-combo-350/">Mamaearth Skincare Combo — ₹899</a></li>
-    <li><a href="/p/kay-beauty-nail-art-kit-351/">Kay Beauty Nail Art Kit — ₹699</a></li>
-    <li><a href="/p/sephora-collection-cream-lip-stain-392/">Sephora Collection Cream Lip Stain — ₹990</a></li>
-    <li><a href="/p/huda-beauty-obsessions-palette-393/">Huda Beauty Obsessions Palette — ₹2,400</a></li>
-    <li><a href="/p/mac-retro-matte-lipstick-394/">MAC Retro Matte Lipstick — ₹2,100</a></li>
+    <li><a href="/p/charlotte-tilbury-pillow-talk-lipstick-398/">Charlotte Tilbury Pillow Talk Lipstick — ₹3,200</a></li>
+    <li><a href="/p/the-ordinary-niacinamide-10-399/">The Ordinary Niacinamide 10% — ₹650</a></li>
+    <li><a href="/p/the-ordinary-hyaluronic-acid-400/">The Ordinary Hyaluronic Acid — ₹700</a></li>
+    <li><a href="/p/cetaphil-gentle-cleanser-401/">Cetaphil Gentle Cleanser — ₹385</a></li>
+    <li><a href="/p/neutrogena-hydro-boost-gel-402/">Neutrogena Hydro Boost Gel — ₹750</a></li>
+    <li><a href="/p/forest-essentials-facial-ubtan-403/">Forest Essentials Facial Ubtan — ₹1,275</a></li>
   </ul>
 
   <footer>

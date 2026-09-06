@@ -38,6 +38,21 @@
   a{color:rgba(255,255,255,.75)}
   footer{margin-top:3rem;font-size:.8rem;color:rgba(255,255,255,.4)}
 </style>
+<script>
+  (function (c, l, a, r, i, t, y) {
+    try {
+      var q = new URLSearchParams(l.location.search).get('dev')
+      if (q === '1') localStorage.setItem('thodasa.noTrack', '1')
+      if (q === '0') localStorage.removeItem('thodasa.noTrack')
+      if (localStorage.getItem('thodasa.noTrack')) return
+    } catch (e) { /* private mode: fall through and track */ }
+    var h = l.location.hostname
+    if (h === 'localhost' || h === '127.0.0.1' || h.endsWith('.local') || l.location.protocol === 'file:') return
+    c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+    t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+    y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+  })(window, document, "clarity", "script", "y63dkbbpsv");
+</script>
 </head>
 <body>
 <div class="wrap">
@@ -64,12 +79,12 @@
 
   <h2>More in snacks</h2>
   <ul>
-    <li><a href="/p/haldiram-s-soan-papdi-indian-sweets-5123/">Haldiram's Soan Papdi (indian Sweets) — ₹24</a></li>
-    <li><a href="/p/tic-tac-mint-5124/">Tic Tac Mint — ₹30</a></li>
-    <li><a href="/p/b-natural-orange-juice-1ltr-tpk-5134/">B Natural Orange Juice 1ltr tpk — ₹58</a></li>
-    <li><a href="/p/storia-pomegranate-750ml-5135/">storia Pomegranate 750ml — ₹44</a></li>
-    <li><a href="/p/horlicks-classic-malt-5136/">Horlicks Classic Malt — ₹36</a></li>
-    <li><a href="/p/amul-dark-chocolate-5137/">Amul Dark Chocolate — ₹22</a></li>
+    <li><a href="/p/cornitos-roasted-cashew-5149/">Cornitos Roasted Cashew — ₹17</a></li>
+    <li><a href="/p/charlie-corn-chips-5150/">Charlie CORN CHips — ₹39</a></li>
+    <li><a href="/p/protein-chef-high-protein-madras-mix-5151/">Protein chef High protein Madras mix — ₹33</a></li>
+    <li><a href="/p/sunfeast-5152/">Sunfeast — ₹11</a></li>
+    <li><a href="/p/cadbury-dairy-milk-silk-bubbly-chocolate-5153/">Cadbury Dairy Milk Silk Bubbly Chocolate — ₹25</a></li>
+    <li><a href="/p/nestl-milkybar-5154/">Nestlé Milkybar — ₹27</a></li>
   </ul>
 
   <footer>

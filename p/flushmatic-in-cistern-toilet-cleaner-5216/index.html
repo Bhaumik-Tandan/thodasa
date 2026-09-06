@@ -38,6 +38,21 @@
   a{color:rgba(255,255,255,.75)}
   footer{margin-top:3rem;font-size:.8rem;color:rgba(255,255,255,.4)}
 </style>
+<script>
+  (function (c, l, a, r, i, t, y) {
+    try {
+      var q = new URLSearchParams(l.location.search).get('dev')
+      if (q === '1') localStorage.setItem('thodasa.noTrack', '1')
+      if (q === '0') localStorage.removeItem('thodasa.noTrack')
+      if (localStorage.getItem('thodasa.noTrack')) return
+    } catch (e) { /* private mode: fall through and track */ }
+    var h = l.location.hostname
+    if (h === 'localhost' || h === '127.0.0.1' || h.endsWith('.local') || l.location.protocol === 'file:') return
+    c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+    t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+    y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+  })(window, document, "clarity", "script", "y63dkbbpsv");
+</script>
 </head>
 <body>
 <div class="wrap">
@@ -64,12 +79,12 @@
 
   <h2>More in home</h2>
   <ul>
-    <li><a href="/p/scented-jar-candle-54/">Scented Jar Candle — ₹149</a></li>
-    <li><a href="/p/dhoopbatti-co-agarbatti-pack-55/">DhoopBatti Co Agarbatti Pack — ₹55</a></li>
-    <li><a href="/p/glow-star-ceiling-pack-56/">Glow Star Ceiling Pack — ₹129</a></li>
-    <li><a href="/p/cushion-cover-set-57/">Cushion Cover Set — ₹299</a></li>
-    <li><a href="/p/sunset-projection-lamp-58/">Sunset Projection Lamp — ₹449</a></li>
-    <li><a href="/p/khushbukart-room-freshener-blocks-59/">KhushbuKart Room Freshener Blocks — ₹55</a></li>
+    <li><a href="/p/xiaomi-smart-air-purifier-4-lite-769/">Xiaomi Smart Air Purifier 4 Lite — ₹9,999</a></li>
+    <li><a href="/p/xiaomi-smart-air-purifier-4-pro-770/">Xiaomi Smart Air Purifier 4 Pro — ₹24,999</a></li>
+    <li><a href="/p/philips-air-purifier-ac1215-771/">Philips Air Purifier AC1215 — ₹12,995</a></li>
+    <li><a href="/p/honeywell-air-touch-v2-772/">Honeywell Air Touch V2 — ₹14,999</a></li>
+    <li><a href="/p/dyson-purifier-cool-formaldehyde-773/">Dyson Purifier Cool Formaldehyde — ₹57,900</a></li>
+    <li><a href="/p/brillon-dranex-drain-cleaner-5131/">Brillon Dranex Drain Cleaner — ₹326</a></li>
   </ul>
 
   <footer>

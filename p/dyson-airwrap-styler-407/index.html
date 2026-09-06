@@ -38,6 +38,21 @@
   a{color:rgba(255,255,255,.75)}
   footer{margin-top:3rem;font-size:.8rem;color:rgba(255,255,255,.4)}
 </style>
+<script>
+  (function (c, l, a, r, i, t, y) {
+    try {
+      var q = new URLSearchParams(l.location.search).get('dev')
+      if (q === '1') localStorage.setItem('thodasa.noTrack', '1')
+      if (q === '0') localStorage.removeItem('thodasa.noTrack')
+      if (localStorage.getItem('thodasa.noTrack')) return
+    } catch (e) { /* private mode: fall through and track */ }
+    var h = l.location.hostname
+    if (h === 'localhost' || h === '127.0.0.1' || h.endsWith('.local') || l.location.protocol === 'file:') return
+    c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+    t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+    y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+  })(window, document, "clarity", "script", "y63dkbbpsv");
+</script>
 </head>
 <body>
 <div class="wrap">
@@ -64,12 +79,12 @@
 
   <h2>More in beauty</h2>
   <ul>
-    <li><a href="/p/coldcare-cold-cream-31/">ColdCare Cold Cream — ₹70</a></li>
-    <li><a href="/p/neemnest-purifying-neem-face-wash-32/">NeemNest Purifying Neem Face Wash — ₹145</a></li>
-    <li><a href="/p/maskmandi-sheet-mask-33/">MaskMandi Sheet Mask — ₹99</a></li>
-    <li><a href="/p/ittarwala-luxury-perfume-34/">IttarWala Luxury Perfume — ₹229</a></li>
-    <li><a href="/p/daadhidon-beard-growth-oil-35/">DaadhiDon Beard Growth Oil — ₹350</a></li>
-    <li><a href="/p/shadestreet-nail-enamel-36/">ShadeStreet Nail Enamel — ₹199</a></li>
+    <li><a href="/p/pond-s-light-moisturiser-for-soft-glowing-skin-5205/">Pond's Light Moisturiser for soft glowing skin — ₹670</a></li>
+    <li><a href="/p/himalaya-complete-care-toothpaste-5219/">Himalaya Complete care toothpaste — ₹348</a></li>
+    <li><a href="/p/patanjali-bal-5220/">Patanjali Bal — ₹268</a></li>
+    <li><a href="/p/colorbar-nail-enamel-remover-5234/">Colorbar Nail Enamel Remover — ₹281</a></li>
+    <li><a href="/p/hilary-rhoda-blush-rush-5235/">Hilary Rhoda Blush Rush — ₹559</a></li>
+    <li><a href="/p/the-ordinary-aha-30-bha-2-peeling-solution-5247/">The Ordinary AHA 30% + BHA 2% Peeling Solution — ₹381</a></li>
   </ul>
 
   <footer>

@@ -38,6 +38,21 @@
   a{color:rgba(255,255,255,.75)}
   footer{margin-top:3rem;font-size:.8rem;color:rgba(255,255,255,.4)}
 </style>
+<script>
+  (function (c, l, a, r, i, t, y) {
+    try {
+      var q = new URLSearchParams(l.location.search).get('dev')
+      if (q === '1') localStorage.setItem('thodasa.noTrack', '1')
+      if (q === '0') localStorage.removeItem('thodasa.noTrack')
+      if (localStorage.getItem('thodasa.noTrack')) return
+    } catch (e) { /* private mode: fall through and track */ }
+    var h = l.location.hostname
+    if (h === 'localhost' || h === '127.0.0.1' || h.endsWith('.local') || l.location.protocol === 'file:') return
+    c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+    t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+    y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+  })(window, document, "clarity", "script", "y63dkbbpsv");
+</script>
 </head>
 <body>
 <div class="wrap">
@@ -64,12 +79,12 @@
 
   <h2>More in beauty</h2>
   <ul>
-    <li><a href="/p/kama-ayurveda-rose-water-404/">Kama Ayurveda Rose Water — ₹495</a></li>
-    <li><a href="/p/maybelline-fit-me-foundation-405/">Maybelline Fit Me Foundation — ₹549</a></li>
-    <li><a href="/p/e-l-f-halo-glow-filter-406/">e.l.f. Halo Glow Filter — ₹1,250</a></li>
-    <li><a href="/p/dyson-airwrap-styler-407/">Dyson Airwrap Styler — ₹45,900</a></li>
-    <li><a href="/p/glowuh-matte-liquid-lipstick-619/">Glowuh Matte Liquid Lipstick — ₹649</a></li>
-    <li><a href="/p/glowuh-lip-cheek-tint-620/">Glowuh Lip &amp; Cheek Tint — ₹549</a></li>
+    <li><a href="/p/glowuh-compact-powder-625/">Glowuh Compact Powder — ₹499</a></li>
+    <li><a href="/p/glowuh-blush-highlighter-palette-626/">Glowuh Blush &amp; Highlighter Palette — ₹749</a></li>
+    <li><a href="/p/glowuh-concealer-627/">Glowuh Concealer — ₹549</a></li>
+    <li><a href="/p/glowuh-setting-spray-628/">Glowuh Setting Spray — ₹699</a></li>
+    <li><a href="/p/glowuh-facial-kit-salon-series-629/">Glowuh Facial Kit Salon Series — ₹349</a></li>
+    <li><a href="/p/glowuh-sheet-mask-pack-630/">Glowuh Sheet Mask Pack — ₹449</a></li>
   </ul>
 
   <footer>

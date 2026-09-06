@@ -38,6 +38,21 @@
   a{color:rgba(255,255,255,.75)}
   footer{margin-top:3rem;font-size:.8rem;color:rgba(255,255,255,.4)}
 </style>
+<script>
+  (function (c, l, a, r, i, t, y) {
+    try {
+      var q = new URLSearchParams(l.location.search).get('dev')
+      if (q === '1') localStorage.setItem('thodasa.noTrack', '1')
+      if (q === '0') localStorage.removeItem('thodasa.noTrack')
+      if (localStorage.getItem('thodasa.noTrack')) return
+    } catch (e) { /* private mode: fall through and track */ }
+    var h = l.location.hostname
+    if (h === 'localhost' || h === '127.0.0.1' || h.endsWith('.local') || l.location.protocol === 'file:') return
+    c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+    t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+    y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+  })(window, document, "clarity", "script", "y63dkbbpsv");
+</script>
 </head>
 <body>
 <div class="wrap">
@@ -64,12 +79,12 @@
 
   <h2>More in snacks</h2>
   <ul>
-    <li><a href="/p/dabur-real-real-fruit-power-orange-5169/">Dabur Real Real Fruit Power Orange — ₹145</a></li>
-    <li><a href="/p/parle-monaco-classic-biscuits-5170/">Parle Monaco Classic Biscuits — ₹23</a></li>
-    <li><a href="/p/perfeiti-vanmelle-chupa-chups-5171/">PERFEITI vanMelle Chupa Chups — ₹34</a></li>
-    <li><a href="/p/manner-chocolate-cream-filled-wafers-2-5oz-72g-5178/">Manner Chocolate Cream Filled Wafers, 2.5oz (72g) — ₹15</a></li>
-    <li><a href="/p/dukes-waffy-choco-flavoured-wafer-roll-5179/">Dukes Waffy - choco flavoured wafer roll — ₹30</a></li>
-    <li><a href="/p/minute-maid-pulpy-orange-5180/">Minute Maid Pulpy Orange — ₹34</a></li>
+    <li><a href="/p/balaji-wafers-shing-bhujiya-nimbu-chatka-708/">Balaji Wafers Shing Bhujiya - Nimbu Chatka — ₹20</a></li>
+    <li><a href="/p/balaji-crunchm-709/">Balaji Crunchm — ₹11</a></li>
+    <li><a href="/p/munch-chocolat-en-poudre-710/">Munch Chocolat en poudre — ₹77</a></li>
+    <li><a href="/p/parle-g-250g-711/">Parle-G 250g — ₹37</a></li>
+    <li><a href="/p/coca-cola-company-sprite-712/">Coca-Cola Company Sprite — ₹43</a></li>
+    <li><a href="/p/patanjali-doodh-biscuits-714/">Patanjali Doodh Biscuits — ₹24</a></li>
   </ul>
 
   <footer>
