@@ -34,15 +34,17 @@ export const BAGGAGE_RATE = 38.5 // % on the excess (35% + 10% surcharge on duty
 // where the product exists there. `goods` maps to the calculator's goods table
 // for the India-side duty story on the product page.
 export const VS_DUBAI = [
-  { name: 'iPhone 16 Pro Max (256GB)', slug: 'iphone-16-pro-max', inr: 144900, aed: 5099, goods: 'phone' },
-  { name: 'iPhone 16 Pro (128GB)', slug: 'iphone-16-pro', inr: 119900, aed: 4299, goods: 'phone' },
-  { name: 'iPhone 16 (128GB)', slug: 'iphone-16', inr: 79900, aed: 3399, goods: 'phone' },
-  { name: 'MacBook Air 13 (M4)', slug: 'macbook-air-13', inr: 99900, aed: 4199, goods: 'laptop' },
-  { name: 'MacBook Pro 14 (M4)', slug: 'macbook-pro-14', inr: 169900, aed: 6499, goods: 'laptop' },
-  { name: 'iPad Pro 11 (M4)', slug: 'ipad-pro-11', inr: 99900, aed: 3999, goods: 'phone' },
-  { name: 'AirPods Pro 2', slug: 'airpods-pro-2', inr: 24900, aed: 949, goods: 'audio' },
-  { name: 'Apple Watch Ultra 2', slug: 'apple-watch-ultra-2', inr: 89900, aed: 3199, goods: 'watch' },
-  { name: 'Samsung Galaxy S24 Ultra', slug: 'galaxy-s24-ultra', inr: 129999, aed: 4599, goods: 'phone' },
+  // Verified 2026-09-07 against apple.com/in + apple.com/ae (list prices) and
+  // major UAE retailers. Only items whose CURRENT list price is confirmed on
+  // BOTH sides make the roster — Galaxy S25 Ultra, iPad Pro and MacBook Pro
+  // were cut because 20 months of street discounts (S25: list AED 4,999,
+  // street 3,499) or ambiguous configs made any single number contestable.
+  { name: 'iPhone 17 Pro Max (256GB)', slug: 'iphone-17-pro-max', inr: 149900, aed: 5099, goods: 'phone' },
+  { name: 'iPhone 17 Pro (256GB)', slug: 'iphone-17-pro', inr: 134900, aed: 4699, goods: 'phone' },
+  { name: 'iPhone 17 (256GB)', slug: 'iphone-17', inr: 82900, aed: 3399, goods: 'phone' },
+  { name: 'MacBook Air 13 (M5, 16GB/512GB)', slug: 'macbook-air-13', inr: 119900, aed: 4599, goods: 'laptop' },
+  { name: 'AirPods Pro 3', slug: 'airpods-pro-3', inr: 25900, aed: 949, goods: 'audio' },
+  { name: 'Apple Watch Ultra 3', slug: 'apple-watch-ultra-3', inr: 89900, aed: 3199, goods: 'watch' },
   { name: 'PlayStation 5 (Disc)', slug: 'playstation-5', inr: 54990, aed: 2099, goods: 'audio' },
   { name: 'Sony WH-1000XM5', slug: 'sony-wh-1000xm5', inr: 29990, aed: 1099, goods: 'audio' },
   { name: 'Dyson V15 Detect', slug: 'dyson-v15', inr: 62900, aed: 2699, goods: 'homeware' },
@@ -53,6 +55,20 @@ export const VS_DUBAI = [
   // that would have torched this page's credibility on sight.
   { name: 'Rolex Submariner Date', slug: 'rolex-submariner', inr: 1050000, aed: 41500, goods: 'watch' },
 ]
+
+// Slugs that shipped in the first (2024-generation) roster and moved or died
+// when it was refreshed to the Sep-2026 lineup. gen-pages writes meta-refresh
+// stubs so the day-old URLs never 404.
+export const VS_REDIRECTS = {
+  'iphone-16-pro-max': 'iphone-17-pro-max',
+  'iphone-16-pro': 'iphone-17-pro',
+  'iphone-16': 'iphone-17',
+  'airpods-pro-2': 'airpods-pro-3',
+  'apple-watch-ultra-2': 'apple-watch-ultra-3',
+  'macbook-pro-14': '',
+  'ipad-pro-11': '',
+  'galaxy-s24-ultra': '',
+}
 
 // The whole comparison, one place, one set of rules. Everything the page
 // prints comes out of this function so page and reality cannot drift.

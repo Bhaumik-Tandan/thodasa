@@ -45,7 +45,7 @@ export default function Welcome({ onStart, replay = false }) {
           {/* three hooks that make the calculator worth a tap */}
           <div className="border-t border-white/12">
             {[
-              ['iPhone 16 Pro Max', '31% is tax'],
+              ['iPhone 17 Pro Max', '31% is tax'],
               ['Imported car', '62%'],
               ['A cold drink', 'taxed harder than a laptop'],
             ].map(([thing, fact]) => (

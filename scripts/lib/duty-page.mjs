@@ -54,7 +54,7 @@ export const dutyPage = ({ site, goods }) => {
         name: 'How much is import duty on a phone in India?',
         acceptedAnswer: {
           '@type': 'Answer',
-          text: 'A phone imported into India carries roughly 20% basic customs duty, a social welfare surcharge of 10% of that duty, and 18% IGST on the total. On a listed price of ₹1,44,900 that works out to about ₹44,247, or 31% of what you pay.',
+          text: 'A phone imported into India carries roughly 20% basic customs duty, a social welfare surcharge of 10% of that duty, and 18% IGST on the total. On a listed price of ₹1,49,900 that works out to about ₹45,774, or 31% of what you pay.',
         },
       },
       {
@@ -133,7 +133,7 @@ ${CLARITY_SNIPPET}
   <form id="f">
     <label>
       <span class="caps lbl">Price shown in India (₹)</span>
-      <input id="price" type="number" inputmode="numeric" min="0" step="1" value="144900">
+      <input id="price" type="number" inputmode="numeric" min="0" step="1" value="149900">
     </label>
     <label>
       <span class="caps lbl">What is it?</span>

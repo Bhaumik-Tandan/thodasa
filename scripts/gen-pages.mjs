@@ -14,7 +14,7 @@ import { landedFrom, GOODS } from '../src/lib/duty.js'
 import { dutyPage, BROWSER_MATH } from './lib/duty-page.mjs'
 import { vsPage, vsHubPage } from './lib/dubai-page.mjs'
 import { CLARITY_SNIPPET } from './lib/clarity.mjs'
-import { VS_DUBAI, compareDubai, AED_INR, BAGGAGE_ALLOWANCE } from '../src/data/vsDubai.js'
+import { VS_DUBAI, VS_REDIRECTS, compareDubai, AED_INR, BAGGAGE_ALLOWANCE } from '../src/data/vsDubai.js'
 
 const SITE = 'https://thodasa.com'
 const root = path.join(path.dirname(fileURLToPath(import.meta.url)), '..')
@@ -261,7 +261,19 @@ for (const p of TEMPLATE_HEROES) {
     fs.mkdirSync(dir, { recursive: true })
     fs.writeFileSync(path.join(dir, 'index.html'), vsPage({ site: SITE, item: r.item, cmp: r.cmp, model, others }))
   }
-  console.log(`dubai comparisons: hub + ${rows.length} pages, model reconciled`)
+  // day-one roster slugs that moved (16→17 generation) or were cut: stub them
+  // to the successor page, or to the hub when the product left the roster
+  for (const [from, to] of Object.entries(VS_REDIRECTS)) {
+    const target = to ? `${SITE}/vs/${to}/` : `${SITE}/vs/`
+    const dir = path.join(dist, 'vs', from)
+    fs.mkdirSync(dir, { recursive: true })
+    fs.writeFileSync(path.join(dir, 'index.html'),
+      `<!doctype html><html lang="en"><head><meta charset="utf-8">` +
+      `<meta http-equiv="refresh" content="0;url=${target}">` +
+      `<link rel="canonical" href="${target}">` +
+      `<title>Moved</title></head><body><p>Moved to <a href="${target}">${target}</a></p></body></html>`)
+  }
+  console.log(`dubai comparisons: hub + ${rows.length} pages + ${Object.keys(VS_REDIRECTS).length} stubs, model reconciled`)
 }
 
 // Photo credits page. Most catalog images are Unsplash (licence needs no
