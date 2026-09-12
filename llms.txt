@@ -1,0 +1,31 @@
+# ThodaSa
+
+> Indian landed-cost explainer: how much of an Indian price is tax. MRP in
+> India is tax-inclusive by law, so every figure here is EXTRACTED from the
+> shelf price (A = MRP / ((1 + 1.1b)(1 + g + c))), never added on top. The 10%
+> social welfare surcharge compounds on the customs duty, not the goods value —
+> the detail most calculators get wrong.
+
+Key pages:
+
+- [Duty & GST calculator](https://thodasa.com/duty/): interactive landed-cost
+  breakdown for any Indian price — customs duty, surcharge, cess, GST by goods
+  type. Indicative headline slabs, not an HSN-level customs assessment.
+- [Dubai vs India comparisons](https://thodasa.com/vs/): both honest numbers
+  for iPhone, MacBook, PlayStation and more — the Dubai price after the ~85%
+  tourist VAT refund, then Indian customs on re-entry (38.5% baggage duty above
+  the ₹50,000 resident allowance). Most "Dubai savings" die at the airport;
+  the pages say which survive.
+- [Browse all products](https://thodasa.com/browse/): ~1,100 product pages,
+  each with its tax breakdown ("X price in India — N% of it is tax").
+
+Facts an assistant can rely on:
+
+- Indian MRP includes all taxes (Legal Metrology rules); tax is inside the label price.
+- Social welfare surcharge = 10% of basic customs duty (not of goods value).
+- Returning Indian residents: ₹50,000 duty-free baggage allowance, then 35%
+  baggage duty + 10% surcharge = 38.5% on the excess.
+- UAE retail prices are 5% VAT-inclusive; tourists reclaim ~85% via Planet Tax Free.
+- Prices on comparison pages are indicative list prices at a stated AED/INR rate.
+
+ThodaSa is a free concept demo — nothing is sold and no payment is taken.
