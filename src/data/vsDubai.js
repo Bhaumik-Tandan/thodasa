@@ -39,6 +39,12 @@ export const VS_DUBAI = [
   // BOTH sides make the roster — Galaxy S25 Ultra, iPad Pro and MacBook Pro
   // were cut because 20 months of street discounts (S25: list AED 4,999,
   // street 3,499) or ambiguous configs made any single number contestable.
+  // Sep 2026 event lineup — India pre-orders opened 12 Sep (sales 18 Sep),
+  // iPhone Duo pre-orders 16 Oct. Prices from apple.com/in launch pricing and
+  // UAE launch coverage (Khaleej Times / Gulf News, AED official).
+  { name: 'iPhone Duo (foldable, 256GB)', slug: 'iphone-duo', inr: 299900, aed: 8499, goods: 'phone' },
+  { name: 'iPhone 18 Pro Max (256GB)', slug: 'iphone-18-pro-max', inr: 179900, aed: 5499, goods: 'phone' },
+  { name: 'iPhone 18 Pro (256GB)', slug: 'iphone-18-pro', inr: 164900, aed: 5099, goods: 'phone' },
   { name: 'iPhone 17 Pro Max (256GB)', slug: 'iphone-17-pro-max', inr: 149900, aed: 5099, goods: 'phone' },
   { name: 'iPhone 17 Pro (256GB)', slug: 'iphone-17-pro', inr: 134900, aed: 4699, goods: 'phone' },
   { name: 'iPhone 17 (256GB)', slug: 'iphone-17', inr: 82900, aed: 3399, goods: 'phone' },
