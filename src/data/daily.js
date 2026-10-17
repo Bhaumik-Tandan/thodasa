@@ -8257,5 +8257,77 @@ export default [
   "emoji": "💄",
   "desc": "Dressing table pe jagah pakki.",
   "addedOn": "2026-10-16"
+ },
+ {
+  "code": "8901928350456",
+  "brand": "BISK FARM",
+  "name": "Googly biscuit",
+  "img": "https://images.openfoodfacts.org/images/products/890/192/835/0456/front_en.3.400.jpg",
+  "qty": "10 biscuits & 35 gra",
+  "cat": "grocery",
+  "price": 22,
+  "emoji": "🍪",
+  "desc": "Guests ke liye rakha tha. Khud kha gaye.",
+  "addedOn": "2026-10-17"
+ },
+ {
+  "code": "8901063158351",
+  "brand": "Britannia",
+  "name": "Chunkies Coconut Cookies",
+  "img": "https://images.openfoodfacts.org/images/products/890/106/315/8351/front_en.5.400.jpg",
+  "qty": "Std pack",
+  "cat": "snacks",
+  "price": 28,
+  "emoji": "🍪",
+  "desc": "Sham ki chai ka default partner.",
+  "addedOn": "2026-10-17"
+ },
+ {
+  "code": "8906057330041",
+  "brand": "Dwarkesh",
+  "name": "Mango Slice",
+  "img": "https://images.openfoodfacts.org/images/products/890/605/733/0041/front_en.3.400.jpg",
+  "qty": "Std pack",
+  "cat": "snacks",
+  "price": 16,
+  "emoji": "🛒",
+  "desc": "Garmi mein fridge se seedha.",
+  "addedOn": "2026-10-17"
+ },
+ {
+  "code": "8901719130748",
+  "brand": "Parle",
+  "name": "20 20 ( 604)",
+  "img": "https://images.openfoodfacts.org/images/products/890/171/913/0748/front_en.3.400.jpg",
+  "qty": "Std pack",
+  "cat": "snacks",
+  "price": 17,
+  "emoji": "🛒",
+  "desc": "Guests ke liye rakha tha. Khud kha gaye.",
+  "addedOn": "2026-10-17"
+ },
+ {
+  "code": "8901248126489",
+  "brand": "Boro Plus",
+  "name": "Body Lotion Aloe Neem",
+  "img": "https://images.openbeautyfacts.org/images/products/890/124/812/6489/front_en.3.400.jpg",
+  "qty": "100ml",
+  "cat": "beauty",
+  "price": 396,
+  "emoji": "💄",
+  "desc": "Ek baar try karo, phir baat karenge.",
+  "addedOn": "2026-10-17"
+ },
+ {
+  "code": "9556869951102",
+  "brand": "Tiger Balm",
+  "name": "Ointment",
+  "img": "https://images.openbeautyfacts.org/images/products/955/686/995/1102/front_en.3.400.jpg",
+  "qty": "10 g",
+  "cat": "beauty",
+  "price": 445,
+  "emoji": "💄",
+  "desc": "Dressing table pe jagah pakki.",
+  "addedOn": "2026-10-17"
  }
 ]
