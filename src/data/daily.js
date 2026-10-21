@@ -8701,5 +8701,101 @@ export default [
   "emoji": "💄",
   "desc": "Glow ka shortcut. Sort of.",
   "addedOn": "2026-10-20"
+ },
+ {
+  "code": "8904258703077",
+  "brand": "Raw Pressery",
+  "name": "Protein Milkshake Choco Mint",
+  "img": "https://images.openfoodfacts.org/images/products/890/425/870/3077/front_en.8.400.jpg",
+  "qty": "Std pack",
+  "cat": "snacks",
+  "price": 34,
+  "emoji": "🥛",
+  "desc": "Mood kharab ho to yahi kaam aata hai.",
+  "addedOn": "2026-10-21"
+ },
+ {
+  "code": "8901393004007",
+  "brand": "Perfetti",
+  "name": "HappyDent Wave",
+  "img": "https://images.openfoodfacts.org/images/products/890/139/300/4007/front_fr.3.400.jpg",
+  "qty": "14.7 g",
+  "cat": "grocery",
+  "price": 34,
+  "emoji": "🛒",
+  "desc": "Kitchen khali ho to sabse pehle yahi.",
+  "addedOn": "2026-10-21"
+ },
+ {
+  "code": "0360869060011",
+  "brand": "Amul",
+  "name": "Cheese Spread Yummy Plain",
+  "img": "https://images.openfoodfacts.org/images/products/036/086/906/0011/front_en.3.400.jpg",
+  "qty": "200gm",
+  "cat": "snacks",
+  "price": 55,
+  "emoji": "🍯",
+  "desc": "Bacche isi ke bharose sabzi kha lete hain.",
+  "addedOn": "2026-10-21"
+ },
+ {
+  "code": "7610184004928",
+  "brand": "Nectaflor",
+  "name": "Acacia Honey",
+  "img": "https://images.openfoodfacts.org/images/products/761/018/400/4928/front_en.7.400.jpg",
+  "qty": "500g",
+  "cat": "grocery",
+  "price": 189,
+  "emoji": "🛒",
+  "desc": "Bacche isi ke bharose sabzi kha lete hain.",
+  "addedOn": "2026-10-21"
+ },
+ {
+  "code": "8906166360892",
+  "brand": "Open Secret",
+  "name": "Peanut Butter Unsweetened",
+  "img": "https://images.openfoodfacts.org/images/products/890/616/636/0892/front_en.3.400.jpg",
+  "qty": "950 g",
+  "cat": "grocery",
+  "price": 154,
+  "emoji": "🥛",
+  "desc": "Fridge ka darwaza kholo, yahi dikhta hai.",
+  "addedOn": "2026-10-21"
+ },
+ {
+  "code": "8901063363359",
+  "brand": "Britannia",
+  "name": "Cake Fudge It - Choco Brownie",
+  "img": "https://images.openfoodfacts.org/images/products/890/106/336/3359/front_en.12.400.jpg",
+  "qty": "120g",
+  "cat": "snacks",
+  "price": 45,
+  "emoji": "🛒",
+  "desc": "Chai mein dubao, jaldi nikalo. Timing sab kuch hai.",
+  "addedOn": "2026-10-21"
+ },
+ {
+  "code": "8906065541378",
+  "brand": "moisoft",
+  "name": "Cleanser",
+  "img": "https://images.openbeautyfacts.org/images/products/890/606/554/1378/front_en.5.400.jpg",
+  "qty": "125g",
+  "cat": "beauty",
+  "price": 412,
+  "emoji": "💄",
+  "desc": "Ek baar try karo, phir baat karenge.",
+  "addedOn": "2026-10-21"
+ },
+ {
+  "code": "8906071564279",
+  "brand": "Sterill-G",
+  "name": "Handrub",
+  "img": "https://images.openbeautyfacts.org/images/products/890/607/156/4279/front_en.3.400.jpg",
+  "qty": "500ml",
+  "cat": "beauty",
+  "price": 307,
+  "emoji": "💄",
+  "desc": "Sunday self-care ka regular.",
+  "addedOn": "2026-10-21"
  }
 ]
