@@ -9649,5 +9649,101 @@ export default [
   "emoji": "💄",
   "desc": "Ek baar try karo, phir baat karenge.",
   "addedOn": "2026-10-28"
+ },
+ {
+  "code": "8906016413778",
+  "brand": "Godrej",
+  "name": "Mango Fruit Yoghurt",
+  "img": "https://images.openfoodfacts.org/images/products/890/601/641/3778/front_en.3.400.jpg",
+  "qty": "100g",
+  "cat": "snacks",
+  "price": 68,
+  "emoji": "🛒",
+  "desc": "Garmi mein isse behtar kuch nahi.",
+  "addedOn": "2026-10-29"
+ },
+ {
+  "code": "8901725008376",
+  "brand": "Sunfeast",
+  "name": "Kesar Badam Milkshake",
+  "img": "https://images.openfoodfacts.org/images/products/890/172/500/8376/front_en.12.400.jpg",
+  "qty": "300Ml",
+  "cat": "snacks",
+  "price": 56,
+  "emoji": "🥛",
+  "desc": "Fridge mein hona hi chahiye. Warna subah chai nahi.",
+  "addedOn": "2026-10-29"
+ },
+ {
+  "code": "8906043700148",
+  "brand": "Omfed",
+  "name": "Cow Milk",
+  "img": "https://images.openfoodfacts.org/images/products/890/604/370/0148/front_en.3.400.jpg",
+  "qty": "500 ml",
+  "cat": "snacks",
+  "price": 36,
+  "emoji": "🥛",
+  "desc": "Ghar ka khana isi se banta hai.",
+  "addedOn": "2026-10-29"
+ },
+ {
+  "code": "8906136782396",
+  "brand": "Anveshan",
+  "name": "Wild Forest Honey",
+  "img": "https://images.openfoodfacts.org/images/products/890/613/678/2396/front_en.3.400.jpg",
+  "qty": "Std pack",
+  "cat": "grocery",
+  "price": 126,
+  "emoji": "🛒",
+  "desc": "Fridge ka darwaza kholo, yahi dikhta hai.",
+  "addedOn": "2026-10-29"
+ },
+ {
+  "code": "8909106069091",
+  "brand": "Kissan",
+  "name": "Chatpati Hari Chutney",
+  "img": "https://images.openfoodfacts.org/images/products/890/910/606/9091/front_en.6.400.jpg",
+  "qty": "Std pack",
+  "cat": "snacks",
+  "price": 102,
+  "emoji": "🛒",
+  "desc": "Fridge ka darwaza kholo, yahi dikhta hai.",
+  "addedOn": "2026-10-29"
+ },
+ {
+  "code": "8906137051910",
+  "brand": "Milma",
+  "name": "Pasteurized unsalted butter",
+  "img": "https://images.openfoodfacts.org/images/products/890/613/705/1910/front_en.3.400.jpg",
+  "qty": "100g",
+  "cat": "grocery",
+  "price": 56,
+  "emoji": "🌾",
+  "desc": "Fridge ka darwaza kholo, yahi dikhta hai.",
+  "addedOn": "2026-10-29"
+ },
+ {
+  "code": "8904506600219",
+  "brand": "Galderma",
+  "name": "Benzoyl Peroxide Gel",
+  "img": "https://images.openbeautyfacts.org/images/products/890/450/660/0219/front_en.4.400.jpg",
+  "qty": "30g",
+  "cat": "beauty",
+  "price": 414,
+  "emoji": "💄",
+  "desc": "Glow ka shortcut. Sort of.",
+  "addedOn": "2026-10-29"
+ },
+ {
+  "code": "8901314078216",
+  "brand": "Colgate",
+  "name": "Visible white",
+  "img": "https://images.openbeautyfacts.org/images/products/890/131/407/8216/front_en.3.400.jpg",
+  "qty": "200g",
+  "cat": "beauty",
+  "price": 344,
+  "emoji": "💄",
+  "desc": "Glow ka shortcut. Sort of.",
+  "addedOn": "2026-10-29"
  }
 ]
