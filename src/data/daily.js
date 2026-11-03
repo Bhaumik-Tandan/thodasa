@@ -10237,5 +10237,101 @@ export default [
   "emoji": "💄",
   "desc": "Sunday self-care ka regular.",
   "addedOn": "2026-11-02"
+ },
+ {
+  "code": "8996001357194",
+  "brand": "Choki Choki",
+  "name": "Choki choki rollz",
+  "img": "https://images.openfoodfacts.org/images/products/899/600/135/7194/front_en.9.400.jpg",
+  "qty": "5x10g",
+  "cat": "snacks",
+  "price": 17,
+  "emoji": "🛒",
+  "desc": "Guests ke liye rakha tha. Khud kha gaye.",
+  "addedOn": "2026-11-03"
+ },
+ {
+  "code": "8901063032729",
+  "brand": "Britannia",
+  "name": "Treat coconut wafers",
+  "img": "https://images.openfoodfacts.org/images/products/890/106/303/2729/front_en.3.400.jpg",
+  "qty": "55 g",
+  "cat": "snacks",
+  "price": 37,
+  "emoji": "🍟",
+  "desc": "Guests ke liye rakha tha. Khud kha gaye.",
+  "addedOn": "2026-11-03"
+ },
+ {
+  "code": "8906010500139",
+  "brand": "Balaji Wafers",
+  "name": "Crunchem Masala Masti",
+  "img": "https://images.openfoodfacts.org/images/products/890/601/050/0139/front_en.14.400.jpg",
+  "qty": "35 g",
+  "cat": "grocery",
+  "price": 36,
+  "emoji": "🛒",
+  "desc": "Ek packet khatam hone tak pata bhi nahi chalta.",
+  "addedOn": "2026-11-03"
+ },
+ {
+  "code": "8902080204052",
+  "brand": "Mirinda",
+  "name": "Orange Flavour 750ml",
+  "img": "https://images.openfoodfacts.org/images/products/890/208/020/4052/front_en.7.400.jpg",
+  "qty": "24",
+  "cat": "snacks",
+  "price": 36,
+  "emoji": "🛒",
+  "desc": "Roz ki list mein chupke se aa jaata hai.",
+  "addedOn": "2026-11-03"
+ },
+ {
+  "code": "8902080404094",
+  "brand": "PepsiCo",
+  "name": "Mango Slice",
+  "img": "https://images.openfoodfacts.org/images/products/890/208/040/4094/front_en.28.400.jpg",
+  "qty": "600ml",
+  "cat": "snacks",
+  "price": 86,
+  "emoji": "🛒",
+  "desc": "Garmi mein fridge se seedha.",
+  "addedOn": "2026-11-03"
+ },
+ {
+  "code": "8903754000086",
+  "brand": "Tata",
+  "name": "Tata Copper+",
+  "img": "https://images.openfoodfacts.org/images/products/890/375/400/0086/front_en.3.400.jpg",
+  "qty": "500 ml",
+  "cat": "snacks",
+  "price": 26,
+  "emoji": "🛒",
+  "desc": "Safar mein sabse zaroori cheez.",
+  "addedOn": "2026-11-03"
+ },
+ {
+  "code": "8901063365964",
+  "brand": "Britannia",
+  "name": "Chocolate Cake 100gm",
+  "img": "https://images.openfoodfacts.org/images/products/890/106/336/5964/front_en.22.400.jpg",
+  "qty": "Std pack",
+  "cat": "snacks",
+  "price": 37,
+  "emoji": "🍫",
+  "desc": "Guests ke liye rakha tha. Khud kha gaye.",
+  "addedOn": "2026-11-03"
+ },
+ {
+  "code": "8906009531533",
+  "brand": "Max Protein",
+  "name": "Choco Classic Bar",
+  "img": "https://images.openfoodfacts.org/images/products/890/600/953/1533/front_en.7.400.jpg",
+  "qty": "50 g",
+  "cat": "snacks",
+  "price": 19,
+  "emoji": "🛒",
+  "desc": "Chhote bacche isi ke liye pyaar karte hain.",
+  "addedOn": "2026-11-03"
  }
 ]
