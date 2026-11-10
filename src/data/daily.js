@@ -11065,5 +11065,113 @@ export default [
   "emoji": "💄",
   "desc": "Ek baar try karo, phir baat karenge.",
   "addedOn": "2026-11-09"
+ },
+ {
+  "code": "8901670811076",
+  "brand": "SARAS flavors of Asia",
+  "name": "Chana salted roasted gram with skin",
+  "img": "https://images.openfoodfacts.org/images/products/890/167/081/1076/front_en.3.400.jpg",
+  "qty": "Std pack",
+  "cat": "snacks",
+  "price": 10,
+  "emoji": "🌾",
+  "desc": "Kirana list ka regular member.",
+  "addedOn": "2026-11-10"
+ },
+ {
+  "code": "8904327602348",
+  "brand": "Myfitness Zero",
+  "name": "Peanut Butter Crunchy Unsweetened",
+  "img": "https://images.openfoodfacts.org/images/products/890/432/760/2348/front_en.5.400.jpg",
+  "qty": "510g",
+  "cat": "grocery",
+  "price": 78,
+  "emoji": "🥛",
+  "desc": "Fridge ka darwaza kholo, yahi dikhta hai.",
+  "addedOn": "2026-11-10"
+ },
+ {
+  "code": "8908003823058",
+  "brand": "Satyavijay",
+  "name": "Coconut Chutney",
+  "img": "https://images.openfoodfacts.org/images/products/890/800/382/3058/front_en.3.400.jpg",
+  "qty": "90 g",
+  "cat": "snacks",
+  "price": 159,
+  "emoji": "🛒",
+  "desc": "Thoda zyada daal do. Kisi ko farak nahi padta.",
+  "addedOn": "2026-11-10"
+ },
+ {
+  "code": "8909106068940",
+  "brand": "Kissan",
+  "name": "Teekhi Lehsun Mirch Chutney",
+  "img": "https://images.openfoodfacts.org/images/products/890/910/606/8940/front_en.4.400.jpg",
+  "qty": "Std pack",
+  "cat": "snacks",
+  "price": 96,
+  "emoji": "🛒",
+  "desc": "Roti pe, bread pe, ya chamach se seedha.",
+  "addedOn": "2026-11-10"
+ },
+ {
+  "code": "8908003190839",
+  "brand": "Suruchi Dairy",
+  "name": "Skimmed Milk Powder",
+  "img": "https://images.openfoodfacts.org/images/products/890/800/319/0839/front_en.3.400.jpg",
+  "qty": "Std pack",
+  "cat": "snacks",
+  "price": 30,
+  "emoji": "🥛",
+  "desc": "Fridge mein hona hi chahiye. Warna subah chai nahi.",
+  "addedOn": "2026-11-10"
+ },
+ {
+  "code": "8906027714154",
+  "brand": "Govind",
+  "name": "Paneer",
+  "img": "https://images.openfoodfacts.org/images/products/890/602/771/4154/front_en.3.400.jpg",
+  "qty": "180g",
+  "cat": "snacks",
+  "price": 33,
+  "emoji": "🥛",
+  "desc": "Bacchon ko sabzi khilane ka jugaad.",
+  "addedOn": "2026-11-10"
+ },
+ {
+  "code": "8901071732598",
+  "brand": "Hershey's",
+  "name": "Hershey'S",
+  "img": "https://images.openfoodfacts.org/images/products/890/107/173/2598/front_en.4.400.jpg",
+  "qty": "Std pack",
+  "cat": "snacks",
+  "price": 30,
+  "emoji": "🛒",
+  "desc": "Ghar ka khana isi se banta hai.",
+  "addedOn": "2026-11-10"
+ },
+ {
+  "code": "8909106068445",
+  "brand": "TRESemmé",
+  "name": "Hydra Matrix Shampoo",
+  "img": "https://images.openbeautyfacts.org/images/products/890/910/606/8445/front_en.3.400.jpg",
+  "qty": "Std pack",
+  "cat": "beauty",
+  "price": 423,
+  "emoji": "💄",
+  "desc": "Sunday self-care ka regular.",
+  "addedOn": "2026-11-10"
+ },
+ {
+  "code": "0840216930445",
+  "brand": "Living Proof",
+  "name": "Full Shampoo",
+  "img": "https://images.openbeautyfacts.org/images/products/084/021/693/0445/front_en.3.400.jpg",
+  "qty": "Std pack",
+  "cat": "beauty",
+  "price": 211,
+  "emoji": "💄",
+  "desc": "Dressing table pe jagah pakki.",
+  "addedOn": "2026-11-10"
  }
 ]
