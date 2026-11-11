@@ -11173,5 +11173,113 @@ export default [
   "emoji": "💄",
   "desc": "Dressing table pe jagah pakki.",
   "addedOn": "2026-11-10"
+ },
+ {
+  "code": "7622202320330",
+  "brand": "Cadbury",
+  "name": "5 Star Oreo",
+  "img": "https://images.openfoodfacts.org/images/products/762/220/232/0330/front_en.10.400.jpg",
+  "qty": "40g",
+  "cat": "snacks",
+  "price": 22,
+  "emoji": "🛒",
+  "desc": "Guests ke liye rakha tha. Khud kha gaye.",
+  "addedOn": "2026-11-11"
+ },
+ {
+  "code": "7622202818301",
+  "brand": "Cadbury is sold by Modelez",
+  "name": "Dairy Milk",
+  "img": "https://images.openfoodfacts.org/images/products/762/220/281/8301/front_en.9.400.jpg",
+  "qty": "6.1 g",
+  "cat": "snacks",
+  "price": 14,
+  "emoji": "🥛",
+  "desc": "Mood kharab ho to yahi kaam aata hai.",
+  "addedOn": "2026-11-11"
+ },
+ {
+  "code": "8901262071109",
+  "brand": "Amul",
+  "name": "Super Fruit",
+  "img": "https://images.openfoodfacts.org/images/products/890/126/207/1109/front_en.16.400.jpg",
+  "qty": "Std pack",
+  "cat": "snacks",
+  "price": 11,
+  "emoji": "🛒",
+  "desc": "Baantne ke liye tha. Ab nahi hai.",
+  "addedOn": "2026-11-11"
+ },
+ {
+  "code": "8904071700024",
+  "brand": "Chheda's",
+  "name": "Salt-n-Pepper Banana Chips",
+  "img": "https://images.openfoodfacts.org/images/products/890/407/170/0024/front_en.17.400.jpg",
+  "qty": "150g",
+  "cat": "grocery",
+  "price": 38,
+  "emoji": "🍟",
+  "desc": "Crunch itna loud, poora ghar sun leta hai.",
+  "addedOn": "2026-11-11"
+ },
+ {
+  "code": "8886467122446",
+  "brand": "Pringles",
+  "name": "South African Style Periperi Flavour",
+  "img": "https://images.openfoodfacts.org/images/products/888/646/712/2446/front_en.18.400.jpg",
+  "qty": "Std pack",
+  "cat": "grocery",
+  "price": 37,
+  "emoji": "🛒",
+  "desc": "Namak, masala, aur zero pachtava.",
+  "addedOn": "2026-11-11"
+ },
+ {
+  "code": "8904004402834",
+  "brand": "Haldiram's",
+  "name": "Panchathanthra mix",
+  "img": "https://images.openfoodfacts.org/images/products/890/400/440/2834/front_en.6.400.jpg",
+  "qty": "200 g",
+  "cat": "snacks",
+  "price": 21,
+  "emoji": "🛒",
+  "desc": "Namak, masala, aur zero pachtava.",
+  "addedOn": "2026-11-11"
+ },
+ {
+  "code": "8906010500429",
+  "brand": "Balaji Wafers",
+  "name": "Gathiya",
+  "img": "https://images.openfoodfacts.org/images/products/890/601/050/0429/front_en.11.400.jpg",
+  "qty": "Std pack",
+  "cat": "snacks",
+  "price": 31,
+  "emoji": "🛒",
+  "desc": "Ghar mein rakhne wali cheez.",
+  "addedOn": "2026-11-11"
+ },
+ {
+  "code": "8906007280242",
+  "brand": "fortune",
+  "name": "Refined Sunflower Oil",
+  "img": "https://images.openfoodfacts.org/images/products/890/600/728/0242/front_en.18.400.jpg",
+  "qty": "1 l",
+  "cat": "grocery",
+  "price": 192,
+  "emoji": "🛒",
+  "desc": "Kirana list ka regular member.",
+  "addedOn": "2026-11-11"
+ },
+ {
+  "code": "8909106057647",
+  "brand": "Pond's",
+  "name": "Dreamflower Pink Lily",
+  "img": "https://images.openbeautyfacts.org/images/products/890/910/605/7647/front_en.5.400.jpg",
+  "qty": "80",
+  "cat": "beauty",
+  "price": 519,
+  "emoji": "💄",
+  "desc": "Sunday self-care ka regular.",
+  "addedOn": "2026-11-11"
  }
 ]
