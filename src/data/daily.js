@@ -11533,5 +11533,101 @@ export default [
   "emoji": "💄",
   "desc": "Sunday self-care ka regular.",
   "addedOn": "2026-11-13"
+ },
+ {
+  "code": "8901262201902",
+  "brand": "Amul",
+  "name": "Stirred Fruit Yoghurt Pineapple",
+  "img": "https://images.openfoodfacts.org/images/products/890/126/220/1902/front_en.3.400.jpg",
+  "qty": "100g",
+  "cat": "snacks",
+  "price": 61,
+  "emoji": "🛒",
+  "desc": "Pet ko aaram, garmi ko jawab.",
+  "addedOn": "2026-11-14"
+ },
+ {
+  "code": "8906016415734",
+  "brand": "Godrej",
+  "name": "Buttermilk",
+  "img": "https://images.openfoodfacts.org/images/products/890/601/641/5734/front_en.3.400.jpg",
+  "qty": "Std pack",
+  "cat": "grocery",
+  "price": 129,
+  "emoji": "🥛",
+  "desc": "Pet ko aaram, garmi ko jawab.",
+  "addedOn": "2026-11-14"
+ },
+ {
+  "code": "8908017853003",
+  "brand": "Barosi",
+  "name": "A2 Desi Cow Ghee",
+  "img": "https://images.openfoodfacts.org/images/products/890/801/785/3003/front_en.3.400.jpg",
+  "qty": "500 ml",
+  "cat": "grocery",
+  "price": 74,
+  "emoji": "🥛",
+  "desc": "Fridge ka darwaza kholo, yahi dikhta hai.",
+  "addedOn": "2026-11-14"
+ },
+ {
+  "code": "8906127551567",
+  "brand": "Alpino",
+  "name": "Peanut Butter",
+  "img": "https://images.openfoodfacts.org/images/products/890/612/755/1567/front_en.3.400.jpg",
+  "qty": "1kg",
+  "cat": "grocery",
+  "price": 93,
+  "emoji": "🥛",
+  "desc": "Thoda zyada daal do. Kisi ko farak nahi padta.",
+  "addedOn": "2026-11-14"
+ },
+ {
+  "code": "8909106068926",
+  "brand": "Kissan",
+  "name": "Chilli Peanut Thecha Chutney",
+  "img": "https://images.openfoodfacts.org/images/products/890/910/606/8926/front_ny.3.400.jpg",
+  "qty": "Std pack",
+  "cat": "snacks",
+  "price": 179,
+  "emoji": "🛒",
+  "desc": "Thoda zyada daal do. Kisi ko farak nahi padta.",
+  "addedOn": "2026-11-14"
+ },
+ {
+  "code": "8906136840171",
+  "brand": "Happy",
+  "name": "Peanut Butter Chocolate",
+  "img": "https://images.openfoodfacts.org/images/products/890/613/684/0171/front_en.3.400.jpg",
+  "qty": "Std pack",
+  "cat": "grocery",
+  "price": 79,
+  "emoji": "🍫",
+  "desc": "Baantne ke liye tha. Ab nahi hai.",
+  "addedOn": "2026-11-14"
+ },
+ {
+  "code": "8906117250135",
+  "brand": "DR. RASHEL",
+  "name": "Fruit Cream",
+  "img": "https://images.openbeautyfacts.org/images/products/890/611/725/0135/front_en.3.400.jpg",
+  "qty": "Std pack",
+  "cat": "beauty",
+  "price": 641,
+  "emoji": "💄",
+  "desc": "Dressing table pe jagah pakki.",
+  "addedOn": "2026-11-14"
+ },
+ {
+  "code": "7435876251615",
+  "brand": "RONZILLE",
+  "name": "Mini Nail Polish",
+  "img": "https://images.openbeautyfacts.org/images/products/743/587/625/1615/front_en.3.400.jpg",
+  "qty": "Std pack",
+  "cat": "beauty",
+  "price": 521,
+  "emoji": "💄",
+  "desc": "Sunday self-care ka regular.",
+  "addedOn": "2026-11-14"
  }
 ]
