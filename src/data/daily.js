@@ -11629,5 +11629,113 @@ export default [
   "emoji": "💄",
   "desc": "Sunday self-care ka regular.",
   "addedOn": "2026-11-14"
+ },
+ {
+  "code": "8901499011039",
+  "brand": "Kellogg's",
+  "name": "Corn Flakes Strawberry Puree",
+  "img": "https://images.openfoodfacts.org/images/products/890/149/901/1039/front_en.3.400.jpg",
+  "qty": "21 g",
+  "cat": "grocery",
+  "price": 145,
+  "emoji": "🥣",
+  "desc": "Doodh daalo, do minute ruko, ho gaya.",
+  "addedOn": "2026-11-15"
+ },
+ {
+  "code": "8906080349652",
+  "brand": "Vijay",
+  "name": "Murmura, Kurmura",
+  "img": "https://images.openfoodfacts.org/images/products/890/608/034/9652/front_en.7.400.jpg",
+  "qty": "500g",
+  "cat": "grocery",
+  "price": 103,
+  "emoji": "🛒",
+  "desc": "Crunch itna loud, poora ghar sun leta hai.",
+  "addedOn": "2026-11-15"
+ },
+ {
+  "code": "0641837433199",
+  "brand": "Doctor's Choice",
+  "name": "Protein Oats",
+  "img": "https://images.openfoodfacts.org/images/products/064/183/743/3199/front_en.18.400.jpg",
+  "qty": "750g",
+  "cat": "grocery",
+  "price": 195,
+  "emoji": "🥣",
+  "desc": "January mein khareeda. February mein bhool gaye.",
+  "addedOn": "2026-11-15"
+ },
+ {
+  "code": "8904340700342",
+  "brand": "PASSPASS",
+  "name": "PASSPASS Pulse",
+  "img": "https://images.openfoodfacts.org/images/products/890/434/070/0342/front_en.13.400.jpg",
+  "qty": "190 g",
+  "cat": "snacks",
+  "price": 15,
+  "emoji": "🛒",
+  "desc": "Ghar mein rakhne wali cheez.",
+  "addedOn": "2026-11-15"
+ },
+ {
+  "code": "8901719126376",
+  "brand": "Parle",
+  "name": "Kaccha Mango",
+  "img": "https://images.openfoodfacts.org/images/products/890/171/912/6376/front_en.8.400.jpg",
+  "qty": "637.56 g",
+  "cat": "snacks",
+  "price": 31,
+  "emoji": "🛒",
+  "desc": "Zaroorat padegi. Aaj ya kal.",
+  "addedOn": "2026-11-15"
+ },
+ {
+  "code": "8904340700137",
+  "brand": "Pulse",
+  "name": "Shoots Kacha Aam",
+  "img": "https://images.openfoodfacts.org/images/products/890/434/070/0137/front_en.5.400.jpg",
+  "qty": "Std pack",
+  "cat": "snacks",
+  "price": 17,
+  "emoji": "🛒",
+  "desc": "Ghar mein rakhne wali cheez.",
+  "addedOn": "2026-11-15"
+ },
+ {
+  "code": "8901058008999",
+  "brand": "Nescafé",
+  "name": "2-Minutes Noodles",
+  "img": "https://images.openfoodfacts.org/images/products/890/105/800/8999/front_en.3.400.jpg",
+  "qty": "Std pack",
+  "cat": "snacks",
+  "price": 46,
+  "emoji": "🍜",
+  "desc": "Do minute ka vaada. Paanch lagte hain. Chalta hai.",
+  "addedOn": "2026-11-15"
+ },
+ {
+  "code": "8801043054768",
+  "brand": "Nongshim",
+  "name": "Shin Kimchi",
+  "img": "https://images.openfoodfacts.org/images/products/880/104/305/4768/front_en.31.400.jpg",
+  "qty": "1",
+  "cat": "snacks",
+  "price": 45,
+  "emoji": "🛒",
+  "desc": "Extra masala daalo. Judge nobody.",
+  "addedOn": "2026-11-15"
+ },
+ {
+  "code": "8901138006143",
+  "brand": "Himalaya",
+  "name": "Turmeric Face Wash",
+  "img": "https://images.openbeautyfacts.org/images/products/890/113/800/6143/front_en.11.400.jpg",
+  "qty": "Std pack",
+  "cat": "beauty",
+  "price": 176,
+  "emoji": "💄",
+  "desc": "Ek baar try karo, phir baat karenge.",
+  "addedOn": "2026-11-15"
  }
 ]
