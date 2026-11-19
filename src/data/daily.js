@@ -12097,5 +12097,101 @@ export default [
   "emoji": "💄",
   "desc": "Ek baar try karo, phir baat karenge.",
   "addedOn": "2026-11-18"
+ },
+ {
+  "code": "8906117091240",
+  "brand": "BRB",
+  "name": "Peanut Butter Shortcuts",
+  "img": "https://images.openfoodfacts.org/images/products/890/611/709/1240/front_en.3.400.jpg",
+  "qty": "25gm",
+  "cat": "grocery",
+  "price": 20,
+  "emoji": "🥛",
+  "desc": "Chai mein dubao, jaldi nikalo. Timing sab kuch hai.",
+  "addedOn": "2026-11-19"
+ },
+ {
+  "code": "8901063032323",
+  "brand": "Britannia",
+  "name": "Treat Cream Wafers",
+  "img": "https://images.openfoodfacts.org/images/products/890/106/303/2323/front_fr.3.400.jpg",
+  "qty": "Std pack",
+  "cat": "snacks",
+  "price": 10,
+  "emoji": "🍟",
+  "desc": "Chai mein dubao, jaldi nikalo. Timing sab kuch hai.",
+  "addedOn": "2026-11-19"
+ },
+ {
+  "code": "8904406403095",
+  "brand": "Tamyam",
+  "name": "Creme Chocolat wafters",
+  "img": "https://images.openfoodfacts.org/images/products/890/440/640/3095/front_en.3.400.jpg",
+  "qty": "Std pack",
+  "cat": "snacks",
+  "price": 23,
+  "emoji": "🥤",
+  "desc": "Sham ki chai ka default partner.",
+  "addedOn": "2026-11-19"
+ },
+ {
+  "code": "8901012100806",
+  "brand": "ORSL",
+  "name": "Electrolyte Drink Orange",
+  "img": "https://images.openfoodfacts.org/images/products/890/101/210/0806/front_en.3.400.jpg",
+  "qty": "Std pack",
+  "cat": "snacks",
+  "price": 36,
+  "emoji": "🥤",
+  "desc": "Roz ki list mein chupke se aa jaata hai.",
+  "addedOn": "2026-11-19"
+ },
+ {
+  "code": "8901248701105",
+  "brand": "no",
+  "name": "AQua Gulf",
+  "img": "https://images.openfoodfacts.org/images/products/890/124/870/1105/front_en.116.400.jpg",
+  "qty": "100 g",
+  "cat": "snacks",
+  "price": 50,
+  "emoji": "🛒",
+  "desc": "Bas paani hai. Par sahi waqt pe sona hai.",
+  "addedOn": "2026-11-19"
+ },
+ {
+  "code": "8908004099025",
+  "brand": "Sunrich Aqua",
+  "name": "Packaged Drinking water",
+  "img": "https://images.openfoodfacts.org/images/products/890/800/409/9025/front_en.3.400.jpg",
+  "qty": "1 Litre",
+  "cat": "snacks",
+  "price": 227,
+  "emoji": "🥤",
+  "desc": "Safar mein sabse zaroori cheez.",
+  "addedOn": "2026-11-19"
+ },
+ {
+  "code": "8901719135767",
+  "brand": "Parle",
+  "name": "G ROYALE",
+  "img": "https://images.openfoodfacts.org/images/products/890/171/913/5767/front_en.20.400.jpg",
+  "qty": "4 Biscuits and 48g",
+  "cat": "snacks",
+  "price": 13,
+  "emoji": "🛒",
+  "desc": "Sham ki chai ka default partner.",
+  "addedOn": "2026-11-19"
+ },
+ {
+  "code": "8901063367180",
+  "brand": "Britannia",
+  "name": "50-50 Maska Chaska",
+  "img": "https://images.openfoodfacts.org/images/products/890/106/336/7180/front_en.7.400.jpg",
+  "qty": "Std pack",
+  "cat": "snacks",
+  "price": 41,
+  "emoji": "🛒",
+  "desc": "Ek packet khatam hone tak pata bhi nahi chalta.",
+  "addedOn": "2026-11-19"
  }
 ]
