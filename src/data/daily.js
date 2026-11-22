@@ -12445,5 +12445,101 @@ export default [
   "emoji": "💄",
   "desc": "Ek baar try karo, phir baat karenge.",
   "addedOn": "2026-11-21"
+ },
+ {
+  "code": "8901233018362",
+  "brand": "cadbury",
+  "name": "Bournvita",
+  "img": "https://images.openfoodfacts.org/images/products/890/123/301/8362/front_en.5.400.jpg",
+  "qty": "25g",
+  "cat": "snacks",
+  "price": 84,
+  "emoji": "🛒",
+  "desc": "Mood kharab ho to yahi kaam aata hai.",
+  "addedOn": "2026-11-22"
+ },
+ {
+  "code": "8902979052405",
+  "brand": "Cavin’s",
+  "name": "Cavins butterscotch milkshake",
+  "img": "https://images.openfoodfacts.org/images/products/890/297/905/2405/front_en.8.400.jpg",
+  "qty": "180ml",
+  "cat": "grocery",
+  "price": 35,
+  "emoji": "🥛",
+  "desc": "Khatam ho jaye to poora din off track.",
+  "addedOn": "2026-11-22"
+ },
+ {
+  "code": "8904057396739",
+  "brand": "Hatsun",
+  "name": "Flaovoured Milk - Chocolate",
+  "img": "https://images.openfoodfacts.org/images/products/890/405/739/6739/front_en.4.400.jpg",
+  "qty": "200 ml",
+  "cat": "snacks",
+  "price": 29,
+  "emoji": "🍫",
+  "desc": "Chhote bacche isi ke liye pyaar karte hain.",
+  "addedOn": "2026-11-22"
+ },
+ {
+  "code": "8908020047017",
+  "brand": "Brawny Bear",
+  "name": "Peanut Butter",
+  "img": "https://images.openfoodfacts.org/images/products/890/802/004/7017/front_en.3.400.jpg",
+  "qty": "Std pack",
+  "cat": "grocery",
+  "price": 83,
+  "emoji": "🥛",
+  "desc": "Thoda zyada daal do. Kisi ko farak nahi padta.",
+  "addedOn": "2026-11-22"
+ },
+ {
+  "code": "8908012531623",
+  "brand": "Khrishika Masala",
+  "name": "Krishika Groundnut Chutney",
+  "img": "https://images.openfoodfacts.org/images/products/890/801/253/1623/front_en.3.400.jpg",
+  "qty": "Std pack",
+  "cat": "snacks",
+  "price": 128,
+  "emoji": "🛒",
+  "desc": "Roti pe, bread pe, ya chamach se seedha.",
+  "addedOn": "2026-11-22"
+ },
+ {
+  "code": "8908012531654",
+  "brand": "Khrishika Masala",
+  "name": "Khrishika Coconut Tomato Chutney Instant Mix",
+  "img": "https://images.openfoodfacts.org/images/products/890/801/253/1654/front_en.3.400.jpg",
+  "qty": "Std pack",
+  "cat": "snacks",
+  "price": 80,
+  "emoji": "🛒",
+  "desc": "Roti pe, bread pe, ya chamach se seedha.",
+  "addedOn": "2026-11-22"
+ },
+ {
+  "code": "8906183218947",
+  "brand": "Plix",
+  "name": "Flaxseed Ultra Smooth Advanced Conditioner",
+  "img": "https://images.openbeautyfacts.org/images/products/890/618/321/8947/front_en.3.400.jpg",
+  "qty": "Std pack",
+  "cat": "beauty",
+  "price": 333,
+  "emoji": "💄",
+  "desc": "Dressing table pe jagah pakki.",
+  "addedOn": "2026-11-22"
+ },
+ {
+  "code": "8909106045026",
+  "brand": "Indulekha",
+  "name": "Bringha Hairfall Control Shampoo",
+  "img": "https://images.openbeautyfacts.org/images/products/890/910/604/5026/front_en.3.400.jpg",
+  "qty": "Std pack",
+  "cat": "beauty",
+  "price": 461,
+  "emoji": "💄",
+  "desc": "Dressing table pe jagah pakki.",
+  "addedOn": "2026-11-22"
  }
 ]
