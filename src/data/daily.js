@@ -12541,5 +12541,101 @@ export default [
   "emoji": "💄",
   "desc": "Dressing table pe jagah pakki.",
   "addedOn": "2026-11-22"
+ },
+ {
+  "code": "8904258702100",
+  "brand": "Raw Pressery",
+  "name": "Raw-P Mixed Fruit 200ml",
+  "img": "https://images.openfoodfacts.org/images/products/890/425/870/2100/front_en.27.400.jpg",
+  "qty": "200mL",
+  "cat": "snacks",
+  "price": 47,
+  "emoji": "🛒",
+  "desc": "Straw daalo aur khatam karo.",
+  "addedOn": "2026-11-23"
+ },
+ {
+  "code": "8901888006370",
+  "brand": "Real",
+  "name": "Orange Fruit juice",
+  "img": "https://images.openfoodfacts.org/images/products/890/188/800/6370/front_en.34.400.jpg",
+  "qty": "180ml",
+  "cat": "snacks",
+  "price": 58,
+  "emoji": "🥤",
+  "desc": "Garmi mein fridge se seedha.",
+  "addedOn": "2026-11-23"
+ },
+ {
+  "code": "8901888006578",
+  "brand": "Real",
+  "name": "Cranberry",
+  "img": "https://images.openfoodfacts.org/images/products/890/188/800/6578/front_en.4.400.jpg",
+  "qty": "180 ml",
+  "cat": "snacks",
+  "price": 36,
+  "emoji": "🛒",
+  "desc": "Tetra pack wala nostalgia.",
+  "addedOn": "2026-11-23"
+ },
+ {
+  "code": "8909106034921",
+  "brand": "Magnum",
+  "name": "Almond Magnum",
+  "img": "https://images.openfoodfacts.org/images/products/890/910/603/4921/front_en.9.400.jpg",
+  "qty": "Std pack",
+  "cat": "snacks",
+  "price": 68,
+  "emoji": "🛒",
+  "desc": "Roz ki list mein chupke se aa jaata hai.",
+  "addedOn": "2026-11-23"
+ },
+ {
+  "code": "8901262176224",
+  "brand": "Amul",
+  "name": "Chocobar Probiotic",
+  "img": "https://images.openfoodfacts.org/images/products/890/126/217/6224/front_en.5.400.jpg",
+  "qty": "Std pack",
+  "cat": "snacks",
+  "price": 32,
+  "emoji": "🛒",
+  "desc": "Crunch itna loud, poora ghar sun leta hai.",
+  "addedOn": "2026-11-23"
+ },
+ {
+  "code": "8901262176446",
+  "brand": "Amul",
+  "name": "Pista malai kulfi",
+  "img": "https://images.openfoodfacts.org/images/products/890/126/217/6446/front_en.5.400.jpg",
+  "qty": "1,54.6g(60ml)",
+  "cat": "icecream",
+  "price": 72,
+  "emoji": "🍦",
+  "desc": "Freezer se nikala. Do minute ruko. Phir khao.",
+  "addedOn": "2026-11-23"
+ },
+ {
+  "code": "8901117250352",
+  "brand": "cipla",
+  "name": "Oral Rehydration Salts",
+  "img": "https://images.openfoodfacts.org/images/products/890/111/725/0352/front_en.5.400.jpg",
+  "qty": "21g",
+  "cat": "snacks",
+  "price": 42,
+  "emoji": "🌾",
+  "desc": "Safar mein sabse zaroori cheez.",
+  "addedOn": "2026-11-23"
+ },
+ {
+  "code": "8904132917347",
+  "brand": "Independence",
+  "name": "Water with minerals",
+  "img": "https://images.openfoodfacts.org/images/products/890/413/291/7347/front_en.17.400.jpg",
+  "qty": "750ml",
+  "cat": "snacks",
+  "price": 22,
+  "emoji": "🥤",
+  "desc": "Bas paani hai. Par sahi waqt pe sona hai.",
+  "addedOn": "2026-11-23"
  }
 ]
