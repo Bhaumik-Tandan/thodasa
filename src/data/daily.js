@@ -12997,5 +12997,101 @@ export default [
   "emoji": "💄",
   "desc": "Glow ka shortcut. Sort of.",
   "addedOn": "2026-11-26"
+ },
+ {
+  "code": "8906143890510",
+  "brand": "The Whole Truth",
+  "name": "Hazelnut Dark Chocolate",
+  "img": "https://images.openfoodfacts.org/images/products/890/614/389/0510/front_en.3.400.jpg",
+  "qty": "Std pack",
+  "cat": "snacks",
+  "price": 27,
+  "emoji": "🍫",
+  "desc": "Chhote bacche isi ke liye pyaar karte hain.",
+  "addedOn": "2026-11-27"
+ },
+ {
+  "code": "8901262072267",
+  "brand": "Amul",
+  "name": "White Chocolate",
+  "img": "https://images.openfoodfacts.org/images/products/890/126/207/2267/front_en.3.400.jpg",
+  "qty": "Net Weight: 150g",
+  "cat": "snacks",
+  "price": 29,
+  "emoji": "🍫",
+  "desc": "Chhote bacche isi ke liye pyaar karte hain.",
+  "addedOn": "2026-11-27"
+ },
+ {
+  "code": "6942836717957",
+  "brand": "HERSHEY'S",
+  "name": "Cream Milk Chocolate",
+  "img": "https://images.openfoodfacts.org/images/products/694/283/671/7957/front_en.3.400.jpg",
+  "qty": "40g",
+  "cat": "snacks",
+  "price": 13,
+  "emoji": "🍫",
+  "desc": "Chhote bacche isi ke liye pyaar karte hain.",
+  "addedOn": "2026-11-27"
+ },
+ {
+  "code": "8901719135163",
+  "brand": "Chupa Chups",
+  "name": "Parle Monaco",
+  "img": "https://images.openfoodfacts.org/images/products/890/171/913/5163/front_en.4.400.jpg",
+  "qty": "unknown (8 stay-fres",
+  "cat": "snacks",
+  "price": 37,
+  "emoji": "🛒",
+  "desc": "Guests ke liye rakha tha. Khud kha gaye.",
+  "addedOn": "2026-11-27"
+ },
+ {
+  "code": "8901595862801",
+  "brand": "Ching's Secret",
+  "name": "Green Chilli Sauce",
+  "img": "https://images.openfoodfacts.org/images/products/890/159/586/2801/front_en.5.400.jpg",
+  "qty": "90 g",
+  "cat": "grocery",
+  "price": 29,
+  "emoji": "🍯",
+  "desc": "Extra masala daalo. Judge nobody.",
+  "addedOn": "2026-11-27"
+ },
+ {
+  "code": "8901058003079",
+  "brand": "Maggi",
+  "name": "Cheesy Tomato",
+  "img": "https://images.openfoodfacts.org/images/products/890/105/800/3079/front_en.21.400.jpg",
+  "qty": "68.5",
+  "cat": "snacks",
+  "price": 43,
+  "emoji": "🛒",
+  "desc": "Hostel survival kit ka item number one.",
+  "addedOn": "2026-11-27"
+ },
+ {
+  "code": "8901030865855",
+  "brand": "Knorr",
+  "name": "Soupy noodles mast masala",
+  "img": "https://images.openfoodfacts.org/images/products/890/103/086/5855/front_fr.3.400.jpg",
+  "qty": "79g",
+  "cat": "grocery",
+  "price": 30,
+  "emoji": "🍜",
+  "desc": "Do minute ka vaada. Paanch lagte hain. Chalta hai.",
+  "addedOn": "2026-11-27"
+ },
+ {
+  "code": "8906136651982",
+  "brand": "Pintola",
+  "name": "High Protein Muesli",
+  "img": "https://images.openfoodfacts.org/images/products/890/613/665/1982/front_en.3.400.jpg",
+  "qty": "1kg",
+  "cat": "grocery",
+  "price": 138,
+  "emoji": "🛒",
+  "desc": "January mein khareeda. February mein bhool gaye.",
+  "addedOn": "2026-11-27"
  }
 ]
