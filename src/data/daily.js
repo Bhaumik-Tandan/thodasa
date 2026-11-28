@@ -13093,5 +13093,113 @@ export default [
   "emoji": "🛒",
   "desc": "January mein khareeda. February mein bhool gaye.",
   "addedOn": "2026-11-27"
+ },
+ {
+  "code": "8901088205221",
+  "brand": "Saffola",
+  "name": "Oodles Yummy masala ring noodles",
+  "img": "https://images.openfoodfacts.org/images/products/890/108/820/5221/front_en.3.400.jpg",
+  "qty": "53g",
+  "cat": "grocery",
+  "price": 32,
+  "emoji": "🍜",
+  "desc": "Raat ke barah baje ki bhookh ka jawab.",
+  "addedOn": "2026-11-28"
+ },
+ {
+  "code": "5430446640587",
+  "brand": "Urban Platter",
+  "name": "Shirataki Noodles Korean BBQ Chilli",
+  "img": "https://images.openfoodfacts.org/images/products/543/044/664/0587/front_uz.3.400.jpg",
+  "qty": "282 g",
+  "cat": "snacks",
+  "price": 52,
+  "emoji": "🍜",
+  "desc": "Raat ke barah baje ki bhookh ka jawab.",
+  "addedOn": "2026-11-28"
+ },
+ {
+  "code": "8901058845617",
+  "brand": "Maggi",
+  "name": "Chilly Chow Cuppa Noodles",
+  "img": "https://images.openfoodfacts.org/images/products/890/105/884/5617/front_en.11.400.jpg",
+  "qty": "70 g",
+  "cat": "grocery",
+  "price": 33,
+  "emoji": "🍜",
+  "desc": "Extra masala daalo. Judge nobody.",
+  "addedOn": "2026-11-28"
+ },
+ {
+  "code": "8901491982870",
+  "brand": "Lay's",
+  "name": "SHAREZ CrisP HERB & ONION FLAVOUR",
+  "img": "https://images.openfoodfacts.org/images/products/890/149/198/2870/front_en.3.400.jpg",
+  "qty": "22gm 10rs",
+  "cat": "snacks",
+  "price": 29,
+  "emoji": "🛒",
+  "desc": "Namak, masala, aur zero pachtava.",
+  "addedOn": "2026-11-28"
+ },
+ {
+  "code": "8909081009921",
+  "brand": "Bingo",
+  "name": "Onion rings",
+  "img": "https://images.openfoodfacts.org/images/products/890/908/100/9921/front_en.3.400.jpg",
+  "qty": "26g",
+  "cat": "grocery",
+  "price": 24,
+  "emoji": "🛒",
+  "desc": "Chhota packet lena tha. Bada le aaye.",
+  "addedOn": "2026-11-28"
+ },
+ {
+  "code": "8906137330008",
+  "brand": "Good to great",
+  "name": "Potato chips",
+  "img": "https://images.openfoodfacts.org/images/products/890/613/733/0008/front_en.3.400.jpg",
+  "qty": "11.5g",
+  "cat": "grocery",
+  "price": 38,
+  "emoji": "🍟",
+  "desc": "Chhota packet lena tha. Bada le aaye.",
+  "addedOn": "2026-11-28"
+ },
+ {
+  "code": "8901262151337",
+  "brand": "Amul",
+  "name": "Kool Strawberry Flavoured Milk",
+  "img": "https://images.openfoodfacts.org/images/products/890/126/215/1337/front_en.5.400.jpg",
+  "qty": "200 mL",
+  "cat": "snacks",
+  "price": 51,
+  "emoji": "🥛",
+  "desc": "Khatam ho jaye to poora din off track.",
+  "addedOn": "2026-11-28"
+ },
+ {
+  "code": "8906080603952",
+  "brand": "Paper Boat",
+  "name": "Sparkling Coffee",
+  "img": "https://images.openfoodfacts.org/images/products/890/608/060/3952/front_en.5.400.jpg",
+  "qty": "Std pack",
+  "cat": "snacks",
+  "price": 245,
+  "emoji": "☕",
+  "desc": "Kadak, meethi, aur bilkul abhi.",
+  "addedOn": "2026-11-28"
+ },
+ {
+  "code": "8906080603297",
+  "brand": "Paper Boat",
+  "name": "Swing Guava",
+  "img": "https://images.openbeautyfacts.org/images/products/890/608/060/3297/front_en.3.400.jpg",
+  "qty": "Std pack",
+  "cat": "beauty",
+  "price": 651,
+  "emoji": "💄",
+  "desc": "Sunday self-care ka regular.",
+  "addedOn": "2026-11-28"
  }
 ]
